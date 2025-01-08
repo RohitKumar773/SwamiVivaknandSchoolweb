@@ -5,6 +5,11 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AdminHomePageComponent } from './admin-home-page/admin-home-page.component';
 
+import {MatButtonModule} from '@angular/material/button';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatIconModule} from '@angular/material/icon';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatMenuModule} from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -13,7 +18,12 @@ import { AdminHomePageComponent } from './admin-home-page/admin-home-page.compon
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    MatButtonModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatMenuModule,
   ]
 })
 export class AdminModule { }

@@ -1,0 +1,199 @@
+/***************css for home layout****************/
+.container-fluid {
+  padding: 0px;
+  cursor: default;
+}
+
+/*****************css for home side navbar layout start******************/
+
+mat-sidenav {
+  width: 250px;
+  height: 100%;
+  background-color: rgb(58, 62, 70);
+  /* background: linear-gradient(63deg, rgb(22, 68, 120)0%, rgb(22, 87, 130)100%); */
+}
+
+mat-sidenav-content {
+  height: 100vh;
+  background-color: whitesmoke;
+}
+
+/***********************************css for home side  navbar layout end*******************/
+/*********************************css for header start************************************/
+
+mat-toolbar {
+  justify-content: space-between;
+  background-color: rgb(58, 62, 70);
+  /* background: linear-gradient(63deg, rgb(22, 68, 120)0%, rgb(22, 87, 130)100%); */
+}
+mat-icon {
+  width: 30px;
+  height: 30px;
+  font-size: 30px;
+  cursor: pointer;
+  color: whitesmoke;
+}
+
+#dash_header_admin {
+  width: 200px;
+  height: 100%;
+}
+
+#dash_header_admin span {
+  line-height: 60px;
+  font-size: 17px;
+  color: whitesmoke;
+  letter-spacing: 1px;
+  margin-left: 60px;
+  float: left;
+  font-family: cambria;
+}
+
+#admin_logo {
+  width: 40px;
+  height: 40px;
+  float: right;
+  margin: 10px 0px;
+  border-radius: 50%;
+  background-color: whitesmoke;
+}
+
+#admin_logo:hover {
+  cursor: pointer;
+}
+
+#admin_logo img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+/*************************css for header end**********************************/
+/*************************css for main start*********************************/
+.main {
+  padding: 5px;
+}
+
+/********************************css for main end*****************************/
+/*******************************css for home layout end*********************/
+
+/* media query srtart from here */
+
+@media (max-width: 500px) and (min-width: 100px) {
+  mat-sidenav {
+    width: 170px;
+  }
+  #dash_header_admin span {
+    font-size: 14px;
+    margin-left: 4px;
+  }
+  mat-icon {
+    font-size: 22px;
+    margin-right: 2px;
+  }
+  #admin_logo {
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+  }
+}
+
+// sidebar
+
+.navbar {
+  width: auto;
+  height: auto;
+}
+
+#navbar_top {
+  width: 100%;
+  height: 64px;
+  margin-bottom: 20px;
+  margin-top: -8px;
+  text-align: center;
+  cursor: default;
+  box-sizing: border-box;
+  box-shadow: 0px 3px 10px black;
+  /* background: linear-gradient(63deg, rgb(22, 68, 120)0%, rgb(22, 87, 130)100%); */
+  /* background-color: rgb(58, 62, 70);     */
+  font-family: cambria;
+}
+
+#navbar_top span {
+  line-height: 60px;
+  font-size: 30px;
+  color: whitesmoke;
+  font-family: cambria;
+  /* letter-spacing: 1px; */
+}
+
+/*******************menu list start*******************/
+
+.menu_item {
+  width: 100%;
+  height: auto;
+}
+.menu_button {
+  width: 100%;
+  height: 40px;
+  display: block;
+  line-height: 30px;
+  padding: 5px;
+  /* margin-bottom: 5px; */
+  transition: 0.4s;
+  font-family: cambria;
+}
+.menu_button mat-icon {
+  width: 30px;
+  height: auto;
+  font-size: 22px;
+  float: left;
+  line-height: 32px;
+  margin-left: 10px;
+  color: whitesmoke;
+}
+
+.menu_button span {
+  font-size: 16px;
+  /* line-height: 28px; */
+  /* padding: 2px; */
+  float: left;
+  /* letter-spacing: 1px; */
+  color: whitesmoke;
+}
+
+.menu_button:hover {
+  background: linear-gradient(
+    63deg,
+    rgb(78, 134, 198) 0%,
+    rgb(54, 106, 141) 100%
+  );
+  padding-left: 12px;
+  box-shadow: 2px 2px 12px rgb(31, 31, 31);
+}
+
+.menu_button:focus {
+  background: linear-gradient(
+    63deg,
+    rgb(56, 103, 156) 0%,
+    rgb(34, 82, 115) 100%
+  );
+  padding-left: 12px;
+  box-shadow: 2px 2px 12px rgb(31, 31, 31);
+}
+
+/* Media query start from here */
+
+@media (max-width: 500px) and (min-width: 100px) {
+  #navbar_top {
+    height: 50px;
+  }
+  #navbar_top span {
+    font-size: 20px;
+    line-height: 45px;
+  }
+  .menu_button span {
+    font-size: 12px;
+  }
+}

@@ -6,10 +6,11 @@ import { AdminHomePageComponent } from './admin-home-page/admin-home-page.compon
 const routes: Routes = [
   { path: '', component: AdminLoginComponent },
   { path: 'home', component: AdminHomePageComponent },
+  { path: 'admin_home', component: AdminHomePageComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AdminRoutingModule { }
+export class AdminRoutingModule {}

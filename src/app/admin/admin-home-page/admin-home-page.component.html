@@ -6,15 +6,16 @@
         </div>
         <div class="sidebar_menu_area">
             <ul>
-                <li>
+                <li routerLink="dashboard">
                     <mat-icon>dashboard</mat-icon>
                     &nbsp; Dashboard
                 </li>
+
                 <li>
                     <mat-icon>account_box</mat-icon>
                     &nbsp; Account
                 </li>
-                <li>
+                <li routerLink="registrations">
                     <mat-icon>account_circle</mat-icon>
                     &nbsp; Registration
                 </li>
@@ -86,7 +87,7 @@
         </mat-toolbar>
 
         <div class="main">
-            <!-- dashboard work  -->
+            <router-outlet></router-outlet>
         </div>
 
     </mat-sidenav-content>

@@ -1,199 +1,144 @@
-/***************css for home layout****************/
 .container-fluid {
   padding: 0px;
   cursor: default;
 }
 
-/*****************css for home side navbar layout start******************/
-
-mat-sidenav {
-  width: 250px;
-  height: 100%;
-  background-color: rgb(58, 62, 70);
-  /* background: linear-gradient(63deg, rgb(22, 68, 120)0%, rgb(22, 87, 130)100%); */
-}
-
-mat-sidenav-content {
-  height: 100vh;
-  background-color: whitesmoke;
-}
-
-/***********************************css for home side  navbar layout end*******************/
-/*********************************css for header start************************************/
-
+// Header with menu icons code
 mat-toolbar {
   justify-content: space-between;
-  background-color: rgb(58, 62, 70);
-  /* background: linear-gradient(63deg, rgb(22, 68, 120)0%, rgb(22, 87, 130)100%); */
+  background-color: rgb(250, 250, 250);
+  border-bottom: 1px solid silver;
 }
-mat-icon {
+.dashboard_top_head mat-icon {
   width: 30px;
   height: 30px;
   font-size: 30px;
   cursor: pointer;
-  color: whitesmoke;
+  color: rgb(66, 60, 60);
+  float: left;
 }
-
-#dash_header_admin {
-  width: 200px;
+//user login details code start here
+.top_head_details_area {
+  width: 420px;
   height: 100%;
 }
-
-#dash_header_admin span {
-  line-height: 60px;
-  font-size: 17px;
-  color: whitesmoke;
-  letter-spacing: 1px;
-  margin-left: 60px;
+.icons_area {
+  width: 230px;
+  height: 100%;
   float: left;
-  font-family: cambria;
+  padding: 10px;
+}
+.icons_area .icons {
+  width: 30px;
+  height: 30px;
+  float: left;
+  margin: 10px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.icons_area .icons mat-icon {
+  font-size: 24px;
+  font-weight: 0;
 }
 
-#admin_logo {
-  width: 40px;
-  height: 40px;
-  float: right;
-  margin: 10px 0px;
-  border-radius: 50%;
-  background-color: whitesmoke;
-}
-
-#admin_logo:hover {
+.user_details_with_login_icon {
+  width: calc(100% - 230px);
+  height: 100%;
+  float: left;
   cursor: pointer;
 }
-
-#admin_logo img {
+.user_icon {
+  width: 50px;
+  height: 50px;
+  float: left;
+  border-radius: 100%;
+  margin-top: 7px;
+  overflow: hidden;
+}
+.user_icon img {
   width: 100%;
   height: 100%;
-  border-radius: 50%;
-  margin-bottom: 10px;
+  object-fit: cover;
 }
-
-/*************************css for header end**********************************/
-/*************************css for main start*********************************/
-.main {
-  padding: 5px;
+.user_name {
+  width: calc(100% - 50px);
+  height: 50%;
+  float: left;
+  padding: 9px;
+  font-size: 18px;
+  font-family: "Sansita", serif;
+  color: #143680;
 }
-
-/********************************css for main end*****************************/
-/*******************************css for home layout end*********************/
-
-/* media query srtart from here */
-
-@media (max-width: 500px) and (min-width: 100px) {
-  mat-sidenav {
-    width: 170px;
-  }
-  #dash_header_admin span {
-    font-size: 14px;
-    margin-left: 4px;
-  }
-  mat-icon {
-    font-size: 22px;
-    margin-right: 2px;
-  }
-  #admin_logo {
-    width: 30px;
-    height: 30px;
-    border-radius: 100%;
-  }
+.user_title {
+  width: calc(100% - 50px);
+  height: calc(100% - 50%);
+  float: left;
+  padding-left: 10px;
 }
-
-// sidebar
-
-.navbar {
-  width: auto;
-  height: auto;
+.user_title h3 {
+  font-family: "Sansita", serif;
+  font-size: 15px;
+  margin-top: -5px;
 }
+//user login details code end here
 
-#navbar_top {
+//Sidebar SCSS start here
+mat-sidenav {
+  width: 250px;
+  height: 100%;
+  background-color: #212631;
+}
+mat-sidenav-content {
+  height: 100vh;
+  background-color: whitesmoke;
+}
+.sidebar_top_logo_area {
   width: 100%;
   height: 64px;
-  margin-bottom: 20px;
-  margin-top: -8px;
-  text-align: center;
-  cursor: default;
-  box-sizing: border-box;
-  box-shadow: 0px 3px 10px black;
-  /* background: linear-gradient(63deg, rgb(22, 68, 120)0%, rgb(22, 87, 130)100%); */
-  /* background-color: rgb(58, 62, 70);     */
-  font-family: cambria;
-}
-
-#navbar_top span {
-  line-height: 60px;
-  font-size: 30px;
-  color: whitesmoke;
-  font-family: cambria;
-  /* letter-spacing: 1px; */
-}
-
-/*******************menu list start*******************/
-
-.menu_item {
-  width: 100%;
-  height: auto;
-}
-.menu_button {
-  width: 100%;
-  height: 40px;
-  display: block;
-  line-height: 30px;
+  border-bottom: 1px solid rgb(95, 94, 94);
+  overflow: hidden;
   padding: 5px;
-  /* margin-bottom: 5px; */
-  transition: 0.4s;
-  font-family: cambria;
 }
-.menu_button mat-icon {
-  width: 30px;
-  height: auto;
-  font-size: 22px;
-  float: left;
-  line-height: 32px;
-  margin-left: 10px;
-  color: whitesmoke;
+.sidebar_top_logo_area img {
+  height: 100%;
+  object-fit: cover;
+  margin-left: 20%;
 }
-
-.menu_button span {
+.sidebar_menu_area {
+  width: 100%;
+  height: calc(100% - 64px);
+  overflow: auto;
+}
+::-webkit-scrollbar{
+  width: 5px;
+  color: gray;
+}
+.sidebar_menu_area ul {
+  width: 100%;
+  height: 100%;
+  // background-color: #3f4b66;
+}
+.sidebar_menu_area ul li {
+  width: 105%;
+  height: 50px;
+  color: white;
+  list-style: none;
+  padding: 10px;
+  font-family: "Nunito Sans", serif;
+  margin-top: 10px;
+  margin-left: -20px;
   font-size: 16px;
-  /* line-height: 28px; */
-  /* padding: 2px; */
   float: left;
-  /* letter-spacing: 1px; */
-  color: whitesmoke;
+  line-height: 35px;
+  border-radius: 10px;
+  transition: 0.4s ease-in-out;
 }
-
-.menu_button:hover {
-  background: linear-gradient(
-    63deg,
-    rgb(78, 134, 198) 0%,
-    rgb(54, 106, 141) 100%
-  );
-  padding-left: 12px;
-  box-shadow: 2px 2px 12px rgb(31, 31, 31);
+.sidebar_menu_area ul li mat-icon{
+  margin-top: 4px;
+  float: left;
 }
-
-.menu_button:focus {
-  background: linear-gradient(
-    63deg,
-    rgb(56, 103, 156) 0%,
-    rgb(34, 82, 115) 100%
-  );
-  padding-left: 12px;
-  box-shadow: 2px 2px 12px rgb(31, 31, 31);
-}
-
-/* Media query start from here */
-
-@media (max-width: 500px) and (min-width: 100px) {
-  #navbar_top {
-    height: 50px;
-  }
-  #navbar_top span {
-    font-size: 20px;
-    line-height: 45px;
-  }
-  .menu_button span {
-    font-size: 12px;
-  }
+.sidebar_menu_area ul li:hover{
+  cursor: pointer;
+  background-color: #373a44;
 }

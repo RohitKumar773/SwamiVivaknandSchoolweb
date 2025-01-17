@@ -15,9 +15,11 @@ import { ProfiledialogComponent } from './profiledialog/profiledialog.component'
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RegistrationsComponent } from './registrations/registrations.component';
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
+import { FacultiesComponent } from './faculties/faculties.component';
+import { FacultiesFormComponent } from './faculties-form/faculties-form.component';
 
 @NgModule({
-  declarations: [AdminLoginComponent, AdminHomePageComponent, ProfiledialogComponent, DashboardComponent, RegistrationsComponent, RegistrationFormComponent],
+  declarations: [AdminLoginComponent, AdminHomePageComponent, ProfiledialogComponent, DashboardComponent, RegistrationsComponent, RegistrationFormComponent, FacultiesComponent, FacultiesFormComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,

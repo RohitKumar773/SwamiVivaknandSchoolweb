@@ -1,6 +1,7 @@
 .registration_box {
   width: 100%;
   height: calc(100vh - 64px);
+  overflow: auto;
 }
 .registration_table_area {
   width: 94%;

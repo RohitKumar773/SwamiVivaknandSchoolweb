@@ -20,11 +20,11 @@
                 <mat-icon style="float: right;">keyboard_arrow_left</mat-icon>
             </button>
             <div class="collapse" id="account">
-                <button class="options">
+                <button class="options" routerLink="account_role">
                     <mat-icon>arrow_right_alt</mat-icon>
                     Role
                 </button>
-                <button class="options">
+                <button class="options" routerLink="account_user">
                     <mat-icon>arrow_right_alt</mat-icon>
                     User
                 </button>
@@ -38,17 +38,17 @@
                 <mat-icon style="float: right;">keyboard_arrow_left</mat-icon>
             </button>
             <div class="collapse" id="register">
-                <button class="options" routerLink="registrations">
+                <button class="options" routerLink="course_application">
                     <mat-icon>arrow_right_alt</mat-icon>
                     Course Application
                 </button>
-                <button class="options">
+                <button class="options" routerLink="course_admission">
                     <mat-icon>arrow_right_alt</mat-icon>
                     Admissions
                 </button>
             </div>
 
-            <button class="btn">
+            <button class="btn" routerLink="events">
                 <mat-icon>event</mat-icon>
                 Events
             </button>
@@ -61,27 +61,27 @@
                 <mat-icon style="float: right;">keyboard_arrow_left</mat-icon>
             </button>
             <div class="collapse" id="masterData">
-                <button class="options">
+                <button class="options" routerLink="master_data_module">
                     <mat-icon>arrow_right_alt</mat-icon>
                     Module
                 </button>
-                <button class="options">
+                <button class="options" routerLink="master_Data_subj">
                     <mat-icon>arrow_right_alt</mat-icon>
                     Subject
                 </button>
-                <button class="options">
+                <button class="options" routerLink="master_data_class">
                     <mat-icon>arrow_right_alt</mat-icon>
                     Class
                 </button>
-                <button class="options">
+                <button class="options" routerLink="master_data_course">
                     <mat-icon>arrow_right_alt</mat-icon>
                     Course
                 </button>
-                <button class="options">
+                <button class="options" routerLink="master_data_batch">
                     <mat-icon>arrow_right_alt</mat-icon>
                     Batch Selection
                 </button>
-                <button class="options">
+                <button class="options" routerLink="master_data_exam">
                     <mat-icon>arrow_right_alt</mat-icon>
                     Examinations
                 </button>
@@ -95,19 +95,19 @@
                 <mat-icon style="float: right;">keyboard_arrow_left</mat-icon>
             </button>
             <div class="collapse" id="faculty">
-                <button class="options" routerLink="faculty">
+                <button class="options" routerLink="faculty_profile">
                     <mat-icon>arrow_right_alt</mat-icon>
                     Profile
                 </button>
-                <button class="options">
+                <button class="options" routerLink="faculty_salary">
                     <mat-icon>arrow_right_alt</mat-icon>
                     Salary Records
                 </button>
-                <button class="options">
+                <button class="options" routerLink="faculty_attendance">
                     <mat-icon>arrow_right_alt</mat-icon>
                     Faculty Attendance
                 </button>
-                <button class="options">
+                <button class="options" routerLink="faculty_assign_btch">
                     <mat-icon>arrow_right_alt</mat-icon>
                     Assigned Batches
                 </button>
@@ -121,7 +121,7 @@
                 <mat-icon style="float: right;">keyboard_arrow_left</mat-icon>
             </button>
             <div class="collapse" id="fees">
-                <button class="options">
+                <button class="options" routerLink="fee_installments">
                     <mat-icon>arrow_right_alt</mat-icon>
                     Installments
                 </button>
@@ -135,11 +135,11 @@
                 <mat-icon style="float: right;">keyboard_arrow_left</mat-icon>
             </button>
             <div class="collapse" id="schedule">
-                <button class="options">
+                <button class="options" routerLink="class_days">
                     <mat-icon>arrow_right_alt</mat-icon>
                     Class Days
                 </button>
-                <button class="options">
+                <button class="options" routerLink="class_timing">
                     <mat-icon>arrow_right_alt</mat-icon>
                     Class Timing
                 </button>
@@ -153,11 +153,11 @@
                 <mat-icon style="float: right;">keyboard_arrow_left</mat-icon>
             </button>
             <div class="collapse" id="inventory">
-                <button class="options">
+                <button class="options" routerLink="inventory_products">
                     <mat-icon>arrow_right_alt</mat-icon>
                     Products
                 </button>
-                <button class="options">
+                <button class="options" routerLink="inventory_categories">
                     <mat-icon>arrow_right_alt</mat-icon>
                     Manage Categories
                 </button>
@@ -171,19 +171,19 @@
                 <mat-icon style="float: right;">keyboard_arrow_left</mat-icon>
             </button>
             <div class="collapse" id="transport">
-                <button class="options">
+                <button class="options" routerLink="transport_zone">
                     <mat-icon>arrow_right_alt</mat-icon>
                     Zones
                 </button>
-                <button class="options">
+                <button class="options" routerLink="transport_destination">
                     <mat-icon>arrow_right_alt</mat-icon>
                     Destination
                 </button>
-                <button class="options">
+                <button class="options" routerLink="transport_vehicle">
                     <mat-icon>arrow_right_alt</mat-icon>
                     Vehicle
                 </button>
-                <button class="options">
+                <button class="options" routerLink="transport_drivers">
                     <mat-icon>arrow_right_alt</mat-icon>
                     Drivers
                 </button>
@@ -197,68 +197,16 @@
                 <mat-icon style="float: right;">keyboard_arrow_left</mat-icon>
             </button>
             <div class="collapse" id="hostel">
-                <button class="options">
+                <button class="options" routerLink="allocate_hostel">
                     <mat-icon>arrow_right_alt</mat-icon>
                     Allocate Hostel
                 </button>
-                <button class="options">
+                <button class="options" routerLink="manage_hostel">
                     <mat-icon>arrow_right_alt</mat-icon>
                     Manage Hostel
                 </button>
             </div>
 
-
-            <!-- <ul> -->
-            <!--
-
-                <li routerLink="dashboard">
-                    <mat-icon>dashboard</mat-icon>
-                    &nbsp; Dashboard
-                </li>
-
-                <li>
-                    <mat-icon>account_box</mat-icon>
-                    &nbsp; Account
-                </li>
-                <li routerLink="registrations">
-                    <mat-icon>account_circle</mat-icon>
-                    &nbsp; Registration
-
-                </li>
-                <li>
-                    <mat-icon>event</mat-icon>
-                    &nbsp; Events
-                </li>
-                <li>
-                    <mat-icon>perm_data_setting</mat-icon>
-                    &nbsp; Master Data
-                </li>
-                <li routerLink="faculty">
-                    <mat-icon>face</mat-icon>
-                    &nbsp; Faculties
-                </li>
-                <li>
-                    <mat-icon>tune</mat-icon>
-                    &nbsp; Fee Structure
-                </li>
-                <li>
-                    <mat-icon>schedule</mat-icon>
-                    &nbsp; Class Schedule
-                </li>
-                <li>
-                    <mat-icon>recent_actors</mat-icon>
-                    &nbsp; Inventory
-                </li>
-                <li>
-                    <mat-icon> directions_car</mat-icon>
-                    &nbsp; Transport
-                </li>
-                <li>
-                    <mat-icon> business</mat-icon>
-                    &nbsp; Hostel
-                </li>
-            </ul> -->
-            <!-- </ul> -->
         </div>
     </mat-sidenav>
 

@@ -2,7 +2,9 @@
   padding: 0px;
   cursor: default;
 }
-
+.main{
+  overflow: auto;
+}
 // Header with menu icons code
 mat-toolbar {
   justify-content: space-between;
@@ -131,6 +133,7 @@ mat-sidenav-content {
 }
 .sidebar_menu_area .btn:hover {
   background-color: #efeae9cd;
+  color: rgb(228, 59, 7);
 }
 .sidebar_menu_area .options {
   width: 100%;
@@ -147,7 +150,8 @@ mat-sidenav-content {
 }
 .sidebar_menu_area .options:hover {
   padding-left: 30px;
-  background-color: rgb(237, 237, 237);
+  background-color: #efeae9cd;
+  color: rgb(228, 59, 7);
 }
 .sidebar_menu_area .options mat-icon {
   margin-bottom: -8px;

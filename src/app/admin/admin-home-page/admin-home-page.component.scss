@@ -2,19 +2,21 @@
   padding: 0px;
   cursor: default;
 }
-
+.main{
+  overflow: auto;
+}
 // Header with menu icons code
 mat-toolbar {
   justify-content: space-between;
-  background-color: rgb(250, 250, 250);
-  border-bottom: 1px solid silver;
+  background-color: #1d2028;
+  border-bottom: 1px solid rgb(134, 134, 134);
 }
 .dashboard_top_head mat-icon {
   width: 30px;
   height: 30px;
-  font-size: 30px;
+  font-size: 28px;
   cursor: pointer;
-  color: rgb(66, 60, 60);
+  color: rgb(245, 245, 245);
   float: left;
 }
 //user login details code start here
@@ -38,7 +40,7 @@ mat-toolbar {
   align-items: center;
 }
 .icons_area .icons mat-icon {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 0;
 }
 
@@ -49,11 +51,11 @@ mat-toolbar {
   cursor: pointer;
 }
 .user_icon {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   float: left;
   border-radius: 100%;
-  margin-top: 7px;
+  margin-top: 12px;
   overflow: hidden;
 }
 .user_icon img {
@@ -68,7 +70,7 @@ mat-toolbar {
   padding: 9px;
   font-size: 18px;
   font-family: "Sansita", serif;
-  color: #143680;
+  color: #eaeaea;
 }
 .user_title {
   width: calc(100% - 50px);
@@ -80,6 +82,7 @@ mat-toolbar {
   font-family: "Sansita", serif;
   font-size: 15px;
   margin-top: -5px;
+  color: #939393;
 }
 //user login details code end here
 
@@ -87,58 +90,98 @@ mat-toolbar {
 mat-sidenav {
   width: 250px;
   height: 100%;
-  background-color: #212631;
+  background-color: rgba(255, 255, 255, 0.877);
 }
 mat-sidenav-content {
   height: 100vh;
-  background-color: whitesmoke;
 }
 .sidebar_top_logo_area {
   width: 100%;
   height: 64px;
-  border-bottom: 1px solid rgb(95, 94, 94);
+  border-bottom: 1px solid rgb(154, 154, 154);
   overflow: hidden;
   padding: 5px;
 }
 .sidebar_top_logo_area img {
   height: 100%;
   object-fit: cover;
-  margin-left: 20%;
+  margin-left: 5%;
 }
 .sidebar_menu_area {
   width: 100%;
   height: calc(100% - 64px);
   overflow: auto;
+  padding: 10px;
 }
-::-webkit-scrollbar{
-  width: 5px;
+::-webkit-scrollbar {
+  width: 0px;
   color: gray;
 }
-.sidebar_menu_area ul {
+// .sidebar_menu_area ul {
+//   width: 100%;
+//   height: 100%;
+// }
+.sidebar_menu_area .btn {
   width: 100%;
-  height: 100%;
-  // background-color: #3f4b66;
-}
-.sidebar_menu_area ul li {
-  width: 105%;
-  height: 50px;
-  color: white;
-  list-style: none;
+  text-align: left;
+  border: none;
   padding: 10px;
-  font-family: "Nunito Sans", serif;
+  transition: 0.4s ease-in-out;
   margin-top: 10px;
-  margin-left: -20px;
-  font-size: 16px;
-  float: left;
-  line-height: 35px;
-  border-radius: 10px;
+  font-family: "Nunito Sans", serif;
+  color: #263038;
+}
+.sidebar_menu_area .btn:hover {
+  background-color: #efeae9cd;
+  color: rgb(228, 59, 7);
+}
+.sidebar_menu_area .options {
+  width: 100%;
+  text-align: left;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 2px;
+  transition: 0.4s ease-in-out;
+  font-family: "Nunito Sans", serif;
+  color: #263038;
+  background: none;
+  border-bottom: 1px solid silver;
   transition: 0.4s ease-in-out;
 }
-.sidebar_menu_area ul li mat-icon{
-  margin-top: 4px;
+.sidebar_menu_area .options:hover {
+  padding-left: 30px;
+  background-color: #efeae9cd;
+  color: rgb(228, 59, 7);
+}
+.sidebar_menu_area .options mat-icon {
+  margin-bottom: -8px;
+}
+// .sidebar_menu_area ul li {
+//   width: 105%;
+//   height: 50px;
+//   color: #372d25;
+//   list-style: none;
+//   padding: 10px;
+//   font-family: "Nunito Sans", serif;
+//   margin-top: 10px;
+//   margin-left: -20px;
+//   font-size: 16px;
+//   float: left;
+//   line-height: 35px;
+//   border-radius: 10px;
+//   transition: 0.4s ease-in-out;
+// }
+// .sidebar_menu_area ul li mat-icon {
+//   margin-top: 4px;
+//   float: left;
+// }
+.sidebar_menu_area .btn mat-icon {
+  margin-top: 0px;
+  margin-right: 4px;
   float: left;
 }
-.sidebar_menu_area ul li:hover{
-  cursor: pointer;
-  background-color: #373a44;
-}
+// .sidebar_menu_area ul li:hover {
+//   cursor: pointer;
+//   background-color: #f8dfd8;
+//   padding-left: 20px;
+// }

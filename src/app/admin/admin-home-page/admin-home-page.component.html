@@ -5,52 +5,208 @@
             <img src="assets/svsnn.png" alt="">
         </div>
         <div class="sidebar_menu_area">
-            <ul>
-                <li>
-                    <mat-icon>dashboard</mat-icon>
-                    &nbsp; Dashboard
-                </li>
-                <li>
-                    <mat-icon>account_box</mat-icon>
-                    &nbsp; Account
-                </li>
-                <li>
-                    <mat-icon>account_circle</mat-icon>
-                    &nbsp; Registration
-                </li>
-                <li>
-                    <mat-icon>event</mat-icon>
-                    &nbsp; Events
-                </li>
-                <li>
-                    <mat-icon>perm_data_setting</mat-icon>
-                    &nbsp; Master Data
-                </li>
-                <li>
-                    <mat-icon>face</mat-icon>
-                    &nbsp; Faculties
-                </li>
-                <li>
-                    <mat-icon>tune</mat-icon>
-                    &nbsp; Fee Structure
-                </li>
-                <li>
-                    <mat-icon>schedule</mat-icon>
-                    &nbsp; Class Schedule
-                </li>
-                <li>
-                    <mat-icon>recent_actors</mat-icon>
-                    &nbsp; Inventory
-                </li>
-                <li>
-                    <mat-icon> directions_car</mat-icon>
-                    &nbsp; Transport
-                </li>
-                <li>
-                    <mat-icon> business</mat-icon>
-                    &nbsp; Hostel
-                </li>
-            </ul>
+
+
+            <button class="btn" routerLink="dashboard">
+                <mat-icon>dashboard</mat-icon>
+                Dashboard
+            </button>
+
+            <!-- Account  -->
+            <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#account" aria-expanded="true"
+                aria-controls="collapseExample">
+                <mat-icon>account_box</mat-icon>
+                Account
+                <mat-icon style="float: right;">keyboard_arrow_left</mat-icon>
+            </button>
+            <div class="collapse" id="account">
+                <button class="options" routerLink="account_role">
+                    <mat-icon>arrow_right_alt</mat-icon>
+                    Role
+                </button>
+                <button class="options" routerLink="account_user">
+                    <mat-icon>arrow_right_alt</mat-icon>
+                    User
+                </button>
+            </div>
+
+            <!-- Registrations  -->
+            <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#register" aria-expanded="true"
+                aria-controls="collapseExample">
+                <mat-icon>account_circle</mat-icon>
+                Registration
+                <mat-icon style="float: right;">keyboard_arrow_left</mat-icon>
+            </button>
+            <div class="collapse" id="register">
+                <button class="options" routerLink="course_application">
+                    <mat-icon>arrow_right_alt</mat-icon>
+                    Course Application
+                </button>
+                <button class="options" routerLink="course_admission">
+                    <mat-icon>arrow_right_alt</mat-icon>
+                    Admissions
+                </button>
+            </div>
+
+            <button class="btn" routerLink="events">
+                <mat-icon>event</mat-icon>
+                Events
+            </button>
+
+            <!-- Master Data  -->
+            <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#masterData"
+                aria-expanded="true" aria-controls="collapseExample">
+                <mat-icon>perm_data_setting</mat-icon>
+                Master Data
+                <mat-icon style="float: right;">keyboard_arrow_left</mat-icon>
+            </button>
+            <div class="collapse" id="masterData">
+                <button class="options" routerLink="master_data_module">
+                    <mat-icon>arrow_right_alt</mat-icon>
+                    Module
+                </button>
+                <button class="options" routerLink="master_Data_subj">
+                    <mat-icon>arrow_right_alt</mat-icon>
+                    Subject
+                </button>
+                <button class="options" routerLink="master_data_class">
+                    <mat-icon>arrow_right_alt</mat-icon>
+                    Class
+                </button>
+                <button class="options" routerLink="master_data_course">
+                    <mat-icon>arrow_right_alt</mat-icon>
+                    Course
+                </button>
+                <button class="options" routerLink="master_data_batch">
+                    <mat-icon>arrow_right_alt</mat-icon>
+                    Batch Selection
+                </button>
+                <button class="options" routerLink="master_data_exam">
+                    <mat-icon>arrow_right_alt</mat-icon>
+                    Examinations
+                </button>
+            </div>
+
+            <!-- Faculty  -->
+            <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#faculty" aria-expanded="true"
+                aria-controls="collapseExample">
+                <mat-icon>face</mat-icon>
+                Faculty
+                <mat-icon style="float: right;">keyboard_arrow_left</mat-icon>
+            </button>
+            <div class="collapse" id="faculty">
+                <button class="options" routerLink="faculty_profile">
+                    <mat-icon>arrow_right_alt</mat-icon>
+                    Profile
+                </button>
+                <button class="options" routerLink="faculty_salary">
+                    <mat-icon>arrow_right_alt</mat-icon>
+                    Salary Records
+                </button>
+                <button class="options" routerLink="faculty_attendance">
+                    <mat-icon>arrow_right_alt</mat-icon>
+                    Faculty Attendance
+                </button>
+                <button class="options" routerLink="faculty_assign_btch">
+                    <mat-icon>arrow_right_alt</mat-icon>
+                    Assigned Batches
+                </button>
+            </div>
+
+            <!-- Fee Structure  -->
+            <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#fees" aria-expanded="true"
+                aria-controls="collapseExample">
+                <mat-icon>tune</mat-icon>
+                Fee Structure
+                <mat-icon style="float: right;">keyboard_arrow_left</mat-icon>
+            </button>
+            <div class="collapse" id="fees">
+                <button class="options" routerLink="fee_installments">
+                    <mat-icon>arrow_right_alt</mat-icon>
+                    Installments
+                </button>
+            </div>
+
+            <!-- Class Schedule  -->
+            <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#schedule" aria-expanded="true"
+                aria-controls="collapseExample">
+                <mat-icon>schedule</mat-icon>
+                Class Schedule
+                <mat-icon style="float: right;">keyboard_arrow_left</mat-icon>
+            </button>
+            <div class="collapse" id="schedule">
+                <button class="options" routerLink="class_days">
+                    <mat-icon>arrow_right_alt</mat-icon>
+                    Class Days
+                </button>
+                <button class="options" routerLink="class_timing">
+                    <mat-icon>arrow_right_alt</mat-icon>
+                    Class Timing
+                </button>
+            </div>
+
+            <!-- Inventory  -->
+            <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#inventory" aria-expanded="true"
+                aria-controls="collapseExample">
+                <mat-icon>recent_actors</mat-icon>
+                Inventory
+                <mat-icon style="float: right;">keyboard_arrow_left</mat-icon>
+            </button>
+            <div class="collapse" id="inventory">
+                <button class="options" routerLink="inventory_products">
+                    <mat-icon>arrow_right_alt</mat-icon>
+                    Products
+                </button>
+                <button class="options" routerLink="inventory_categories">
+                    <mat-icon>arrow_right_alt</mat-icon>
+                    Manage Categories
+                </button>
+            </div>
+
+            <!-- Transport  -->
+            <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#transport" aria-expanded="true"
+                aria-controls="collapseExample">
+                <mat-icon> directions_car</mat-icon>
+                Transport
+                <mat-icon style="float: right;">keyboard_arrow_left</mat-icon>
+            </button>
+            <div class="collapse" id="transport">
+                <button class="options" routerLink="transport_zone">
+                    <mat-icon>arrow_right_alt</mat-icon>
+                    Zones
+                </button>
+                <button class="options" routerLink="transport_destination">
+                    <mat-icon>arrow_right_alt</mat-icon>
+                    Destination
+                </button>
+                <button class="options" routerLink="transport_vehicle">
+                    <mat-icon>arrow_right_alt</mat-icon>
+                    Vehicle
+                </button>
+                <button class="options" routerLink="transport_drivers">
+                    <mat-icon>arrow_right_alt</mat-icon>
+                    Drivers
+                </button>
+            </div>
+
+            <!-- Hostels  -->
+            <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#hostel" aria-expanded="true"
+                aria-controls="collapseExample">
+                <mat-icon> business</mat-icon>
+                Hostel
+                <mat-icon style="float: right;">keyboard_arrow_left</mat-icon>
+            </button>
+            <div class="collapse" id="hostel">
+                <button class="options" routerLink="allocate_hostel">
+                    <mat-icon>arrow_right_alt</mat-icon>
+                    Allocate Hostel
+                </button>
+                <button class="options" routerLink="manage_hostel">
+                    <mat-icon>arrow_right_alt</mat-icon>
+                    Manage Hostel
+                </button>
+            </div>
+
         </div>
     </mat-sidenav>
 
@@ -86,7 +242,7 @@
         </mat-toolbar>
 
         <div class="main">
-            <!-- dashboard work  -->
+            <router-outlet></router-outlet>
         </div>
 
     </mat-sidenav-content>

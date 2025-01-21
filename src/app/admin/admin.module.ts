@@ -8,12 +8,12 @@ import { AdminHomePageComponent } from './admin-home-page/admin-home-page.compon
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
+import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ProfiledialogComponent } from './profiledialog/profiledialog.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { RegistrationsComponent } from './registrations/registrations.component';
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
 import { FacultiesComponent } from './faculties/faculties.component';
 import { FacultiesFormComponent } from './faculties-form/faculties-form.component';
@@ -43,9 +43,44 @@ import { TransportVehicleComponent } from './transport-vehicle/transport-vehicle
 import { AllocateHostelComponent } from './allocate-hostel/allocate-hostel.component';
 import { ManageHostelComponent } from './manage-hostel/manage-hostel.component';
 import { EventsComponent } from './events/events.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
-  declarations: [AdminLoginComponent, AdminHomePageComponent, ProfiledialogComponent, DashboardComponent, RegistrationsComponent, RegistrationFormComponent, FacultiesComponent, FacultiesFormComponent, AccountRoleComponent, AccountUserComponent, CourseApplcationComponent, AdmissionsComponent, MasterDataModuleComponent, MasterDataSubjectComponent, MasterDataClassComponent, MasterDataCourseComponent, MasterDataExaminationsComponent, MasterDataBatchSelectionComponent, FacultyProfileComponent, FacultySalaryRecordsComponent, FacultyAttendanceComponent, FacultyAssignBatchComponent, FeeInstallmentsComponent, ClassScheduleDayComponent, ClassScheduleTimingComponent, InventoryCategoriesComponent, InventoryProductsComponent, TransportZoneComponent, TransportDestinationComponent, TransportDriversComponent, TransportVehicleComponent, AllocateHostelComponent, ManageHostelComponent, EventsComponent],
+  declarations: [
+    AdminLoginComponent,
+    AdminHomePageComponent,
+    ProfiledialogComponent,
+    DashboardComponent,
+    RegistrationFormComponent,
+    FacultiesComponent,
+    FacultiesFormComponent,
+    AccountRoleComponent,
+    AccountUserComponent,
+    CourseApplcationComponent,
+    AdmissionsComponent,
+    MasterDataModuleComponent,
+    MasterDataSubjectComponent,
+    MasterDataClassComponent,
+    MasterDataCourseComponent,
+    MasterDataExaminationsComponent,
+    MasterDataBatchSelectionComponent,
+    FacultyProfileComponent,
+    FacultySalaryRecordsComponent,
+    FacultyAttendanceComponent,
+    FacultyAssignBatchComponent,
+    FeeInstallmentsComponent,
+    ClassScheduleDayComponent,
+    ClassScheduleTimingComponent,
+    InventoryCategoriesComponent,
+    InventoryProductsComponent,
+    TransportZoneComponent,
+    TransportDestinationComponent,
+    TransportDriversComponent,
+    TransportVehicleComponent,
+    AllocateHostelComponent,
+    ManageHostelComponent,
+    EventsComponent,
+  ],
   imports: [
     CommonModule,
     AdminRoutingModule,
@@ -54,7 +89,9 @@ import { EventsComponent } from './events/events.component';
     MatSidenavModule,
     MatToolbarModule,
     MatMenuModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTableModule,
+    MatPaginatorModule,
   ],
 })
 export class AdminModule {}

@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AdminHomePageComponent } from './admin-home-page/admin-home-page.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { RegistrationsComponent } from './registrations/registrations.component';
 import { FacultiesComponent } from './faculties/faculties.component';
 import { AccountUserComponent } from './account-user/account-user.component';
 import { AccountRoleComponent } from './account-role/account-role.component';
@@ -47,7 +46,6 @@ const routes: Routes = [
       { path: 'account_user', component: AccountUserComponent },
       { path: 'course_application', component: CourseApplcationComponent },
       { path: 'course_admission', component: AdmissionsComponent },
-      { path: 'registrations', component: RegistrationsComponent },
       { path: 'events', component: EventsComponent },
       { path: 'master_data_module', component: MasterDataModuleComponent },
       { path: 'master_data_class', component: MasterDataClassComponent },

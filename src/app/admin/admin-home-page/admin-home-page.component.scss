@@ -157,3 +157,27 @@ mat-sidenav-content {
   margin-right: 6px;
   float: left;
 }
+
+
+// media query start from here 
+
+@media(max-width:500px) and (min-width:0px){
+  .top_head_details_area{
+    width: 215px;
+    // background-color: green;
+  }
+  .icons_area{
+    width: 180px;
+  }
+  .icons_area .icons {
+    width: 30px;
+    height: 30px;
+    margin: 10px 4px;
+  }
+  .icons_area .icons mat-icon{
+    font-size: 18px;
+  }
+  .user_details_with_login_icon .user_name, .user_title{
+    display: none;
+  }
+}

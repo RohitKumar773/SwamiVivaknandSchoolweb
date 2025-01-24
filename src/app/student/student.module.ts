@@ -15,6 +15,8 @@ import { SyllabusComponent } from './syllabus/syllabus.component';
 import { StdProfileComponent } from './std-profile/std-profile.component';
 import { StdExamComponent } from './std-exam/std-exam.component';
 import { StdAttendanceComponent } from './std-attendance/std-attendance.component';
+import { StdFeedbackComponent } from './std-feedback/std-feedback.component';
+import { StdHolidayComponent } from './std-holiday/std-holiday.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { StdAttendanceComponent } from './std-attendance/std-attendance.componen
     StdProfileComponent,
     StdExamComponent,
     StdAttendanceComponent,
+    StdFeedbackComponent,
+    StdHolidayComponent,
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,300;1,700&family=Roboto+Slab:wght@100;400&family=Rubik:ital,wght@1,300&display=swap');
+.delete_confirm_box{
+    width: 350px;
+    height: 350px;
+    text-align: center;
+    font-family: 'Merriweather', serif;
+}
+.image_area{
+    width: 100%;
+    height: 50%;
+    float: left;
+}
+.image_area img{
+    width: 42.5%;
+    scale: 1.3;
+}
+.delete_confirm_box span:nth-child(2){
+    font-size: 25px;
+    font-weight: bold;
+    line-height: 70px;
+}
+.delete_confirm_box span:nth-child(3){
+    font-size: 20px;
+    /* line-height: 80px; */
+}
+.yes_btn{
+    background-color:  #5e5efa;
+    color: white;
+    font-size: 16px;
+}
+.no_btn{
+    background-color: #6e6e6e;
+    color: white;
+    font-size: 16px;
+    margin-left: 16px;
+}

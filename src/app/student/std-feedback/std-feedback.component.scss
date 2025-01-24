@@ -1,0 +1,12 @@
+.feedback_saction {
+  width: 100%;
+  height: calc(100vh - 64px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.feedback_form_area {
+  width: 40%;
+  height: 400px;
+  background-color: gray;
+}

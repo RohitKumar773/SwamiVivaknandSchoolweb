@@ -9,6 +9,8 @@ import { StdExamComponent } from './std-exam/std-exam.component';
 import { SyllabusComponent } from './syllabus/syllabus.component';
 import { StdProfileComponent } from './std-profile/std-profile.component';
 import { StdAttendanceComponent } from './std-attendance/std-attendance.component';
+import { StdFeedbackComponent } from './std-feedback/std-feedback.component';
+import { StdHolidayComponent } from './std-holiday/std-holiday.component';
 
 const routes: Routes = [
   { path: '', component: StdLoginPageComponent },
@@ -25,6 +27,8 @@ const routes: Routes = [
       { path: 'syllabus', component: SyllabusComponent },
       { path: 'std_profile', component: StdProfileComponent },
       { path: 'attendance', component: StdAttendanceComponent },
+      { path: 'std_feedback', component: StdFeedbackComponent },
+      { path: 'std_holiday', component: StdHolidayComponent },
     ],
   },
 ];

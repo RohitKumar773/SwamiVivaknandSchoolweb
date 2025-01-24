@@ -44,6 +44,11 @@ import { AllocateHostelComponent } from './allocate-hostel/allocate-hostel.compo
 import { ManageHostelComponent } from './manage-hostel/manage-hostel.component';
 import { EventsComponent } from './events/events.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { AddEventFormComponent } from './add-event-form/add-event-form.component';
+import { ConfirmBoxComponent } from './confirm-box/confirm-box.component';
+import { AddTransportZoneFormComponent } from './add-transport-zone-form/add-transport-zone-form.component';
+import { AddTrnsptVehicleFormComponent } from './add-trnspt-vehicle-form/add-trnspt-vehicle-form.component';
+import { AddDriverFormComponent } from './add-driver-form/add-driver-form.component';
 
 @NgModule({
   declarations: [
@@ -80,6 +85,11 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     AllocateHostelComponent,
     ManageHostelComponent,
     EventsComponent,
+    AddEventFormComponent,
+    ConfirmBoxComponent,
+    AddTransportZoneFormComponent,
+    AddTrnsptVehicleFormComponent,
+    AddDriverFormComponent,
   ],
   imports: [
     CommonModule,

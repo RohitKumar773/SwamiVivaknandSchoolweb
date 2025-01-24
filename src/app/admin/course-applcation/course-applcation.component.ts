@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { RegistrationFormComponent } from '../registration-form/registration-form.component';
+import { ConfirmBoxComponent } from '../confirm-box/confirm-box.component';
 
 @Component({
   selector: 'app-course-applcation',
@@ -14,5 +15,11 @@ export class CourseApplcationComponent {
     this.dialog.open(RegistrationFormComponent, {
       disableClose: true,
     });
+  }
+
+  delete_application(){
+    this.dialog.open(ConfirmBoxComponent,{
+      disableClose:true,
+    })
   }
 }

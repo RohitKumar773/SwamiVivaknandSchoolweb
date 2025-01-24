@@ -39,3 +39,13 @@
   float: right;
   margin-right: 10px;
 }
+table button {
+  width: 40px;
+  height: 40px;
+  margin-right: -5px;
+}
+table button mat-icon {
+  width: auto;
+  font-size: 18px;
+  color: rgb(53, 51, 51);
+}

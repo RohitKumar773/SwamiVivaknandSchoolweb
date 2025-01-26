@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class MasterDataCourseComponent {
 
+  delete_course(){}
+  add_new_course(){}
+
 }

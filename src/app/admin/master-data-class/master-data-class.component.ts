@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class MasterDataClassComponent {
 
+
+  delete_class(){}
+
+  add_new_class(){}
+
 }

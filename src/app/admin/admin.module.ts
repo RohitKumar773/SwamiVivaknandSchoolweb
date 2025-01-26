@@ -49,6 +49,8 @@ import { ConfirmBoxComponent } from './confirm-box/confirm-box.component';
 import { AddTransportZoneFormComponent } from './add-transport-zone-form/add-transport-zone-form.component';
 import { AddTrnsptVehicleFormComponent } from './add-trnspt-vehicle-form/add-trnspt-vehicle-form.component';
 import { AddDriverFormComponent } from './add-driver-form/add-driver-form.component';
+import { AddAccntRoleFormComponent } from './add-accnt-role-form/add-accnt-role-form.component';
+import { AddAccntUserFormComponent } from './add-accnt-user-form/add-accnt-user-form.component';
 
 @NgModule({
   declarations: [
@@ -90,6 +92,8 @@ import { AddDriverFormComponent } from './add-driver-form/add-driver-form.compon
     AddTransportZoneFormComponent,
     AddTrnsptVehicleFormComponent,
     AddDriverFormComponent,
+    AddAccntRoleFormComponent,
+    AddAccntUserFormComponent,
   ],
   imports: [
     CommonModule,

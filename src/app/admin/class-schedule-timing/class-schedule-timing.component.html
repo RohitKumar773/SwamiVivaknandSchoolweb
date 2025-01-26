@@ -1,1 +1,105 @@
-<p>class-schedule-timing works!</p>
+<div class="registration_box">
+    <div class="registration_table_area">
+        <div class="header_title">
+            <div class="title">Class Timing</div>
+            <div class="add_btn">
+                <button type="button" class="btn btn-danger" (click)="add_schedule_time()">+ Add New</button>
+            </div>
+            <div class="search_box">
+                <input class="form-control" type="search" placeholder="Search..." aria-label="default input example">
+            </div>
+        </div>
+
+        <table class="table table-striped" style="text-align: center;">
+            <thead>
+                <tr>
+                    <th scope="col">S.N.</th>
+                    <th scope="col">Class Name</th>
+                    <th scope="col">Subject Name</th>
+                    <th scope="col">Day</th>
+                    <th scope="col">Timing</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>LKG</td>
+                    <td>English</td>
+                    <td>Monday</td>
+                    <td>10:00am - 11:00am</td>
+                    <td>
+                        <button mat-icon-button>
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                        <button mat-icon-button (click)="delete_schedule_time()">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>LKG</td>
+                    <td>Biology</td>
+                    <td>Tuesday</td>
+                    <td>9:00am - 10:00am</td>
+                    <td>
+                        <button mat-icon-button>
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                        <button mat-icon-button (click)="delete_schedule_time()">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>LKG</td>
+                    <td>Hindi</td>
+                    <td>Wednesday</td>
+                    <td>12:00am - 01:00am</td>
+                    <td>
+                        <button mat-icon-button>
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                        <button mat-icon-button (click)="delete_schedule_time()">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">4</th>
+                    <td>LKG</td>
+                    <td>Grammar</td>
+                    <td>Thrusday</td>
+                    <td>01:00am - 02:00am</td>
+                    <td>
+                        <button mat-icon-button>
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                        <button mat-icon-button (click)="delete_schedule_time()">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">5</th>
+                    <td>LKG</td>
+                    <td>Computer</td>
+                    <td>Saturday</td>
+                    <td>02:00am - 03:00am</td>
+                    <td>
+                        <button mat-icon-button>
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                        <button mat-icon-button (click)="delete_schedule_time()">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+    </div>
+</div>

@@ -1,1 +1,108 @@
-<p>account-role works!</p>
+<div class="registration_box">
+    <div class="registration_table_area">
+        <div class="header_title">
+            <div class="title">All Account Roles</div>
+            <div class="add_btn">
+                <button type="button" class="btn btn-danger" (click)="add_new_role()">+ Add New</button>
+            </div>
+            <div class="search_box">
+                <input class="form-control" type="search" placeholder="Search..." aria-label="default input example">
+            </div>
+        </div>
+
+        <table class="table table-striped" style="text-align: center;">
+            <thead>
+                <tr>
+                    <th scope="col">S.N.</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Role</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Raju Kumar</td>
+                    <td>Faculty</td>
+                    <td>
+                        <button mat-icon-button>
+                            <mat-icon>visibility</mat-icon>
+                        </button>
+                        <button mat-icon-button>
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                        <button mat-icon-button (click)="delete_role()">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Akhilesh Kumar</td>
+                    <td>CEO</td>
+                    <td>
+                        <button mat-icon-button>
+                            <mat-icon>visibility</mat-icon>
+                        </button>
+                        <button mat-icon-button>
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                        <button mat-icon-button (click)="delete_role()">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Rohit Kumar</td>
+                    <td>CTO</td>
+                    <td>
+                        <button mat-icon-button>
+                            <mat-icon>visibility</mat-icon>
+                        </button>
+                        <button mat-icon-button>
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                        <button mat-icon-button (click)="delete_role()">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">4</th>
+                    <td>Ayush Kumar</td>
+                    <td>Manager</td>
+                    <td>
+                        <button mat-icon-button>
+                            <mat-icon>visibility</mat-icon>
+                        </button>
+                        <button mat-icon-button>
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                        <button mat-icon-button (click)="delete_role()">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">5</th>
+                    <td>Amarjeet Kumar</td>
+                    <td>Staff Faculty</td>
+                    <td>
+                        <button mat-icon-button>
+                            <mat-icon>visibility</mat-icon>
+                        </button>
+                        <button mat-icon-button>
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                        <button mat-icon-button (click)="delete_role()">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+    </div>
+</div>

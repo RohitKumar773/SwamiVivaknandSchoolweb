@@ -1,1 +1,105 @@
-<p>faculty-assign-batch works!</p>
+<div class="registration_box">
+    <div class="registration_table_area">
+        <div class="header_title">
+            <div class="title">Assign Batch</div>
+            <div class="add_btn">
+                <button type="button" class="btn btn-danger" (click)="assign_batch()">+ Add New</button>
+            </div>
+            <div class="search_box">
+                <input class="form-control" type="search" placeholder="Search..." aria-label="default input example">
+            </div>
+        </div>
+
+        <table class="table table-striped" style="text-align: center;">
+            <thead>
+                <tr>
+                    <th scope="col">S.N.</th>
+                    <th scope="col">Faculty Name</th>
+                    <th scope="col">Subject</th>
+                    <th scope="col">Class</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Rajeev Sharma</td>
+                    <td>Mathematics</td>
+                    <td>10th</td>
+                    <td>9am - 10am</td>
+                    <td>
+                        <button mat-icon-button>
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                        <button mat-icon-button (click)="delete_batch()">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Ranjan Sharma</td>
+                    <td>English</td>
+                    <td>9th</td>
+                    <td>10am - 11am</td>
+                    <td>
+                        <button mat-icon-button>
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                        <button mat-icon-button (click)="delete_batch()">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Manish Kumar</td>
+                    <td>Physics</td>
+                    <td>12th</td>
+                    <td>11am - 12am</td>
+                    <td>
+                        <button mat-icon-button>
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                        <button mat-icon-button (click)="delete_batch()">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">4</th>
+                    <td>Mohan Singh</td>
+                    <td>Science</td>
+                    <td>8th</td>
+                    <td>12am - 01pm</td>
+                    <td>
+                        <button mat-icon-button>
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                        <button mat-icon-button (click)="delete_batch()">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">5</th>
+                    <td>Niranjan Kumar</td>
+                    <td>Hindi</td>
+                    <td>11th</td>
+                    <td>9am - 10am</td>
+                    <td>
+                        <button mat-icon-button>
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                        <button mat-icon-button (click)="delete_batch()">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+    </div>
+</div>

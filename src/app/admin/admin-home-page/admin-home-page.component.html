@@ -1,6 +1,6 @@
 <mat-sidenav-container class="container-fluid">
 
-    <mat-sidenav #sidebar mode="side" closed>
+    <mat-sidenav #sidebar mode="side" opened>
         <div class="sidebar_top_logo_area">
             <img src="assets/svsnn.png" alt="">
         </div>
@@ -171,21 +171,21 @@
                 <mat-icon style="float: right;">keyboard_arrow_left</mat-icon>
             </button>
             <div class="collapse" id="transport">
-                <button class="options" routerLink="transport_zone">
-                    <mat-icon>arrow_right_alt</mat-icon>
-                    Zones
-                </button>
-                <button class="options" routerLink="transport_destination">
-                    <mat-icon>arrow_right_alt</mat-icon>
-                    Destination
-                </button>
                 <button class="options" routerLink="transport_vehicle">
                     <mat-icon>arrow_right_alt</mat-icon>
                     Vehicle
                 </button>
+                <button class="options" routerLink="transport_zone">
+                    <mat-icon>arrow_right_alt</mat-icon>
+                    Zones
+                </button>
                 <button class="options" routerLink="transport_drivers">
                     <mat-icon>arrow_right_alt</mat-icon>
                     Drivers
+                </button>
+                <button class="options" routerLink="transport_destination">
+                    <mat-icon>arrow_right_alt</mat-icon>
+                    Destination
                 </button>
             </div>
 

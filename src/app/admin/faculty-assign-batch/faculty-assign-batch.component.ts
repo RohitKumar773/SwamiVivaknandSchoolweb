@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class FacultyAssignBatchComponent {
 
+  assign_batch(){}
+
+  delete_batch(){}
+
 }

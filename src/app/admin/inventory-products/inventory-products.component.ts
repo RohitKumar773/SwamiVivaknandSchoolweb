@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class InventoryProductsComponent {
 
+  add_new_product(){}
+  delete_products(){}
+
 }

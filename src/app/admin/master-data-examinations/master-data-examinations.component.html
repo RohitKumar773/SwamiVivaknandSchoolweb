@@ -1,1 +1,105 @@
-<p>master-data-examinations works!</p>
+<div class="registration_box">
+    <div class="registration_table_area">
+        <div class="header_title">
+            <div class="title">All Examinations </div>
+            <div class="add_btn">
+                <button type="button" class="btn btn-danger" (click)="add_new_exam()">+ Add New</button>
+            </div>
+            <div class="search_box">
+                <input class="form-control" type="search" placeholder="Search..." aria-label="default input example">
+            </div>
+        </div>
+
+        <table class="table table-striped" style="text-align: center;">
+            <thead>
+                <tr>
+                    <th scope="col">S.N.</th>
+                    <th scope="col">Subject Name</th>
+                    <th scope="col">Class Name</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Timing</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>History</td>
+                    <td>10th</td>
+                    <td>10 feb 2025</td>
+                    <td>10am - 11am</td>
+                    <td>
+                        <button mat-icon-button>
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                        <button mat-icon-button (click)="delete_exam()">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>English</td>
+                    <td>5th</td>
+                    <td>15 feb 2025</td>
+                    <td>11am - 01am</td>
+                    <td>
+                        <button mat-icon-button>
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                        <button mat-icon-button (click)="delete_exam()">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Computer</td>
+                    <td>LKG</td>
+                    <td>10 jan 2025</td>
+                    <td>10am - 11am</td>
+                    <td>
+                        <button mat-icon-button>
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                        <button mat-icon-button (click)="delete_exam()">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">4</th>
+                    <td>Science</td>
+                    <td>9th</td>
+                    <td>10 feb 2025</td>
+                    <td>10am - 11am</td>
+                    <td>
+                        <button mat-icon-button>
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                        <button mat-icon-button (click)="delete_exam()">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">5</th>
+                    <td>Math</td>
+                    <td>12th</td>
+                    <td>20 feb 2025</td>
+                    <td>12am - 11am</td>
+                    <td>
+                        <button mat-icon-button>
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                        <button mat-icon-button (click)="delete_exam()">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+    </div>
+</div>

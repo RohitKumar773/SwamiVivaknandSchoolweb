@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class MasterDataExaminationsComponent {
 
+  delete_exam(){}
+  add_new_exam(){}
+
 }

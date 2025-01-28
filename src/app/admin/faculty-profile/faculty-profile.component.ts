@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class FacultyProfileComponent {
 
+
+  add_new_faculty(){}
+  delete_profile(){}
+
 }

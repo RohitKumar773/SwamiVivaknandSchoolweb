@@ -114,8 +114,7 @@ mat-sidenav-content {
   padding: 10px;
 }
 ::-webkit-scrollbar {
-  width: 0px;
-  color: gray;
+  width: 4px;
 }
 .sidebar_menu_area .btn {
   width: 100%;
@@ -131,6 +130,10 @@ mat-sidenav-content {
   background-color: rgba(245, 83, 33, 0.132);
   color: rgb(229, 69, 20);
 }
+.sidebar_menu_area .btn.active {
+  background-color: rgba(245, 83, 33, 0.132);
+  color: rgb(229, 69, 20);
+}
 .sidebar_menu_area .options {
   width: 100%;
   text-align: left;
@@ -139,14 +142,16 @@ mat-sidenav-content {
   margin-top: 2px;
   transition: 0.4s ease-in-out;
   font-family: "Nunito Sans", serif;
-  color: #263038;
   background: none;
   border-bottom: 1px solid silver;
   transition: 0.4s ease-in-out;
 }
-.sidebar_menu_area .options:hover {
-  padding-left: 30px;
+.sidebar_menu_area .options:hover:not(.active) {
   background-color: rgba(245, 83, 33, 0.132);
+  color: rgb(229, 69, 20);
+  padding-left: 30px;
+}
+.active{
   color: rgb(229, 69, 20);
 }
 .sidebar_menu_area .options mat-icon {
@@ -158,15 +163,14 @@ mat-sidenav-content {
   float: left;
 }
 
+// media query start from here
 
-// media query start from here 
-
-@media(max-width:500px) and (min-width:0px){
-  .top_head_details_area{
+@media (max-width: 500px) and (min-width: 0px) {
+  .top_head_details_area {
     width: 215px;
     // background-color: green;
   }
-  .icons_area{
+  .icons_area {
     width: 180px;
   }
   .icons_area .icons {
@@ -174,10 +178,11 @@ mat-sidenav-content {
     height: 30px;
     margin: 10px 4px;
   }
-  .icons_area .icons mat-icon{
+  .icons_area .icons mat-icon {
     font-size: 18px;
   }
-  .user_details_with_login_icon .user_name, .user_title{
+  .user_details_with_login_icon .user_name,
+  .user_title {
     display: none;
   }
 }

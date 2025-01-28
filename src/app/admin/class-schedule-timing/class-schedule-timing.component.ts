@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class ClassScheduleTimingComponent {
 
+  add_schedule_time(){}
+  delete_schedule_time(){}
 }

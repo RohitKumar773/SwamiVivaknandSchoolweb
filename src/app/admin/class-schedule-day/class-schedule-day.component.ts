@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class ClassScheduleDayComponent {
 
+  add_schedule(){}
+
+  delete_schedule(){}
+
 }

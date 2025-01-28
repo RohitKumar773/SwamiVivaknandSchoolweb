@@ -51,6 +51,7 @@ import { AddTrnsptVehicleFormComponent } from './add-trnspt-vehicle-form/add-trn
 import { AddDriverFormComponent } from './add-driver-form/add-driver-form.component';
 import { AddAccntRoleFormComponent } from './add-accnt-role-form/add-accnt-role-form.component';
 import { AddAccntUserFormComponent } from './add-accnt-user-form/add-accnt-user-form.component';
+import { AddBatchFormComponent } from './add-batch-form/add-batch-form.component';
 
 @NgModule({
   declarations: [
@@ -94,6 +95,7 @@ import { AddAccntUserFormComponent } from './add-accnt-user-form/add-accnt-user-
     AddDriverFormComponent,
     AddAccntRoleFormComponent,
     AddAccntUserFormComponent,
+    AddBatchFormComponent,
   ],
   imports: [
     CommonModule,

@@ -52,6 +52,7 @@ import { AddDriverFormComponent } from './add-driver-form/add-driver-form.compon
 import { AddAccntRoleFormComponent } from './add-accnt-role-form/add-accnt-role-form.component';
 import { AddAccntUserFormComponent } from './add-accnt-user-form/add-accnt-user-form.component';
 import { AddBatchFormComponent } from './add-batch-form/add-batch-form.component';
+import { DashboardStyleComponent } from './dashboard-style/dashboard-style.component';
 
 @NgModule({
   declarations: [
@@ -96,6 +97,7 @@ import { AddBatchFormComponent } from './add-batch-form/add-batch-form.component
     AddAccntRoleFormComponent,
     AddAccntUserFormComponent,
     AddBatchFormComponent,
+    DashboardStyleComponent,
   ],
   imports: [
     CommonModule,

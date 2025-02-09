@@ -54,6 +54,10 @@ import { AddAccntUserFormComponent } from './add-accnt-user-form/add-accnt-user-
 import { AddBatchFormComponent } from './add-batch-form/add-batch-form.component';
 import { DashboardStyleComponent } from './dashboard-style/dashboard-style.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MasterDataNoticeComponent } from './master-data-notice/master-data-notice.component';
+
 
 @NgModule({
   declarations: [
@@ -99,6 +103,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     AddAccntUserFormComponent,
     AddBatchFormComponent,
     DashboardStyleComponent,
+    MasterDataNoticeComponent,
   ],
   imports: [
     CommonModule,
@@ -112,6 +117,8 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     MatTableModule,
     MatPaginatorModule,
     MatSlideToggleModule,
+    MatDatepickerModule,
+    MatFormFieldModule
   ],
 })
 export class AdminModule {}

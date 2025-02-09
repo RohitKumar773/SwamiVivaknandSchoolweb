@@ -30,6 +30,7 @@ import { TransportVehicleComponent } from './transport-vehicle/transport-vehicle
 import { AllocateHostelComponent } from './allocate-hostel/allocate-hostel.component';
 import { ManageHostelComponent } from './manage-hostel/manage-hostel.component';
 import { EventsComponent } from './events/events.component';
+import { MasterDataNoticeComponent } from './master-data-notice/master-data-notice.component';
 
 const routes: Routes = [
   { path: '', component: AdminLoginComponent },
@@ -55,6 +56,7 @@ const routes: Routes = [
       },
       { path: 'master_data_course', component: MasterDataCourseComponent },
       { path: 'master_data_exam', component: MasterDataExaminationsComponent },
+      { path: 'master_data_notice', component: MasterDataNoticeComponent },
       { path: 'master_Data_subj', component: MasterDataSubjectComponent },
       { path: 'faculty_profile', component: FacultyProfileComponent },
       { path: 'faculty_salary', component: FacultySalaryRecordsComponent },

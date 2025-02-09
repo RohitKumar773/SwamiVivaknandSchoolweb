@@ -22,10 +22,8 @@ import {
     ]),
   ],
 })
-
 export class AdminHomePageComponent {
-
-  activeButton:number | null = null;
+  activeButton: number | null = null;
   isOpen = false;
   isOpen2 = false;
   isOpen3 = false;
@@ -39,33 +37,33 @@ export class AdminHomePageComponent {
   toggle() {
     this.isOpen = !this.isOpen;
   }
-  regToggle(){
+  regToggle() {
     this.isOpen2 = !this.isOpen2;
   }
-  mdtoggle(){
+  mdtoggle() {
     this.isOpen3 = !this.isOpen3;
   }
-  fttoggle(){
+  fttoggle() {
     this.isOpen4 = !this.isOpen4;
   }
-  festoggle(){
+  festoggle() {
     this.isOpen5 = !this.isOpen5;
   }
-  cstoggle(){
+  cstoggle() {
     this.isOpen6 = !this.isOpen6;
   }
-  intogge(){
+  intogge() {
     this.isOpen7 = !this.isOpen7;
   }
-  trtoggle(){
+  trtoggle() {
     this.isOpen8 = !this.isOpen8;
   }
-  hsttoggle(){
+  hsttoggle() {
     this.isOpen9 = !this.isOpen9;
   }
 
-  setActive(index:number):void{
-this.activeButton = index;
+  setActive(index: number): void {
+    this.activeButton = index;
   }
   constructor(private dialog: MatDialog) {}
 

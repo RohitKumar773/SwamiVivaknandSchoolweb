@@ -1,9 +1,7 @@
-.registration_form {
-  width: 600px;
-  height: 600px;
-  background-color: white;
-  padding: 10px;
-  overflow: auto;
+.form_area {
+  width: 70%;
+  height: 50vh;
+  float: left;
 }
 .form_head {
   width: 100%;
@@ -33,11 +31,7 @@
   line-height: 30px;
   float: left;
 }
-.form_area {
-  width: 100%;
-  height: auto;
-  float: left;
-}
+
 .form-floating {
   width: 45%;
   height: 60px;
@@ -47,15 +41,15 @@
   border-radius: 10px;
   color: black;
 }
-.form-select{
+.form-select {
   height: 60px;
   margin-bottom: 10px;
 }
-#floatingInput{
+#floatingInput {
   border: 0.7px solid rgb(211, 211, 211);
 }
 .btn_area {
-  width: 100%;
+  width: 40%;
   height: 60px;
   float: left;
   padding: 20px;

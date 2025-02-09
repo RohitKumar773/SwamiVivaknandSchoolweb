@@ -8,6 +8,11 @@ const routes: Routes = [
       import('./website/website.module').then((w) => w.WebsiteModule),
   },
   {
+    path: 'website',
+    loadChildren: () =>
+      import('./website/website.module').then((w) => w.WebsiteModule),
+  },
+  {
     path: 'admin',
     loadChildren: () =>
       import('./admin/admin.module').then((a) => a.AdminModule),

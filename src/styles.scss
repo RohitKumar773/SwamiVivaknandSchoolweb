@@ -9,3 +9,18 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+::-webkit-scrollbar {
+  width: 5px; /* Set the scrollbar width */
+  height: 50px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 134, 97, 0.324);  /* Color of the scrollbar thumb */
+  border-radius: 2px;
+  height: 30px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Color on hover */
+}

@@ -9,6 +9,9 @@ import { AddAccntUserFormComponent } from '../add-accnt-user-form/add-accnt-user
   styleUrls: ['./account-user.component.scss'],
 })
 export class AccountUserComponent {
+  checked = false;
+  disabled = false;
+  
   constructor(private dialog: MatDialog) {}
 
   delete_user() {

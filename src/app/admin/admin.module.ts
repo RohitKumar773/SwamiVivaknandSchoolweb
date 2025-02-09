@@ -53,6 +53,7 @@ import { AddAccntRoleFormComponent } from './add-accnt-role-form/add-accnt-role-
 import { AddAccntUserFormComponent } from './add-accnt-user-form/add-accnt-user-form.component';
 import { AddBatchFormComponent } from './add-batch-form/add-batch-form.component';
 import { DashboardStyleComponent } from './dashboard-style/dashboard-style.component';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [
@@ -110,6 +111,7 @@ import { DashboardStyleComponent } from './dashboard-style/dashboard-style.compo
     MatDialogModule,
     MatTableModule,
     MatPaginatorModule,
+    MatSlideToggleModule,
   ],
 })
 export class AdminModule {}

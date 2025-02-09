@@ -57,7 +57,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MasterDataNoticeComponent } from './master-data-notice/master-data-notice.component';
-
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -118,7 +118,8 @@ import { MasterDataNoticeComponent } from './master-data-notice/master-data-noti
     MatPaginatorModule,
     MatSlideToggleModule,
     MatDatepickerModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    ReactiveFormsModule,
   ],
 })
 export class AdminModule {}

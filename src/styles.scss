@@ -24,3 +24,6 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #555; /* Color on hover */
 }
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';

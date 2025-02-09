@@ -8,55 +8,105 @@
     <div class="form_area">
         <div class="title">Personal Details</div>
 
-        <div class="form-floating mb-2">
-            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput">Student Name</label>
-        </div>
-        <div class="form-floating mb-2">
-            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput">Father's Name</label>
-        </div>
-        <div class="form-floating mb-2">
-            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput">Mother's Name</label>
-        </div>
-        <div class="form-floating mb-2">
-            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput">Email address</label>
-        </div>
-        <div class="form-floating mb-2">
-            <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput">Mobile no.</label>
-        </div>
+        <form [formGroup]="registrationForm">
 
-        <div class="form-floating mb-2">
-            <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput">Aadhar Number</label>
-        </div>
+            <div class="form-floating mb-2">
+                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com"
+                    formControlName="name">
+                <label for="floatingInput">Student Name</label>
+            </div>
+            <div class="form-floating mb-2">
+                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com"
+                    formControlName="email">
+                <label for="floatingInput">Email Address</label>
+            </div>
+            <div class="form-floating mb-2">
+                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com"
+                    formControlName="father_name">
+                <label for="floatingInput">Father's Name</label>
+            </div>
+            <div class="form-floating mb-2">
+                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"
+                    formControlName="mother_name">
+                <label for="floatingInput">Mother's Name</label>
+            </div>
+            <div class="form-floating mb-2">
+                <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com"
+                    formControlName="mobile">
+                <label for="floatingInput">Mobile no.</label>
+            </div>
 
-        <div class="title" style="margin-top: 20px;">School Details</div>
+            <div class="form-floating mb-2">
+                <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com"
+                    formControlName="adhar">
+                <label for="floatingInput">Aadhar Number</label>
+            </div>
 
-        <div class="form-floating mb-2">
-            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput">Class Name</label>
-        </div>
-        <div class="form-floating mb-2">
-            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput">Assign Roll No.</label>
-        </div>
-        <div class="form-floating mb-2">
-            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput">Section</label>
-        </div>
-        <div class="form-floating mb-2">
-            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput">Hostel</label>
-        </div>
+            <div class="form-floating mb-2">
+                <input type="password" class="form-control" id="floatingInput" placeholder="name@example.com"
+                    formControlName="password">
+                <label for="floatingInput">Password</label>
+            </div>
+            <div class="form-floating mb-2">
+                <input type="file" class="form-control" id="floatingInput" placeholder="name@example.com"
+                    formControlName="profile">
+                <label for="floatingInput">Profile Image</label>
+            </div>
+            <div class="form-floating mb-2">
+                <input type="date" class="form-control" id="floatingInput" placeholder="name@example.com"
+                    formControlName="dob">
+                <label for="floatingInput">D.O.B.</label>
+            </div>
+            <select class="form-select form-floating" aria-label="Default select example" formControlName="gender">
+                <option selected>--Select Gender--</option>
+                <option value="1">Male</option>
+                <option value="2">Female</option>
+                <option value="3">Other</option>
+            </select>
+
+            <div class="title" style="margin-top: 20px;">School Details</div>
+
+            <select class="form-select form-floating" aria-label="Default select example" formControlName="class">
+                <option value="Select Class">Select Class</option>
+                <option value="1">LKG</option>
+                <option value="2">UKG</option>
+                <option value="3">1st</option>
+                <option value="3">2nd</option>
+            </select>
+            <select class="form-select form-floating" aria-label="Default select example" formControlName="section">
+                <option selected>Select Section</option>
+                <option value="1">A</option>
+                <option value="2">B</option>
+                <option value="3">C</option>
+                <option value="3">D</option>
+            </select>
+
+            <div class="form-floating mb-2">
+                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com"
+                    formControlName="roll_no">
+                <label for="floatingInput">Roll No.</label>
+            </div>
+            <div class="form-floating mb-2">
+                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com"
+                    formControlName="address">
+                <label for="floatingInput">Address</label>
+            </div>
+            <div class="form-floating mb-2">
+                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com"
+                    formControlName="transport">
+                <label for="floatingInput">Assign Transport</label>
+            </div>
+            <div class="form-floating mb-2">
+                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com"
+                    formControlName="hostel">
+                <label for="floatingInput">Assign Hostel</label>
+            </div>
+        </form>
 
     </div>
 
     <div class="btn_area">
         <button type="button" class="btn btn-danger" id="cancel" mat-dialog-close>Cancel</button>
-        <button type="button" class="btn btn-primary" id="submit">Submit</button>
+        <button type="button" class="btn btn-primary" id="submit" (click)="onSubmit()">Submit</button>
     </div>
 </div>

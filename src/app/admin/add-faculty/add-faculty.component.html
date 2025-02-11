@@ -1,0 +1,171 @@
+<div class="registration_form">
+    <div class="form_head">
+        <h3>Add New Faculty</h3>
+        <p mat-dialog-close>
+            <mat-icon>cancel</mat-icon>
+        </p>
+    </div>
+    <div class="form_area">
+        <div class="title">Personal Details</div>
+
+        <form [formGroup]="addFacultyForm">
+
+            <div class="form-floating mb-2">
+                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com"
+                    formControlName="name">
+                <label for="floatingInput">Name</label>
+            </div>
+            <div class="form-floating mb-2">
+                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com"
+                    formControlName="email">
+                <label for="floatingInput">Email Address</label>
+            </div>
+            <div class="form-floating mb-2">
+                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com"
+                    formControlName="father">
+                <label for="floatingInput">Father's Name</label>
+            </div>
+            <div class="form-floating mb-2">
+                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"
+                    formControlName="mother">
+                <label for="floatingInput">Mother's Name</label>
+            </div>
+            <div class="form-floating mb-2">
+                <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com"
+                    formControlName="contact_no">
+                <label for="floatingInput">Mobile no.</label>
+            </div>
+
+            <div class="form-floating mb-2">
+                <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com"
+                    formControlName="aadhar_no">
+                <label for="floatingInput">Aadhar Number</label>
+            </div>
+
+            <div class="form-floating mb-2">
+                <input type="password" class="form-control" id="floatingInput" placeholder="name@example.com"
+                    formControlName="password">
+                <label for="floatingInput">Password</label>
+            </div>
+            <div class="form-floating mb-2">
+                <input type="file" class="form-control" id="floatingInput" placeholder="name@example.com"
+                    formControlName="profile_img">
+                <label for="floatingInput">Profile Image</label>
+            </div>
+            <div class="form-floating mb-2">
+                <input type="date" class="form-control" id="floatingInput" placeholder="name@example.com"
+                    formControlName="dob">
+                <label for="floatingInput">D.O.B.</label>
+            </div>
+            <select class="form-select form-floating" aria-label="Default select example" formControlName="gender">
+                <option selected>--Select Gender--</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <div class="title" style="margin-top: 20px;">Educational Details</div>
+
+            <div class="form-floating mb-2">
+                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com"
+                    formControlName="graduation_institue">
+                <label for="floatingInput">Graduation Institute Name</label>
+            </div>
+
+            <div class="form-floating mb-2">
+                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com"
+                    formControlName="grdt_stream">
+                <label for="floatingInput">Stream</label>
+            </div>
+            <div class="form-floating mb-2">
+                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com"
+                    formControlName="grdt_passing_year">
+                <label for="floatingInput">Passing Year</label>
+            </div>
+            <div class="form-floating mb-2">
+                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com"
+                    formControlName="grdt_percentage">
+                <label for="floatingInput">Percentage</label>
+            </div>
+            <div class="form-floating mb-2">
+                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com"
+                    formControlName="last_education">
+                <label for="floatingInput">Last Education</label>
+            </div>
+            <div class="form-floating mb-2">
+                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com"
+                    formControlName="last_ed_stream">
+                <label for="floatingInput">Last Education Stream</label>
+            </div>
+            <div class="form-floating mb-2">
+                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com"
+                    formControlName="last_ed_passing_year">
+                <label for="floatingInput">Last Education Passing yr.</label>
+            </div>
+            <div class="form-floating mb-2">
+                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com"
+                    formControlName="last_ed_percentage">
+                <label for="floatingInput">Last Education Percentage</label>
+            </div>
+
+            <div class="title" style="margin-top: 20px;">Experience</div>
+
+            <div class="form-floating mb-2">
+                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com"
+                    formControlName="previous_school">
+                <label for="floatingInput">Previous Working School</label>
+            </div>
+            <div class="form-floating mb-2">
+                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com"
+                    formControlName="prev_designation">
+                <label for="floatingInput">Designation</label>
+            </div>
+            <div class="form-floating mb-2">
+                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com"
+                    formControlName="prev_experience">
+                <label for="floatingInput">Experience</label>
+            </div>
+            <div class="form-floating mb-2">
+                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com"
+                    formControlName="prev_speciality">
+                <label for="floatingInput">Speciality</label>
+            </div>
+
+
+            <div class="title" style="margin-top: 20px;">Salary Details</div>
+
+            <div class="form-floating mb-2">
+                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com"
+                    formControlName="last_salary">
+                <label for="floatingInput">Last Salary</label>
+            </div>
+            <div class="form-floating mb-2">
+                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com"
+                    formControlName="current_salary">
+                <label for="floatingInput">Current Salary</label>
+            </div>
+            <div class="form-floating mb-2">
+                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com"
+                    formControlName="bank_name">
+                <label for="floatingInput">Bank Name</label>
+            </div>
+            <div class="form-floating mb-2">
+                <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com"
+                    formControlName="account_no">
+                <label for="floatingInput">Account No.</label>
+            </div>
+            <div class="form-floating mb-2">
+                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com"
+                    formControlName="ifsc_code">
+                <label for="floatingInput">IFSC Code</label>
+            </div>
+
+        </form>
+
+    </div>
+
+    <div class="btn_area">
+        <button type="button" class="btn btn-danger" id="cancel" mat-dialog-close>Cancel</button>
+        <button type="button" class="btn btn-primary" id="submit">Submit</button>
+    </div>
+</div>

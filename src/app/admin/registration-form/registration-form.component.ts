@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { addStd } from 'src/app/interface/addStudent.interface';
 import { RegRes } from 'src/app/interface/studentReg.interface';
 import { CrudService } from 'src/app/Services/crud.service';
 
@@ -9,10 +10,11 @@ import { CrudService } from 'src/app/Services/crud.service';
   styleUrls: ['./registration-form.component.scss'],
 })
 export class RegistrationFormComponent {
-  registrationForm!: FormGroup;
+  admin = 1;
+  AddmissionForm!: FormGroup;
 
   constructor(private _fb: FormBuilder, private _crud: CrudService) {
-    this.registrationForm = this._fb.group({
+    this.AddmissionForm = this._fb.group({
       name: ['', Validators.required],
       email: ['', Validators.required],
       father_name: ['', Validators.required],
@@ -29,29 +31,48 @@ export class RegistrationFormComponent {
       address: ['', Validators.required],
       transport: ['', Validators.required],
       hostel: ['', Validators.required],
+      admin_id_fk: ['', Validators.required],
     });
   }
 
   onSubmit() {
-    console.log(this.registrationForm.value);
+    const formData = new FormData();
+    formData.append('name', this.AddmissionForm.get('name')?.value);
+    formData.append('email', this.AddmissionForm.get('email')?.value);
+    formData.append('mobile', this.AddmissionForm.get('mobile')?.value);
+    formData.append('adhar', this.AddmissionForm.get('adhar')?.value);
+    formData.append(
+      'father_name',
+      this.AddmissionForm.get('father_name')?.value
+    );
+    formData.append(
+      'mother_name',
+      this.AddmissionForm.get('mother_name')?.value
+    );
+    formData.append('password', this.AddmissionForm.get('password')?.value);
+    formData.append('profile', this.AddmissionForm.get('profile')?.value);
+    formData.append('class', this.AddmissionForm.get('class')?.value);
+    formData.append('dob', this.AddmissionForm.get('dob')?.value);
+    formData.append('gender', this.AddmissionForm.get('gender')?.value);
+    formData.append('transport', this.AddmissionForm.get('transport')?.value);
+    formData.append('section', this.AddmissionForm.get('section')?.value);
+    formData.append('roll_no', this.AddmissionForm.get('roll_no')?.value);
+    formData.append('hostel', this.AddmissionForm.get('hostel')?.value);
+    formData.append('address', this.AddmissionForm.get('address')?.value);
+    formData.append(
+      'admin_id_fk',
+      this.AddmissionForm.get('admin_id_fk')?.value
+    );
 
-    if (this.registrationForm.valid) {
-      this._crud.schoolAdmission(this.registrationForm.value).subscribe(
-        (res: RegRes) => {
-          console.log(res);
-          if (res.success == 1) {
-            alert(res.message);
-          } else {
-            alert(res.message);
-          }
-        },
-        (err: Error) => {
-          console.log(err.message);
-          alert();
-        }
-      );
-    } else {
-      alert('Please fill the required fields');
-    }
+    this._crud.addStudents(formData).subscribe(
+      (res: addStd) => {
+        alert('data inserted successfully');
+        console.log(res);
+      },
+      (err: Error) => {
+        alert('data not inserted');
+        console.log(err);
+      }
+    );
   }
 }

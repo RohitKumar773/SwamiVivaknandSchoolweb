@@ -8,7 +8,7 @@
     <div class="form_area">
         <div class="title">Personal Details</div>
 
-        <form [formGroup]="registrationForm">
+        <form [formGroup]="AddmissionForm">
 
         <div class="form-floating mb-2">
             <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
@@ -96,6 +96,7 @@
                     formControlName="hostel">
                 <label for="floatingInput">Assign Hostel</label>
             </div>
+            <input type="number" [ngModel]="admin" formControlName="admin_id_fk" readonly hidden>
         </form>
 
     </div>

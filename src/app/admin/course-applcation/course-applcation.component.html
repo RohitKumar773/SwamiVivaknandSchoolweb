@@ -3,11 +3,7 @@
     <div class="header_title">
       <div class="title">New Applications</div>
       <div class="add_btn">
-        <!-- <button type="button" class="btn btn-danger" >+ Add New</button> -->
       </div>
-      <!-- <div class="search_box">
-        <input class="form-control" type="search" placeholder="Search..." aria-label="default input example">
-      </div> -->
     </div>
 
     <table class="table table-striped" style="text-align: center;">
@@ -15,17 +11,25 @@
         <tr>
           <th scope="col">S.N.</th>
           <th scope="col">Student Name</th>
-          <th scope="col">Course Details</th>
-          <th scope="col">Contact Details</th>
+          <th scope="col">Email</th>
+          <th scope="col">Father's Name</th>
+          <th scope="col">Mother's Name</th>
+          <th scope="col">Mobile No.</th>
+          <th scope="col">Gender</th>
+          <th scope="col">Address</th>
           <th scope="col">Status</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let row of data" [ngClass]="row.id % 2 === 0 ? 'even' : 'odd'">
-          <td scope="row">1</td>
-          <td>{{row.name}}</td>
-          <td>LKG</td>
-          <td>Hajipur</td>
+        <tr *ngFor="let std of studentList; let i = index">
+          <td scope="row">{{i+1}}</td>
+          <td>{{std.name}}</td>
+          <td>{{std.email}}</td>
+          <td>{{std.father_name}}</td>
+          <td>{{std.mother_name}}</td>
+          <td>{{std.mobile}}</td>
+          <td>{{std.gender}}</td>
+          <td>{{std.address}}</td>
           <td>
             <button mat-icon-button>
               <mat-icon>visibility</mat-icon>

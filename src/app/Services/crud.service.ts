@@ -16,4 +16,8 @@ export class CrudService {
       data
     );
   }
+
+  schoolAdmission(data: any): Observable<RegRes> {
+    return this._http.post<RegRes>(`${this.base_url}students.php`, data);
+  }
 }

@@ -58,6 +58,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MasterDataNoticeComponent } from './master-data-notice/master-data-notice.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AddFacultyComponent } from './add-faculty/add-faculty.component';
 
 @NgModule({
   declarations: [
@@ -104,6 +105,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     AddBatchFormComponent,
     DashboardStyleComponent,
     MasterDataNoticeComponent,
+    AddFacultyComponent,
   ],
   imports: [
     CommonModule,

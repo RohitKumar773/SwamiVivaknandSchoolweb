@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { AddFacultyComponent } from '../add-faculty/add-faculty.component';
 
 @Component({
   selector: 'app-faculty-profile',
@@ -8,7 +10,16 @@ import { Component } from '@angular/core';
 export class FacultyProfileComponent {
 
 
-  add_new_faculty(){}
+  constructor(
+    private dialog:MatDialog
+  ){}
+
+  add_new_faculty(){
+    this.dialog.open(AddFacultyComponent,{
+      disableClose:true
+    })
+  
+  }
   delete_profile(){}
 
 }

@@ -22,84 +22,12 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
+                <tr *ngFor="let ft of facultyList">
                     <th scope="row">1</th>
-                    <td>Rajeev Sharma</td>
-                    <td>Mathematics</td>
-                    <td>9635874598</td>
-                    <td>25k</td>
-                    <td>
-                        <button mat-icon-button>
-                            <mat-icon>visibility</mat-icon>
-                        </button>
-                        <button mat-icon-button>
-                            <mat-icon>edit</mat-icon>
-                        </button>
-                        <button mat-icon-button (click)="delete_profile()">
-                            <mat-icon>delete</mat-icon>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Ranjan Sharma</td>
-                    <td>Physics</td>
-                    <td>9635896548</td>
-                    <td>30k</td>
-                    <td>
-                        <button mat-icon-button>
-                            <mat-icon>visibility</mat-icon>
-                        </button>
-                        <button mat-icon-button>
-                            <mat-icon>edit</mat-icon>
-                        </button>
-                        <button mat-icon-button (click)="delete_profile()">
-                            <mat-icon>delete</mat-icon>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Manish Kumar</td>
-                    <td>English</td>
-                    <td>8978965412</td>
-                    <td>20k</td>
-                    <td>
-                        <button mat-icon-button>
-                            <mat-icon>visibility</mat-icon>
-                        </button>
-                        <button mat-icon-button>
-                            <mat-icon>edit</mat-icon>
-                        </button>
-                        <button mat-icon-button (click)="delete_profile()">
-                            <mat-icon>delete</mat-icon>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">4</th>
-                    <td>Mohan Singh</td>
-                    <td>Biology</td>
-                    <td>7896541236</td>
-                    <td>12k</td>
-                    <td>
-                        <button mat-icon-button>
-                            <mat-icon>visibility</mat-icon>
-                        </button>
-                        <button mat-icon-button>
-                            <mat-icon>edit</mat-icon>
-                        </button>
-                        <button mat-icon-button (click)="delete_profile()">
-                            <mat-icon>delete</mat-icon>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">5</th>
-                    <td>Niranjan Kumar</td>
-                    <td>Physics</td>
-                    <td>7896548956</td>
-                    <td>30k</td>
+                    <td>{{ft.name}}</td>
+                    <td>{{ft.prev_speciality}}</td>
+                    <td>{{ft.contact_no}}</td>
+                    <td>{{ft.current_salary}}</td>
                     <td>
                         <button mat-icon-button>
                             <mat-icon>visibility</mat-icon>

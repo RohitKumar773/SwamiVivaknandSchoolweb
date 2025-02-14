@@ -1,25 +1,36 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddFacultyComponent } from '../add-faculty/add-faculty.component';
+import { CrudService } from 'src/app/Services/crud.service';
+import { faculty, facultyResponse } from 'src/app/interface/faculty.interface';
 
 @Component({
   selector: 'app-faculty-profile',
   templateUrl: './faculty-profile.component.html',
-  styleUrls: ['./faculty-profile.component.scss']
+  styleUrls: ['./faculty-profile.component.scss'],
 })
-export class FacultyProfileComponent {
+export class FacultyProfileComponent implements OnInit {
 
+  facultyList: faculty[] = [];
 
-  constructor(
-    private dialog:MatDialog
-  ){}
+  constructor(private dialog: MatDialog, private _crud: CrudService) {}
 
-  add_new_faculty(){
-    this.dialog.open(AddFacultyComponent,{
-      disableClose:true
-    })
-  
+  ngOnInit(): void {
+    this.getFaculty();
   }
-  delete_profile(){}
 
+  add_new_faculty() {
+    this.dialog.open(AddFacultyComponent, {
+      disableClose: true,
+    });
+  }
+  delete_profile() {}
+
+  getFaculty() {
+    this._crud.getAllFaculty().subscribe((res: facultyResponse) => {
+      if(Array.isArray(res.data)){
+        this.facultyList = res.data
+      }
+    });
+  }
 }

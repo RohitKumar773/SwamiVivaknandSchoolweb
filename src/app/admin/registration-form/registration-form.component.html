@@ -10,6 +10,7 @@
 
         <form [formGroup]="AddmissionForm">
 
+<<<<<<< HEAD
             <mat-form-field appearance="outline">
                 <mat-label>Student Name</mat-label>
                 <input matInput placeholder="Enter Student Name" formControlName="name">
@@ -41,6 +42,26 @@
             </div>
             <div class="form-floating mb-2">
                 <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com" formControlName="mobile">
+=======
+            <div class="form-floating mb-2">
+                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
+                <label for="floatingInput">Student Name</label>
+            </div>
+            <div class="form-floating mb-2">
+                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
+                <label for="floatingInput">Father's Name</label>
+            </div>
+            <div class="form-floating mb-2">
+                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
+                <label for="floatingInput">Mother's Name</label>
+            </div>
+            <div class="form-floating mb-2">
+                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                <label for="floatingInput">Email address</label>
+            </div>
+            <div class="form-floating mb-2">
+                <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com">
+>>>>>>> b3c265dc468bd73a6625a3604ff74c32c649cea6
                 <label for="floatingInput">Mobile no.</label>
             </div>
 
@@ -64,6 +85,10 @@
                 <input type="date" class="form-control" id="floatingInput" placeholder="name@example.com"
                     formControlName="dob">
                 <label for="floatingInput">D.O.B.</label>
+            </div>
+            <div class="form-floating mb-2">
+                <input type="date" class="form-control" id="floatingInput" formControlName="addmission_date">
+                <label for="floatingInput">Addmission Date</label>
             </div>
             <select class="form-select form-floating" aria-label="Default select example" formControlName="gender">
                 <option selected>--Select Gender--</option>

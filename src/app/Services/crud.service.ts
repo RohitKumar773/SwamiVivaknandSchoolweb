@@ -7,15 +7,15 @@ import { addStd } from '../interface/addStudent.interface';
 import { facultyResponse } from '../interface/faculty.interface';
 
 @Injectable({
-  providedIn:'root'
+  providedIn: 'root'
 })
 
 export class CrudService {
   // base_url: string = 'http://localhost/sawamivivekanand/'; //local
-  base_url:string = 'https://educatorbox.com/Development/sawamivivekanand/'; //Live 
+  base_url: string = 'https://educatorbox.com/Development/sawamivivekanand/'; //Live 
 
 
-  constructor(private _http: HttpClient) {}
+  constructor(private _http: HttpClient) { }
 
   std_self_reg(data: any): Observable<RegRes> {
     return this._http.post<RegRes>(
@@ -28,13 +28,18 @@ export class CrudService {
     return this._http.get<StudentResponse>(`${this.base_url}student.php`);
   }
 
-  addStudents(data: any): Observable<addStd> {
-    return this._http.post<addStd>(`${this.base_url}student.php`, data);
+  addStudents(data: any): Observable<any> {
+    return this._http.post<any>(`${this.base_url}student.php`, data);
   }
 
-  getAllFaculty():Observable<facultyResponse>{
+  StudentDelete(id: number): Observable<any> {
+    return this._http.delete<any>(`${this.base_url}student.php?id=${id}`);
+  }
+
+  getAllFaculty(): Observable<facultyResponse> {
     return this._http.get<facultyResponse>(`${this.base_url}faculty.php`);
   }
+
 }
 
 

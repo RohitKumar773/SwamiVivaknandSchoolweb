@@ -21,19 +21,19 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let std of studentList;let i= index" >
+                <tr *ngFor="let std of studentList;let i= index">
                     <th scope="row">{{i+1}}</th>
                     <td>{{std.name}}</td>
                     <td>{{std.class}}</td>
                     <td>{{std.name}}</td>
                     <td>
-                        <button mat-icon-button>
+                        <button mat-icon-button (click)="onUpdate(std)">
                             <mat-icon>visibility</mat-icon>
                         </button>
-                        <button mat-icon-button>
+                        <button mat-icon-button (click)="onUpdate(std)">
                             <mat-icon>edit</mat-icon>
                         </button>
-                        <button mat-icon-button (click)="delete_application()">
+                        <button mat-icon-button (click)="delete_application(std.id)">
                             <mat-icon>delete</mat-icon>
                         </button>
                     </td>

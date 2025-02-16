@@ -15,9 +15,9 @@ export class RegistrationFormComponent {
   AddmissionForm!: FormGroup;
 
   constructor(
-    private _fb: FormBuilder, 
+    private _fb: FormBuilder,
     private _crud: CrudService,
-    private matref:MatDialogRef<RegistrationFormComponent>
+    private matref: MatDialogRef<RegistrationFormComponent>
   ) {
     this.AddmissionForm = this._fb.group({
       name: ['', Validators.required],
@@ -37,6 +37,7 @@ export class RegistrationFormComponent {
       transport: ['', Validators.required],
       hostel: ['', Validators.required],
       admin_id_fk: ['', Validators.required],
+      addmission_date: [new Date().toISOString().split('T')[0], Validators.required],
     });
   }
 
@@ -65,6 +66,7 @@ export class RegistrationFormComponent {
       formData.append('roll_no', this.AddmissionForm.get('roll_no')?.value);
       formData.append('hostel', this.AddmissionForm.get('hostel')?.value);
       formData.append('address', this.AddmissionForm.get('address')?.value);
+      formData.append('addmission_date', this.AddmissionForm.get('addmission_date')?.value);
       formData.append(
         'admin_id_fk',
         this.AddmissionForm.get('admin_id_fk')?.value
@@ -82,7 +84,7 @@ export class RegistrationFormComponent {
         }
       );
     }
-    else{
+    else {
       alert('Please Fill all the required fields')
     }
   }

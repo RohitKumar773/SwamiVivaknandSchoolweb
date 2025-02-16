@@ -10,26 +10,39 @@
 
         <form [formGroup]="AddmissionForm">
 
-        <div class="form-floating mb-2">
-            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput">Student Name</label>
-        </div>
-        <div class="form-floating mb-2">
-            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput">Father's Name</label>
-        </div>
-        <div class="form-floating mb-2">
-            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput">Mother's Name</label>
-        </div>
-        <div class="form-floating mb-2">
-            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput">Email address</label>
-        </div>
-        <div class="form-floating mb-2">
-            <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput">Mobile no.</label>
-        </div>
+            <mat-form-field appearance="outline">
+                <mat-label>Student Name</mat-label>
+                <input matInput placeholder="Enter Student Name" formControlName="name">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Father's Name</mat-label>
+                <input matInput placeholder="Enter Student Name" formControlName="father_name">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Mother's Name</mat-label>
+                <input matInput placeholder="Enter Student Name" formControlName="mother_name">
+            </mat-form-field>
+
+            <!-- <div class="form-floating mb-2">
+                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" formControlName="name">
+                <label for="floatingInput">Student Name</label>
+            </div> -->
+            <!-- <div class="form-floating mb-2">
+                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" formControlName="father_name">
+                <label for="floatingInput">Father's Name</label>
+            </div> -->
+            <div class="form-floating mb-2">
+                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" formControlName="mother_name">
+                <label for="floatingInput">Mother's Name</label>
+            </div>
+            <div class="form-floating mb-2">
+                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" formControlName="email">
+                <label for="floatingInput">Email address</label>
+            </div>
+            <div class="form-floating mb-2">
+                <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com" formControlName="mobile">
+                <label for="floatingInput">Mobile no.</label>
+            </div>
 
             <div class="form-floating mb-2">
                 <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com"

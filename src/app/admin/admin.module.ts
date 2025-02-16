@@ -59,6 +59,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MasterDataNoticeComponent } from './master-data-notice/master-data-notice.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddFacultyComponent } from './add-faculty/add-faculty.component';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -122,6 +123,7 @@ import { AddFacultyComponent } from './add-faculty/add-faculty.component';
     MatDatepickerModule,
     MatFormFieldModule,
     ReactiveFormsModule,
+    MatInputModule
   ],
 })
 export class AdminModule {}

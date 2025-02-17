@@ -30,6 +30,7 @@ export class AdmissionsComponent implements OnInit {
       disableClose: true,
     });
   }
+  
 
   getAllStudent() {
     this._crud.getAllStudent().subscribe((res: StudentResponse) => {

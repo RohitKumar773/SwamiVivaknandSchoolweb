@@ -5,6 +5,7 @@ import { RegRes } from '../interface/studentReg.interface';
 import { StudentResponse } from '../interface/student.interface';
 import { addStd } from '../interface/addStudent.interface';
 import { facultyResponse } from '../interface/faculty.interface';
+import { eventsResponse } from '../interface/event.interface';
 
 @Injectable({
   providedIn:'root'
@@ -34,6 +35,10 @@ export class CrudService {
 
   getAllFaculty():Observable<facultyResponse>{
     return this._http.get<facultyResponse>(`${this.base_url}faculty.php`);
+  }
+
+  getAllEvents():Observable<eventsResponse>{
+    return this._http.get<eventsResponse>(`${this.base_url}events.php`)
   }
 }
 

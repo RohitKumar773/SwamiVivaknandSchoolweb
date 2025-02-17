@@ -8,23 +8,31 @@
     <div class="form_area">
         <div class="title">Event Details</div>
 
-        <div class="form-floating mb-2">
-            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput">Occassion Name</label>
-        </div>
-        <div class="form-floating mb-2">
-            <input type="date" class="form-control" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput">To</label>
-        </div>
-        <div class="form-floating mb-2">
-            <input type="date" class="form-control" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput">From</label>
-        </div>
+        <form [formGroup]="eventForm">
+            <mat-form-field appearance="outline">
+                <mat-label>Occassion Name</mat-label>
+                <input matInput placeholder="Enter Occassion Name" type="text" formControlName="ocassion_name">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Start</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="date">
+                <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>End</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="date">
+                <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        </form>
 
     </div>
 
     <div class="btn_area">
-        <button type="button" class="btn btn-danger" id="cancel" mat-dialog-close>Cancel</button>
+        <button type="button" class="btn btn-danger" id="cancel" (click)="resetForm()">Reset</button>
         <button type="button" class="btn btn-primary" id="submit">Submit</button>
     </div>
 </div>

@@ -37,8 +37,26 @@ export class RegistrationFormComponent {
       transport: ['', Validators.required],
       hostel: ['', Validators.required],
       admin_id_fk: ['', Validators.required],
-      addmission_date: [new Date().toISOString().split('T')[0], Validators.required],
+      addmission_date: [
+        new Date().toISOString().split('T')[0],
+        Validators.required,
+      ],
     });
+  }
+
+  validateMobile() {
+    let mobileControl = this.AddmissionForm.get('mobile');
+    if (mobileControl) {
+      let value = mobileControl.value;
+      mobileControl.setValue(value.replace(/\D/g, ''));
+    }
+  }
+  validateAdhar() {
+    let adharControl = this.AddmissionForm.get('adhar');
+    if (adharControl) {
+      let value = adharControl.value;
+      adharControl.setValue(value.replace(/\D/g, ''));
+    }
   }
 
   onSubmit() {
@@ -66,7 +84,10 @@ export class RegistrationFormComponent {
       formData.append('roll_no', this.AddmissionForm.get('roll_no')?.value);
       formData.append('hostel', this.AddmissionForm.get('hostel')?.value);
       formData.append('address', this.AddmissionForm.get('address')?.value);
-      formData.append('addmission_date', this.AddmissionForm.get('addmission_date')?.value);
+      formData.append(
+        'addmission_date',
+        this.AddmissionForm.get('addmission_date')?.value
+      );
       formData.append(
         'admin_id_fk',
         this.AddmissionForm.get('admin_id_fk')?.value
@@ -76,16 +97,19 @@ export class RegistrationFormComponent {
         (res: addStd) => {
           alert('data inserted successfully');
           console.log(res);
-          this.matref.close()
+          this.matref.close();
         },
         (err: Error) => {
           alert('data not inserted');
           console.log(err);
         }
       );
+    } else {
+      alert('Please Fill all the required fields');
     }
-    else {
-      alert('Please Fill all the required fields')
-    }
+  }
+
+  resetForm() {
+    this.AddmissionForm.reset();
   }
 }

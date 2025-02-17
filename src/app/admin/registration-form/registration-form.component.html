@@ -10,7 +10,6 @@
 
         <form [formGroup]="AddmissionForm">
 
-<<<<<<< HEAD
             <mat-form-field appearance="outline">
                 <mat-label>Student Name</mat-label>
                 <input matInput placeholder="Enter Student Name" formControlName="name">
@@ -23,108 +22,140 @@
                 <mat-label>Mother's Name</mat-label>
                 <input matInput placeholder="Enter Student Name" formControlName="mother_name">
             </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Email Address</mat-label>
+                <input matInput placeholder="Enter Student Name" formControlName="email">
+            </mat-form-field>
 
             <!-- <div class="form-floating mb-2">
-                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" formControlName="name">
-                <label for="floatingInput">Student Name</label>
+                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"
+                    formControlName="email">
+                <label for="floatingInput">Email address</label>
             </div> -->
+
+            <mat-form-field appearance="outline">
+                <mat-label>Mobile Number</mat-label>
+                <input type="tel" number matInput placeholder="Enter Student Name" formControlName="mobile"
+                    minlength="10" maxlength="10" pattern="\d{10}" (keyup)="validateMobile()">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Aadhar Number</mat-label>
+                <input type="tel" number matInput placeholder="Enter Student Name" formControlName="adhar"
+                    minlength="12" maxlength="12" pattern="\d{12}" (keyup)="validateAdhar()">
+            </mat-form-field>
+
             <!-- <div class="form-floating mb-2">
-                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" formControlName="father_name">
-                <label for="floatingInput">Father's Name</label>
-            </div> -->
-            <div class="form-floating mb-2">
-                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" formControlName="mother_name">
-                <label for="floatingInput">Mother's Name</label>
-            </div>
-            <div class="form-floating mb-2">
-                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" formControlName="email">
-                <label for="floatingInput">Email address</label>
-            </div>
-            <div class="form-floating mb-2">
-                <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com" formControlName="mobile">
-=======
-            <div class="form-floating mb-2">
-                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
-                <label for="floatingInput">Student Name</label>
-            </div>
-            <div class="form-floating mb-2">
-                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
-                <label for="floatingInput">Father's Name</label>
-            </div>
-            <div class="form-floating mb-2">
-                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
-                <label for="floatingInput">Mother's Name</label>
-            </div>
-            <div class="form-floating mb-2">
-                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                <label for="floatingInput">Email address</label>
-            </div>
-            <div class="form-floating mb-2">
-                <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com">
->>>>>>> b3c265dc468bd73a6625a3604ff74c32c649cea6
+                <input type="number" class="form-control" id="floatingInput" placeholder="Enter mobile number"
+                    formControlName="mobile" minlength="10" maxlength="10" pattern="\d{10}" required>
                 <label for="floatingInput">Mobile no.</label>
-            </div>
 
-            <div class="form-floating mb-2">
+            </div> -->
+
+
+            <!-- <div class="form-floating mb-2">
                 <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com"
                     formControlName="adhar">
                 <label for="floatingInput">Aadhar Number</label>
-            </div>
+            </div> -->
 
-            <div class="form-floating mb-2">
+            <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput placeholder="Enter Student Name" type="password" formControlName="password">
+            </mat-form-field>
+
+            <!-- <div class="form-floating mb-2">
                 <input type="password" class="form-control" id="floatingInput" placeholder="name@example.com"
                     formControlName="password">
                 <label for="floatingInput">Password</label>
-            </div>
-            <div class="form-floating mb-2">
+            </div> -->
+
+            <!-- <div class="form-floating mb-2">
                 <input type="file" class="form-control" id="floatingInput" placeholder="name@example.com"
                     formControlName="profile">
                 <label for="floatingInput">Profile Image</label>
-            </div>
-            <div class="form-floating mb-2">
+            </div> -->
+
+            <!-- <div class="form-floating mb-2">
                 <input type="date" class="form-control" id="floatingInput" placeholder="name@example.com"
                     formControlName="dob">
                 <label for="floatingInput">D.O.B.</label>
-            </div>
-            <div class="form-floating mb-2">
+            </div> -->
+            <mat-form-field appearance="outline">
+                <mat-label>D.O.B.</mat-label>
+                <input matInput placeholder="Enter Student Name" type="date" formControlName="dob">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Admission Date</mat-label>
+                <input matInput placeholder="Enter Student Name" type="date" formControlName="addmission_date">
+            </mat-form-field>
+
+            <!-- <div class="form-floating mb-2">
                 <input type="date" class="form-control" id="floatingInput" formControlName="addmission_date">
                 <label for="floatingInput">Addmission Date</label>
-            </div>
-            <select class="form-select form-floating" aria-label="Default select example" formControlName="gender">
+            </div> -->
+
+            <!-- <select class="form-select form-floating" aria-label="Default select example" formControlName="gender">
                 <option selected>--Select Gender--</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
                 <option value="Other">Other</option>
-            </select>
+            </select> -->
+
+            <mat-form-field appearance="outline" formControlName="gender">
+                <mat-label>Select Gender</mat-label>
+                <mat-select>
+                    <mat-option value="option1">Option 1</mat-option>
+                    <mat-option value="option2">Option 2</mat-option>
+                    <mat-option value="option3">Option 3</mat-option>
+                </mat-select>
+            </mat-form-field>
 
             <div class="title" style="margin-top: 20px;">School Details</div>
 
-            <select class="form-select form-floating" aria-label="Default select example" formControlName="class">
+            <mat-form-field appearance="outline" formControlName="class">
+                <mat-label>Select Class</mat-label>
+                <mat-select>
+                    <mat-option value="option1">Option 1</mat-option>
+                    <mat-option value="option2">Option 2</mat-option>
+                    <mat-option value="option3">Option 3</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <!-- <select class="form-select form-floating" aria-label="Default select example" formControlName="class">
                 <option value="Select Class">Select Class</option>
                 <option value="1">LKG</option>
                 <option value="2">UKG</option>
                 <option value="3">1st</option>
                 <option value="3">2nd</option>
-            </select>
-            <select class="form-select form-floating" aria-label="Default select example" formControlName="section">
+            </select> -->
+            <!-- <select class="form-select form-floating" aria-label="Default select example" formControlName="section">
                 <option selected>Select Section</option>
                 <option value="A">A</option>
                 <option value="B">B</option>
                 <option value="C">C</option>
                 <option value="D">D</option>
-            </select>
+            </select> -->
 
-            <div class="form-floating mb-2">
-                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com"
-                    formControlName="roll_no">
-                <label for="floatingInput">Roll No.</label>
-            </div>
-            <div class="form-floating mb-2">
-                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com"
-                    formControlName="address">
-                <label for="floatingInput">Address</label>
-            </div>
-            <div class="form-floating mb-2">
+            <mat-form-field appearance="outline" formControlName="section">
+                <mat-label>Select Section</mat-label>
+                <mat-select>
+                    <mat-option value="option1">Option 1</mat-option>
+                    <mat-option value="option2">Option 2</mat-option>
+                    <mat-option value="option3">Option 3</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Roll No.</mat-label>
+                <input matInput placeholder="Enter Student Name" type="number" formControlName="roll_no">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Address</mat-label>
+                <input matInput placeholder="Enter Student Name" type="text" formControlName="address">
+            </mat-form-field>
+            <!-- <div class="form-floating mb-2">
                 <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com"
                     formControlName="transport">
                 <label for="floatingInput">Assign Transport</label>
@@ -133,14 +164,15 @@
                 <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com"
                     formControlName="hostel">
                 <label for="floatingInput">Assign Hostel</label>
-            </div>
+            </div> -->
             <input type="number" [ngModel]="admin" formControlName="admin_id_fk" readonly hidden>
+
         </form>
 
     </div>
 
     <div class="btn_area">
-        <button type="button" class="btn btn-danger" id="cancel" mat-dialog-close>Cancel</button>
+        <button type="button" class="btn btn-danger" id="cancel" (click)="resetForm()">Reset</button>
         <button type="button" class="btn btn-primary" id="submit" (click)="onSubmit()">Submit</button>
     </div>
 </div>

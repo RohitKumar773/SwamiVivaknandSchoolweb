@@ -38,14 +38,10 @@
   height: auto;
   float: left;
 }
-.form-floating {
+mat-form-field {
   width: 45%;
-  height: 60px;
   float: left;
   margin-left: 3%;
-  border: 1px solid silver;
-  border-radius: 10px;
-  color: black;
 }
 .form-select{
   height: 60px;

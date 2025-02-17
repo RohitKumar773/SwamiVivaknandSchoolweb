@@ -74,6 +74,7 @@ export class AdmissionsComponent implements OnInit {
       }
     )
   }
+  
 
   getAllStudent() {
     this._crud.getAllStudent().subscribe((res: StudentResponse) => {

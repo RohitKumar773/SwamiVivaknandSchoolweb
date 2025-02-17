@@ -12,7 +12,7 @@ import {
 })
 export class ConfirmBoxComponent {
 
-  
+    
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialog: MatDialogRef<ConfirmBoxComponent>

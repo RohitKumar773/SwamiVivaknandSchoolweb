@@ -68,18 +68,17 @@
             <mat-form-field appearance="outline">
                 <mat-label>Select Class</mat-label>
                 <mat-select formControlName="class">
-                    <mat-option value="option1">UKG</mat-option>
-                    <mat-option value="option2">LKG</mat-option>
-                    <mat-option value="option3">12th</mat-option>
+                    <mat-option *ngFor="let cls of classes" [value]="cls">{{cls}}</mat-option>
+                   
                 </mat-select>
             </mat-form-field>
 
             <mat-form-field appearance="outline">
                 <mat-label>Select Section</mat-label>
                 <mat-select formControlName="section">
-                    <mat-option value="option1">A</mat-option>
-                    <mat-option value="option2">B</mat-option>
-                    <mat-option value="option3">C</mat-option>
+                    <mat-option value="A">A</mat-option>
+                    <mat-option value="B">B</mat-option>
+                    <mat-option value="C">C</mat-option>
                 </mat-select>
             </mat-form-field>
 

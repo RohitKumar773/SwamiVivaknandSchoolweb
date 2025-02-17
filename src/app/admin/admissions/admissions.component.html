@@ -16,7 +16,7 @@
                     <th scope="col">S.N.</th>
                     <th scope="col">Student Name</th>
                     <th scope="col">Class</th>
-                    <th scope="col">Assigned Batch</th>
+                    <th scope="col">Mobile </th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
@@ -25,12 +25,12 @@
                     <th scope="row">{{i+1}}</th>
                     <td>{{std.name}}</td>
                     <td>{{std.class}}</td>
-                    <td>{{std.name}}</td>
+                    <td>{{std.mobile}}</td>
                     <td>
-                        <button mat-icon-button>
+                        <button mat-icon-button (click)="viewStd()">
                             <mat-icon>visibility</mat-icon>
                         </button>
-                        <button mat-icon-button>
+                        <button mat-icon-button (click)="onUpdate(std)">
                             <mat-icon>edit</mat-icon>
                         </button>
                         <button mat-icon-button (click)="delete_application(std.id)">

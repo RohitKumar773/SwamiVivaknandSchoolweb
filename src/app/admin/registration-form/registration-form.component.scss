@@ -1,100 +1,68 @@
 .registration_form {
-  max-width: 100%;
-  max-height: 100%;
-  overflow-y: auto;
-  margin: 20px auto;
+  width: 600px;
+  height: 600px;
   background-color: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
+  padding: 10px;
+  overflow: auto;
 }
-
+.form_head {
+  width: 100%;
+  height: 50px;
+  float: left;
+  border-bottom: 1px solid silver;
+}
+.form_head h3 {
+  float: left;
+  padding: 5px;
+  font-family: "Nunito Sans", serif;
+}
+.form_head p {
+  float: right;
+  margin-top: 5px;
+}
+.title {
+  width: 100%;
+  height: 30px;
+  text-align: center;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-family: "Nunito Sans", serif;
+  border-bottom: 5px linear-gradient(to right, green, lightgreen);
+  margin-top: 10px;
+  margin-bottom: 20px;
+  line-height: 30px;
+  float: left;
+}
 .form_area {
-  flex: 1;
-  /* Makes sure it expands properly */
-  overflow-y: auto;
-  padding-right: 10px;
-  /* Avoids text cutting at the edge */
-}
-
-.row {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 15px;
-}
-
-.col {
-  flex: 1;
-}
-
-label {
-  font-size: 14px;
-  color: #333;
-  font-weight: bold;
-  margin-bottom: 5px;
-  display: block;
-}
-
-.form-control,
-.form-select {
   width: 100%;
   height: auto;
   float: left;
 }
-.form-floating {
+mat-form-field {
   width: 45%;
-  height: 60px;
   float: left;
   margin-left: 3%;
-  border: 1px solid silver;
-  border-radius: 10px;
-  color: black;
 }
-
-.form-control:focus,
-.form-select:focus {
-  border-color: #007bff;
-  outline: none;
+.form-select{
+  height: 60px;
+  margin-bottom: 10px;
 }
-
+#floatingInput{
+  border: 0.7px solid rgb(211, 211, 211);
+}
 .btn_area {
-  display: flex;
-  justify-content: space-between;
-  padding: 15px 0;
-  position: sticky;
-  bottom: 0;
-  background: white;
-  z-index: 10;
+  width: 100%;
+  height: 60px;
+  float: left;
+  padding: 20px;
+}
+.btn_area #cancel {
+  float: left;
+}
+.btn_area #submit {
+  float: right;
 }
 
-.btn {
-  padding: 10px 15px;
-  font-size: 16px;
-  font-weight: bold;
-  border-radius: 5px;
-}
-
-.btn-danger {
-  background-color: #dc3545;
-  color: white;
-  border: none;
-}
-
-.btn-primary {
-  background-color: #007bff;
-  color: white;
-  border: none;
-}
-
-.btn:hover {
-  opacity: 0.8;
-}
-
-/* Responsive for small screens */
-@media (max-width: 600px) {
-  .row {
-    flex-direction: column;
-  }
+::-webkit-scrollbar {
+  width: 5px;
 }

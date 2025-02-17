@@ -42,29 +42,3 @@ export class CrudService {
   }
 }
 
-
-
-// @Injectable({
-//   providedIn: 'root',
-// })
-// export class CrudService {
-//   base_url: string = 'http://localhost/sawamivivekanand/'; //local
-//   constructor(private _http: HttpClient) {}
-
-//   std_self_reg(data: any): Observable<RegRes> {
-//     return this._http.post<RegRes>(
-//       `${this.base_url}student_registation.php`,
-//       data
-//     );
-//   }
-
-//   addStudents(data:any) : Observable<addStd>{
-//     return this._http.post<addStd>(
-//       `${this.base_url}student.php`
-//     )
-//   }
-
-//   getAllStudent(): Observable<StudentResponse> {
-//     return this._http.get<StudentResponse>(`${this.base_url}student.php`);
-//   }
-// }

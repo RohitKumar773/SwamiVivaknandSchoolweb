@@ -59,6 +59,7 @@ export class RegistrationFormComponent implements OnInit {
     }
   }
   ngOnInit() {
+    console.log(this.edit_data)
     if (this.edit_data) {
       this.AddmissionForm.patchValue(this.edit_data)
     } else {
@@ -163,5 +164,9 @@ export class RegistrationFormComponent implements OnInit {
     } else {
       alert('Please Fill all the required fields');
     }
+  }
+
+  resetForm(){
+    this.AddmissionForm.reset();
   }
 }

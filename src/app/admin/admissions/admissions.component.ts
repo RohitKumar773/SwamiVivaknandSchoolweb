@@ -4,6 +4,7 @@ import { RegistrationFormComponent } from '../registration-form/registration-for
 import { ConfirmBoxComponent } from '../confirm-box/confirm-box.component';
 import { CrudService } from 'src/app/Services/crud.service';
 import { Student, StudentResponse } from 'src/app/interface/student.interface';
+import { RegistrationViewComponent } from '../registration-view/registration-view.component';
 
 @Component({
   selector: 'app-admissions',
@@ -22,10 +23,6 @@ export class AdmissionsComponent implements OnInit {
   add_new_std() {
     const openDig = this.dialog.open(RegistrationFormComponent, {
       disableClose: true,
-      width: '100%',
-      height: '100%',
-      maxHeight: '100vh',
-      maxWidth: '100vw'
     });
 
     openDig.afterClosed().subscribe(() => {
@@ -33,15 +30,16 @@ export class AdmissionsComponent implements OnInit {
     });
   }
 
+  viewStd(){
+    this.dialog.open(RegistrationViewComponent,{
+      disableClose:true
+    })
+  }
+
   onUpdate(data: any) {
     const openDig = this.dialog.open(RegistrationFormComponent, {
       disableClose: true,
       data: data,
-      width: '100%',
-      height: '100%',
-      maxHeight: '100vh',
-      maxWidth: '100vw'
-
     });
 
     openDig.afterClosed().subscribe(() => {

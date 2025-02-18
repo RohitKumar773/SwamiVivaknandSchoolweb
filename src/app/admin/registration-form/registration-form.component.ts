@@ -12,6 +12,22 @@ import { SharedService } from 'src/app/Services/shared.service';
   styleUrls: ['./registration-form.component.scss'],
 })
 export class RegistrationFormComponent implements OnInit {
+  profile_url:any;
+  imagePreview: string | null = null;
+
+  onFileSelected(event: Event): void {
+    const target = event.target as HTMLInputElement;
+    this.profile_url = target.files?.[0];
+
+    if (this.profile_url) {
+      const reader = new FileReader();
+      reader.onload = (e: ProgressEvent<FileReader>) => {
+        this.imagePreview = e.target?.result as string;
+      };
+      reader.readAsDataURL(this.profile_url);
+    }
+  }
+
   admin = 1;
   AddmissionForm!: FormGroup;
   classes: any[] = [];
@@ -91,7 +107,6 @@ export class RegistrationFormComponent implements OnInit {
         this.AddmissionForm.get('mother_name')?.value
       );
       formData.append('password', this.AddmissionForm.get('password')?.value);
-      formData.append('profile', this.AddmissionForm.get('profile')?.value);
       formData.append('class', this.AddmissionForm.get('class')?.value);
       formData.append('dob', this.AddmissionForm.get('dob')?.value);
       formData.append('gender', this.AddmissionForm.get('gender')?.value);
@@ -100,6 +115,7 @@ export class RegistrationFormComponent implements OnInit {
       formData.append('roll_no', this.AddmissionForm.get('roll_no')?.value);
       formData.append('hostel', this.AddmissionForm.get('hostel')?.value);
       formData.append('address', this.AddmissionForm.get('address')?.value);
+      formData.append('profile', this.profile_url);
       formData.append(
         'addmission_date',
         this.AddmissionForm.get('addmission_date')?.value

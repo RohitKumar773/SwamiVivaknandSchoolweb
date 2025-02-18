@@ -40,5 +40,9 @@ export class CrudService {
   getAllFaculty(): Observable<facultyResponse> {
     return this._http.get<facultyResponse>(`${this.base_url}faculty.php`);
   }
+
+  getAllEvents():Observable<eventsResponse>{
+    return this._http.get<eventsResponse>(`${this.base_url}events.php`);
+  }
 }
 

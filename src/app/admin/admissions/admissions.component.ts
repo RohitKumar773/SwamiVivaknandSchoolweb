@@ -30,9 +30,10 @@ export class AdmissionsComponent implements OnInit {
     });
   }
 
-  viewStd(){
+  viewStd(std:any){
     this.dialog.open(RegistrationViewComponent,{
-      disableClose:true
+      disableClose:true,
+      data:std,
     })
   }
 

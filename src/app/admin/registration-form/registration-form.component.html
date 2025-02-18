@@ -63,13 +63,21 @@
                 </mat-select>
             </mat-form-field>
 
+            <div class="upload-container">
+                <img *ngIf="imagePreview" [src]="imagePreview" alt="Image Preview" class="preview-img"><br>
+                <label for="fileUpload" class="custom-file-upload">Choose Image</label>
+                <input type="file" id="fileUpload" (change)="onFileSelected($event)" accept="image/*" formControlName="profile">
+               
+            </div>
+
+
             <div class="title" style="margin-top: 20px;">School Details</div>
 
             <mat-form-field appearance="outline">
                 <mat-label>Select Class</mat-label>
                 <mat-select formControlName="class">
                     <mat-option *ngFor="let cls of classes" [value]="cls">{{cls}}</mat-option>
-                   
+
                 </mat-select>
             </mat-form-field>
 

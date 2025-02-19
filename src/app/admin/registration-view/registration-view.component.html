@@ -1,22 +1,77 @@
-<div class="view">
-    <div class="title_area">
-        <h2>Sawami Vivekanand School, Hajipur Bihar.</h2>
+<div class="student_details">
+    <div class="title">
+        <img src="assets/svsnn.png" alt="">
     </div>
     <div class="details">
-        <ul *ngFor="let std of studentList">
-            <li>Name &nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp; <span>{{std.name}}</span> </li>
-            <li>Father's Name&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp; <span>{{std.father_name}}</span></li>
-            <li>Mother's Name&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;</li>
-            <li>Email Address&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;</li>
-            <li>Mobile No.&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;</li>
-            <li>Adhar No.&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;</li>
-            <li>Gender&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;</li>
-            <li>Class&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;</li>
-            <li>Section&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;:</li>
-            <li>D.O.B.&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;</li>
-            <li>Hostel&n&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;</li>
-            <li>Roll No. &nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;</li>
-            <li>Address&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;</li>
-        </ul>
+        <div class="profile">
+            <img src="{{img_url + this.student.profile}}" alt="">
+        </div>
+        <table>
+            <tr>
+                <th>Name</th>
+                <td>{{this.student.name}}</td>
+            </tr>
+            <tr>
+                <th>Father's Name</th>
+                <td>{{this.student.father_name}}</td>
+            </tr>
+            <tr>
+                <th>Mother's Name</th>
+                <td>{{this.student.mother_name}}</td>
+            </tr>
+            <!-- <tr>
+                <th>Profile</th>
+                <td>
+                    
+                </td>
+            </tr> -->
+            <tr>
+                <th>Email</th>
+                <td>{{this.student.email}}</td>
+            </tr>
+            <tr>
+                <th>Mobile No.</th>
+                <td>{{this.student.mobile}}</td>
+            </tr>
+            <tr>
+                <th>Aadhar</th>
+                <td>{{this.student.adhar}}</td>
+            </tr>
+            <tr>
+                <th>Password</th>
+                <td>{{this.student.password}}</td>
+            </tr>
+            <tr>
+                <th>Admission Date</th>
+                <td>{{this.student.addmission_date }}</td>
+            </tr>
+            <tr>
+                <th>D.O.B.</th>
+                <td>{{this.student.dob}}</td>
+            </tr>
+            <tr>
+                <th>Gender</th>
+                <td>{{this.student.gender}}</td>
+            </tr>
+            <tr>
+                <th>Class</th>
+                <td>{{this.student.class}}</td>
+            </tr>
+            <tr>
+                <th>Roll No.</th>
+                <td>{{this.student.roll_no}}</td>
+            </tr>
+            <tr>
+                <th>Section</th>
+                <td>{{this.student.section}}</td>
+            </tr>
+            <tr>
+                <th>Address</th>
+                <td>{{this.student.address}}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="btns">
+        <button mat-raised-button mat-dialog-close color="warn">Close</button>
     </div>
 </div>

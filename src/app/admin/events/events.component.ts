@@ -31,13 +31,13 @@ export class EventsComponent implements OnInit{
   }
 
   getEvents(){
-    // this._crud.getAllEvents().subscribe(
-    //   (res:eventsResponse) => {
-    //     if(Array.isArray(res.data)){
-    //       this.eventList = res.data
-    //     }
-    //   }
-    // )
+    this._crud.getAllEvents().subscribe(
+      (res:eventsResponse) => {
+        if(Array.isArray(res.data)){
+          this.eventList = res.data
+        }
+      }
+    )
   }
 
   delete_application() {

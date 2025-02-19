@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Student, StudentResponse } from 'src/app/interface/student.interface';
 import { CrudService } from 'src/app/Services/crud.service';
 
@@ -9,23 +9,37 @@ import { CrudService } from 'src/app/Services/crud.service';
   styleUrls: ['./registration-view.component.scss'],
 })
 export class RegistrationViewComponent implements OnInit {
-  studentList: Student[] = [];
+  img_url:string='https://educatorbox.com/Development/sawamivivekanand/'
+  student: Student= {
+    id: '',
+    name: '',
+    email: '',
+    mobile: '',
+    adhar: '',
+    father_name: '',
+    mother_name: '',
+    password: '',
+    profile: '',
+    class: '',
+    admin_id_fk: '',
+    dob: '',
+    gender: '',
+    transport: '',
+    section: '',
+    roll_no: '',
+    hostel: '',
+    address: '',
+    addmission_date: ''
+  }
 
   constructor(
     private dialog: MatDialogRef<RegistrationViewComponent>,
-    private _crud: CrudService
+    private _crud: CrudService,
+    @Inject(MAT_DIALOG_DATA) public edit_data: any
   ) {}
 
   ngOnInit() {
-    this.viewStudent();
+    this.student = this.edit_data
   }
 
-  viewStudent() {
-    this._crud.getAllStudent().subscribe((res: StudentResponse) => {
-      console.log(res.data);
-      if (Array.isArray(res.data)) {
-        this.studentList = res.data;
-      }
-    });
-  }
 }

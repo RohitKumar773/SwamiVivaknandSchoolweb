@@ -17,6 +17,7 @@ export interface Student {
   roll_no: string;
   hostel: string;
   address: string;
+  addmission_date:string
 }
 
 export interface StudentResponse {

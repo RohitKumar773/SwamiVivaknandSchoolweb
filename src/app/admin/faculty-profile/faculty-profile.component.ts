@@ -13,7 +13,7 @@ export class FacultyProfileComponent implements OnInit {
 
   facultyList: faculty[] = [];
 
-  constructor(private dialog: MatDialog, private _crud: CrudService) {}
+  constructor(private dialog: MatDialog, private _crud: CrudService) { }
 
   ngOnInit(): void {
     this.getFaculty();
@@ -24,11 +24,11 @@ export class FacultyProfileComponent implements OnInit {
       disableClose: true,
     });
   }
-  delete_profile() {}
+  delete_profile() { }
 
   getFaculty() {
     this._crud.getAllFaculty().subscribe((res: facultyResponse) => {
-      if(Array.isArray(res.data)){
+      if (Array.isArray(res.data)) {
         this.facultyList = res.data
       }
     });

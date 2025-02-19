@@ -15,17 +15,17 @@
                 <tr>
                     <th scope="col">S.N.</th>
                     <th scope="col">Faculty Name</th>
-                    <th scope="col">Subject Name</th>
+                    <th scope="col">Gender</th>
                     <th scope="col">Contact Number</th>
                     <th scope="col">Salary</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let ft of facultyList">
-                    <th scope="row">1</th>
+                <tr *ngFor="let ft of facultyList; let i = index">
+                    <th scope="row">{{i+1}}</th>
                     <td>{{ft.name}}</td>
-                    <td>{{ft.prev_speciality}}</td>
+                    <td>{{ft.gender}}</td>
                     <td>{{ft.contact_no}}</td>
                     <td>{{ft.current_salary}}</td>
                     <td>
@@ -35,7 +35,7 @@
                         <button mat-icon-button>
                             <mat-icon>edit</mat-icon>
                         </button>
-                        <button mat-icon-button (click)="delete_profile()">
+                        <button mat-icon-button (click)="delete_profile(ft.id)">
                             <mat-icon>delete</mat-icon>
                         </button>
                     </td>

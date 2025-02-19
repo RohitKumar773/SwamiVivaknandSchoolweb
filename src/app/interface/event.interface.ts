@@ -1,8 +1,9 @@
 export interface Events {
-  id: number;
+  id: string;
   ocassion_name: string;
-  date: string;
-  admin_id_fk: number;
+  start_date: string;
+  end_date: string;
+  admin_id_fk: string;
 }
 
 export interface eventsResponse {

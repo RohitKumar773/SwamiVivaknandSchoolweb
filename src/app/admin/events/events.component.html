@@ -15,17 +15,19 @@
                 <tr>
                     <th scope="col">S.N.</th>
                     <th scope="col">Ocassion Name</th>
-                    <th scope="col">Date</th>
+                    <th scope="col">Start Date</th>
+                    <th scope="col">End Date</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let event of eventList">
-                    <th scope="row">1.</th>
+                <tr *ngFor="let event of eventList; let i = index">
+                    <th scope="row">{{i+1}}</th>
                     <td>{{event.ocassion_name}}</td>
-                    <td>1st January</td>
+                    <td>{{event.start_date}}</td>
+                    <td>{{event.end_date}}</td>
                     <td>
-                        <button mat-icon-button (click)="delete_application()">
+                        <button mat-icon-button (click)="delete_application(event.id)">
                             <mat-icon>delete</mat-icon>
                         </button>
                     </td>

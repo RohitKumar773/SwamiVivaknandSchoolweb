@@ -69,7 +69,6 @@ export class AdmissionsComponent implements OnInit {
             }
           )
         }
-
       }
     )
   }

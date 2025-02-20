@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AdminHomePageComponent } from './admin-home-page/admin-home-page.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { FacultiesComponent } from './faculties/faculties.component';
 import { AccountUserComponent } from './account-user/account-user.component';
 import { AccountRoleComponent } from './account-role/account-role.component';
 import { CourseApplcationComponent } from './course-applcation/course-applcation.component';
@@ -62,7 +61,6 @@ const routes: Routes = [
       { path: 'faculty_salary', component: FacultySalaryRecordsComponent },
       { path: 'faculty_assign_btch', component: FacultyAssignBatchComponent },
       { path: 'faculty_attendance', component: FacultyAttendanceComponent },
-      { path: 'faculty', component: FacultiesComponent },
       { path: 'fee_installments', component: FeeInstallmentsComponent },
       { path: 'class_days', component: ClassScheduleDayComponent },
       { path: 'class_timing', component: ClassScheduleTimingComponent },

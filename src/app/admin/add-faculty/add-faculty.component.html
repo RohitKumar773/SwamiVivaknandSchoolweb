@@ -7,7 +7,6 @@
     </div>
     <div class="form_area">
         <div class="title">Personal Details</div>
-
         <form [formGroup]="addFacultyForm">
             <div class="form-floating mb-2">
                 <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com"
@@ -159,7 +158,166 @@
                 <label for="floatingInput">IFSC Code</label>
             </div>
 
+        </form> -->
+
+        <form [formGroup]="addFacultyForm">
+            <mat-form-field appearance="outline">
+                <mat-label>Name</mat-label>
+                <input matInput placeholder="Enter Name" formControlName="name">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Email Address</mat-label>
+                <input matInput placeholder="Enter Email" formControlName="email">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Father's Name</mat-label>
+                <input matInput placeholder="Enter Father's Name" formControlName="father">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Mother's Name</mat-label>
+                <input matInput placeholder="Enter Mother's Name" formControlName="mother">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Mobile No.</mat-label>
+                <input type="tel" number matInput placeholder="Enter Student Name" formControlName="contact_no"
+                    minlength="10" maxlength="10" pattern="\d{10}" (keyup)="validateMobile()">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Aadhar Number</mat-label>
+                <input type="tel" number matInput placeholder="Enter Student Name" formControlName="aadhar_no"
+                    minlength="12" maxlength="12" pattern="\d{12}" (keyup)="validateAdhar()">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput placeholder="Enter Password" type="password" formControlName="password">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>D.O.B.</mat-label>
+                <input matInput type="date" formControlName="dob">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Select Gender</mat-label>
+                <mat-select formControlName="gender">
+                    <mat-option value="Male">Male</mat-option>
+                    <mat-option value="Female">Female</mat-option>
+                    <mat-option value="Other">Other</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Address</mat-label>
+                <input matInput placeholder="Enter Address" formControlName="address">
+            </mat-form-field>
+
+            <div class="upload-container">
+                <img *ngIf="imagePreview" [src]="imagePreview" alt="Image Preview" class="preview-img"><br>
+                <label for="fileUpload" class="custom-file-upload">Choose Image</label>
+                <input type="file" id="fileUpload" (change)="onFileSelected($event)" accept="image/*"
+                    formControlName="profile_img">
+            </div>
+
+            <div class="title" style="margin-top: 20px;">Educational Details</div>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Graduation Institute Name</mat-label>
+                <input matInput placeholder="Enter Institute Name" formControlName="graduation_institue">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Stream</mat-label>
+                <input matInput placeholder="Enter Stream" formControlName="grdt_stream">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Passing Year</mat-label>
+                <input matInput type="number" placeholder="Enter Passing Year" formControlName="grdt_passing_year">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Percentage</mat-label>
+                <input matInput type="number" placeholder="Enter Percentage" formControlName="grdt_percentage">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Last Education</mat-label>
+                <input matInput placeholder="Enter Last Education" formControlName="last_education">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Last Education Stream</mat-label>
+                <input matInput placeholder="Enter Stream" formControlName="last_ed_stream">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Last Education Passing Year</mat-label>
+                <input matInput type="number" placeholder="Enter Passing Year" formControlName="last_ed_passing_year">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Last Education Percentage</mat-label>
+                <input matInput type="number" placeholder="Enter Percentage" formControlName="last_ed_percentage">
+            </mat-form-field>
+
+            <div class="title" style="margin-top: 20px;">Experience</div>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Previous Working School</mat-label>
+                <input matInput placeholder="Enter Previous School" formControlName="previous_school">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Designation</mat-label>
+                <input matInput placeholder="Enter Designation" formControlName="prev_designation">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Experience</mat-label>
+                <input matInput placeholder="Enter Experience" formControlName="prev_experience">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Speciality</mat-label>
+                <input matInput placeholder="Enter Speciality" formControlName="prev_speciality">
+            </mat-form-field>
+
+            <div class="title" style="margin-top: 20px;">Salary Details</div>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Last Salary</mat-label>
+                <input matInput type="number" placeholder="Enter Last Salary" formControlName="last_salary">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Current Salary</mat-label>
+                <input matInput type="number" placeholder="Enter Current Salary" formControlName="current_salary">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Bank Name</mat-label>
+                <input matInput placeholder="Enter Bank Name" formControlName="bank_name">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Account No.</mat-label>
+                <input matInput type="number" placeholder="Enter Account No." formControlName="account_no">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>IFSC Code</mat-label>
+                <input matInput placeholder="Enter IFSC Code" formControlName="ifsc_code">
+            </mat-form-field>
+
+            <input type="number" [ngModel]="admin" formControlName="admin_id_fk" readonly hidden>
         </form>
+
 
     </div>
 

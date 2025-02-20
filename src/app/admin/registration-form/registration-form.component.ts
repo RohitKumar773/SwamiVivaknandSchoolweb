@@ -2,7 +2,6 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { addStd } from 'src/app/interface/addStudent.interface';
-import { RegRes } from 'src/app/interface/studentReg.interface';
 import { CrudService } from 'src/app/Services/crud.service';
 import { SharedService } from 'src/app/Services/shared.service';
 
@@ -31,6 +30,7 @@ export class RegistrationFormComponent implements OnInit {
   admin = 1;
   AddmissionForm!: FormGroup;
   classes: any[] = [];
+
   constructor(
     private _fb: FormBuilder,
     private _crud: CrudService,

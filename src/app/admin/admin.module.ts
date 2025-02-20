@@ -15,7 +15,6 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ProfiledialogComponent } from './profiledialog/profiledialog.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
-import { FacultiesComponent } from './faculties/faculties.component';
 import { FacultiesFormComponent } from './faculties-form/faculties-form.component';
 import { AccountRoleComponent } from './account-role/account-role.component';
 import { AccountUserComponent } from './account-user/account-user.component';
@@ -72,7 +71,6 @@ import { RegistrationViewComponent } from './registration-view/registration-view
     ProfiledialogComponent,
     DashboardComponent,
     RegistrationFormComponent,
-    FacultiesComponent,
     FacultiesFormComponent,
     AccountRoleComponent,
     AccountUserComponent,

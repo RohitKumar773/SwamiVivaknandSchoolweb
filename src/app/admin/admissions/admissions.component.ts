@@ -30,10 +30,10 @@ export class AdmissionsComponent implements OnInit {
     });
   }
 
-  viewStd(std:any){
-    this.dialog.open(RegistrationViewComponent,{
-      disableClose:true,
-      data:std,
+  viewStd(std: any) {
+    this.dialog.open(RegistrationViewComponent, {
+      disableClose: true,
+      data: std,
     })
   }
 
@@ -72,8 +72,6 @@ export class AdmissionsComponent implements OnInit {
       }
     )
   }
-  
-
   getAllStudent() {
     this._crud.getAllStudent().subscribe((res: StudentResponse) => {
       console.log(res.data);

@@ -13,7 +13,7 @@ import { ConfirmBoxComponent } from '../confirm-box/confirm-box.component';
 export class FacultyProfileComponent implements OnInit {
   facultyList: Faculty[] = [];
 
-  constructor(private dialog: MatDialog, private _crud: CrudService) { }
+  constructor(private dialog: MatDialog, private _crud: CrudService) {}
 
   ngOnInit(): void {
     this.getFaculty();
@@ -46,5 +46,10 @@ export class FacultyProfileComponent implements OnInit {
   }
 
   getFaculty() {
+    this._crud.getFaculty().subscribe((res: facultyResponse) => {
+      if (Array.isArray(res.data)) {
+        this.facultyList = res.data;
+      }
+    });
   }
 }

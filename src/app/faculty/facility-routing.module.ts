@@ -18,7 +18,7 @@ const routes: Routes = [
       { path: 'ft_dashboard', component: FacultyDashboardComponent },
       { path: 'ft_attendance', component: AttendanceComponent },
       { path: 'assigned_batch', component: AssignBtchComponent },
-      {path:'ft_exam', component:ExamTestsComponent},
+      { path: 'ft_exam', component: ExamTestsComponent },
     ],
   },
 ];
@@ -27,4 +27,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class FacilityRoutingModule {}
+export class FacilityRoutingModule { }

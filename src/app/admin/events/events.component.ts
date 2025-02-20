@@ -13,7 +13,7 @@ import { Events, eventsResponse } from 'src/app/interface/event.interface';
 export class EventsComponent implements OnInit {
   eventList: Events[] = [];
 
-  constructor(private dialog: MatDialog, private _crud: CrudService) {}
+  constructor(private dialog: MatDialog, private _crud: CrudService) { }
 
   ngOnInit() {
     this.getEvents();
@@ -41,18 +41,16 @@ export class EventsComponent implements OnInit {
     openDig.afterClosed().subscribe(
       (res) => {
         console.log(res);
-        if(res == 1){
+        if (res == 1) {
           this._crud.deleteEvent(id).subscribe(
             (res) => {
               console.log(res);
-              if(res.success == 1){
+              if (res.success == 1) {
                 this.getEvents()
               }
-              
             }
           )
         }
-        
       }
     )
   }

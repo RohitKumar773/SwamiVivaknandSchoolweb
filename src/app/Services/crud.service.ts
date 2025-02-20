@@ -11,10 +11,10 @@ import { eventsResponse } from '../interface/event.interface';
   providedIn: 'root',
 })
 export class CrudService {
-  base_url: string = 'http://localhost/sawamivivekanand/'; //local
-  // base_url:string = 'https://educatorbox.com/Development/sawamivivekanand/'; //Live
+  // base_url: string = 'http://localhost/sawamivivekanand/'; //local
+  base_url: string = 'https://educatorbox.com/Development/sawamivivekanand/'; //Live
 
-  constructor(private _http: HttpClient) {}
+  constructor(private _http: HttpClient) { }
 
   std_self_reg(data: any): Observable<RegRes> {
     return this._http.post<RegRes>(
@@ -52,7 +52,7 @@ export class CrudService {
   }
 
   deleteEvent(id: number): Observable<any> {
-    console.log(id );
+    console.log(id);
     return this._http.delete<any>(`${this.base_url}events.php?id=${id}`);
   }
 }

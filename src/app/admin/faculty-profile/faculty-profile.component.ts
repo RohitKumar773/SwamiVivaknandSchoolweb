@@ -46,16 +46,5 @@ export class FacultyProfileComponent implements OnInit {
   }
 
   getFaculty() {
-    this._crud.getFaculty().subscribe((res: facultyResponse) => {
-      if (Array.isArray(res.data)) {
-        this.facultyList = res.data;
-  delete_profile() { }
-
-  getFaculty() {
-    this._crud.getAllFaculty().subscribe((res: facultyResponse) => {
-      if (Array.isArray(res.data)) {
-        this.facultyList = res.data
-      }
-    });
   }
 }

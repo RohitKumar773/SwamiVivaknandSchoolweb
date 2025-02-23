@@ -21,7 +21,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let std of studentList; let i = index">
+        <tr *ngFor="let std of applicationList; let i = index">
           <td scope="row">{{i+1}}</td>
           <td>{{std.name}}</td>
           <td>{{std.email}}</td>
@@ -34,12 +34,12 @@
             <button mat-icon-button>
               <mat-icon>visibility</mat-icon>
             </button>
-            <button mat-icon-button (click)="delete_application()">
+            <button mat-icon-button (click)="delete_application(std.id)">
               <mat-icon>delete</mat-icon>
             </button>
           </td>
         </tr>
-          </tbody>
+      </tbody>
     </table>
 
 

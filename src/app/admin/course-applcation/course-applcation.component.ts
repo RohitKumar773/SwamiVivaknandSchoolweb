@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ConfirmBoxComponent } from '../confirm-box/confirm-box.component';
 import { CrudService } from 'src/app/Services/crud.service';
 import { Student, StudentResponse } from 'src/app/interface/student.interface';
+import { studentApplication, studentApplicationRes } from 'src/app/interface/newStdApp.interface';
 
 @Component({
   selector: 'app-course-applcation',
@@ -10,27 +11,45 @@ import { Student, StudentResponse } from 'src/app/interface/student.interface';
   styleUrls: ['./course-applcation.component.scss'],
 })
 export class CourseApplcationComponent implements OnInit{
-  studentList: Student[] = [];
+  applicationList: studentApplication[] = [];
 
   constructor(private dialog: MatDialog, private _crud: CrudService) {}
 
   ngOnInit(){
-    this.getAllStudent();
+    this.getAllApplcation();
   }
 
-  getAllStudent() {
-    this._crud.getAllStudent().subscribe((res: StudentResponse) => {
+  getAllApplcation() {
+    this._crud.getStdApplications().subscribe((res: studentApplicationRes) => {
       console.log(res.data);
 
       if(Array.isArray(res.data)){
-        this.studentList = res.data
+        this.applicationList = res.data
       }
     });
   }
 
-  delete_application() {
-    this.dialog.open(ConfirmBoxComponent, {
+  delete_application(id:any) {
+    const openDig = this.dialog.open(ConfirmBoxComponent, {
       disableClose: true,
     });
+
+    openDig.afterClosed().subscribe((res) => {
+      console.log(res);
+
+      if(res == 1){
+        this._crud.deleteApplication(id).subscribe((res) => {
+          console.log(res);
+          if(res.success == 1){
+            this.getAllApplcation()
+          }
+          
+        })
+      }
+      else{
+        alert('Data not Deleted')
+      }
+      
+    })
   }
 }

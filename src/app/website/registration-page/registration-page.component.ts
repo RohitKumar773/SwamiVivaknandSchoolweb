@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { RegRes } from 'src/app/interface/studentReg.interface';
+import { studentApplicationRes } from 'src/app/interface/newStdApp.interface';
 import { CrudService } from 'src/app/Services/crud.service';
 
 @Component({
@@ -9,6 +9,7 @@ import { CrudService } from 'src/app/Services/crud.service';
   styleUrls: ['./registration-page.component.scss'],
 })
 export class RegistrationPageComponent {
+  admin = 1;
   studentRegistrationForm!: FormGroup;
 
   constructor(private _rg: FormBuilder, private _crud: CrudService) {
@@ -20,6 +21,7 @@ export class RegistrationPageComponent {
       mobile: ['', Validators.required],
       gender: ['', Validators.required],
       address: ['', Validators.required],
+      admin_id_fk:['', Validators.required]
     });
   }
 
@@ -28,7 +30,7 @@ export class RegistrationPageComponent {
 
     if (this.studentRegistrationForm.valid) {
       this._crud.std_self_reg(this.studentRegistrationForm.value).subscribe(
-        (result: RegRes) => {
+        (result: studentApplicationRes) => {
           console.log(result);
           if (result.success == 1) {
             alert(result.message);

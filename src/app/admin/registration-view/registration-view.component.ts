@@ -9,8 +9,9 @@ import { CrudService } from 'src/app/Services/crud.service';
   styleUrls: ['./registration-view.component.scss'],
 })
 export class RegistrationViewComponent implements OnInit {
-  img_url:string='https://educatorbox.com/Development/sawamivivekanand/'
-  student: Student= {
+  img_url: string = 'http://localhost/sawamivivekanand/'
+  
+  student: Student = {
     id: '',
     name: '',
     email: '',
@@ -36,7 +37,7 @@ export class RegistrationViewComponent implements OnInit {
     private dialog: MatDialogRef<RegistrationViewComponent>,
     private _crud: CrudService,
     @Inject(MAT_DIALOG_DATA) public edit_data: any
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.student = this.edit_data

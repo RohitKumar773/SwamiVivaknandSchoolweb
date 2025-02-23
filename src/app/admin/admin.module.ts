@@ -62,6 +62,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatNativeDateModule} from '@angular/material/core';
 import { RegistrationViewComponent } from './registration-view/registration-view.component';
+import { FacultyViewComponent } from './faculty-view/faculty-view.component';
 
 
 @NgModule({
@@ -110,6 +111,7 @@ import { RegistrationViewComponent } from './registration-view/registration-view
     MasterDataNoticeComponent,
     AddFacultyComponent,
     RegistrationViewComponent,
+    FacultyViewComponent,
   ],
   imports: [
     CommonModule,

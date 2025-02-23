@@ -57,16 +57,15 @@
             <mat-form-field appearance="outline">
                 <mat-label>Select Gender</mat-label>
                 <mat-select formControlName="gender">
-                    <mat-option value="option1">Male</mat-option>
-                    <mat-option value="option2">Female</mat-option>
-                    <mat-option value="option3">Other</mat-option>
+                    <mat-option *ngFor="let gend of gender" [value]="gend">{{gend}}</mat-option>
                 </mat-select>
             </mat-form-field>
 
             <div class="upload-container">
                 <img *ngIf="imagePreview" [src]="imagePreview" alt="Image Preview" class="preview-img"><br>
                 <label for="fileUpload" class="custom-file-upload">Choose Image</label>
-                <input type="file" id="fileUpload" (change)="onFileSelected($event)" accept="image/*" formControlName="profile">
+                <input type="file" id="fileUpload" (change)="onFileSelected($event)" accept="image/*"
+                    formControlName="profile">
             </div>
 
 
@@ -83,9 +82,7 @@
             <mat-form-field appearance="outline">
                 <mat-label>Select Section</mat-label>
                 <mat-select formControlName="section">
-                    <mat-option value="A">A</mat-option>
-                    <mat-option value="B">B</mat-option>
-                    <mat-option value="C">C</mat-option>
+                    <mat-option *ngFor="let sect of sections" [value]="sect">{{sect}}</mat-option>
                 </mat-select>
             </mat-form-field>
 
@@ -120,6 +117,7 @@
 
     <div class="btn_area">
         <button type="button" class="btn btn-danger" id="cancel" (click)="resetForm()">Reset</button>
-        <button type="button" class="btn btn-primary" id="submit" (click)="onSubmit()">Submit</button>
+        <button type="button" class="btn btn-primary" id="submit"
+            (click)="edit_data?onUpdate():onSubmit()">{{edit_data?'Update':'Submit'}}</button>
     </div>
 </div>

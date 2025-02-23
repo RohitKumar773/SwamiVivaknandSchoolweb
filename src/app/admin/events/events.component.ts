@@ -20,9 +20,13 @@ export class EventsComponent implements OnInit {
   }
 
   eventForm() {
-    this.dialog.open(AddEventFormComponent, {
+    const openDig = this.dialog.open(AddEventFormComponent, {
       disableClose: true,
     });
+
+    openDig.afterClosed().subscribe(() => {
+      this.getEvents()
+    })
   }
 
   getEvents() {

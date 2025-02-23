@@ -3,9 +3,9 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { RegRes } from '../interface/studentReg.interface';
 import { StudentResponse } from '../interface/student.interface';
-import { addStd } from '../interface/addStudent.interface';
 import { facultyResponse } from '../interface/faculty.interface';
 import { eventsResponse } from '../interface/event.interface';
+import { studentApplicationRes } from '../interface/newStdApp.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -16,9 +16,13 @@ export class CrudService {
 
   constructor(private _http: HttpClient) { }
 
-  std_self_reg(data: any): Observable<RegRes> {
-    return this._http.post<RegRes>(
-      `${this.base_url}student_registation.php`,
+  adminLogin(data:any):Observable<any>{
+    return this._http.post<any>(`${this.base_url}admin_login.php`, data)
+  }
+
+  std_self_reg(data: any): Observable<studentApplicationRes> {
+    return this._http.post<studentApplicationRes>(
+      `${this.base_url}std_self_reg.php`,
       data
     );
   }
@@ -35,6 +39,13 @@ export class CrudService {
     return this._http.delete<any>(`${this.base_url}student.php?id=${id}`);
   }
 
+  getStdApplications(): Observable<studentApplicationRes> {
+    return this._http.get<studentApplicationRes>(`${this.base_url}std_self_reg.php`)
+  }
+  deleteApplication(id: number): Observable<any> {
+    return this._http.delete<any>(`${this.base_url}std_self_reg.php?id=${id}`)
+  }
+
   addFaculty(data: any): Observable<any> {
     return this._http.post<any>(`${this.base_url}faculty.php`, data);
   }
@@ -45,6 +56,10 @@ export class CrudService {
 
   deleteFaculty(id: number): Observable<any> {
     return this._http.delete<any>(`${this.base_url}faculty.php?id=${id}`);
+  }
+
+  addEvent(data: any): Observable<any> {
+    return this._http.post<any>(`${this.base_url}events.php`, data);
   }
 
   getAllEvents(): Observable<eventsResponse> {

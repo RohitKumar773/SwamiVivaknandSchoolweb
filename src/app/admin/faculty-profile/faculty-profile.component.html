@@ -29,10 +29,10 @@
                     <td>{{ft.contact_no}}</td>
                     <td>{{ft.current_salary}}</td>
                     <td>
-                        <button mat-icon-button>
+                        <button mat-icon-button (click)="viewFaculty(ft)">
                             <mat-icon>visibility</mat-icon>
                         </button>
-                        <button mat-icon-button>
+                        <button mat-icon-button (click)="updateFaculty(ft)">
                             <mat-icon>edit</mat-icon>
                         </button>
                         <button mat-icon-button (click)="delete_profile(ft.id)">

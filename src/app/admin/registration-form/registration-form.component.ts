@@ -11,7 +11,7 @@ import { SharedService } from 'src/app/Services/shared.service';
   styleUrls: ['./registration-form.component.scss'],
 })
 export class RegistrationFormComponent implements OnInit {
-  profile_url:any;
+  profile_url: any;
   imagePreview: string | null = null;
 
   onFileSelected(event: Event): void {
@@ -30,6 +30,8 @@ export class RegistrationFormComponent implements OnInit {
   admin = 1;
   AddmissionForm!: FormGroup;
   classes: any[] = [];
+  sections: any[] = [];
+  gender: any[] = [];
 
   constructor(
     private _fb: FormBuilder,
@@ -66,6 +68,14 @@ export class RegistrationFormComponent implements OnInit {
     this._shared.classList.subscribe((cls) => {
       this.classes = cls;
     });
+    this._shared.sectionList.subscribe(
+      (sect) => {
+        this.sections = sect;
+      }
+    );
+    this._shared.genderList.subscribe((gen) => {
+      this.gender = gen;
+    })
   }
 
   validateMobile() {
@@ -98,14 +108,8 @@ export class RegistrationFormComponent implements OnInit {
       formData.append('email', this.AddmissionForm.get('email')?.value);
       formData.append('mobile', this.AddmissionForm.get('mobile')?.value);
       formData.append('adhar', this.AddmissionForm.get('adhar')?.value);
-      formData.append(
-        'father_name',
-        this.AddmissionForm.get('father_name')?.value
-      );
-      formData.append(
-        'mother_name',
-        this.AddmissionForm.get('mother_name')?.value
-      );
+      formData.append('father_name', this.AddmissionForm.get('father_name')?.value);
+      formData.append('mother_name', this.AddmissionForm.get('mother_name')?.value);
       formData.append('password', this.AddmissionForm.get('password')?.value);
       formData.append('class', this.AddmissionForm.get('class')?.value);
       formData.append('dob', this.AddmissionForm.get('dob')?.value);
@@ -116,20 +120,14 @@ export class RegistrationFormComponent implements OnInit {
       formData.append('hostel', this.AddmissionForm.get('hostel')?.value);
       formData.append('address', this.AddmissionForm.get('address')?.value);
       formData.append('profile', this.profile_url);
-      formData.append(
-        'addmission_date',
-        this.AddmissionForm.get('addmission_date')?.value
-      );
-      formData.append(
-        'admin_id_fk',
-        this.AddmissionForm.get('admin_id_fk')?.value
-      );
+      formData.append('addmission_date', this.AddmissionForm.get('addmission_date')?.value);
+      formData.append('admin_id_fk', this.AddmissionForm.get('admin_id_fk')?.value);
 
       this._crud.addStudents(formData).subscribe(
         (res: addStd) => {
           // alert('data inserted successfully');
           console.log(res);
-          this.matref.close();
+          // this.matref.close();
         },
         (err: Error) => {
           alert('data not inserted');
@@ -142,24 +140,18 @@ export class RegistrationFormComponent implements OnInit {
   }
 
   onUpdate() {
+    console.log('update funcation run')
     console.log(this.AddmissionForm.value);
     if (this.AddmissionForm.valid) {
       const formData = new FormData();
       formData.append('id', this.AddmissionForm.get('id')?.value);
       formData.append('name', this.AddmissionForm.get('name')?.value);
-      formData.append('email', this.AddmissionForm.get('email')?.value);
       formData.append('mobile', this.AddmissionForm.get('mobile')?.value);
       formData.append('adhar', this.AddmissionForm.get('adhar')?.value);
-      formData.append(
-        'father_name',
-        this.AddmissionForm.get('father_name')?.value
-      );
-      formData.append(
-        'mother_name',
-        this.AddmissionForm.get('mother_name')?.value
-      );
+      formData.append('father_name', this.AddmissionForm.get('father_name')?.value);
+      formData.append('mother_name', this.AddmissionForm.get('mother_name')?.value);
       formData.append('password', this.AddmissionForm.get('password')?.value);
-      formData.append('profile', this.AddmissionForm.get('profile')?.value);
+      formData.append('profile', this.profile_url);
       formData.append('class', this.AddmissionForm.get('class')?.value);
       formData.append('dob', this.AddmissionForm.get('dob')?.value);
       formData.append('gender', this.AddmissionForm.get('gender')?.value);
@@ -168,20 +160,14 @@ export class RegistrationFormComponent implements OnInit {
       formData.append('roll_no', this.AddmissionForm.get('roll_no')?.value);
       formData.append('hostel', this.AddmissionForm.get('hostel')?.value);
       formData.append('address', this.AddmissionForm.get('address')?.value);
-      formData.append(
-        'addmission_date',
-        this.AddmissionForm.get('addmission_date')?.value
-      );
-      formData.append(
-        'admin_id_fk',
-        this.AddmissionForm.get('admin_id_fk')?.value
-      );
+      formData.append('addmission_date', this.AddmissionForm.get('addmission_date')?.value);
+      formData.append('admin_id_fk', this.AddmissionForm.get('admin_id_fk')?.value);
 
       this._crud.addStudents(formData).subscribe(
         (res: addStd) => {
           // alert('data inserted successfully');
           console.log(res);
-          this.matref.close();
+          // this.matref.close();
         },
         (err: Error) => {
           alert('data not inserted');

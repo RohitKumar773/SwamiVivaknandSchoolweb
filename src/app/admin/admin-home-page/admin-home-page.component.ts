@@ -9,6 +9,7 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-home-page',
@@ -23,6 +24,8 @@ import {
   ],
 })
 export class AdminHomePageComponent {
+
+
   activeButton: number | null = null;
   isOpen = false;
   isOpen2 = false;
@@ -65,11 +68,31 @@ export class AdminHomePageComponent {
   setActive(index: number): void {
     this.activeButton = index;
   }
-  constructor(private dialog: MatDialog) {}
+  constructor(
+    private dialog: MatDialog,
+    private router: Router
+  ) {
+    const data = localStorage.getItem('adminLoginData')
+    if (data) {
+      const loginUser = JSON.parse(data)
+      console.log(loginUser)
+      if (!loginUser.email) {
+        this.router.navigate(['/admin'])
+
+      }
+    }else{
+      this.router.navigate(['/admin'])
+    }
+  }
 
   openProfileDialog() {
     this.dialog.open(ProfiledialogComponent, {
       disableClose: true,
     });
+  }
+
+  onLogout(){
+    localStorage.removeItem('adminLoginData')
+    this.router.navigate(['/admin'])
   }
 }

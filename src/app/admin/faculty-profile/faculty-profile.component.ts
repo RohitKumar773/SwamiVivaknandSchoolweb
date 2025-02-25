@@ -42,7 +42,11 @@ export class FacultyProfileComponent implements OnInit {
     const openDig = this.dialog.open(AddFacultyComponent, {
       disableClose: true,
       data: data,
-    })
+    });
+
+    openDig.afterClosed().subscribe(() => {
+      this.getFaculty();
+    });
   }
 
 
@@ -64,10 +68,10 @@ export class FacultyProfileComponent implements OnInit {
   }
 
 
-  viewFaculty(ft:any){
+  viewFaculty(ft: any) {
     this.dialog.open(FacultyViewComponent, {
-      disableClose:true,
-      data:ft,
+      disableClose: true,
+      data: ft,
     })
   }
 }

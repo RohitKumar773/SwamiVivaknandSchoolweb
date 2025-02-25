@@ -14,18 +14,18 @@
 
         <div class="form_area">
             <div class="form-floating mb-4">
-                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"         [(ngModel)]="email">
                 <label for="floatingInput">Email address</label>
             </div>
 
             <div class="form-floating">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Password"           [(ngModel)]="password">
                 <label for="floatingPassword">Password</label>
             </div>
         </div>
 
         <div class="buttons_area">
-            <button type="button" class="btn" routerLink="home">Sign in</button>
+            <button type="button" class="btn" (click)="adminlogin()">Sign in</button>
             <button type="button" class="btn">Forgot Password?</button>
             <button type="button" class="btn"> &larr; Go Back to Home Page</button>
         </div>

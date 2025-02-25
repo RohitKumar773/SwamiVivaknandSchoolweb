@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { RegRes } from '../interface/studentReg.interface';
 import { StudentResponse } from '../interface/student.interface';
 import { facultyResponse } from '../interface/faculty.interface';
 import { eventsResponse } from '../interface/event.interface';

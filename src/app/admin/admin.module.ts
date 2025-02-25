@@ -15,7 +15,6 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ProfiledialogComponent } from './profiledialog/profiledialog.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
-import { FacultiesFormComponent } from './faculties-form/faculties-form.component';
 import { AccountRoleComponent } from './account-role/account-role.component';
 import { AccountUserComponent } from './account-user/account-user.component';
 import { CourseApplcationComponent } from './course-applcation/course-applcation.component';
@@ -56,7 +55,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MasterDataNoticeComponent } from './master-data-notice/master-data-notice.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddFacultyComponent } from './add-faculty/add-faculty.component';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
@@ -72,7 +71,6 @@ import { FacultyViewComponent } from './faculty-view/faculty-view.component';
     ProfiledialogComponent,
     DashboardComponent,
     RegistrationFormComponent,
-    FacultiesFormComponent,
     AccountRoleComponent,
     AccountUserComponent,
     CourseApplcationComponent,
@@ -130,7 +128,9 @@ import { FacultyViewComponent } from './faculty-view/faculty-view.component';
     ReactiveFormsModule,
     MatInputModule,
     MatSelectModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
 })
 export class AdminModule {}

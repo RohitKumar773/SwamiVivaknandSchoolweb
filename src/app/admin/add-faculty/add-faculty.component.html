@@ -1,6 +1,6 @@
 <div class="registration_form">
     <div class="form_head">
-        <h3>Add New Faculty</h3>
+        <h3>{{edit_data? 'Update Faculty Details' : 'Add New Faculty'}}</h3>
         <p mat-dialog-close>
             <mat-icon>cancel</mat-icon>
         </p>
@@ -16,7 +16,8 @@
 
             <mat-form-field appearance="outline">
                 <mat-label>Email Address</mat-label>
-                <input matInput placeholder="Enter Email" formControlName="email">
+                <input matInput placeholder="Enter Email" type="email" [email]="true" formControlName="email"
+                    required>
             </mat-form-field>
 
             <mat-form-field appearance="outline">
@@ -165,12 +166,11 @@
 
             <input type="number" [ngModel]="admin" formControlName="admin_id_fk" readonly hidden>
         </form>
-
-
     </div>
 
     <div class="btn_area">
         <button type="button" class="btn btn-danger" id="cancel" mat-dialog-close>Cancel</button>
-        <button type="button" class="btn btn-primary" id="submit" (click)="edit_data ? onUpdate() : onSubmit()">{{edit_data?'Update' : 'Submit'}}</button>
+        <button type="button" class="btn btn-primary" id="submit"
+            (click)="edit_data ? onUpdate() : onSubmit()">{{edit_data?'Update' : 'Submit'}}</button>
     </div>
 </div>

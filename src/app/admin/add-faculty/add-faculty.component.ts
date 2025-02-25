@@ -151,6 +151,7 @@ export class AddFacultyComponent implements OnInit {
 
     if (this.addFacultyForm.valid) {
       const formData = new FormData();
+      formData.append('id', this.addFacultyForm.get('id')?.value);
       formData.append('name', this.addFacultyForm.get('name')?.value);
       formData.append('dob', this.addFacultyForm.get('dob')?.value);
       formData.append('gender', this.addFacultyForm.get('gender')?.value);
@@ -182,12 +183,19 @@ export class AddFacultyComponent implements OnInit {
       this._crud.addFaculty(formData).subscribe(
         (res) => {
           console.log(res);
+          if(res.success){
+            alert('Data Updated Successfully')
+            this.matref.close()
+          }
+          else{
+            console.log(res);
+            alert('Data Not Updated')
+             }
           // alert('Data Updated sucessfully')
 
         },
         (err: Error) => {
           console.log(err);
-
         }
       )
     }

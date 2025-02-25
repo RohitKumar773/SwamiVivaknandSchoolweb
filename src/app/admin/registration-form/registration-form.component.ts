@@ -125,9 +125,9 @@ export class RegistrationFormComponent implements OnInit {
 
       this._crud.addStudents(formData).subscribe(
         (res: addStd) => {
-          // alert('data inserted successfully');
+          alert('data inserted successfully');
           console.log(res);
-          // this.matref.close();
+          this.matref.close();
         },
         (err: Error) => {
           alert('data not inserted');
@@ -165,12 +165,12 @@ export class RegistrationFormComponent implements OnInit {
 
       this._crud.addStudents(formData).subscribe(
         (res: addStd) => {
-          // alert('data inserted successfully');
+          alert('Data Updated successfully');
           console.log(res);
-          // this.matref.close();
+          this.matref.close();
         },
         (err: Error) => {
-          alert('data not inserted');
+          alert('Data not Updated');
           console.log(err);
         }
       );

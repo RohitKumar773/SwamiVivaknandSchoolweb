@@ -24,7 +24,8 @@
             </mat-form-field>
             <mat-form-field appearance="outline">
                 <mat-label>Email Address</mat-label>
-                <input matInput placeholder="Enter Student Name" formControlName="email">
+                <input matInput placeholder="Enter Student Name"  type="email" [email]="true"
+                    formControlName="email" required>
             </mat-form-field>
 
             <mat-form-field appearance="outline">

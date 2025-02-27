@@ -17,6 +17,7 @@ import { StdExamComponent } from './std-exam/std-exam.component';
 import { StdAttendanceComponent } from './std-attendance/std-attendance.component';
 import { StdFeedbackComponent } from './std-feedback/std-feedback.component';
 import { StdHolidayComponent } from './std-holiday/std-holiday.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { StdHolidayComponent } from './std-holiday/std-holiday.component';
     MatIconModule,
     MatToolbarModule,
     MatSidenavModule,
-    MatButtonModule
+    MatButtonModule,
+    FormsModule
   ]
 })
 export class StudentModule { }

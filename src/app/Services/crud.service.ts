@@ -10,13 +10,21 @@ import { studentApplicationRes } from '../interface/newStdApp.interface';
   providedIn: 'root',
 })
 export class CrudService {
-  // base_url: string = 'http://localhost/sawamivivekanand/'; //local
-  base_url: string = 'https://educatorbox.com/Development/sawamivivekanand/'; //Live
+  base_url: string = 'http://localhost/sawamivivekanand/'; //local
+  // base_url: string = 'https://educatorbox.com/Development/sawamivivekanand/'; //Live
 
   constructor(private _http: HttpClient) { }
 
   adminLogin(data:any):Observable<any>{
     return this._http.post<any>(`${this.base_url}admin_login.php`, data)
+  }
+
+  facultyLogin(data:any): Observable<any>{
+    return this._http.post<any>(`${this.base_url}faculty_login.php`, data)
+  }
+
+  studentLogin(data:any):Observable<any>{
+    return this._http.post<any>(`${this.base_url}student_login.php`, data)
   }
 
   std_self_reg(data: any): Observable<studentApplicationRes> {

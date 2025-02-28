@@ -12,8 +12,8 @@ import { userRes } from '../interface/users.interface';
   providedIn: 'root',
 })
 export class CrudService {
-  base_url: string = 'http://localhost/sawamivivekanand/'; //local
-  // base_url: string = 'https://educatorbox.com/Development/sawamivivekanand/'; //Live
+  // base_url: string = 'http://localhost/sawamivivekanand/'; //local
+  base_url: string = 'https://educatorbox.com/Development/sawamivivekanand/'; //Live
 
   constructor(private _http: HttpClient) { }
 

@@ -19,47 +19,11 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Faculty</td>
+                <tr *ngFor="let roles of roleList; let i = index">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{roles.role_name}}</td>
                     <td>
-                        <button mat-icon-button (click)="delete_role()">
-                            <mat-icon>delete</mat-icon>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>CEO</td>
-                    <td>
-                        <button mat-icon-button (click)="delete_role()">
-                            <mat-icon>delete</mat-icon>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>CTO</td>
-                    <td>
-                        <button mat-icon-button (click)="delete_role()">
-                            <mat-icon>delete</mat-icon>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">4</th>
-                    <td>Manager</td>
-                    <td>
-                        <button mat-icon-button (click)="delete_role()">
-                            <mat-icon>delete</mat-icon>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">5</th>
-                    <td>Staff Faculty</td>
-                    <td>
-                        <button mat-icon-button (click)="delete_role()">
+                        <button mat-icon-button (click)="delete_role(roles.id)">
                             <mat-icon>delete</mat-icon>
                         </button>
                     </td>

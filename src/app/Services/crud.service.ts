@@ -5,6 +5,8 @@ import { StudentResponse } from '../interface/student.interface';
 import { facultyResponse } from '../interface/faculty.interface';
 import { eventsResponse } from '../interface/event.interface';
 import { studentApplicationRes } from '../interface/newStdApp.interface';
+import { roleRes } from '../interface/role.interface';
+import { userRes } from '../interface/users.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -15,15 +17,15 @@ export class CrudService {
 
   constructor(private _http: HttpClient) { }
 
-  adminLogin(data:any):Observable<any>{
+  adminLogin(data: any): Observable<any> {
     return this._http.post<any>(`${this.base_url}admin_login.php`, data)
   }
 
-  facultyLogin(data:any): Observable<any>{
+  facultyLogin(data: any): Observable<any> {
     return this._http.post<any>(`${this.base_url}faculty_login.php`, data)
   }
 
-  studentLogin(data:any):Observable<any>{
+  studentLogin(data: any): Observable<any> {
     return this._http.post<any>(`${this.base_url}student_login.php`, data)
   }
 
@@ -76,5 +78,22 @@ export class CrudService {
   deleteEvent(id: number): Observable<any> {
     console.log(id);
     return this._http.delete<any>(`${this.base_url}events.php?id=${id}`);
+  }
+
+  addRole(data:any):Observable<any>{
+    return this._http.post<any>(`${this.base_url}role.php`, data)
+  }
+
+  getRole(): Observable<roleRes> {
+    return this._http.get<roleRes>(`${this.base_url}role.php`);
+  }
+  deleteRole(id: number): Observable<any> {
+    return this._http.delete<any>(`${this.base_url}role.php?id=${id}`);
+  }
+  getUser():Observable<userRes>{
+    return this._http.get<userRes>(`${this.base_url}users.php`);
+  }
+  deleteUser(id:number):Observable<any>{
+    return this._http.delete<any>(`${this.base_url}users.php?id=${id}`);
   }
 }

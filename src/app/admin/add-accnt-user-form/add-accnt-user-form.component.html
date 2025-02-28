@@ -8,27 +8,67 @@
     <div class="form_area">
         <div class="title">User Details</div>
 
-        <div class="form-floating mb-2">
-            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput">User Name</label>
-        </div>
-        <div class="form-floating mb-2">
-            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput">Email id</label>
-        </div>
-        <div class="form-floating mb-2">
-            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput">Mobile Number</label>
-        </div>
-        <div class="form-floating mb-2">
-            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput">Position</label>
-        </div>
+        <form>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Student Name</mat-label>
+                <input matInput placeholder="Enter Student Name">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Email Address</mat-label>
+                <input matInput placeholder="Enter Student Name" type="email">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Mobile Number</mat-label>
+                <input type="tel" number matInput placeholder="Enter Student Name"
+                    minlength="10" maxlength="10" pattern="\d{10}" (keyup)="validateMobile()">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Aadhar Number</mat-label>
+                <input type="tel" number matInput placeholder="Enter Student Name" minlength="12" maxlength="12"
+                    pattern="\d{12}" (keyup)="validateAdhar()">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput placeholder="Enter Student Name" type="password">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>D.O.B.</mat-label>
+                <input matInput placeholder="Enter Student Name" type="date">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Select Gender</mat-label>
+                <mat-select>
+                    <mat-option *ngFor="let gend of gender" [value]="gend">{{gend}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Select Role</mat-label>
+                <mat-select>
+                    <mat-option *ngFor="let gend of gender" [value]="gend">{{gend}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <div class="upload-container">
+                <img *ngIf="imagePreview" [src]="imagePreview" alt="Image Preview" class="preview-img"><br>
+                <label for="fileUpload" class="custom-file-upload">Choose Image</label>
+                <input type="file" id="fileUpload" (change)="onFileSelected($event)" accept="image/*">
+            </div>
+
+            <!-- <input type="number" [ngModel]="admin" readonly hidden> -->
+
+        </form>
 
     </div>
 
     <div class="btn_area">
-        <button type="button" class="btn btn-danger" id="cancel" mat-dialog-close>Cancel</button>
+        <button type="button" class="btn btn-danger" id="cancel" (click)="resetForm()">Reset</button>
         <button type="button" class="btn btn-primary" id="submit">Submit</button>
     </div>
 </div>

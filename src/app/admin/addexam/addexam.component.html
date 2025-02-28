@@ -1,0 +1,60 @@
+<div class="registration_form">
+    <div class="form_head">
+        <h3>Add New Examinations</h3>
+        <p mat-dialog-close>
+            <mat-icon>cancel</mat-icon>
+        </p>
+    </div>
+    <div class="form_area">
+        <div class="title">Exam Details</div>
+
+        <form>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Select Class</mat-label>
+                <mat-select>
+                    <mat-option *ngFor="let cls of class" [value]="cls">{{cls}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Exam Type</mat-label>
+                <input matInput placeholder="Select Exam Type">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Subject</mat-label>
+                <input matInput placeholder="Select Subject" type="email">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Passing marks</mat-label>
+                <input matInput placeholder="Enter Passing marks" type="text">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Total marks</mat-label>
+                <input matInput placeholder="Enter total marks" type="text">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Date</mat-label>
+                <input matInput  type="date">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Timing</mat-label>
+                <input matInput  type="time">
+            </mat-form-field>
+
+        
+
+            <!-- <input type="number" [ngModel]="admin" readonly hidden> -->
+
+        </form>
+
+    </div>
+
+    <div class="btn_area">
+        <button type="button" class="btn btn-danger" id="cancel" (click)="resetForm()">Reset</button>
+        <button type="button" class="btn btn-primary" id="submit">Submit</button>
+    </div>
+</div>

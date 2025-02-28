@@ -15,21 +15,13 @@
                 <tr>
                     <th scope="col">S.N.</th>
                     <th scope="col">Class Name</th>
-                    <th scope="col">Action</th>
+                    <!-- <th scope="col">Action</th> -->
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let cls of class_list; let i=index">
                     <th scope="row">{{i+1}}</th>
                     <td>{{cls}}</td>
-                    <td>
-                        <button mat-icon-button>
-                            <mat-icon>edit</mat-icon>
-                        </button>
-                        <button mat-icon-button (click)="delete_class()">
-                            <mat-icon>delete</mat-icon>
-                        </button>
-                    </td>
                 </tr>
             </tbody>
         </table>

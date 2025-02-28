@@ -12,6 +12,7 @@ import { FacultyDashboardComponent } from './faculty-dashboard/faculty-dashboard
 import { AttendanceComponent } from './attendance/attendance.component';
 import { AssignBtchComponent } from './assign-btch/assign-btch.component';
 import { ExamTestsComponent } from './exam-tests/exam-tests.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { ExamTestsComponent } from './exam-tests/exam-tests.component';
     MatIconModule,
     MatToolbarModule,
     MatButtonModule,
-    MatSidenavModule
+    MatSidenavModule,
+    FormsModule
   ]
 })
 export class FacilityModule { }

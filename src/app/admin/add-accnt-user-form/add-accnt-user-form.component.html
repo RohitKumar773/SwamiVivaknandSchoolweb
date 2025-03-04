@@ -51,7 +51,7 @@
             <mat-form-field appearance="outline">
                 <mat-label>Select Role</mat-label>
                 <mat-select>
-                    <mat-option *ngFor="let gend of gender" [value]="gend">{{gend}}</mat-option>
+                    <mat-option *ngFor="let role of roleList" [value]="role">{{role.role_name}}</mat-option>
                 </mat-select>
             </mat-form-field>
 

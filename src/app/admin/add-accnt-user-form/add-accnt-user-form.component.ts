@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { Role, roleRes } from 'src/app/interface/role.interface';
 import { CrudService } from 'src/app/Services/crud.service';
 import { SharedService } from 'src/app/Services/shared.service';
 
@@ -8,11 +9,12 @@ import { SharedService } from 'src/app/Services/shared.service';
   templateUrl: './add-accnt-user-form.component.html',
   styleUrls: ['./add-accnt-user-form.component.scss'],
 })
-export class AddAccntUserFormComponent {
+export class AddAccntUserFormComponent implements OnInit {
   userForm!: FormGroup
   admin = 1;
 
-  gender: any[] = []
+  gender: any[] = [];
+  roleList: Role[] = [];
 
   imagePreview: string | null = null;
   profile_url: any;
@@ -46,11 +48,26 @@ export class AddAccntUserFormComponent {
   }
 
   constructor(
-    private _shared: SharedService
+    private _shared: SharedService,
+    private _crud: CrudService
   ) {
     this._shared.genderList.subscribe((gen) => {
       this.gender = gen;
     })
+  }
+  ngOnInit() {
+    this.getRole();
+  }
+
+  getRole() {
+    this._crud.getRole().subscribe(
+      (res: roleRes) => {
+        console.log(res);
+        if(Array.isArray(res.data)){
+          this.roleList = res.data
+        }
+      }
+    )
   }
 
 

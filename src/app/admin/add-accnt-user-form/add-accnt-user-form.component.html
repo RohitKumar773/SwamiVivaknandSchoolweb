@@ -21,8 +21,8 @@
 
             <mat-form-field appearance="outline">
                 <mat-label>Mobile Number</mat-label>
-                <input type="tel" number matInput placeholder="Enter Student Name"
-                    minlength="10" maxlength="10" pattern="\d{10}" (keyup)="validateMobile()">
+                <input type="tel" number matInput placeholder="Enter Student Name" minlength="10" maxlength="10"
+                    pattern="\d{10}" (keyup)="validateMobile()">
             </mat-form-field>
 
             <mat-form-field appearance="outline">
@@ -51,7 +51,7 @@
             <mat-form-field appearance="outline">
                 <mat-label>Select Role</mat-label>
                 <mat-select>
-                    <mat-option *ngFor="let gend of gender" [value]="gend">{{gend}}</mat-option>
+                    <mat-option *ngFor="let role of roleList" [value]="role">{{role.role_name}}</mat-option>
                 </mat-select>
             </mat-form-field>
 

@@ -64,6 +64,7 @@ import { RegistrationViewComponent } from './registration-view/registration-view
 import { FacultyViewComponent } from './faculty-view/faculty-view.component';
 import { AddexamComponent } from './addexam/addexam.component';
 import { UserViewComponent } from './user-view/user-view.component';
+import { AddmastersubjectComponent } from './addmastersubject/addmastersubject.component';
 
 
 @NgModule({
@@ -114,6 +115,7 @@ import { UserViewComponent } from './user-view/user-view.component';
     FacultyViewComponent,
     AddexamComponent,
     UserViewComponent,
+    AddmastersubjectComponent,
   ],
   imports: [
     CommonModule,

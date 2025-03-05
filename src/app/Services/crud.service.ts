@@ -7,6 +7,7 @@ import { eventsResponse } from '../interface/event.interface';
 import { studentApplicationRes } from '../interface/newStdApp.interface';
 import { roleRes } from '../interface/role.interface';
 import { userRes } from '../interface/users.interface';
+import { SubjectRes } from '../interface/subject.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -95,5 +96,10 @@ export class CrudService {
   }
   deleteUser(id:number):Observable<any>{
     return this._http.delete<any>(`${this.base_url}users.php?id=${id}`);
+  }
+
+  // subjects
+  getSubject():Observable<SubjectRes>{
+    return this._http.get<SubjectRes>(`${this.base_url}subject.php`);
   }
 }

@@ -14,7 +14,7 @@ import { SubjectRes } from '../interface/subject.interface';
 })
 export class CrudService {
   // base_url: string = 'http://localhost/sawamivivekanand/'; //local
-  base_url: string = ' https://mausamstudio.com/Development/sawamivivekanand/ '; //Live
+  base_url: string = 'https://mausamstudio.com/Development/sawamivivekanand/ '; //Live
 
   constructor(private _http: HttpClient) { }
 

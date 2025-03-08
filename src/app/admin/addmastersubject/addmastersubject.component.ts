@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
+import { SubjectRes } from 'src/app/interface/subject.interface';
+import { CrudService } from 'src/app/Services/crud.service';
 import { SharedService } from 'src/app/Services/shared.service';
 
 @Component({
@@ -14,7 +17,9 @@ export class AddmastersubjectComponent {
 
   constructor(
     private _shared: SharedService,
-    private _fb: FormBuilder
+    private _fb: FormBuilder,
+    private _crud:CrudService,
+    private matref: MatDialogRef<AddmastersubjectComponent>
   ) {
     this._shared.classList.subscribe(
       (cls) => {
@@ -33,7 +38,21 @@ export class AddmastersubjectComponent {
 
   resetForm() { }
   onSubmit() { 
-    console.log(this.subjectForm.value);
+    this._crud.addSubject(this.subjectForm.value).subscribe(
+      (res:SubjectRes) => {
+        console.log(res);
+        if(res.success){
+          console.log(res);
+          this.matref.close();
+        }else{
+          alert('error')
+        }
+      },
+      (err:Error) => {
+        console.log(err);
+        
+      }
+    )
   }
 
 }

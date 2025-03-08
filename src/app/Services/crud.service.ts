@@ -14,7 +14,7 @@ import { SubjectRes } from '../interface/subject.interface';
 })
 export class CrudService {
   // base_url: string = 'http://localhost/sawamivivekanand/'; //local
-  base_url: string = 'https://educatorbox.com/Development/sawamivivekanand/'; //Live
+  base_url: string = ' https://mausamstudio.com/Development/sawamivivekanand/ '; //Live
 
   constructor(private _http: HttpClient) { }
 
@@ -101,5 +101,12 @@ export class CrudService {
   // subjects
   getSubject():Observable<SubjectRes>{
     return this._http.get<SubjectRes>(`${this.base_url}subject.php`);
+  }
+
+  addSubject(data:any):Observable<SubjectRes>{
+    return this._http.post<SubjectRes>(`${this.base_url}subject.php`,data);
+  }
+  deleteSubject(id:number):Observable<any>{
+    return this._http.delete<any>(`${this.base_url}subject.php?id=${id}`);
   }
 }

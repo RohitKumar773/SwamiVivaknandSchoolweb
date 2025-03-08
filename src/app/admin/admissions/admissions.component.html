@@ -6,7 +6,7 @@
                 <button type="button" class="btn btn-danger" (click)="add_new_std()">+ Add New</button>
             </div>
             <div class="search_box">
-                <input class="form-control" type="search" placeholder="Search..." aria-label="default input example">
+                <input class="form-control" type="text" placeholder="Search..." aria-label="default input example" (keyup)="onSearch($event)">
             </div>
         </div>
 
@@ -21,7 +21,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let std of studentList;let i= index">
+                <tr *ngFor="let std of filterStudent;let i= index">
                     <th scope="row">{{i+1}}</th>
                     <td>{{std.name}}</td>
                     <td>{{std.class}}</td>

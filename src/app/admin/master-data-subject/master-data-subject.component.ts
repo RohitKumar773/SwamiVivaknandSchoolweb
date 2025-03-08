@@ -23,24 +23,42 @@ export class MasterDataSubjectComponent implements OnInit {
     this.getSubject()
   }
 
-  delete_subject() {
-    this.dialog.open(ConfirmBoxComponent, {
+  delete_subject(id: any) {
+    console.log(id);
+    const openDel = this.dialog.open(ConfirmBoxComponent, {
       disableClose: true,
     });
+
+    openDel.afterClosed().subscribe(
+      (res) => {
+        console.log(res);
+        this._crud.deleteSubject(id).subscribe(
+          (res) => {
+            if (res.success == 1) {
+              this.getSubject()
+            }
+          }
+        )
+      }
+    )
   }
 
   add_new_subject() {
-    this.dialog.open(AddmastersubjectComponent, {
+    const openDig = this.dialog.open(AddmastersubjectComponent, {
       disableClose: true,
+    });
+
+    openDig.afterClosed().subscribe(() => {
+      this.getSubject();
     })
   }
 
   getSubject() {
-   this._crud.getSubject().subscribe((res:SubjectRes) => {
-    console.log(res);
-    if(Array.isArray(res.data)) {
-      this.subjectList = res.data 
-    }
-   })
+    this._crud.getSubject().subscribe((res: SubjectRes) => {
+      console.log(res);
+      if (Array.isArray(res.data)) {
+        this.subjectList = res.data
+      }
+    })
   }
 }

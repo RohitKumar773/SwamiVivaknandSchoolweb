@@ -21,14 +21,12 @@
                     <th scope="row">{{i+1}}</th>
                     <td>{{sub.subject_name}}</td>
                     <td>
-                        <button mat-icon-button (click)="delete_subject()">
+                        <button mat-icon-button (click)="delete_subject(sub.id)">
                             <mat-icon>delete</mat-icon>
                         </button>
                     </td>
                 </tr>
             </tbody>
         </table>
-
-
     </div>
 </div>

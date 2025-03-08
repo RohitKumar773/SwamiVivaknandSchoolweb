@@ -9,8 +9,8 @@ import { CrudService } from 'src/app/Services/crud.service';
   styleUrls: ['./registration-view.component.scss'],
 })
 export class RegistrationViewComponent implements OnInit {
-  // img_url: string = 'http://localhost/sawamivivekanand/'
-  img_url: string = 'https://educatorbox.com/Development/sawamivivekanand/'
+  img_url: string = 'http://localhost/sawamivivekanand/'
+  // img_url: string = 'https://educatorbox.com/Development/sawamivivekanand/'
   
   student: Student = {
     id: '',

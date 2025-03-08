@@ -13,6 +13,8 @@ import { RegistrationViewComponent } from '../registration-view/registration-vie
 })
 export class AdmissionsComponent implements OnInit {
   studentList: Student[] = [];
+  filterStudent: Student[] = [];
+  searchValue: string = '';
 
   constructor(private dialog: MatDialog, private _crud: CrudService) { }
 
@@ -77,7 +79,21 @@ export class AdmissionsComponent implements OnInit {
       console.log(res.data);
       if (Array.isArray(res.data)) {
         this.studentList = res.data;
+        this.filterStudent = res.data;
       }
     });
+  }
+
+  onSearch(event:any){
+    const filter = event.target.value.toLowerCase() || '';
+    console.log(filter);
+    
+    this.filterStudent = this.studentList.filter(data => (data.name.toLowerCase().includes(filter) || data.mobile.includes(filter))
+      // data.name.toLowerCase().includes(filter) ||
+      // data.father_name.toLowerCase().includes(filter) ||
+      // data.roll_no.toLowerCase().includes(filter);
+    )
+    console.log(this.filterStudent);
+    
   }
 }

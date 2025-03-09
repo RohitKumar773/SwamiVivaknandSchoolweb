@@ -32,9 +32,6 @@ export class AdminLoginComponent {
       alert('Please fill all the fields')
     }
     else {
-      // const adminLogin = new FormData();
-      // adminLogin.append('email', this.email);
-      // adminLogin.append('password', this.password);
       const adminLogin = {
         email: this.email,
         password: this.password

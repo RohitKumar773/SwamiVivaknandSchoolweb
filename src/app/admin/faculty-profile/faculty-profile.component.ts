@@ -5,6 +5,7 @@ import { CrudService } from 'src/app/Services/crud.service';
 import { Faculty, facultyResponse } from 'src/app/interface/faculty.interface';
 import { ConfirmBoxComponent } from '../confirm-box/confirm-box.component';
 import { FacultyViewComponent } from '../faculty-view/faculty-view.component';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-faculty-profile',
@@ -14,7 +15,11 @@ import { FacultyViewComponent } from '../faculty-view/faculty-view.component';
 export class FacultyProfileComponent implements OnInit {
   facultyList: Faculty[] = [];
 
-  constructor(private dialog: MatDialog, private _crud: CrudService) { }
+  constructor(
+    private dialog: MatDialog, 
+    private _crud: CrudService,
+    private toastr:ToastrService
+  ) { }
 
   ngOnInit(): void {
     this.getFaculty();
@@ -61,6 +66,7 @@ export class FacultyProfileComponent implements OnInit {
         this._crud.deleteFaculty(id).subscribe((res) => {
           if (res.success == 1) {
             this.getFaculty();
+            this.toastr.success('Faculty Deleted Successfully', 'Success')
           }
         });
       }

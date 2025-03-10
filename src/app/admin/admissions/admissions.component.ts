@@ -5,6 +5,7 @@ import { ConfirmBoxComponent } from '../confirm-box/confirm-box.component';
 import { CrudService } from 'src/app/Services/crud.service';
 import { Student, StudentResponse } from 'src/app/interface/student.interface';
 import { RegistrationViewComponent } from '../registration-view/registration-view.component';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-admissions',
@@ -16,7 +17,11 @@ export class AdmissionsComponent implements OnInit {
   filterStudent: Student[] = [];
   searchValue: string = '';
 
-  constructor(private dialog: MatDialog, private _crud: CrudService) { }
+  constructor(
+    private dialog: MatDialog, 
+    private _crud: CrudService, 
+    private toastr:ToastrService
+  ) { }
 
   ngOnInit() {
     this.getAllStudent();
@@ -67,6 +72,7 @@ export class AdmissionsComponent implements OnInit {
               console.log(res);
               if (res.success == 1) {
                 this.getAllStudent()
+                this.toastr.success('Student Deleted Successfully', 'Success')
               }
             }
           )
@@ -84,16 +90,16 @@ export class AdmissionsComponent implements OnInit {
     });
   }
 
-  onSearch(event:any){
+  onSearch(event: any) {
     const filter = event.target.value.toLowerCase() || '';
     console.log(filter);
-    
+
     this.filterStudent = this.studentList.filter(data => (data.name.toLowerCase().includes(filter) || data.mobile.includes(filter))
       // data.name.toLowerCase().includes(filter) ||
       // data.father_name.toLowerCase().includes(filter) ||
       // data.roll_no.toLowerCase().includes(filter);
     )
     console.log(this.filterStudent);
-    
+
   }
 }

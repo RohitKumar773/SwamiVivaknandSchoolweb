@@ -66,7 +66,6 @@ import { AddexamComponent } from './addexam/addexam.component';
 import { UserViewComponent } from './user-view/user-view.component';
 import { AddmastersubjectComponent } from './addmastersubject/addmastersubject.component';
 
-
 @NgModule({
   declarations: [
     AdminLoginComponent,
@@ -136,7 +135,8 @@ import { AddmastersubjectComponent } from './addmastersubject/addmastersubject.c
     MatSelectModule,
     MatNativeDateModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    
   ],
 })
 export class AdminModule {}

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import { ToastrService } from 'ngx-toastr';
 import { Events } from 'src/app/interface/event.interface';
 import { CrudService } from 'src/app/Services/crud.service';
 
@@ -16,7 +17,8 @@ export class AddEventFormComponent {
   constructor(
     private _fb: FormBuilder,
     private _crud: CrudService,
-    private matref: MatDialogRef<AddEventFormComponent>
+    private matref: MatDialogRef<AddEventFormComponent>,
+    private toastr:ToastrService
   ) {
     this.eventForm = this._fb.group({
       id: [''],
@@ -38,16 +40,17 @@ export class AddEventFormComponent {
       this._crud.addEvent(this.eventForm.value).subscribe(
         (res: Events) => {
           console.log(res);
-          this.matref.close()
+          this.matref.close();
+          this.toastr.success('Event added successfully', 'Success')
         },
         (err: Error) => {
           console.log(err);
-          alert('Data not inserted')
+          this.toastr.error('Event Not added', 'Error')
         }
       )
     }
     else {
-      alert('Please fill all the required fields')
+      this.toastr.warning('Please fill all required fields', 'Warning')
     }
   }
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import { ToastrService } from 'ngx-toastr';
 import { CrudService } from 'src/app/Services/crud.service';
 
 @Component({
@@ -16,7 +17,8 @@ export class AddAccntRoleFormComponent implements OnInit {
   constructor(
     private _crud: CrudService,
     private fb: FormBuilder,
-    private matref:MatDialogRef<AddAccntRoleFormComponent>
+    private matref:MatDialogRef<AddAccntRoleFormComponent>,
+    private toastr:ToastrService
   ) {
     this.roleForm = this.fb.group({
       id: [''],
@@ -40,15 +42,16 @@ export class AddAccntRoleFormComponent implements OnInit {
         (res:Event) => {
           console.log(res);
           this.matref.close()
+          this.toastr.success('Role Added Successfully','Success')
         } ,
         (err:Error) => {
           console.log(err);
-          
+          this.toastr.error('Role can not be added', 'Error')
         }
       )
     }
     else {
-      alert('Please fill required fields')
+      this.toastr.warning('Please fill all required fields', 'Warning')
     }
 
   }

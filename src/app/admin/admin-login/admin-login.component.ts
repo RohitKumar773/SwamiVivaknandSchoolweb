@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { CrudService } from 'src/app/Services/crud.service';
 
 @Component({
@@ -15,7 +16,8 @@ export class AdminLoginComponent {
 
   constructor(
     private _crud: CrudService,
-    private router: Router
+    private router: Router,
+    private toastr:ToastrService
   ) {
     const data = localStorage.getItem('adminLoginData')
     if (data) {
@@ -29,7 +31,7 @@ export class AdminLoginComponent {
 
   adminlogin() {
     if (this.email == "" || this.password == "") {
-      alert('Please fill all the fields')
+      this.toastr.warning('Email and Password are required.', 'Required Fields')
     }
     else {
       const adminLogin = {
@@ -41,11 +43,11 @@ export class AdminLoginComponent {
         (res: any) => {
           console.log(res);
           if (res.success == true) {
-            alert('Login Successfully')
             localStorage.setItem("adminLoginData", JSON.stringify(res.data))
             this.router.navigate(['/admin/home'])
+            this.toastr.success('Welcome to SVSN', 'Login Successfully');
           } else {
-            alert('login failded')
+            this.toastr.error('Enter valid email or password', 'Login Failed !')
           }
 
         },

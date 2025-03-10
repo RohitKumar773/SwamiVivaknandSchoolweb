@@ -4,6 +4,7 @@ import { AddEventFormComponent } from '../add-event-form/add-event-form.componen
 import { ConfirmBoxComponent } from '../confirm-box/confirm-box.component';
 import { CrudService } from 'src/app/Services/crud.service';
 import { Events, eventsResponse } from 'src/app/interface/event.interface';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-events',
@@ -13,7 +14,11 @@ import { Events, eventsResponse } from 'src/app/interface/event.interface';
 export class EventsComponent implements OnInit {
   eventList: Events[] = [];
 
-  constructor(private dialog: MatDialog, private _crud: CrudService) { }
+  constructor(
+    private dialog: MatDialog, 
+    private _crud: CrudService,
+    private toastr:ToastrService
+  ) { }
 
   ngOnInit() {
     this.getEvents();
@@ -50,6 +55,7 @@ export class EventsComponent implements OnInit {
             (res) => {
               console.log(res);
               if (res.success == 1) {
+                this.toastr.success('Hello world!', 'Toastr fun!');
                 this.getEvents()
               }
             }

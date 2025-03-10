@@ -4,6 +4,7 @@ import { ConfirmBoxComponent } from '../confirm-box/confirm-box.component';
 import { AddAccntRoleFormComponent } from '../add-accnt-role-form/add-accnt-role-form.component';
 import { CrudService } from 'src/app/Services/crud.service';
 import { Role, roleRes } from 'src/app/interface/role.interface';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-account-role',
@@ -15,7 +16,8 @@ export class AccountRoleComponent implements OnInit {
   roleList: Role[] = [];
   constructor(
     private dialog: MatDialog,
-    private _crud: CrudService
+    private _crud: CrudService,
+    private toastr:ToastrService
   ) { }
 
   ngOnInit() {
@@ -48,6 +50,7 @@ export class AccountRoleComponent implements OnInit {
             (res) => {
               console.log(res);
               if (res.success == 1) {
+                this.toastr.success('Role Deleted Successfully', 'Deleted')
                 this.getRole()
               }
             }

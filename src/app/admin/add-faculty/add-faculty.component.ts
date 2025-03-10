@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { ToastrService } from 'ngx-toastr';
 import { Faculty } from 'src/app/interface/faculty.interface';
 import { CrudService } from 'src/app/Services/crud.service';
 
@@ -33,6 +34,7 @@ export class AddFacultyComponent implements OnInit {
     private _fb: FormBuilder,
     private _crud: CrudService,
     private matref: MatDialogRef<AddFacultyComponent>,
+    private toastr: ToastrService,
     @Inject(MAT_DIALOG_DATA) public edit_data: any
   ) {
     this.addFacultyForm = this._fb.group({
@@ -134,14 +136,15 @@ export class AddFacultyComponent implements OnInit {
         (res: Faculty) => {
           console.log(res);
           this.matref.close();
+          this.toastr.success('Faculty added successfully', 'Success')
         },
         (err: Error) => {
-          alert('Data not inserted')
+          this.toastr.error('Faculty not added', 'Error')
           console.log(err);
         }
       )
     } else {
-      alert('Please Fill All Required Fields');
+      this.toastr.warning('Please fill al required fields', 'Warning')
     }
   }
 
@@ -183,21 +186,24 @@ export class AddFacultyComponent implements OnInit {
       this._crud.addFaculty(formData).subscribe(
         (res) => {
           console.log(res);
-          if(res.success){
-            alert('Data Updated Successfully')
+          if (res.success) {
+            this.toastr.success('Faculty Updated', 'Success')
             this.matref.close()
           }
-          else{
+          else {
             console.log(res);
-            alert('Data Not Updated')
-             }
-          // alert('Data Updated sucessfully')
+            this.toastr.error('Faculty Not Updated', 'Error')
+          }
 
         },
         (err: Error) => {
           console.log(err);
+          this.toastr.error('Faculty Not Updated', 'Error')
         }
       )
+    }
+    else {
+      this.toastr.warning('Please fill all required fields', 'Warning')
     }
   }
 }

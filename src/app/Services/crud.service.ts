@@ -13,13 +13,12 @@ import { SubjectRes } from '../interface/subject.interface';
   providedIn: 'root',
 })
 export class CrudService {
-<<<<<<< HEAD
-  base_url: string = 'http://localhost/sawamivivekanand/'; //local
+
+  // base_url: string = 'http://localhost/sawamivivekanand/'; //local
   // base_url: string = 'https://mausamstudio.com/Development/sawamivivekanand/'; //Live
-=======
+
   // base_url: string = 'http://localhost/sawamivivekanand/'; //local
   base_url: string = 'https://ud.mausamstudio.com/sawamivivekanand/'; //Live
->>>>>>> de9c369b0f318530590d929b05807d583d2e8b98
 
   constructor(private _http: HttpClient) { }
 

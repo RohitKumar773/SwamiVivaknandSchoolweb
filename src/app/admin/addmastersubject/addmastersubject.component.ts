@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import { ToastrService } from 'ngx-toastr';
 import { SubjectRes } from 'src/app/interface/subject.interface';
 import { CrudService } from 'src/app/Services/crud.service';
 import { SharedService } from 'src/app/Services/shared.service';
@@ -19,7 +20,8 @@ export class AddmastersubjectComponent {
     private _shared: SharedService,
     private _fb: FormBuilder,
     private _crud:CrudService,
-    private matref: MatDialogRef<AddmastersubjectComponent>
+    private matref: MatDialogRef<AddmastersubjectComponent>,
+    private toastr:ToastrService
   ) {
     this._shared.classList.subscribe(
       (cls) => {
@@ -44,11 +46,14 @@ export class AddmastersubjectComponent {
         if(res.success){
           console.log(res);
           this.matref.close();
+          this.toastr.success('Subject added Successfully', 'Success')
         }else{
           alert('error')
+          this.toastr.error('Subject not added', 'Error')
         }
       },
       (err:Error) => {
+        this.toastr.error('Subject not added', 'Error')
         console.log(err);
         
       }

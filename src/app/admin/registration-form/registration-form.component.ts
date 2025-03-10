@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { ToastrService } from 'ngx-toastr';
 import { addStd } from 'src/app/interface/addStudent.interface';
 import { CrudService } from 'src/app/Services/crud.service';
 import { SharedService } from 'src/app/Services/shared.service';
@@ -38,6 +39,7 @@ export class RegistrationFormComponent implements OnInit {
     private _crud: CrudService,
     private _shared: SharedService,
     private matref: MatDialogRef<RegistrationFormComponent>,
+    private toastr:ToastrService,
     @Inject(MAT_DIALOG_DATA) public edit_data: any
   ) {
     this.AddmissionForm = this._fb.group({
@@ -128,14 +130,15 @@ export class RegistrationFormComponent implements OnInit {
           alert('data inserted successfully');
           console.log(res);
           this.matref.close();
+          this.toastr.success('Student Registered Successfully', 'Success')
         },
         (err: Error) => {
-          alert('data not inserted');
+          this.toastr.error('Registration Failed', 'Error')
           console.log(err);
         }
       );
     } else {
-      alert('Please Fill all the required fields');
+      this.toastr.warning('Please fill all required fields', 'Warning')
     }
   }
 
@@ -165,17 +168,17 @@ export class RegistrationFormComponent implements OnInit {
 
       this._crud.addStudents(formData).subscribe(
         (res: addStd) => {
-          alert('Data Updated successfully');
+          this.toastr.success('Student Registered Successfully', 'Success')
           console.log(res);
           this.matref.close();
         },
         (err: Error) => {
-          alert('Data not Updated');
+          this.toastr.error('Registration Failed', 'Error')
           console.log(err);
         }
       );
     } else {
-      alert('Please Fill all the required fields');
+      this.toastr.warning('Please fill all required fields', 'Warning')
     }
   }
 

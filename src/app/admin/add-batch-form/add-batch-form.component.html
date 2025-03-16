@@ -1,38 +1,61 @@
-<div class="registration_form">
+<div class="registration_form" [formGroup]="batchForm">
     <div class="form_head">
         <h3>Add New Batch</h3>
         <p mat-dialog-close>
             <mat-icon>cancel</mat-icon>
         </p>
     </div>
+
     <div class="form_area">
         <div class="title">Batch Details</div>
 
-        <div class="form-floating mb-2">
-            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput">Class Name</label>
-        </div>
-        <div class="form-floating mb-2">
-            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput">Subject Number</label>
-        </div>
-        <div class="form-floating mb-2">
-            <input type="time" class="form-control" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput">Timing to</label>
-        </div>
-        <div class="form-floating mb-2">
-            <input type="time" class="form-control" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput">Timing from</label>
-        </div>
-        <div class="form-floating mb-2">
-            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput">Faculty name</label>
-        </div>
+        <!-- Class Selection -->
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Select Class</mat-label>
+            <mat-select formControlName="class" (selectionChange)="onClassChange($event)">
+                <mat-option *ngFor="let cls of classes" [value]="cls">{{ cls }}</mat-option>
+            </mat-select>
+        </mat-form-field>
 
+        <table class="batch_table" formArrayName="batchTable">
+            <tr *ngFor="let row of batchTable.controls; let i = index" [formGroupName]="i">
+                <td>
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Select Subject</mat-label>
+                        <mat-select formControlName="subject" [disabled]="isSubjectDisabled">
+                            <mat-option *ngFor="let sub of subject_data" [value]="sub.id">
+                                {{ sub.subject_name }}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </td>
+
+                <td>
+                    <!-- Timing Input -->
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Timing (10 AM To 11 AM)</mat-label>
+                        <input matInput formControlName="timing" placeholder="Timing (10 AM To 11 AM)" />
+                    </mat-form-field>
+                </td>
+
+                <td>
+                    <!-- Faculty Selection -->
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Select Faculty</mat-label>
+                        <mat-select formControlName="faculty">
+                            <mat-option *ngFor="let faculty of Faculty_data" [value]="faculty.id">
+                                {{ faculty.name }}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </td>
+            </tr>
+        </table>
     </div>
 
+    <!-- Buttons -->
     <div class="btn_area">
         <button type="button" class="btn btn-danger" id="cancel" mat-dialog-close>Cancel</button>
-        <button type="button" class="btn btn-primary" id="submit">Submit</button>
+        <button type="button" class="btn btn-primary" id="submit" (click)="submitBatch()">Submit</button>
     </div>
 </div>

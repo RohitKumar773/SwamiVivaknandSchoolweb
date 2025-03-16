@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Examinations } from 'src/app/interface/examinations.interface';
-import { SubjectRes, Subjects } from 'src/app/interface/subject.interface';
+import { SubjectRes, GroupedClass } from 'src/app/interface/subject.interface';
 import { CrudService } from 'src/app/Services/crud.service';
 import { SharedService } from 'src/app/Services/shared.service';
 
@@ -14,7 +14,7 @@ import { SharedService } from 'src/app/Services/shared.service';
 export class AddexamComponent implements OnInit {
   class: any[] = [];
   types: any[] = [];
-  subjectList: Subjects[] = []
+  subjectList: GroupedClass[] = []
   examinationForm!: FormGroup
   admin = 1;
 

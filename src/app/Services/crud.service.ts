@@ -9,6 +9,7 @@ import { roleRes } from '../interface/role.interface';
 import { userRes } from '../interface/users.interface';
 import { SubjectRes } from '../interface/subject.interface';
 import { ExaminationResponse } from '../interface/examinations.interface';
+import { BatchResponse } from '../interface/batches.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -108,6 +109,10 @@ export class CrudService {
     return this._http.get<SubjectRes>(`${this.base_url}subject.php`);
   }
 
+  getSubjectByClass(cls: string): Observable<any> {
+    return this._http.get<any>(`${this.base_url}subject.php?class=${cls}`);
+  }
+
   addSubject(data: any): Observable<SubjectRes> {
     return this._http.post<SubjectRes>(`${this.base_url}subject.php`, data);
   }
@@ -128,4 +133,15 @@ export class CrudService {
   deleteExam(id: number): Observable<any> {
     return this._http.delete<any>(`${this.base_url}examination.php?id=${id}`);
   }
+
+  // for Batches 
+
+  addBatches(data: any) {
+    return this._http.post(`${this.base_url}batches.php`, data)
+  }
+
+  GetBatches(): Observable<BatchResponse> {
+    return this._http.get<BatchResponse>(`${this.base_url}batches.php`)
+  }
+
 }

@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ConfirmBoxComponent } from '../confirm-box/confirm-box.component';
 import { AddmastersubjectComponent } from '../addmastersubject/addmastersubject.component';
 import { CrudService } from 'src/app/Services/crud.service';
-import { Subjects, SubjectRes } from 'src/app/interface/subject.interface';
+import { GroupedClass, SubjectRes } from 'src/app/interface/subject.interface';
 
 @Component({
   selector: 'app-master-data-subject',
@@ -12,7 +12,7 @@ import { Subjects, SubjectRes } from 'src/app/interface/subject.interface';
 })
 export class MasterDataSubjectComponent implements OnInit {
 
-  subjectList: Subjects[] = [];
+  subjectList: GroupedClass[] = [];
 
   constructor(
     private dialog: MatDialog,

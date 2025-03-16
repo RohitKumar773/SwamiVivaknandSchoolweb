@@ -12,195 +12,33 @@
             <thead>
                 <tr>
                     <th scope="col">S.N.</th>
+                    <th scope="col">Class</th>
                     <th scope="col">Subject Name</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Timing</th>
+                    <th scope="col">Passing Marks</th>
+                    <th scope="col">Total marks</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>History</td>
+                <tr *ngFor="let exam of examList; let i = index">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{exam.class}}</td>
+                    <td>{{exam.subject}}</td>
+                    <td>{{exam.date}}</td>
+                    <td>{{exam.time}}</td>
+                    <td>{{exam.passing_makrs}}</td>
+                    <td>{{exam.total_marks}}</td>
                     <td>
-                        <button mat-icon-button (click)="delete_exam()">
+                        <button mat-icon-button (click)="delete_exam(exam.id)">
                             <mat-icon>delete</mat-icon>
                         </button>
                     </td>
                 </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Geography</td>
-                    <td>
-                        <button mat-icon-button (click)="delete_exam()">
-                            <mat-icon>delete</mat-icon>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Science</td>
-                    <td>
-                        <button mat-icon-button (click)="delete_exam()">
-                            <mat-icon>delete</mat-icon>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">4</th>
-                    <td>English</td>
-                    <td>
-                        <button mat-icon-button (click)="delete_exam()">
-                            <mat-icon>delete</mat-icon>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">5</th>
-                    <td>Computer</td>
-                    <td>
-                        <button mat-icon-button (click)="delete_exam()">
-                            <mat-icon>delete</mat-icon>
-                        </button>
-                    </td>
-                </tr>
+
             </tbody>
         </table>
 
-
     </div>
-
-    <div class="registration_table_area" style="margin-top: 1px;">
-        <div class="header_title">
-            <div class="title">UKG Exams </div>
-        </div>
-
-        <table class="table table-striped" style="text-align: center;">
-            <thead>
-                <tr>
-                    <th scope="col">S.N.</th>
-                    <th scope="col">Subject Name</th>
-                    <th scope="col">Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>History</td>
-                    <td>
-                        <button mat-icon-button (click)="delete_exam()">
-                            <mat-icon>delete</mat-icon>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Geography</td>
-                    <td>
-                        <button mat-icon-button (click)="delete_exam()">
-                            <mat-icon>delete</mat-icon>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Science</td>
-                    <td>
-                        <button mat-icon-button (click)="delete_exam()">
-                            <mat-icon>delete</mat-icon>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">4</th>
-                    <td>English</td>
-                    <td>
-                        <button mat-icon-button (click)="delete_exam()">
-                            <mat-icon>delete</mat-icon>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">5</th>
-                    <td>Computer</td>
-                    <td>
-                        <button mat-icon-button (click)="delete_exam()">
-                            <mat-icon>delete</mat-icon>
-                        </button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <div class="registration_table_area" style="margin-top: 1px;">
-        <div class="header_title">
-            <div class="title">Class 1 Exams </div>
-        </div>
-
-        <table class="table table-striped" style="text-align: center;">
-            <thead>
-                <tr>
-                    <th scope="col">S.N.</th>
-                    <th scope="col">Subject Name</th>
-                    <th scope="col">Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>History</td>
-                    <td>
-                        <button mat-icon-button (click)="delete_exam()">
-                            <mat-icon>delete</mat-icon>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Geography</td>
-                    <td>
-                        <button mat-icon-button (click)="delete_exam()">
-                            <mat-icon>delete</mat-icon>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Science</td>
-                    <td>
-                        <!-- <button mat-icon-button>
-                            <mat-icon>edit</mat-icon>
-                        </button> -->
-                        <button mat-icon-button (click)="delete_exam()">
-                            <mat-icon>delete</mat-icon>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">4</th>
-                    <td>English</td>
-                    <td>
-                        <!-- <button mat-icon-button>
-                            <mat-icon>edit</mat-icon>
-                        </button> -->
-                        <button mat-icon-button (click)="delete_exam()">
-                            <mat-icon>delete</mat-icon>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">5</th>
-                    <td>Computer</td>
-                    <td>
-                        <!-- <button mat-icon-button>
-                            <mat-icon>edit</mat-icon>
-                        </button> -->
-                        <button mat-icon-button (click)="delete_exam()">
-                            <mat-icon>delete</mat-icon>
-                        </button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
 </div>

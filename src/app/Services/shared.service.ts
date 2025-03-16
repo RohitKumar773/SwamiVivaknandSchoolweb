@@ -20,5 +20,9 @@ export class SharedService {
   genderList = new BehaviorSubject([
     'Male', 'Female', 'Others'
   ])
+
+  examTypeList = new BehaviorSubject([
+    'Monthly', '6 Months', 'Annual'
+  ])
  
 }

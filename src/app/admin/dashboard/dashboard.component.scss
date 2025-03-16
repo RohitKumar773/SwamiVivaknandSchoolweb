@@ -72,7 +72,31 @@
   font-size: 17px;
   padding: 15px;
 }
+.list_data{
+  width: 100%;
+  height: calc(100% - 50px);
+  float: left;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  overflow-y: auto;
 
+  ul{
+    width: 100%;
+    border-radius: 0;
+    border-bottom: 1px solid rgb(245, 245, 245);
+  }
+  ul li{
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid rgb(230, 230, 230);
+
+    span{
+      font-size: 12px;
+      color: orange;
+    }
+  }
+}
 // media query start from here
 
 @media (max-width: 820px) and (min-width: 0px) {

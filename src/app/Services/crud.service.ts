@@ -8,6 +8,7 @@ import { studentApplicationRes } from '../interface/newStdApp.interface';
 import { roleRes } from '../interface/role.interface';
 import { userRes } from '../interface/users.interface';
 import { SubjectRes } from '../interface/subject.interface';
+import { ExaminationResponse } from '../interface/examinations.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -85,7 +86,7 @@ export class CrudService {
     return this._http.delete<any>(`${this.base_url}events.php?id=${id}`);
   }
 
-  addRole(data:any):Observable<any>{
+  addRole(data: any): Observable<any> {
     return this._http.post<any>(`${this.base_url}role.php`, data)
   }
 
@@ -95,22 +96,36 @@ export class CrudService {
   deleteRole(id: number): Observable<any> {
     return this._http.delete<any>(`${this.base_url}role.php?id=${id}`);
   }
-  getUser():Observable<userRes>{
+  getUser(): Observable<userRes> {
     return this._http.get<userRes>(`${this.base_url}users.php`);
   }
-  deleteUser(id:number):Observable<any>{
+  deleteUser(id: number): Observable<any> {
     return this._http.delete<any>(`${this.base_url}users.php?id=${id}`);
   }
 
   // subjects
-  getSubject():Observable<SubjectRes>{
+  getSubject(): Observable<SubjectRes> {
     return this._http.get<SubjectRes>(`${this.base_url}subject.php`);
   }
 
-  addSubject(data:any):Observable<SubjectRes>{
-    return this._http.post<SubjectRes>(`${this.base_url}subject.php`,data);
+  addSubject(data: any): Observable<SubjectRes> {
+    return this._http.post<SubjectRes>(`${this.base_url}subject.php`, data);
   }
-  deleteSubject(id:number):Observable<any>{
+  deleteSubject(id: number): Observable<any> {
     return this._http.delete<any>(`${this.base_url}subject.php?id=${id}`);
+  }
+
+  //examinations
+
+  addExamination(data: any): Observable<ExaminationResponse> {
+    return this._http.post<ExaminationResponse>(`${this.base_url}examination.php`, data);
+  }
+
+  getExamination(): Observable<ExaminationResponse> {
+    return this._http.get<ExaminationResponse>(`${this.base_url}examination.php`);
+  }
+
+  deleteExam(id: number): Observable<any> {
+    return this._http.delete<any>(`${this.base_url}examination.php?id=${id}`);
   }
 }

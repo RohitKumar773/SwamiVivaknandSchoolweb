@@ -12,7 +12,7 @@
         <!-- Class Selection -->
         <mat-form-field appearance="outline" class="full-width">
             <mat-label>Select Class</mat-label>
-            <mat-select formControlName="class" (selectionChange)="onClassChange($event)">
+            <mat-select [value]="SeletedClass" (selectionChange)="onClassChange($event)">
                 <mat-option *ngFor="let cls of classes" [value]="cls">{{ cls }}</mat-option>
             </mat-select>
         </mat-form-field>

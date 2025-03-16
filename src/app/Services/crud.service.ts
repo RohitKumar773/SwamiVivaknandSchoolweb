@@ -140,8 +140,16 @@ export class CrudService {
     return this._http.post(`${this.base_url}batches.php`, data)
   }
 
+  UpdaetBatches(data: any) {
+    return this._http.put(`${this.base_url}batches.php`, data)
+  }
+
   GetBatches(): Observable<BatchResponse> {
     return this._http.get<BatchResponse>(`${this.base_url}batches.php`)
+  }
+
+  GetBatchesbyCls(cls: string): Observable<any> {
+    return this._http.get<any>(`${this.base_url}batches.php?class=${cls}`)
   }
 
 }

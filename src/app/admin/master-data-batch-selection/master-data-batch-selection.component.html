@@ -16,7 +16,6 @@
                     <thead>
                         <tr>
                             <th scope="col">S.N.</th>
-                            <th scope="col">Class</th>
                             <th scope="col">Batch Time</th>
                             <th scope="col">Subject Name</th>
                             <th scope="col">Faculty</th>
@@ -30,12 +29,10 @@
                             <td>{{batch.subject_name}}</td>
                             <td>{{batch.name}}</td>
                             <td>
-                                <button mat-icon-button >
+                                <button mat-icon-button (click)="onEdit(cls.class)">
                                     <mat-icon>edit</mat-icon>
                                 </button>
-                                <button mat-icon-button (click)="delete_batch()">
-                                    <mat-icon>delete</mat-icon>
-                                </button>
+
                             </td>
                         </tr>
                     </tbody>

@@ -10,6 +10,7 @@ import { userRes } from '../interface/users.interface';
 import { SubjectRes } from '../interface/subject.interface';
 import { ExaminationResponse } from '../interface/examinations.interface';
 import { BatchResponse } from '../interface/batches.interface';
+import { NoticeResponse } from '../interface/notice.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -19,8 +20,8 @@ export class CrudService {
   // base_url: string = 'http://localhost/sawamivivekanand/'; //local
   // base_url: string = 'https://mausamstudio.com/Development/sawamivivekanand/'; //Live
 
-  // base_url: string = 'http://localhost/sawamivivekanand/'; //local
-  base_url: string = 'https://ud.mausamstudio.com/sawamivivekanand/'; //Live
+  base_url: string = 'http://localhost/sawamivivekanand/'; //local
+  // base_url: string = 'https://ud.mausamstudio.com/sawamivivekanand/'; //Live
 
   constructor(private _http: HttpClient) { }
 
@@ -149,7 +150,16 @@ export class CrudService {
   }
 
   GetBatchesbyCls(cls: string): Observable<any> {
-    return this._http.get<any>(`${this.base_url}batches.php?class=${cls}`)
+    return this._http.get<any>(`${this.base_url}batches.php?class=${cls}`);
   }
 
+  //Notice section
+
+  getNotice(): Observable<NoticeResponse> {
+    return this._http.get<NoticeResponse>(`${this.base_url}notice.php`);
+  }
+
+  deleteNotice(id: number): Observable<any> {
+    return this._http.delete<any>(`${this.base_url}notice.php?id=${id}`);
+  }
 }

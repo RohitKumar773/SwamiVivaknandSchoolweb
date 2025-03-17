@@ -65,6 +65,7 @@ import { FacultyViewComponent } from './faculty-view/faculty-view.component';
 import { AddexamComponent } from './addexam/addexam.component';
 import { UserViewComponent } from './user-view/user-view.component';
 import { AddmastersubjectComponent } from './addmastersubject/addmastersubject.component';
+import { AddNoticeComponent } from './add-notice/add-notice.component';
 
 @NgModule({
   declarations: [
@@ -115,6 +116,7 @@ import { AddmastersubjectComponent } from './addmastersubject/addmastersubject.c
     AddexamComponent,
     UserViewComponent,
     AddmastersubjectComponent,
+    AddNoticeComponent,
   ],
   imports: [
     CommonModule,

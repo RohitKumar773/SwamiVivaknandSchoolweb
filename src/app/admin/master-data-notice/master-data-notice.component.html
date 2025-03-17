@@ -1,12 +1,12 @@
-<!-- <div class="registration_box">
+<div class="registration_box">
     <div class="registration_table_area">
         <div class="header_title">
-            <div class="title">All Courses </div>
+            <div class="title">All Notice</div>
             <div class="add_btn">
-                <button type="button" class="btn btn-danger" (click)="add_new_course()">+ Add New</button>
+                <button type="button" class="btn btn-danger" (click)="noticeForm()">+ Add New</button>
             </div>
             <div class="search_box">
-                <input class="form-control" type="search" placeholder="Search..." aria-label="default input example">
+                <input class="form-control" type="" placeholder="Search..." aria-label="default input example">
             </div>
         </div>
 
@@ -14,95 +14,24 @@
             <thead>
                 <tr>
                     <th scope="col">S.N.</th>
-                    <th scope="col">Course Name</th>
-                    <th scope="col">Price</th>
+                    <th scope="col">Notice</th>
+                    <th scope="col">Date</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Matriculation</td>
-                    <td>40,000</td>
+                <tr *ngFor="let notice of noticeList; let i = index">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{notice.notice}}</td>
+                    <td>{{notice.notice_date}}</td>
                     <td>
-                        <button mat-icon-button>
-                            <mat-icon>visibility</mat-icon>
-                        </button>
-                        <button mat-icon-button>
-                            <mat-icon>edit</mat-icon>
-                        </button>
-                        <button mat-icon-button (click)="delete_course()">
+                        <button mat-icon-button (click)="delete_notice(notice.id)">
                             <mat-icon>delete</mat-icon>
                         </button>
                     </td>
                 </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>DCA</td>
-                    <td>4000</td>
-                    <td>
-                        <button mat-icon-button>
-                            <mat-icon>visibility</mat-icon>
-                        </button>
-                        <button mat-icon-button>
-                            <mat-icon>edit</mat-icon>
-                        </button>
-                        <button mat-icon-button (click)="delete_course()">
-                            <mat-icon>delete</mat-icon>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>ADCA</td>
-                    <td>8000</td>
-                    <td>
-                        <button mat-icon-button>
-                            <mat-icon>visibility</mat-icon>
-                        </button>
-                        <button mat-icon-button>
-                            <mat-icon>edit</mat-icon>
-                        </button>
-                        <button mat-icon-button (click)="delete_course()">
-                            <mat-icon>delete</mat-icon>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">4</th>
-                    <td>Basic Computer</td>
-                    <td>1500</td>
-                    <td>
-                        <button mat-icon-button>
-                            <mat-icon>visibility</mat-icon>
-                        </button>
-                        <button mat-icon-button>
-                            <mat-icon>edit</mat-icon>
-                        </button>
-                        <button mat-icon-button (click)="delete_course()">
-                            <mat-icon>delete</mat-icon>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">5</th>
-                    <td>Tally</td>
-                    <td>3000</td>
-                    <td>
-                        <button mat-icon-button>
-                            <mat-icon>visibility</mat-icon>
-                        </button>
-                        <button mat-icon-button>
-                            <mat-icon>edit</mat-icon>
-                        </button>
-                        <button mat-icon-button (click)="delete_course()">
-                            <mat-icon>delete</mat-icon>
-                        </button>
-                    </td>
-                </tr>
+
             </tbody>
         </table>
-
-
     </div>
-</div> -->
+</div>

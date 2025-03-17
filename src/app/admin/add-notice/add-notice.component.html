@@ -1,0 +1,28 @@
+<div class="registration_form">
+    <div class="form_head">
+        <h3>Add New Notice</h3>
+        <p mat-dialog-close>
+            <mat-icon>cancel</mat-icon>
+        </p>
+    </div>
+    <div class="form_area">
+        <div class="title">Notice Details</div>
+        <form>
+            <mat-form-field appearance="outline">
+                <mat-label>Notice</mat-label>
+                <input matInput placeholder="Enter Notice" type="text">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Date</mat-label>
+                <input matInput type="date" disabled readonly>
+            </mat-form-field>
+
+            <!-- <input type="number" [ngModel]="admin" formControlName="admin_id_fk" readonly hidden> -->
+        </form>
+    </div>
+
+    <div class="btn_area">
+        <button type="button" class="btn btn-danger" id="cancel" (click)="resetForm()">Reset</button>
+        <button type="button" class="btn btn-primary" id="submit" (click)="onSubmit()">Submit</button>
+    </div>
+</div>

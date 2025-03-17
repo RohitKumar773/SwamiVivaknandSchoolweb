@@ -25,7 +25,7 @@
             <mat-form-field appearance="outline">
                 <mat-label>Select Subject</mat-label>
                 <mat-select formControlName="subject">
-                    <!-- <mat-option *ngFor="let sub of subjectList.subject" [value]="sub.subject_name">{{sub.subject_name}}</mat-option> -->
+                    <mat-option *ngFor="let sub of subjectList" [value]="sub.subject_name">{{sub.subject_name}}</mat-option>
                 </mat-select>
             </mat-form-field>
 

@@ -1,6 +1,3 @@
-
-
-
 export interface Subject {
     id: number;
     class: string;

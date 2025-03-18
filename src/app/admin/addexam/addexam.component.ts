@@ -13,7 +13,7 @@ import { SharedService } from 'src/app/Services/shared.service';
 export class AddexamComponent implements OnInit {
   class: any[] = [];
   types: any[] = [];
-  subjectList: Subject[] = [];
+  subjectList : Subject[] = [];
   examinationForm!: FormGroup
   admin = 1;
 
@@ -35,7 +35,6 @@ export class AddexamComponent implements OnInit {
       }
     );
 
-
     this.examinationForm = this.fb.group({
       class: ['', Validators.required],
       exam_type: ['', Validators.required],
@@ -48,7 +47,6 @@ export class AddexamComponent implements OnInit {
     });
   }
 
-
   ngOnInit() {
     this.getSubject()
   }
@@ -56,18 +54,18 @@ export class AddexamComponent implements OnInit {
   getSubject() {
     this._crud.getSubject().subscribe(
       (res: SubjectRes) => {
-        console.log(res);
-        if (res.success) {
-          if(Array.isArray(res.data)){
-            // this.subjectList = res.data
-          }
+        console.log('API Response:', res);
+  
+        if (res && res.data && Array.isArray(res.data)) {
+          this.subjectList = res.data.flatMap(cls => cls.subjects);
+        } else {
+          console.error('Unexpected response structure:', res);
         }
       },
       (err: Error) => {
-        console.log(err);
-
+        console.error('API Error:', err);
       }
-    )
+    );
   }
 
   onSubmit() {

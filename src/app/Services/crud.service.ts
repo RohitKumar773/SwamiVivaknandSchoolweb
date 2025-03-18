@@ -123,8 +123,8 @@ export class CrudService {
 
   //examinations
 
-  addExamination(data: any): Observable<ExaminationResponse> {
-    return this._http.post<ExaminationResponse>(`${this.base_url}examination.php`, data);
+  addExamination(data: any): Observable<any> {
+    return this._http.post<any>(`${this.base_url}examination.php`, data);
   }
 
   getExamination(): Observable<ExaminationResponse> {

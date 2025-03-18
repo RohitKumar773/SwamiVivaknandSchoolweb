@@ -155,6 +155,10 @@ export class CrudService {
 
   //Notice section
 
+  addNotice(data: any): Observable<NoticeResponse> {
+    return this._http.post<NoticeResponse>(`${this.base_url}notice.php`, data);
+  }
+
   getNotice(): Observable<NoticeResponse> {
     return this._http.get<NoticeResponse>(`${this.base_url}notice.php`);
   }

@@ -48,9 +48,15 @@ export class MasterDataNoticeComponent implements OnInit{
   }
 
   noticeForm() {
-    this.dialog.open(AddNoticeComponent, {
+   const openDig = this.dialog.open(AddNoticeComponent, {
       disableClose: true
-    })
+    });
+
+    openDig.afterClosed().subscribe(
+      () => {
+        this.getAllNotice()
+      }
+    )
   }
 
   getAllNotice() {

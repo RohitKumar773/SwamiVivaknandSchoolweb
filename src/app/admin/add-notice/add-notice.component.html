@@ -7,17 +7,30 @@
     </div>
     <div class="form_area">
         <div class="title">Notice Details</div>
-        <form>
+        <form [formGroup]="noticeForm">
             <mat-form-field appearance="outline">
                 <mat-label>Notice</mat-label>
-                <input matInput placeholder="Enter Notice" type="text">
+                <input matInput placeholder="Enter Notice" type="text" formControlName="notice">
             </mat-form-field>
-            <mat-form-field appearance="outline">
+            <!-- <mat-form-field appearance="outline">
                 <mat-label>Date</mat-label>
-                <input matInput type="date" disabled readonly>
+                <input matInput type="date" formControlName="notice_date">
+            </mat-form-field> -->
+
+            <mat-form-field class="example-form-field" appearance="outline">
+                <mat-label>Choose a date</mat-label>
+                <input matInput [matDatepicker]="datepicker" formControlName="notice_date">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="datepicker"></mat-datepicker-toggle>
+                <mat-datepicker #datepicker>
+                    <mat-datepicker-actions>
+                        <button mat-button matDatepickerCancel>Cancel</button>
+                        <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+                    </mat-datepicker-actions>
+                </mat-datepicker>
             </mat-form-field>
 
-            <!-- <input type="number" [ngModel]="admin" formControlName="admin_id_fk" readonly hidden> -->
+            <input type="number" [ngModel]="admin" formControlName="admin_id_fk" readonly hidden>
         </form>
     </div>
 

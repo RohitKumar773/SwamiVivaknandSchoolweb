@@ -17,9 +17,9 @@ export class MasterDataExaminationsComponent implements OnInit {
   constructor(
     private dialog: MatDialog,
     private _crud: CrudService,
-    private toastr:ToastrService
+    private toastr: ToastrService
   ) { }
-  
+
   ngOnInit() {
     this.getExam()
   }
@@ -37,19 +37,19 @@ export class MasterDataExaminationsComponent implements OnInit {
     )
   }
 
-  delete_exam(id:any) {
-   const openDig =  this.dialog.open(ConfirmBoxComponent,{
-      disableClose:true
+  delete_exam(id: any) {
+    const openDig = this.dialog.open(ConfirmBoxComponent, {
+      disableClose: true
     })
 
     openDig.afterClosed().subscribe(
-      (res:any) => {
+      (res: any) => {
         console.log(res);
-        if(res == 1){
+        if (res == 1) {
           this._crud.deleteExam(id).subscribe(
-            (res:any) => {
+            (res: any) => {
               console.log(res);
-              if(res.success == 1){
+              if (res.success == 1) {
                 this.toastr.success('Exam deleted successfully', 'Success');
                 this.getExam()
               }
@@ -58,13 +58,19 @@ export class MasterDataExaminationsComponent implements OnInit {
         }
       }
     )
-   }
+  }
 
 
   add_new_exam() {
-    this.dialog.open(AddexamComponent, {
+    const openDig = this.dialog.open(AddexamComponent, {
       disableClose: true
     })
+
+    openDig.afterClosed().subscribe(
+      () => {
+        this.getExam();
+      }
+    )
 
   }
 

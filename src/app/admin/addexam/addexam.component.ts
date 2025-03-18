@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
+import { Examinations } from 'src/app/interface/examinations.interface';
 import { SubjectRes, GroupedClass, Subject } from 'src/app/interface/subject.interface';
 import { CrudService } from 'src/app/Services/crud.service';
 import { SharedService } from 'src/app/Services/shared.service';
@@ -13,7 +15,7 @@ import { SharedService } from 'src/app/Services/shared.service';
 export class AddexamComponent implements OnInit {
   class: any[] = [];
   types: any[] = [];
-  subjectList : Subject[] = [];
+  subjectList: Subject[] = [];
   examinationForm!: FormGroup
   admin = 1;
 
@@ -21,7 +23,8 @@ export class AddexamComponent implements OnInit {
     private _shared: SharedService,
     private _crud: CrudService,
     private fb: FormBuilder,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private matref: MatDialogRef<AddexamComponent>
   ) {
     this._shared.classList.subscribe(
       (cls) => {
@@ -36,6 +39,7 @@ export class AddexamComponent implements OnInit {
     );
 
     this.examinationForm = this.fb.group({
+      id: [''],
       class: ['', Validators.required],
       exam_type: ['', Validators.required],
       subject: ['', Validators.required],
@@ -55,7 +59,7 @@ export class AddexamComponent implements OnInit {
     this._crud.getSubject().subscribe(
       (res: SubjectRes) => {
         console.log('API Response:', res);
-  
+
         if (res && res.data && Array.isArray(res.data)) {
           this.subjectList = res.data.flatMap(cls => cls.subjects);
         } else {
@@ -69,28 +73,19 @@ export class AddexamComponent implements OnInit {
   }
 
   onSubmit() {
-    if (this.examinationForm.valid) {
-      const formdata = new FormData();
-      formdata.append('id', this.examinationForm.get('id')?.value);
-      formdata.append('class', this.examinationForm.get('class')?.value);
-      formdata.append('exam_type', this.examinationForm.get('exam_type')?.value);
-      formdata.append('subject', this.examinationForm.get('subject')?.value);
-      formdata.append('passing_makrs', this.examinationForm.get('passing_makrs')?.value);
-      formdata.append('total_marks', this.examinationForm.get('total_marks')?.value);
-      formdata.append('date', this.examinationForm.get('total_marks')?.value);
-      formdata.append('time', this.examinationForm.get('total_marks')?.value);
-      formdata.append('admin_id_fk', this.examinationForm.get('total_marks')?.value)
-
-    //   this._crud.addExamination(formdata).subscribe((res: Examinations) => {
-    //     console.log(res);
-    //   })
-
-    // } else {
-    //   this.toastr.warning('Please Fill all the Required fields', 'Warning')
-    // }
-
+    console.log(this.examinationForm.value);
+    this._crud.addExamination(this.examinationForm.value).subscribe(
+      (res: Examinations) => {
+        console.log(res);
+        this.matref.close()
+        this.toastr.success('Exam added successfully', 'Success')
+      },
+      (err: Error) => {
+        this.toastr.error('Please check your internet connection', 'Error')
+      }
+    )
   }
-  }
+
 
   resetForm() {
     this.examinationForm.reset();

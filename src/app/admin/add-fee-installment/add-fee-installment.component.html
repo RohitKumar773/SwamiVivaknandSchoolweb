@@ -1,0 +1,39 @@
+<div class="registration_form">
+    <div class="form_head">
+        <h3>Add New Installment</h3>
+        <p mat-dialog-close>
+            <mat-icon>cancel</mat-icon>
+        </p>
+    </div>
+    <div class="form_area">
+        <div class="title">Installments Details</div>
+        <form [formGroup]="installmentForm">
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Select Class</mat-label>
+                <mat-select formControlName="class">
+                    <mat-option *ngFor="let cls of classes" [value]="cls">{{ cls }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Total Fees</mat-label>
+                <input matInput placeholder="Enter Total Fees" type="number" formControlName="total_fees">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>First Installment</mat-label>
+                <input matInput placeholder="Enter First Installment" type="number" formControlName="first_instalment">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Second Installment</mat-label>
+                <input matInput placeholder="Enter Second Installment" type="number" formControlName="second_installment">
+            </mat-form-field>
+
+            <input type="number" [ngModel]="admin" formControlName="admin_id_fk" readonly hidden>
+        </form>
+    </div>
+
+    <div class="btn_area">
+        <button type="button" class="btn btn-danger" id="cancel" (click)="resetForm()">Reset</button>
+        <button type="button" class="btn btn-primary" id="submit" (click)="onSubmit()">Submit</button>
+    </div>
+</div>

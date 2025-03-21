@@ -11,6 +11,7 @@ import { SubjectRes } from '../interface/subject.interface';
 import { ExaminationResponse } from '../interface/examinations.interface';
 import { BatchResponse } from '../interface/batches.interface';
 import { NoticeResponse } from '../interface/notice.interface';
+import { StudentFeeInstallment, StudentFeeInstallmentRes } from '../interface/feeInstallment.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -20,8 +21,8 @@ export class CrudService {
   // base_url: string = 'http://localhost/sawamivivekanand/'; //local
   // base_url: string = 'https://mausamstudio.com/Development/sawamivivekanand/'; //Live
 
-  // base_url: string = 'http://localhost/sawamivivekanand/'; //local
-  base_url: string = 'https://ud.mausamstudio.com/sawamivivekanand/'; //Live
+  base_url: string = 'http://localhost/sawamivivekanand/'; //local
+  // base_url: string = 'https://ud.mausamstudio.com/sawamivivekanand/'; //Live
 
   constructor(private _http: HttpClient) { }
 
@@ -165,5 +166,19 @@ export class CrudService {
 
   deleteNotice(id: number): Observable<any> {
     return this._http.delete<any>(`${this.base_url}notice.php?id=${id}`);
+  }
+
+  //fee installment
+
+  getFeeInstallment(): Observable<StudentFeeInstallmentRes> {
+    return this._http.get<StudentFeeInstallmentRes>(`${this.base_url}fee_installments.php`)
+  }
+
+  addInstallment(data: any): Observable<StudentFeeInstallmentRes> {
+    return this._http.post<StudentFeeInstallmentRes>(`${this.base_url}fee_installments.php`, data)
+  }
+
+  deleteInstallment(id: number): Observable<any> {
+    return this._http.delete<any>(`${this.base_url}fee_installments.php?id=${id}`)
   }
 }

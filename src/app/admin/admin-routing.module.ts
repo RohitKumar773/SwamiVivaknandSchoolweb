@@ -30,6 +30,7 @@ import { AllocateHostelComponent } from './allocate-hostel/allocate-hostel.compo
 import { ManageHostelComponent } from './manage-hostel/manage-hostel.component';
 import { EventsComponent } from './events/events.component';
 import { MasterDataNoticeComponent } from './master-data-notice/master-data-notice.component';
+import { StudentFeesComponent } from './student-fees/student-fees.component';
 
 const routes: Routes = [
   { path: '', component: AdminLoginComponent },
@@ -62,6 +63,7 @@ const routes: Routes = [
       { path: 'faculty_assign_btch', component: FacultyAssignBatchComponent },
       { path: 'faculty_attendance', component: FacultyAttendanceComponent },
       { path: 'fee_installments', component: FeeInstallmentsComponent },
+      { path: 'student_fees', component: StudentFeesComponent },
       { path: 'class_days', component: ClassScheduleDayComponent },
       { path: 'class_timing', component: ClassScheduleTimingComponent },
       { path: 'inventory_products', component: InventoryProductsComponent },
@@ -83,4 +85,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class AdminRoutingModule {}
+export class AdminRoutingModule { }

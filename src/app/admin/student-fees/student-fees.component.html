@@ -1,9 +1,9 @@
 <div class="registration_box">
     <div class="registration_table_area">
         <div class="header_title">
-            <div class="title">Fee Installments</div>
+            <div class="title">Student Fees</div>
             <div class="add_btn">
-                <button type="button" class="btn btn-danger" (click)="add_fee_str()">+ Add New</button>
+                <button type="button" class="btn btn-danger" (click)="add_std_fee()">+ Add Fee</button>
             </div>
             <div class="search_box">
                 <input class="form-control" type="search" placeholder="Search..." aria-label="default input example">
@@ -14,26 +14,25 @@
             <thead>
                 <tr>
                     <th scope="col">S.N.</th>
-                    <th scope="col">Class Name</th>
-                    <th scope="col">Total Fees</th>
-                    <th scope="col">First Installment</th>
-                    <th scope="col">Second Installment</th>
+                    <th scope="col">Student Name</th>
+                    <th scope="col">Class</th>
+                    <th scope="col">Month</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Contact</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let fee of installmentList; let i = index;">
-                    <th scope="row">{{i+1}}</th>
-                    <td>{{fee.class}}</td>
-                    <td>{{fee.total_fees}}</td>
-                    <td>{{fee.first_instalment}}</td>
-                    <td>{{fee.second_installment}}</td>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Abhijeet Kumar</td>
+                    <td>class 2</td>
+                    <td>March</td>
+                    <td>20,000</td>
+                    <td>8989898989</td>
                     <td>
                         <button mat-icon-button>
                             <mat-icon>edit</mat-icon>
-                        </button>
-                        <button mat-icon-button (click)="delete_str(fee.id)">
-                            <mat-icon>delete</mat-icon>
                         </button>
                     </td>
                 </tr>

@@ -66,6 +66,9 @@ import { AddexamComponent } from './addexam/addexam.component';
 import { UserViewComponent } from './user-view/user-view.component';
 import { AddmastersubjectComponent } from './addmastersubject/addmastersubject.component';
 import { AddNoticeComponent } from './add-notice/add-notice.component';
+import { StudentFeesComponent } from './student-fees/student-fees.component';
+import { AddStdFeeComponent } from './add-std-fee/add-std-fee.component';
+import { AddFeeInstallmentComponent } from './add-fee-installment/add-fee-installment.component';
 
 @NgModule({
   declarations: [
@@ -117,6 +120,9 @@ import { AddNoticeComponent } from './add-notice/add-notice.component';
     UserViewComponent,
     AddmastersubjectComponent,
     AddNoticeComponent,
+    StudentFeesComponent,
+    AddStdFeeComponent,
+    AddFeeInstallmentComponent,
   ],
   imports: [
     CommonModule,

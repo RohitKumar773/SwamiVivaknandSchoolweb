@@ -21,8 +21,8 @@ export class CrudService {
   // base_url: string = 'http://localhost/sawamivivekanand/'; //local
   // base_url: string = 'https://mausamstudio.com/Development/sawamivivekanand/'; //Live
 
-  base_url: string = 'http://localhost/sawamivivekanand/'; //local
-  // base_url: string = 'https://ud.mausamstudio.com/sawamivivekanand/'; //Live
+  // base_url: string = 'http://localhost/sawamivivekanand/'; //local
+  base_url: string = 'https://ud.mausamstudio.com/sawamivivekanand/'; //Live
 
   constructor(private _http: HttpClient) { }
 

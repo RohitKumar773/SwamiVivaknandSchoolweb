@@ -1,1 +1,64 @@
-<p>add-std-fee works!</p>
+<div class="registration_form">
+    <div class="form_head">
+        <h3>Add Student Fees</h3>
+        <p mat-dialog-close>
+            <mat-icon>cancel</mat-icon>
+        </p>
+    </div>
+    <div class="form_area">
+        <div class="title">Payment Details</div>
+
+        <form [formGroup]="studentFeeForm">
+            <mat-form-field appearance="outline">
+                <mat-label>Student Name</mat-label>
+                <input matInput placeholder="Enter Student Name" type="text" formControlName="std_name">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Select Class</mat-label>
+                <mat-select formControlName="class">
+                    <mat-option *ngFor="let cls of class" [value]="cls">{{cls}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Std. Roll</mat-label>
+                <input matInput placeholder="Enter Roll Number" type="number" formControlName="std_roll">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Amount</mat-label>
+                <input matInput placeholder="Enter Amount" type="number" formControlName="amount">
+            </mat-form-field>
+
+            <mat-form-field class="example-form-field" appearance="outline">
+                <mat-label>Choose a date</mat-label>
+                <input matInput [matDatepicker]="datepicker" formControlName="fee_date">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="datepicker"></mat-datepicker-toggle>
+                <mat-datepicker #datepicker>
+                    <mat-datepicker-actions>
+                        <button mat-button matDatepickerCancel>Cancel</button>
+                        <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+                    </mat-datepicker-actions>
+                </mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Contact No.</mat-label>
+                <input matInput placeholder="Enter Contact No." type="number" formControlName="contact">
+            </mat-form-field>
+
+            <input type="number" [ngModel]="admin" readonly hidden formControlName="admin_id_fk">
+
+        </form>
+
+    </div>
+
+    <div class="btn_area">
+        <button type="button" class="btn btn-danger" id="cancel" (click)="resetForm()">Reset</button>
+        <button type="button" class="btn btn-primary" id="submit"
+            (click)="edit_data?onUpdate():onSubmit()">{{edit_data?'Update':'Submit'}}
+        </button>
+    </div>
+</div>

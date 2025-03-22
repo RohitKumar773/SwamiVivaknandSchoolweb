@@ -16,22 +16,24 @@
                     <th scope="col">S.N.</th>
                     <th scope="col">Student Name</th>
                     <th scope="col">Class</th>
-                    <th scope="col">Month</th>
+                    <th scope="col">Roll. No.</th>
+                    <th scope="col">Date</th>
                     <th scope="col">Amount</th>
                     <th scope="col">Contact</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Abhijeet Kumar</td>
-                    <td>class 2</td>
-                    <td>March</td>
-                    <td>20,000</td>
-                    <td>8989898989</td>
+                <tr *ngFor="let studentFee of studentFeeList; let i = index;">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{studentFee.std_name}}</td>
+                    <td>{{studentFee.class}}</td>
+                    <td>{{studentFee.std_roll}}</td>
+                    <td>{{studentFee.fee_date | date : 'dd-MM-yyyy'}}</td>
+                    <td>{{studentFee.amount}}</td>
+                    <td>{{studentFee.contact}}</td>
                     <td>
-                        <button mat-icon-button>
+                        <button mat-icon-button (click)="onUpdate(studentFee)">
                             <mat-icon>edit</mat-icon>
                         </button>
                     </td>

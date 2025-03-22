@@ -167,12 +167,12 @@ export class RegistrationFormComponent implements OnInit {
 
       this._crud.addStudents(formData).subscribe(
         (res: addStd) => {
-          this.toastr.success('Student Registered Successfully', 'Success')
+          this.toastr.success('Student Updated Successfully', 'Success')
           console.log(res);
           this.matref.close();
         },
         (err: Error) => {
-          this.toastr.error('Registration Failed', 'Error')
+          this.toastr.error('Failed to Update', 'Error')
           console.log(err);
         }
       );

@@ -12,6 +12,7 @@ import { ExaminationResponse } from '../interface/examinations.interface';
 import { BatchResponse } from '../interface/batches.interface';
 import { NoticeResponse } from '../interface/notice.interface';
 import { StudentFeeInstallment, StudentFeeInstallmentRes } from '../interface/feeInstallment.interface';
+import { StudentFeeRes } from '../interface/studentFees.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -21,8 +22,8 @@ export class CrudService {
   // base_url: string = 'http://localhost/sawamivivekanand/'; //local
   // base_url: string = 'https://mausamstudio.com/Development/sawamivivekanand/'; //Live
 
-  base_url: string = 'http://localhost/sawamivivekanand/'; //local
-  // base_url: string = 'https://ud.mausamstudio.com/sawamivivekanand/'; //Live
+  // base_url: string = 'http://localhost/sawamivivekanand/'; //local
+  base_url: string = 'https://ud.mausamstudio.com/sawamivivekanand/'; //Live
 
   constructor(private _http: HttpClient) { }
 
@@ -180,5 +181,15 @@ export class CrudService {
 
   deleteInstallment(id: number): Observable<any> {
     return this._http.delete<any>(`${this.base_url}fee_installments.php?id=${id}`)
+  }
+
+  //student fees
+
+  addStdFee(data: any): Observable<any> {
+    return this._http.post<any>(`${this.base_url}studentfee.php`, data)
+  }
+
+  getStdFee(): Observable<StudentFeeRes> {
+    return this._http.get<StudentFeeRes>(`${this.base_url}studentfee.php`)
   }
 }

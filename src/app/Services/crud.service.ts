@@ -13,6 +13,8 @@ import { BatchResponse } from '../interface/batches.interface';
 import { NoticeResponse } from '../interface/notice.interface';
 import { StudentFeeInstallmentRes } from '../interface/feeInstallment.interface';
 import { StudentFeeRes } from '../interface/studentFees.interface';
+import { VehicleResponse } from '../interface/vehicle.interface';
+import { DriverResponse } from '../interface/driver.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -22,8 +24,8 @@ export class CrudService {
   // base_url: string = 'http://localhost/sawamivivekanand/'; //local
   // base_url: string = 'https://mausamstudio.com/Development/sawamivivekanand/'; //Live
 
-  // base_url: string = 'http://localhost/sawamivivekanand/'; //local
-  base_url: string = 'https://ud.mausamstudio.com/sawamivivekanand/'; //Live
+  base_url: string = 'http://localhost/sawamivivekanand/'; //local
+  // base_url: string = 'https://ud.mausamstudio.com/sawamivivekanand/'; //Live
 
   constructor(private _http: HttpClient) { }
 
@@ -105,7 +107,7 @@ export class CrudService {
   addEmployee(data: any): Observable<any> {
     return this._http.post<any>(`${this.base_url}employee.php`, data)
   }
-  
+
   getUser(): Observable<userRes> {
     return this._http.get<userRes>(`${this.base_url}employee.php`);
   }
@@ -178,24 +180,49 @@ export class CrudService {
   //fee installment
 
   getFeeInstallment(): Observable<StudentFeeInstallmentRes> {
-    return this._http.get<StudentFeeInstallmentRes>(`${this.base_url}fee_installments.php`)
+    return this._http.get<StudentFeeInstallmentRes>(`${this.base_url}fee_installments.php`);
   }
 
   addInstallment(data: any): Observable<StudentFeeInstallmentRes> {
-    return this._http.post<StudentFeeInstallmentRes>(`${this.base_url}fee_installments.php`, data)
+    return this._http.post<StudentFeeInstallmentRes>(`${this.base_url}fee_installments.php`, data);
   }
 
   deleteInstallment(id: number): Observable<any> {
-    return this._http.delete<any>(`${this.base_url}fee_installments.php?id=${id}`)
+    return this._http.delete<any>(`${this.base_url}fee_installments.php?id=${id}`);
   }
 
   //student fees
 
   addStdFee(data: any): Observable<any> {
-    return this._http.post<any>(`${this.base_url}studentfee.php`, data)
+    return this._http.post<any>(`${this.base_url}studentfee.php`, data);
   }
 
   getStdFee(): Observable<StudentFeeRes> {
-    return this._http.get<StudentFeeRes>(`${this.base_url}studentfee.php`)
+    return this._http.get<StudentFeeRes>(`${this.base_url}studentfee.php`);
+  }
+
+  // transport vehicle 
+
+  addVehicle(data: any): Observable<any> {
+    return this._http.post<any>(`${this.base_url}vehicle.php`, data);
+  }
+
+  getTransportVehicle(): Observable<VehicleResponse> {
+    return this._http.get<VehicleResponse>(`${this.base_url}vehicle.php`);
+  }
+  deleteVehicle(id: number): Observable<any> {
+    return this._http.delete<any>(`${this.base_url}vehicle.php?id=${id}`);
+  }
+
+  // transport driver
+
+  addDriver(data: any): Observable<any> {
+    return this._http.post<any>(`${this.base_url}driver.php`, data)
+  }
+  getDriver(): Observable<DriverResponse> {
+    return this._http.get<DriverResponse>(`${this.base_url}driver.php`);
+  }
+  deleteDriver(id:any):Observable<any>{
+    return this._http.delete<any>(`${this.base_url}driver.php?id=${id}`);
   }
 }

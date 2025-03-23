@@ -8,14 +8,20 @@
     <div class="form_area">
         <div class="title">Zone Details</div>
 
-        <div class="form-floating mb-2">
-            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput">Zone Name</label>
-        </div>
-        <div class="form-floating mb-2">
-            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput">Vehicle Number</label>
-        </div>
+        <mat-form-field appearance="outline">
+            <mat-label>Experience</mat-label>
+            <input matInput placeholder="Enter Experience" type="number">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Toppings</mat-label>
+            <mat-select multiple>
+                <mat-select-trigger>
+                </mat-select-trigger>
+                <mat-option>asdf</mat-option>
+                <mat-option>asdf</mat-option>
+            </mat-select>
+        </mat-form-field>
+
         <!-- <div class="form-floating mb-2">
             <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
             <label for="floatingInput">Day</label>

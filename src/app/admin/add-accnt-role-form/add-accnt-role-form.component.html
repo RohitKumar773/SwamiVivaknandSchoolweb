@@ -1,15 +1,15 @@
 <div class="registration_form">
     <div class="form_head">
-        <h3>Add New Role</h3>
+        <h3>Add New Designation</h3>
         <p mat-dialog-close>
             <mat-icon>cancel</mat-icon>
         </p>
     </div>
     <div class="form_area">
-        <div class="title">Role Details</div>
+        <div class="title">Designation Details</div>
         <form [formGroup]="roleForm">
             <mat-form-field appearance="outline">
-                <mat-label>Role Name</mat-label>
+                <mat-label>Designation Name</mat-label>
                 <input matInput placeholder="Enter Role Name" type="text" formControlName="role_name">
             </mat-form-field>
             <input type="number" [ngModel]="admin" readonly hidden formControlName="admin_id_fk">

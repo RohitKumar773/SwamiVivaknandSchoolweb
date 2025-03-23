@@ -1,14 +1,13 @@
-<div class="registration_box">
-    <div class="registration_table_area">
-        <div class="header_title">
-            <div class="add_btn">
-                <input class="form-control" type="search" placeholder="Search..." aria-label="default input example">
-                <button type="button" class="btn btn-danger" (click)="add_new_exam()">+ Add New</button>
-            </div>
-        </div>
+<div class="add_btn">
+    <input class="form-control" type="search" placeholder="Search..." aria-label="default input example">
+    <button type="button" class="btn btn-danger" (click)="add_new_exam()">+ Add New</button>
+</div>
 
-        <table class="table table-striped" style="text-align: center;" *ngFor="let exam of examList; let i = index">
-            <div class="title">{{exam.class}} </div>
+<div class="registration_box">
+    <div class="registration_table_area" *ngFor="let exam of examList; let i = index">
+        <div class="title">{{exam.class}} </div>
+
+        <table class="table table-striped" style="text-align: center;">
 
             <thead>
                 <tr>

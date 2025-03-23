@@ -6,37 +6,57 @@
         </p>
     </div>
     <div class="form_area">
-        <div class="title">Personal Details</div>
+        <div class="title">Driver Details</div>
 
-        <div class="form-floating mb-2">
-            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput">Driver Name</label>
-        </div>
-        <div class="form-floating mb-2">
-            <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput">Mobile Number</label>
-        </div>
-        <div class="form-floating mb-2">
-            <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput">Aadhar Number</label>
-        </div>
-        <div class="form-floating mb-2">
-            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput">D.L. Number</label>
-        </div>
-        <div class="form-floating mb-2">
-            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput">Experience</label>
-        </div>
-        <div class="form-floating mb-2">
-            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput">Assign Vehicle No.</label>
-        </div>
+        <form [formGroup]="driverForm">
+            <mat-form-field appearance="outline">
+                <mat-label>Driver Name</mat-label>
+                <input matInput placeholder="Enter Driver Name" formControlName="driver_name">
+            </mat-form-field>
 
+            <mat-form-field appearance="outline">
+                <mat-label>Mobile Number</mat-label>
+                <input type="tel" number matInput placeholder="Enter Mob. No." minlength="10" maxlength="10"
+                    pattern="\d{10}" (keyup)="validateMobile()" formControlName="mobile">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Aadhar Number</mat-label>
+                <input type="tel" number matInput placeholder="Enter Aadhar Number" minlength="12" maxlength="12"
+                    pattern="\d{12}" (keyup)="validateAdhar()" formControlName="adhar">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Experience</mat-label>
+                <input matInput placeholder="Enter Experience" type="number" formControlName="experience">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>D.L. Number</mat-label>
+                <input matInput placeholder="Enter Driving Licesens No." type="text" formControlName="dl_no">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Select Vehicle</mat-label>
+                <mat-select formControlName="vehicle_no">
+                    <mat-option *ngFor="let vehicle of vehicleList"
+                        [value]="vehicle.vehicle_no">{{vehicle.vehicle_no}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <div class="upload-container">
+                <img *ngIf="imagePreview" [src]="imagePreview" alt="Image Preview" class="preview-img"><br>
+                <label for="fileUpload" class="custom-file-upload">Choose Image</label>
+                <input type="file" id="fileUpload" (change)="onFileSelected($event)" accept="image/*"
+                    formControlName="profile_img">
+            </div>
+
+            <input type="number" [ngModel]="admin" readonly hidden formControlName="admin_id_fk">
+        </form>
     </div>
 
     <div class="btn_area">
-        <button type="button" class="btn btn-danger" id="cancel" mat-dialog-close>Cancel</button>
-        <button type="button" class="btn btn-primary" id="submit">Submit</button>
+        <button type="button" class="btn btn-danger" id="cancel" (click)="resetForm()">Reset</button>
+        <button type="button" class="btn btn-primary" id="submit" (click)="onSubmit()">Submit</button>
     </div>
 </div>

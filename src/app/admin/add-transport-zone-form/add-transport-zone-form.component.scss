@@ -1,6 +1,6 @@
 .registration_form {
-  width: 400px;
-  height: 350px;
+  width: 600px;
+  height: 500px;
   background-color: white;
   padding: 10px;
   overflow: auto;
@@ -38,16 +38,14 @@
   height: auto;
   float: left;
 }
-.form-floating {
-  width: 80%;
+mat-form-field {
+  width: 45%;
   float: left;
-  margin-left: 10%;
-  border: 1px solid silver;
-  border-radius: 10px;
-  color: black;
+  margin-left: 3%;
 }
-#floatingInput {
-  border: 0.7px solid rgb(211, 211, 211);
+.form-select{
+  height: 60px;
+  margin-bottom: 10px;
 }
 .btn_area {
   width: 100%;
@@ -57,13 +55,59 @@
 }
 .btn_area #cancel {
   float: left;
-  margin-left: 5%;
 }
 .btn_area #submit {
   float: right;
-  margin-right: 5%;
 }
 
 ::-webkit-scrollbar {
   width: 5px;
+}
+
+.upload-container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 20px;
+}
+
+input[type="file"] {
+  display: none; /* Hide default file input */
+}
+
+.custom-file-upload {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: cornflowerblue;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.3s;
+  width: 80%;
+}
+
+.custom-file-upload:hover {
+  background-color: rgb(86, 128, 205);
+}
+
+.preview-img {
+  display: block;
+  margin-top: 10px;
+  max-width: 100%;
+  border: 2px solid #ddd;
+  border-radius: 50%;
+  padding: 5px;
+  width: 150px;
+  height: 150px;
+
+  img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 }

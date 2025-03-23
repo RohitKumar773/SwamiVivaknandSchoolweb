@@ -6,7 +6,7 @@
                 <button type="button" class="btn btn-danger" (click)="add_new_user()">+ Add New</button>
             </div>
             <div class="search_box">
-                <input class="form-control" type="search" placeholder="Search..." aria-label="default input example">
+                <input class="form-control" type="search" placeholder="Search..." aria-label="default input example" (keyup)="onSearch($event)">
             </div>
         </div>
 
@@ -17,23 +17,16 @@
                     <th scope="col">Name</th>
                     <th scope="col">Role</th>
                     <th scope="col">Mobile No.</th>
-                    <!-- <th scope="col">Access</th> -->
                     <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
 
-                <tr *ngFor="let user of userList; let i = index">
+                <tr *ngFor="let user of filterEmp; let i = index">
                     <th scope="row">{{i+1}}</th>
                     <td>{{user.name}}</td>
                     <td>{{user.role}}</td>
                     <td>{{user.mobile}}</td>
-                    <!-- <td>
-                        <section class="example-section">
-                            <mat-slide-toggle class="example-margin" [checked]="checked" [disabled]="disabled">
-                            </mat-slide-toggle>
-                        </section>
-                    </td> -->
                     <td>
                         <button mat-icon-button (click)="viewUser(user)">
                             <mat-icon>visibility</mat-icon>

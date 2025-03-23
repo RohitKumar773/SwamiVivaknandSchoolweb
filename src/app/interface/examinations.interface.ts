@@ -10,7 +10,13 @@ export interface Examinations {
     admin_id_fk: number;
 }
 
+export interface ExaminationGroup {
+    class: string;
+    examinations: Examinations[];
+}
+
+
 export interface ExaminationResponse {
     success: number;
-    data: Examinations[];
+    data: ExaminationGroup[];
 }

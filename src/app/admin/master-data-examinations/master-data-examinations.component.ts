@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddexamComponent } from '../addexam/addexam.component';
 import { CrudService } from 'src/app/Services/crud.service';
-import { Examinations, ExaminationResponse } from 'src/app/interface/examinations.interface';
+import { Examinations, ExaminationResponse, ExaminationGroup } from 'src/app/interface/examinations.interface';
 import { ConfirmBoxComponent } from '../confirm-box/confirm-box.component';
 import { ToastrService } from 'ngx-toastr';
 
@@ -12,8 +12,8 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./master-data-examinations.component.scss']
 })
 export class MasterDataExaminationsComponent implements OnInit {
-  examList: Examinations[] = [];
-
+  examList: ExaminationGroup[] = [];
+  
   constructor(
     private dialog: MatDialog,
     private _crud: CrudService,
@@ -29,6 +29,8 @@ export class MasterDataExaminationsComponent implements OnInit {
       (res: ExaminationResponse) => {
         if (Array.isArray(res.data)) {
           this.examList = res.data
+          console.log(res);
+          
         }
       },
       (err: Error) => {

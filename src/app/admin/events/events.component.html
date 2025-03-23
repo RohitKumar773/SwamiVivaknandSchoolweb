@@ -6,7 +6,7 @@
                 <button type="button" class="btn btn-danger" (click)="eventForm()">+ Add New</button>
             </div>
             <div class="search_box">
-                <input class="form-control" type="" placeholder="Search..." aria-label="default input example">
+                <input class="form-control" type="text" placeholder="Search..." aria-label="default input example" (keyup)="onSearch($event)">
             </div>
         </div>
 
@@ -21,7 +21,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let event of eventList; let i = index">
+                <tr *ngFor="let event of filterEvent; let i = index">
                     <th scope="row">{{i+1}}</th>
                     <td>{{event.ocassion_name}}</td>
                     <td>{{event.start_date}}</td>

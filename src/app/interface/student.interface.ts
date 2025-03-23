@@ -19,7 +19,6 @@ export interface Student {
   address: string;
   addmission_date:string
 }
-
 export interface StudentResponse {
   success: number;
   data: Student[];

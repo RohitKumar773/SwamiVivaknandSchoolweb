@@ -12,12 +12,13 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./account-role.component.scss'],
 })
 export class AccountRoleComponent implements OnInit {
-
   roleList: Role[] = [];
+  filterRole: Role[] = [];
+
   constructor(
     private dialog: MatDialog,
     private _crud: CrudService,
-    private toastr:ToastrService
+    private toastr: ToastrService
   ) { }
 
   ngOnInit() {
@@ -31,9 +32,14 @@ export class AccountRoleComponent implements OnInit {
         console.log(res.data);
         if (Array.isArray(res.data)) {
           this.roleList = res.data
+          this.filterRole = res.data
         }
       }
     )
+  }
+  onSearch(event: any) {
+    const filter = event.target.value.toLowerCase() || '';
+    this.filterRole = this.roleList.filter(data => data?.role_name?.toLowerCase().includes(filter))
   }
 
   delete_role(id: any) {
@@ -61,7 +67,7 @@ export class AccountRoleComponent implements OnInit {
   }
 
   add_new_role() {
-   const openDig = this.dialog.open(AddAccntRoleFormComponent, {
+    const openDig = this.dialog.open(AddAccntRoleFormComponent, {
       disableClose: true
     });
 

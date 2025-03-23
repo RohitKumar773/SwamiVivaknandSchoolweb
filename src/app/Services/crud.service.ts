@@ -11,7 +11,7 @@ import { SubjectRes } from '../interface/subject.interface';
 import { ExaminationResponse } from '../interface/examinations.interface';
 import { BatchResponse } from '../interface/batches.interface';
 import { NoticeResponse } from '../interface/notice.interface';
-import { StudentFeeInstallment, StudentFeeInstallmentRes } from '../interface/feeInstallment.interface';
+import { StudentFeeInstallmentRes } from '../interface/feeInstallment.interface';
 import { StudentFeeRes } from '../interface/studentFees.interface';
 
 @Injectable({

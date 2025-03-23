@@ -70,4 +70,14 @@ table {
             font-weight: 500;
         }
     }
+    tbody{
+        td{
+            textarea{
+                width: 200px;
+                outline: none;
+                border: none;
+            }
+        }
+    }
+    
 }

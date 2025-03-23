@@ -15,12 +15,11 @@ import { ToastrService } from 'ngx-toastr';
 export class AdmissionsComponent implements OnInit {
   studentList: Student[] = [];
   filterStudent: Student[] = [];
-  searchValue: string = '';
 
   constructor(
-    private dialog: MatDialog, 
-    private _crud: CrudService, 
-    private toastr:ToastrService
+    private dialog: MatDialog,
+    private _crud: CrudService,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit() {
@@ -92,14 +91,8 @@ export class AdmissionsComponent implements OnInit {
 
   onSearch(event: any) {
     const filter = event.target.value.toLowerCase() || '';
-    console.log(filter);
-
-    this.filterStudent = this.studentList.filter(data => (data.name.toLowerCase().includes(filter) || data.mobile.includes(filter))
-      // data.name.toLowerCase().includes(filter) ||
-      // data.father_name.toLowerCase().includes(filter) ||
-      // data.roll_no.toLowerCase().includes(filter);
-    )
-    console.log(this.filterStudent);
-
+    this.filterStudent = this.studentList.filter(data =>
+      (data.name?.toLowerCase().includes(filter) || data.mobile.toString().includes(filter))
+    );
   }
 }

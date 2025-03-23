@@ -8,10 +8,15 @@
     <div class="form_area">
         <div class="title">Notice Details</div>
         <form [formGroup]="noticeForm">
+            <!-- <mat-form-field appearance="outline">
+                <mat-label>Notice</mat-label>
+                <input matInput placeholder="Enter Notice" type="text">
+            </mat-form-field> -->
+
             <mat-form-field appearance="outline">
                 <mat-label>Notice</mat-label>
-                <input matInput placeholder="Enter Notice" type="text" formControlName="notice">
-            </mat-form-field>
+                <textarea matInput formControlName="notice"></textarea>
+              </mat-form-field>
             <!-- <mat-form-field appearance="outline">
                 <mat-label>Date</mat-label>
                 <input matInput type="date" formControlName="notice_date">

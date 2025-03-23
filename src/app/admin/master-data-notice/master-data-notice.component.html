@@ -5,9 +5,9 @@
             <div class="add_btn">
                 <button type="button" class="btn btn-danger" (click)="noticeForm()">+ Add New</button>
             </div>
-            <div class="search_box">
+            <!-- <div class="search_box">
                 <input class="form-control" type="" placeholder="Search..." aria-label="default input example">
-            </div>
+            </div> -->
         </div>
 
         <table class="table table-striped" style="text-align: center;">
@@ -22,7 +22,9 @@
             <tbody>
                 <tr *ngFor="let notice of noticeList; let i = index">
                     <th scope="row">{{i+1}}</th>
-                    <td>{{notice.notice}}</td>
+                    <td>
+                        <textarea readonly>{{notice.notice}}</textarea>
+                    </td>
                     <td>{{notice.notice_date}}</td>
                     <td>
                         <button mat-icon-button (click)="delete_notice(notice.id)">
@@ -30,7 +32,6 @@
                         </button>
                     </td>
                 </tr>
-
             </tbody>
         </table>
     </div>

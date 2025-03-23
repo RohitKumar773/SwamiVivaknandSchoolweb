@@ -13,6 +13,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class EventsComponent implements OnInit {
   eventList: Events[] = [];
+  filterEvent: Events[] = [];
 
   constructor(
     private dialog: MatDialog, 
@@ -38,8 +39,17 @@ export class EventsComponent implements OnInit {
     this._crud.getAllEvents().subscribe((res: eventsResponse) => {
       if (Array.isArray(res.data)) {
         this.eventList = res.data;
+        this.filterEvent = res.data;
       }
     });
+  }
+
+  
+  onSearch(event:any){
+    const filter = event.target.value.toLowerCase() || '';
+    this.filterEvent = this.eventList.filter(data => 
+      data.ocassion_name?.toLowerCase().includes(filter)
+    )
   }
 
   delete_application(id: any) {

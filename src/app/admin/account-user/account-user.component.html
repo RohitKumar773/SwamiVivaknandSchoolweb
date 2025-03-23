@@ -1,7 +1,7 @@
 <div class="registration_box">
     <div class="registration_table_area">
         <div class="header_title">
-            <div class="title">All Users</div>
+            <div class="title">All Employee</div>
             <div class="add_btn">
                 <button type="button" class="btn btn-danger" (click)="add_new_user()">+ Add New</button>
             </div>
@@ -17,7 +17,7 @@
                     <th scope="col">Name</th>
                     <th scope="col">Role</th>
                     <th scope="col">Mobile No.</th>
-                    <th scope="col">Access</th>
+                    <!-- <th scope="col">Access</th> -->
                     <th scope="col">Action</th>
                 </tr>
             </thead>
@@ -28,12 +28,12 @@
                     <td>{{user.name}}</td>
                     <td>{{user.role}}</td>
                     <td>{{user.mobile}}</td>
-                    <td>
+                    <!-- <td>
                         <section class="example-section">
                             <mat-slide-toggle class="example-margin" [checked]="checked" [disabled]="disabled">
                             </mat-slide-toggle>
                         </section>
-                    </td>
+                    </td> -->
                     <td>
                         <button mat-icon-button (click)="viewUser(user)">
                             <mat-icon>visibility</mat-icon>
@@ -48,7 +48,5 @@
                 </tr>
             </tbody>
         </table>
-
-
     </div>
 </div>

@@ -7,20 +7,24 @@
     </div>
     <div class="form_area">
         <div class="title">Vehicle Details</div>
+        <form [formGroup]="vehicleForm">
 
-        <div class="form-floating mb-2">
-            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput">Vehicle Name</label>
-        </div>
-        <div class="form-floating mb-2">
-            <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput">Vehicle Number</label>
-        </div>
+            <mat-form-field appearance="outline">
+                <mat-label>Vehicle Name</mat-label>
+                <input matInput placeholder="Enter Vehicle Name" type="text" formControlName="vehicle_name">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Vehicle Number</mat-label>
+                <input matInput placeholder="Enter Vehicle Number" type="text" formControlName="vehicle_no">
+            </mat-form-field>
+
+            <input type="number" [ngModel]="admin" formControlName="admin_id_fk" readonly hidden>
+        </form>
 
     </div>
 
     <div class="btn_area">
-        <button type="button" class="btn btn-danger" id="cancel" mat-dialog-close>Cancel</button>
-        <button type="button" class="btn btn-primary" id="submit">Submit</button>
+        <button type="button" class="btn btn-danger" id="cancel" (click)="resetForm()">Reset</button>
+        <button type="button" class="btn btn-primary" id="submit" (click)="onSubmit()">Submit</button>
     </div>
 </div>

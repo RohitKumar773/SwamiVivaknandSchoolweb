@@ -17,61 +17,21 @@
                     <th scope="col">Driver Name</th>
                     <th scope="col">Vehicle Number</th>
                     <th scope="col">Mobile Number</th>
+                    <th scope="col">Aadhar Number</th>
+                    <th scope="col">D.L. Number</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Rajeev Sharma</td>
-                    <td>BR01 AX 2345</td>
-                    <td>5856478965</td>
+                <tr *ngFor="let driver of driverList; let i = index;">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{driver.driver_name}}</td>
+                    <td>{{driver.vehicle_no}}</td>
+                    <td>{{driver.mobile}}</td>
+                    <td>{{driver.adhar}}</td>
+                    <td>{{driver.dl_no}}</td>
                     <td>
-                        <button mat-icon-button (click)="delete_application()">
-                            <mat-icon>delete</mat-icon>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Mahindra Kumar</td>
-                    <td>BR31 AX 2555</td>
-                    <td>9658745896</td>
-                    <td>
-                        <button mat-icon-button (click)="delete_application()">
-                            <mat-icon>delete</mat-icon>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Shila Kumari</td>
-                    <td>BR01 AX 2345</td>
-                    <td>952516027</td>
-                    <td>
-                        <button mat-icon-button (click)="delete_application()">
-                            <mat-icon>delete</mat-icon>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">4</th>
-                    <td>Anuj jha</td>
-                    <td>MH08 AX 5896</td>
-                    <td>94735008568</td>
-                    <td>
-                        <button mat-icon-button (click)="delete_application()">
-                            <mat-icon>delete</mat-icon>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">5</th>
-                    <td>Gautam Adani</td>
-                    <td>CG05 AX 2658</td>
-                    <td>9585658596</td>
-                    <td>
-                        <button mat-icon-button (click)="delete_application()">
+                        <button mat-icon-button (click)="delete_application(driver.id)">
                             <mat-icon>delete</mat-icon>
                         </button>
                     </td>

@@ -1,6 +1,6 @@
 .registration_form {
   width: 400px;
-  height: 400px;
+  height: 360px;
   background-color: white;
   padding: 10px;
   overflow: auto;
@@ -38,13 +38,10 @@
   height: auto;
   float: left;
 }
-.form-floating {
+mat-form-field {
   width: 80%;
   float: left;
   margin-left: 10%;
-  border: 1px solid silver;
-  border-radius: 10px;
-  color: black;
 }
 #floatingInput {
   border: 0.7px solid rgb(211, 211, 211);

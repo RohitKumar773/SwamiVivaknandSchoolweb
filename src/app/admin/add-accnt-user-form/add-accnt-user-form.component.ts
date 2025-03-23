@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
+import { ToastrService } from 'ngx-toastr';
 import { Role, roleRes } from 'src/app/interface/role.interface';
 import { User, userRes } from 'src/app/interface/users.interface';
 import { CrudService } from 'src/app/Services/crud.service';
@@ -22,6 +24,8 @@ export class AddAccntUserFormComponent implements OnInit {
     private _shared: SharedService,
     private _crud: CrudService,
     private _fb: FormBuilder,
+    private matref: MatDialogRef<AddAccntUserFormComponent>,
+    private toastr: ToastrService
   ) {
     this._shared.genderList.subscribe((gen) => {
       this.gender = gen;
@@ -88,36 +92,38 @@ export class AddAccntUserFormComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.employeeForm.value);
-
-    const formdata = new FormData();
-    formdata.append('name', this.employeeForm.get('name')?.value)
-    formdata.append('email', this.employeeForm.get('email')?.value);
-    formdata.append('mobile', this.employeeForm.get('mobile')?.value);
-    formdata.append('adhar', this.employeeForm.get('adhar')?.value);
-    formdata.append('profile_img', this.profile_url);
-    formdata.append('role', this.employeeForm.get('role')?.value);
-    formdata.append('dob', this.employeeForm.get('dob')?.value);
-    formdata.append('gender', this.employeeForm.get('gender')?.value);
-    formdata.append('password', this.employeeForm.get('password')?.value);
-    formdata.append('admin_id_fk', this.employeeForm.get('admin_id_fk')?.value);
-    this._crud.addEmployee(formdata).subscribe(
-      (res: userRes) => {
-        console.log(res);
-        if (res.success == 1) {
-          alert('success')
+    if (this.employeeForm.valid) {
+      const formdata = new FormData();
+      formdata.append('name', this.employeeForm.get('name')?.value)
+      formdata.append('email', this.employeeForm.get('email')?.value);
+      formdata.append('mobile', this.employeeForm.get('mobile')?.value);
+      formdata.append('adhar', this.employeeForm.get('adhar')?.value);
+      formdata.append('profile_img', this.profile_url);
+      formdata.append('role', this.employeeForm.get('role')?.value);
+      formdata.append('dob', this.employeeForm.get('dob')?.value);
+      formdata.append('gender', this.employeeForm.get('gender')?.value);
+      formdata.append('password', this.employeeForm.get('password')?.value);
+      formdata.append('admin_id_fk', this.employeeForm.get('admin_id_fk')?.value);
+      this._crud.addEmployee(formdata).subscribe(
+        (res: userRes) => {
+          console.log(res);
+          if (res.success == 1) {
+            this.toastr.success('Employee Added Successfully', 'Success');
+            this.matref.close();
+          }
+          else {
+            this.toastr.warning('Please Check Your Internet Connection', 'Internet')
+          }
+        },
+        (err: Error) => {
+          console.log(err);
+          this.toastr.error('Please Check Your Internet Connection')
         }
-        else {
-          alert('internet')
-        }
-      },
-      (err: Error) => {
-        console.log(err);
-        alert('issue')
-      }
-    )
-
-
+      )
+    }
+    else{
+      this.toastr.warning('Please fill all required fields', 'Warning')
+    }
   }
 
   resetForm() { }

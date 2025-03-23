@@ -14,8 +14,8 @@ import { UserViewComponent } from '../user-view/user-view.component';
 export class AccountUserComponent implements OnInit {
   checked = false;
   disabled = false;
-
   userList: User[] = [];
+  filterEmp: User[] = [];
 
   constructor(
     private dialog: MatDialog,
@@ -33,9 +33,19 @@ export class AccountUserComponent implements OnInit {
         console.log(res);
         if (Array.isArray(res.data)) {
           this.userList = res.data;
+          this.filterEmp = res.data
         }
       }
     )
+  }
+
+  onSearch(event:any){
+    const filter = event.target.value.toLowerCase() || '';
+    this.filterEmp = this.userList.filter(data => 
+      data?.name?.toLowerCase().includes(filter) ||
+      data?.mobile?.toString().includes(filter)
+    )
+    
   }
 
   delete_user(id:any) {
@@ -60,9 +70,13 @@ export class AccountUserComponent implements OnInit {
   }
 
   add_new_user() {
-    this.dialog.open(AddAccntUserFormComponent, {
+    const openDig = this.dialog.open(AddAccntUserFormComponent, {
       disableClose: true,
     });
+
+    openDig.afterClosed().subscribe(() => {
+      this.getUsers();
+    })
   }
 
   viewUser(user:any) {

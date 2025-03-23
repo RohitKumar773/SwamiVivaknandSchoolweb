@@ -13,6 +13,7 @@ import { BatchResponse } from '../interface/batches.interface';
 import { NoticeResponse } from '../interface/notice.interface';
 import { StudentFeeInstallmentRes } from '../interface/feeInstallment.interface';
 import { StudentFeeRes } from '../interface/studentFees.interface';
+import { ApiResponseForEmp, ApiResponseSalary } from '../interface/salary.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -105,7 +106,7 @@ export class CrudService {
   addEmployee(data: any): Observable<any> {
     return this._http.post<any>(`${this.base_url}employee.php`, data)
   }
-  
+
   getUser(): Observable<userRes> {
     return this._http.get<userRes>(`${this.base_url}employee.php`);
   }
@@ -198,4 +199,22 @@ export class CrudService {
   getStdFee(): Observable<StudentFeeRes> {
     return this._http.get<StudentFeeRes>(`${this.base_url}studentfee.php`)
   }
+
+  getempBymob(mobile: number): Observable<ApiResponseForEmp> {
+    return this._http.get<ApiResponseForEmp>(`${this.base_url}getEmployee.php?mobile=${mobile}`)
+  }
+  getemp(): Observable<ApiResponseForEmp> {
+    return this._http.get<ApiResponseForEmp>(`${this.base_url}getEmployee.php`)
+  }
+
+  add_salary(data: any): Observable<any> {
+    return this._http.post<any>(`${this.base_url}salary.php`, data)
+  }
+  get_salary_record(): Observable<ApiResponseSalary> {
+    return this._http.get<ApiResponseSalary>(`${this.base_url}salary.php`)
+  }
+
+  // for 
+
+
 }

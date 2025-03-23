@@ -10,30 +10,67 @@
         <div class="title">Faculty Salary Details</div>
 
         <form [formGroup]="salaryForm">
-            <mat-form-field class="example-full-width">
-                <mat-label>Number</mat-label>
-                <input type="text" placeholder="Pick one" aria-label="Number" matInput formControlName="number"
-                    [matAutocomplete]="auto">
-                <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+            <mat-form-field class="example-full-width" style="width: 100%;">
+                <mat-label>Enter Employee Number / name </mat-label>
+                <input type="text" placeholder="Search name or Mobile number " aria-label="Number" matInput
+                    formControlName="number" [matAutocomplete]="auto">
+                <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete"
+                    (optionSelected)="onOptionSelected($event.option.value)">
                     <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-                        {{ option }}
+                        {{ option.contact_no }} - {{ option.name }}
                     </mat-option>
                 </mat-autocomplete>
             </mat-form-field>
+
 
             <table class="batch_table">
                 <tr>
                     <td>
                         <mat-form-field appearance="outline" class="full-width">
-                            <mat-label>Name</mat-label>
-                            <input matInput placeholder="Enter Name" formControlName="name" />
+                            <mat-label>Select Year</mat-label>
+                            <mat-select formControlName="year">
+                                <mat-option value="2024">2024</mat-option>
+                                <mat-option value="2025">2025</mat-option>
+                                <mat-option value="2026">2026</mat-option>
+                                <mat-option value="2027">2027</mat-option>
+                                <mat-option value="2028">2028</mat-option>
+                            </mat-select>
                         </mat-form-field>
                     </td>
 
                     <td>
                         <mat-form-field appearance="outline" class="full-width">
-                            <mat-label>Timing (10 AM To 11 AM)</mat-label>
-                            <input matInput placeholder="Timing (10 AM To 11 AM)" formControlName="timing" />
+                            <mat-label>Select Month</mat-label>
+                            <mat-select formControlName="month">
+                                <mat-option value="Jan">January</mat-option>
+                                <mat-option value="Feb">February</mat-option>
+                                <mat-option value="Mar">March</mat-option>
+                                <mat-option value="Apr">April</mat-option>
+                                <mat-option value="May">May</mat-option>
+                                <mat-option value="Jun">June</mat-option>
+                                <mat-option value="Jul">July</mat-option>
+                                <mat-option value="Aug">August</mat-option>
+                                <mat-option value="Sep">September</mat-option>
+                                <mat-option value="Oct">October</mat-option>
+                                <mat-option value="Nov">November</mat-option>
+                                <mat-option value="Dec">December</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Amount (₹)</mat-label>
+                            <input matInput type="number" formControlName="amount" placeholder="Enter Amount (₹)" />
+                        </mat-form-field>
+                    </td>
+
+                    <td>
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Date</mat-label>
+                            <input matInput type="date" formControlName="cur_date" />
                         </mat-form-field>
                     </td>
                 </tr>
@@ -46,4 +83,3 @@
         <button type="submit" class="btn btn-primary" id="submit" (click)="Add()">Submit</button>
     </div>
 </div>
-    

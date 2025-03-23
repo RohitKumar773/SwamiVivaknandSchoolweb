@@ -69,6 +69,8 @@ import { AddNoticeComponent } from './add-notice/add-notice.component';
 import { StudentFeesComponent } from './student-fees/student-fees.component';
 import { AddStdFeeComponent } from './add-std-fee/add-std-fee.component';
 import { AddFeeInstallmentComponent } from './add-fee-installment/add-fee-installment.component';
+import { FacultySalaryRecordsAddComponent } from './faculty-salary-records-add/faculty-salary-records-add.component';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 @NgModule({
   declarations: [
@@ -123,6 +125,7 @@ import { AddFeeInstallmentComponent } from './add-fee-installment/add-fee-instal
     StudentFeesComponent,
     AddStdFeeComponent,
     AddFeeInstallmentComponent,
+    FacultySalaryRecordsAddComponent,
   ],
   imports: [
     CommonModule,
@@ -144,6 +147,7 @@ import { AddFeeInstallmentComponent } from './add-fee-installment/add-fee-instal
     MatNativeDateModule,
     ReactiveFormsModule,
     FormsModule,
+    MatAutocompleteModule
   
     
   ],

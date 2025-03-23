@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { FacultySalaryRecordsAddComponent } from '../faculty-salary-records-add/faculty-salary-records-add.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-faculty-salary-records',
@@ -7,6 +9,25 @@ import { Component } from '@angular/core';
 })
 export class FacultySalaryRecordsComponent {
 
-  delete_record(){}
+  constructor(
+    private dialog: MatDialog
+  ) { }
+  delete_record() { }
+
+  getSalaryRec() {
+
+  }
+  PayNow() {
+    const openDig = this.dialog.open(FacultySalaryRecordsAddComponent, {
+      disableClose: true
+    })
+
+    openDig.afterClosed().subscribe(
+      () => {
+        this.getSalaryRec();
+      }
+    )
+
+  }
 
 }

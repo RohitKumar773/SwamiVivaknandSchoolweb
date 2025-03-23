@@ -1,0 +1,49 @@
+<div class="registration_form">
+    <div class="form_head">
+        <h3>Add New Salary Records</h3>
+        <p mat-dialog-close>
+            <mat-icon>cancel</mat-icon>
+        </p>
+    </div>
+
+    <div class="form_area">
+        <div class="title">Faculty Salary Details</div>
+
+        <form [formGroup]="salaryForm">
+            <mat-form-field class="example-full-width">
+                <mat-label>Number</mat-label>
+                <input type="text" placeholder="Pick one" aria-label="Number" matInput formControlName="number"
+                    [matAutocomplete]="auto">
+                <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                        {{ option }}
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+
+            <table class="batch_table">
+                <tr>
+                    <td>
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Name</mat-label>
+                            <input matInput placeholder="Enter Name" formControlName="name" />
+                        </mat-form-field>
+                    </td>
+
+                    <td>
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Timing (10 AM To 11 AM)</mat-label>
+                            <input matInput placeholder="Timing (10 AM To 11 AM)" formControlName="timing" />
+                        </mat-form-field>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+    <div class="btn_area">
+        <button type="button" class="btn btn-danger" id="cancel" mat-dialog-close>Cancel</button>
+        <button type="submit" class="btn btn-primary" id="submit" (click)="Add()">Submit</button>
+    </div>
+</div>
+    

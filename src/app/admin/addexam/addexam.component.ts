@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import { MatSelectChange } from '@angular/material/select';
 import { ToastrService } from 'ngx-toastr';
 import { Examinations } from 'src/app/interface/examinations.interface';
 import { SubjectRes, GroupedClass, Subject } from 'src/app/interface/subject.interface';
@@ -52,25 +53,9 @@ export class AddexamComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getSubject()
   }
 
-  getSubject() {
-    this._crud.getSubject().subscribe(
-      (res: SubjectRes) => {
-        console.log('API Response:', res);
-
-        if (res && res.data && Array.isArray(res.data)) {
-          this.subjectList = res.data.flatMap(cls => cls.subjects);
-        } else {
-          console.error('Unexpected response structure:', res);
-        }
-      },
-      (err: Error) => {
-        console.error('API Error:', err);
-      }
-    );
-  }
+  
 
   onSubmit() {
     console.log(this.examinationForm.value);
@@ -89,6 +74,17 @@ export class AddexamComponent implements OnInit {
 
   resetForm() {
     this.examinationForm.reset();
+  }
+
+  onChangeClass(event: MatSelectChange) {
+    const cls = event.value
+    console.log(cls)
+    this._crud.getSubjectByClass(cls).subscribe(
+      (res) => {
+        console.log(res)
+        this.subjectList = res.data
+      }
+    )
   }
 
 }

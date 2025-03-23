@@ -15,104 +15,26 @@
             <thead>
                 <tr>
                     <th scope="col">S.N.</th>
-                    <th scope="col">Faculty Name</th>
+                    <th scope="col">Name</th>
                     <th scope="col">Contact Number</th>
-                    <th scope="col">Salary</th>
-                    <th scope="col">Salary Status</th>
-                    <th scope="col">Action</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Month</th>
+                    <th scope="col">Year</th>
+                    <th scope="col">Pay Date</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
+                <tr *ngFor="let item of FilterSalaryRecords">
                     <th scope="row">1</th>
-                    <td>Rajeev Sharma</td>
-                    <td>8598745689</td>
-                    <td>25k</td>
-                    <td style="color: green;">Paid</td>
-                    <td>
-                        <button mat-icon-button>
-                            <mat-icon>visibility</mat-icon>
-                        </button>
-                        <button mat-icon-button>
-                            <mat-icon>edit</mat-icon>
-                        </button>
-                        <!-- <button mat-icon-button (click)="delete_record()">
-                            <mat-icon>delete</mat-icon>
-                        </button> -->
-                    </td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.contact_no}}</td>
+                    <td>{{item.amount}}</td>
+                    <td>{{item.month}}</td>
+                    <td>{{item.year}}</td>
+                    <td>{{item.cur_date}}</td>
+
                 </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Ranjan Sharma</td>
-                    <td>9635896548</td>
-                    <td>30k</td>
-                    <td style="color: orangered;">Unpaid</td>
-                    <td>
-                        <button mat-icon-button>
-                            <mat-icon>visibility</mat-icon>
-                        </button>
-                        <button mat-icon-button>
-                            <mat-icon>edit</mat-icon>
-                        </button>
-                        <!-- <button mat-icon-button (click)="delete_record()">
-                            <mat-icon>delete</mat-icon>
-                        </button> -->
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Manish Kumar</td>
-                    <td>8978965412</td>
-                    <td>20k</td>
-                    <td style="color: green;">Paid</td>
-                    <td>
-                        <button mat-icon-button>
-                            <mat-icon>visibility</mat-icon>
-                        </button>
-                        <button mat-icon-button>
-                            <mat-icon>edit</mat-icon>
-                        </button>
-                        <!-- <button mat-icon-button (click)="delete_record()">
-                            <mat-icon>delete</mat-icon>
-                        </button> -->
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">4</th>
-                    <td>Mohan Singh</td>
-                    <td>7896541236</td>
-                    <td>12k</td>
-                    <td style="color: green;">Paid</td>
-                    <td>
-                        <button mat-icon-button>
-                            <mat-icon>visibility</mat-icon>
-                        </button>
-                        <button mat-icon-button>
-                            <mat-icon>edit</mat-icon>
-                        </button>
-                        <!-- <button mat-icon-button (click)="delete_record()">
-                            <mat-icon>delete</mat-icon>
-                        </button> -->
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">5</th>
-                    <td>Niranjan Kumar</td>
-                    <td>7896548956</td>
-                    <td>30k</td>
-                    <td style="color: green;">Unpaid</td>
-                    <td>
-                        <button mat-icon-button>
-                            <mat-icon>visibility</mat-icon>
-                        </button>
-                        <button mat-icon-button>
-                            <mat-icon>edit</mat-icon>
-                        </button>
-                        <!-- <button mat-icon-button (click)="delete_record()">
-                            <mat-icon>delete</mat-icon>
-                        </button> -->
-                    </td>
-                </tr>
+
             </tbody>
         </table>
 

@@ -1,82 +1,84 @@
 .registration_form {
-    width: auto;
-    height: auto;
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: auto;
-  }
-  
-  .form_head {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 5px 0;
-    border-bottom: 1px solid silver;
-  }
-  
-  .form_head h3 {
-    margin: 0;
-    font-family: "Nunito Sans", serif;
-  }
-  
-  .form_head p {
-    margin: 0;
-    cursor: pointer;
-  }
-  
-  .title {
-    width: 100%;
-    text-align: center;
-    font-size: 18px;
-    text-transform: uppercase;
-    font-family: "Nunito Sans", serif;
-    margin: 15px 0;
-    line-height: 30px;
-    color: #333;
-    font-weight: bold;
-  }
-  
-  .form_area {
-    width: 100%;
-    margin-top: 10px;
-  }
-  
-  .batch_table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .batch_table td {
-    padding: 8px;
-    vertical-align: middle;
-  }
-  
-  .form-floating {
-    width: 100%;
-    margin-bottom: 10px;
-  }
-  
-  .full-width {
-    width: 100%;
-  }
-  
-  .btn_area {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-  }
-  
-  ::-webkit-scrollbar {
-    width: 5px;
-  }
-  
-  ::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 10px;
-  }
-  
-  ::-webkit-scrollbar-thumb:hover {
-    background: #555;
-  }
+  width: auto;
+  height: auto;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: auto;
+}
+
+.form_head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+  border-bottom: 1px solid silver;
+}
+
+.form_head h3 {
+  margin: 0;
+  font-family: "Nunito Sans", serif;
+}
+
+.form_head p {
+  margin: 0;
+  cursor: pointer;
+}
+
+.title {
+  width: 100%;
+  height: 30px;
+  text-align: center;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-family: "Nunito Sans", serif;
+  border-bottom: 5px linear-gradient(to right, green, lightgreen);
+  margin-top: 10px;
+  margin-bottom: 20px;
+  line-height: 30px;
+  float: left;
+}
+
+.form_area {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.batch_table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.batch_table td {
+  padding: 8px;
+  vertical-align: middle;
+}
+
+.form-floating {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.btn_area {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

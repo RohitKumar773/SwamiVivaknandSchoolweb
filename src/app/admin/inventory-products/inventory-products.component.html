@@ -14,101 +14,29 @@
             <thead>
                 <tr>
                     <th scope="col">S.N.</th>
-                    <th scope="col">Product Name</th>
-                    <th scope="col">Class</th>
-                    <th scope="col">Price</th>
+                    <th scope="col">Mobile no.</th>
+                    <th scope="col">Material Name</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Date</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Shirt Pant</td>
-                    <td>4th</td>
-                    <td>4000</td>
+                <tr *ngFor="let product of productList; let i = index;">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{product.std_mobile}}</td>
+                    <td>{{product.material_name}}</td>
+                    <td>{{product.material_quantity}}</td>
+                    <td>{{product.total_amount}}</td>
+                    <td>{{product.date}}</td>
                     <td>
-                        <button mat-icon-button>
-                            <mat-icon>visibility</mat-icon>
-                        </button>
-                        <button mat-icon-button>
-                            <mat-icon>edit</mat-icon>
-                        </button>
-                        <button mat-icon-button (click)="delete_products()">
-                            <mat-icon>delete</mat-icon>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Shirt Pant</td>
-                    <td>6th</td>
-                    <td>6000</td>
-                    <td>
-                        <button mat-icon-button>
-                            <mat-icon>visibility</mat-icon>
-                        </button>
-                        <button mat-icon-button>
-                            <mat-icon>edit</mat-icon>
-                        </button>
-                        <button mat-icon-button (click)="delete_products()">
-                            <mat-icon>delete</mat-icon>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Shirt Pant</td>
-                    <td>10th</td>
-                    <td>7000</td>
-                    <td>
-                        <button mat-icon-button>
-                            <mat-icon>visibility</mat-icon>
-                        </button>
-                        <button mat-icon-button>
-                            <mat-icon>edit</mat-icon>
-                        </button>
-                        <button mat-icon-button (click)="delete_products()">
-                            <mat-icon>delete</mat-icon>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">4</th>
-                    <td>Shirt Pant</td>
-                    <td>11th</td>
-                    <td>5000</td>
-                    <td>
-                        <button mat-icon-button>
-                            <mat-icon>visibility</mat-icon>
-                        </button>
-                        <button mat-icon-button>
-                            <mat-icon>edit</mat-icon>
-                        </button>
-                        <button mat-icon-button (click)="delete_products()">
-                            <mat-icon>delete</mat-icon>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">5</th>
-                    <td>Shirt Pant</td>
-                    <td>2nd</td>
-                    <td>4000</td>
-                    <td>
-                        <button mat-icon-button>
-                            <mat-icon>visibility</mat-icon>
-                        </button>
-                        <button mat-icon-button>
-                            <mat-icon>edit</mat-icon>
-                        </button>
-                        <button mat-icon-button (click)="delete_products()">
+                        <button mat-icon-button (click)="delete_products(product.id)">
                             <mat-icon>delete</mat-icon>
                         </button>
                     </td>
                 </tr>
             </tbody>
         </table>
-
-
     </div>
 </div>

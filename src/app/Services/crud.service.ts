@@ -17,6 +17,7 @@ import { VehicleResponse } from '../interface/vehicle.interface';
 import { DriverResponse } from '../interface/driver.interface';
 import { ApiResponseForEmp, ApiResponseSalary } from '../interface/salary.interface';
 import { InventoryMaterialRes } from '../interface/material.interface';
+import { inventoryProductRes } from '../interface/inventoryProduct.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -26,8 +27,8 @@ export class CrudService {
   // base_url: string = 'http://localhost/sawamivivekanand/'; //local
   // base_url: string = 'https://mausamstudio.com/Development/sawamivivekanand/'; //Live
 
-  base_url: string = 'http://localhost/sawamivivekanand/'; //local
-  // base_url: string = 'https://ud.mausamstudio.com/sawamivivekanand/'; //Live
+  // base_url: string = 'http://localhost/sawamivivekanand/'; //local
+  base_url: string = 'https://ud.mausamstudio.com/sawamivivekanand/'; //Live
 
   constructor(private _http: HttpClient) { }
 
@@ -251,6 +252,18 @@ export class CrudService {
   }
   deleteMaterial(id: any): Observable<any> {
     return this._http.delete<any>(`${this.base_url}material.php?id=${id}`);
+  }
+
+  //inventory products
+
+  addProduct(data: any): Observable<any> {
+    return this._http.post<any>(`${this.base_url}materialProduct.php`, data)
+  }
+  getProduct(): Observable<inventoryProductRes> {
+    return this._http.get<inventoryProductRes>(`${this.base_url}materialProduct.php`)
+  }
+  deleteProduct(id: any): Observable<any> {
+    return this._http.delete<any>(`${this.base_url}materialProduct.php?id=${id}`)
   }
 
 }

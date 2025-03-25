@@ -16,6 +16,8 @@ import { StudentFeeRes } from '../interface/studentFees.interface';
 import { VehicleResponse } from '../interface/vehicle.interface';
 import { DriverResponse } from '../interface/driver.interface';
 import { ApiResponseForEmp, ApiResponseSalary } from '../interface/salary.interface';
+import { InventoryMaterialRes } from '../interface/material.interface';
+import { inventoryProductRes } from '../interface/inventoryProduct.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -223,7 +225,7 @@ export class CrudService {
   getDriver(): Observable<DriverResponse> {
     return this._http.get<DriverResponse>(`${this.base_url}driver.php`);
   }
-  deleteDriver(id:any):Observable<any>{
+  deleteDriver(id: any): Observable<any> {
     return this._http.delete<any>(`${this.base_url}driver.php?id=${id}`);
   }
 
@@ -241,7 +243,27 @@ export class CrudService {
     return this._http.get<ApiResponseSalary>(`${this.base_url}salary.php`)
   }
 
-  // for 
+  // inventory material
+  addMaterial(data: any): Observable<any> {
+    return this._http.post<any>(`${this.base_url}material.php`, data)
+  }
+  getMaterial(): Observable<InventoryMaterialRes> {
+    return this._http.get<InventoryMaterialRes>(`${this.base_url}material.php`)
+  }
+  deleteMaterial(id: any): Observable<any> {
+    return this._http.delete<any>(`${this.base_url}material.php?id=${id}`);
+  }
 
+  //inventory products
+
+  addProduct(data: any): Observable<any> {
+    return this._http.post<any>(`${this.base_url}materialProduct.php`, data)
+  }
+  getProduct(): Observable<inventoryProductRes> {
+    return this._http.get<inventoryProductRes>(`${this.base_url}materialProduct.php`)
+  }
+  deleteProduct(id: any): Observable<any> {
+    return this._http.delete<any>(`${this.base_url}materialProduct.php?id=${id}`)
+  }
 
 }

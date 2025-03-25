@@ -71,6 +71,8 @@ import { AddStdFeeComponent } from './add-std-fee/add-std-fee.component';
 import { AddFeeInstallmentComponent } from './add-fee-installment/add-fee-installment.component';
 import { FacultySalaryRecordsAddComponent } from './faculty-salary-records-add/faculty-salary-records-add.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { AddMaterialFormComponent } from './add-material-form/add-material-form.component';
+import { AddStdProductComponent } from './add-std-product/add-std-product.component';
 
 @NgModule({
   declarations: [
@@ -126,6 +128,8 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
     AddStdFeeComponent,
     AddFeeInstallmentComponent,
     FacultySalaryRecordsAddComponent,
+    AddMaterialFormComponent,
+    AddStdProductComponent,
   ],
   imports: [
     CommonModule,

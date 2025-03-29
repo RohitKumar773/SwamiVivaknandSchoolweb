@@ -7,22 +7,21 @@
         <div class="sidebar_menu_area">
 
 
-            <button class="btn" routerLink="dashboard" [ngClass]="{'active':activeButton ===1}" (click)="setActive(1)"
+            <button class="btn" (click)="toggle()" routerLink="dashboard" [ngClass]="{'active':activeButton ===1}" (click)="setActive(1)"
                 routerLinkActive="active">
                 <mat-icon>dashboard</mat-icon>
                 Dashboard
             </button>
 
-            <!-- Account  -->
-            <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#account" aria-expanded="true"
-                aria-controls="collapseExample" (click)="toggle()" [ngClass]="{'active':activeButton ===2}"
-                (click)="setActive(2)" routerLinkActive="active">
+            <!-- Account -->
+            <button class="btn" type="button" (click)="toggle()" [ngClass]="{'active': activeButton === 2}">
                 <mat-icon>account_box</mat-icon>
                 Account
                 <mat-icon style="float: right;"
                     [@rotateIcon]="isOpen ? 'open' : 'closed'">keyboard_arrow_left</mat-icon>
             </button>
-            <div class="collapse" id="account">
+
+            <div class="collapse" [ngClass]="{'show': isOpen}">
                 <button class="options" routerLink="account_role" routerLinkActive="active">
                     <mat-icon>arrow_right_alt</mat-icon>
                     Designation
@@ -37,16 +36,15 @@
                 </button>
             </div>
 
-            <!-- Registrations  -->
-            <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#register" aria-expanded="true"
-                aria-controls="collapseExample" (click)="regToggle()" [ngClass]="{'active':activeButton ===3}"
-                (click)="setActive(3)" routerLinkActive="active">
+            <!-- Registrations -->
+            <button class="btn" type="button" (click)="regToggle()" [ngClass]="{'active': activeButton === 3}">
                 <mat-icon>account_circle</mat-icon>
                 Registration
                 <mat-icon style="float: right;"
                     [@rotateIcon]="isOpen2 ? 'open' : 'closed'">keyboard_arrow_left</mat-icon>
             </button>
-            <div class="collapse" id="register">
+
+            <div class="collapse" [ngClass]="{'show': isOpen2}">
                 <button class="options" routerLink="course_application" routerLinkActive="active">
                     <mat-icon>arrow_right_alt</mat-icon>
                     Course Application
@@ -57,22 +55,22 @@
                 </button>
             </div>
 
-            <button class="btn" routerLink="events" [ngClass]="{'active':activeButton ===4}" (click)="setActive(4)"
-                routerLinkActive="active">
+            <!-- Events -->
+            <button class="btn" routerLink="events" [ngClass]="{'active': activeButton === 4}" (click)="setActive(4)">
                 <mat-icon>event</mat-icon>
                 Events
             </button>
 
-            <!-- Master Data  -->
-            <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#masterData"
-                aria-expanded="true" aria-controls="collapseExample" (click)="mdtoggle()"
-                [ngClass]="{'active':activeButton ===5}" (click)="setActive(5)" routerLinkActive="active">
+
+            <!-- Master Data -->
+            <button class="btn" type="button" (click)="mdtoggle()" [ngClass]="{'active': activeButton === 5}">
                 <mat-icon>perm_data_setting</mat-icon>
                 Master Data
                 <mat-icon style="float: right;"
                     [@rotateIcon]="isOpen3 ? 'open' : 'closed'">keyboard_arrow_left</mat-icon>
             </button>
-            <div class="collapse" id="masterData" routerLinkActive="active">
+
+            <div class="collapse" [ngClass]="{'show': isOpen3}">
                 <!-- <button class="options" routerLink="master_data_module">
                     <mat-icon>arrow_right_alt</mat-icon>
                     Module
@@ -103,16 +101,15 @@
                 </button>
             </div>
 
-            <!-- Faculty  -->
-            <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#faculty" aria-expanded="true"
-                aria-controls="collapseExample" (click)="fttoggle()" [ngClass]="{'active':activeButton ===6}"
-                (click)="setActive(6)" routerLinkActive="active">
+            <!-- Faculty -->
+            <button class="btn" type="button" (click)="fttoggle()" [ngClass]="{'active': activeButton === 6}">
                 <mat-icon>face</mat-icon>
                 Faculty
                 <mat-icon style="float: right;"
                     [@rotateIcon]="isOpen4 ? 'open' : 'closed'">keyboard_arrow_left</mat-icon>
             </button>
-            <div class="collapse" id="faculty">
+
+            <div class="collapse" [ngClass]="{'show': isOpen4}">
                 <button class="options" routerLink="faculty_profile" routerLinkActive="active">
                     <mat-icon>arrow_right_alt</mat-icon>
                     Profile
@@ -132,7 +129,7 @@
                 <mat-icon style="float: right;"
                     [@rotateIcon]="isOpen5 ? 'open' : 'closed'">keyboard_arrow_left</mat-icon>
             </button>
-            <div class="collapse" id="fees">
+            <div class="collapse" [ngClass]="{'show': isOpen5}">
                 <button class="options" routerLink="fee_installments" routerLinkActive="active">
                     <mat-icon>arrow_right_alt</mat-icon>
                     Installments
@@ -142,17 +139,16 @@
                     Student Fees
                 </button>
             </div>
-
-            <!-- Inventory  -->
-            <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#inventory" aria-expanded="true"
-                aria-controls="collapseExample" (click)="intogge()" [ngClass]="{'active':activeButton ===9}"
-                (click)="setActive(9)" routerLinkActive="active">
+            <!-- Inventory -->
+            <button class="btn" type="button" (click)="intoggle()" [ngClass]="{'active': activeButton === 9}">
                 <mat-icon>recent_actors</mat-icon>
                 Inventory
                 <mat-icon style="float: right;"
                     [@rotateIcon]="isOpen7 ? 'open' : 'closed'">keyboard_arrow_left</mat-icon>
             </button>
-            <div class="collapse" id="inventory">
+
+
+            <div class="collapse" [ngClass]="{'show': isOpen7}">
                 <button class="options" routerLink="inventory_categories" routerLinkActive="active">
                     <mat-icon>arrow_right_alt</mat-icon>
                     Manage Store
@@ -172,7 +168,7 @@
                 <mat-icon style="float: right;"
                     [@rotateIcon]="isOpen8 ? 'open' : 'closed'">keyboard_arrow_left</mat-icon>
             </button>
-            <div class="collapse" id="transport">
+            <div class="collapse" [ngClass]="{'show': isOpen8}">
                 <button class="options" routerLink="transport_vehicle" routerLinkActive="active">
                     <mat-icon>arrow_right_alt</mat-icon>
                     Vehicle
@@ -200,7 +196,7 @@
                 <mat-icon style="float: right;"
                     [@rotateIcon]="isOpen9 ? 'open' : 'closed'">keyboard_arrow_left</mat-icon>
             </button>
-            <div class="collapse" id="hostel">
+            <div class="collapse" [ngClass]="{'show': isOpen9}">
                 <button class="options" routerLink="allocate_hostel" routerLinkActive="active">
                     <mat-icon>arrow_right_alt</mat-icon>
                     Allocate Hostel

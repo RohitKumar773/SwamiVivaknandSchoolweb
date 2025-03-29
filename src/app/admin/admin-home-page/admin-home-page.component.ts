@@ -39,31 +39,63 @@ export class AdminHomePageComponent {
 
   toggle() {
     this.isOpen = !this.isOpen;
+    this.closeOtherSections(2);
   }
+
   regToggle() {
     this.isOpen2 = !this.isOpen2;
+    this.closeOtherSections(3);
   }
+
   mdtoggle() {
     this.isOpen3 = !this.isOpen3;
+    this.closeOtherSections(5);
   }
+
   fttoggle() {
     this.isOpen4 = !this.isOpen4;
+    this.closeOtherSections(6);
   }
+
   festoggle() {
     this.isOpen5 = !this.isOpen5;
+    this.closeOtherSections(7);
   }
+
   cstoggle() {
     this.isOpen6 = !this.isOpen6;
+    this.closeOtherSections(8);
   }
-  intogge() {
+
+  intoggle() {
     this.isOpen7 = !this.isOpen7;
+    this.closeOtherSections(9);
   }
+
   trtoggle() {
     this.isOpen8 = !this.isOpen8;
+    this.closeOtherSections(10);
   }
+
   hsttoggle() {
     this.isOpen9 = !this.isOpen9;
+    this.closeOtherSections(11);
   }
+
+  private closeOtherSections(active: number) {
+    this.isOpen = active === 2 ? this.isOpen : false;
+    this.isOpen2 = active === 3 ? this.isOpen2 : false;
+    this.isOpen3 = active === 5 ? this.isOpen3 : false;
+    this.isOpen4 = active === 6 ? this.isOpen4 : false;
+    this.isOpen5 = active === 7 ? this.isOpen5 : false;
+    this.isOpen6 = active === 8 ? this.isOpen6 : false;
+    this.isOpen7 = active === 9 ? this.isOpen7 : false;
+    this.isOpen8 = active === 10 ? this.isOpen8 : false;
+    this.isOpen9 = active === 11 ? this.isOpen9 : false;
+
+    this.activeButton = active;
+  }
+
 
   setActive(index: number): void {
     this.activeButton = index;
@@ -80,7 +112,7 @@ export class AdminHomePageComponent {
         this.router.navigate(['/admin'])
 
       }
-    }else{
+    } else {
       this.router.navigate(['/admin'])
     }
   }
@@ -91,7 +123,7 @@ export class AdminHomePageComponent {
     });
   }
 
-  onLogout(){
+  onLogout() {
     localStorage.removeItem('adminLoginData')
     this.router.navigate(['/admin'])
   }

@@ -6,23 +6,39 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { MatIconModule } from '@angular/material/icon';
 import { RegistrationPageComponent } from './registration-page/registration-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SliderComponent } from './slider/slider.component';
+import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
+import { HomeComponent } from './home/home.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { ContactusComponent } from './contactus/contactus.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @NgModule({
   declarations: [
     HomepageComponent,
-    RegistrationPageComponent
+    RegistrationPageComponent,
+    SliderComponent,
+    FooterComponent,
+    HeaderComponent,
+    HomeComponent,
+    AboutUsComponent,
+    ContactusComponent,
   ],
   imports: [
     CommonModule,
     WebsiteRoutingModule,
     MatIconModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatMenuModule,
+    MatButtonModule
   ]
 })
 export class WebsiteModule {
-  constructor(){
+  constructor() {
     console.log('website is lodeed');
-    
+
   }
- }
+}

@@ -1,7 +1,19 @@
-<div class="wrapper">
+<!-- <div class="wrapper">
     <h1>This will be the homepage of website</h1>
     <button routerLink="admin">Go to Admin Panel</button><br>
     <button routerLink="student">Go to Student Dashboard</button><br>
     <button routerLink="faculty">Go to Faculty Dashboard</button>
     <button routerLink="/website/studentRegistration">Go to Registration form</button>
+</div> -->
+
+<div class="wrapper">
+    <header>
+        <app-header></app-header>
+    </header>
+    <div class="container">
+        <router-outlet></router-outlet>
+    </div>
+    <footer>
+        <app-footer></app-footer>
+    </footer>
 </div>

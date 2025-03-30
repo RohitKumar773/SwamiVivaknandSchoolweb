@@ -37,12 +37,12 @@ export class FacultySalaryRecordsAddComponent implements OnInit {
 
     this.salaryForm = this.fb.group({
       number: [''],
-      year: [currentYear],
+      year: [currentYear.toString()],
       month: [currentMonth],
       cur_date: [formattedDate],
       amount: ['0'],
       contact_no: [''],
-      emp_id: [],
+      std_id: [],
       admin_id_fk: [1],
       name: [1]
     });
@@ -78,7 +78,7 @@ export class FacultySalaryRecordsAddComponent implements OnInit {
     this.salaryForm.patchValue({
       number: option.name + '-' + option.contact_no,
       contact_no: option.contact_no,
-      emp_id: option.id,
+      std_id: option.id,
       name: option.name
     });
   }

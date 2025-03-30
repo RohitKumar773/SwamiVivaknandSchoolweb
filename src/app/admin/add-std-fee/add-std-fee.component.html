@@ -1,64 +1,101 @@
 <div class="registration_form">
     <div class="form_head">
-        <h3>Add Student Fees</h3>
+        <h3>Add Student Fee</h3>
         <p mat-dialog-close>
             <mat-icon>cancel</mat-icon>
         </p>
     </div>
+
     <div class="form_area">
-        <div class="title">Payment Details</div>
+        <div class="title">Student Fee Accpect</div>
 
-        <form [formGroup]="studentFeeForm">
-            <mat-form-field appearance="outline">
-                <mat-label>Student Name</mat-label>
-                <input matInput placeholder="Enter Student Name" type="text" formControlName="std_name">
+        <form [formGroup]="StdFeeForm">
+            <mat-form-field class="example-full-width" appearance="outline" style="width: 96%;margin-left: 2%;">
+                <mat-label>Enter Student Number / name </mat-label>
+                <input type="text" placeholder="Search name or Mobile number " aria-label="Number" matInput
+                    formControlName="number" [matAutocomplete]="auto">
+                <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete"
+                    (optionSelected)="onOptionSelected($event.option.value)">
+                    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                        {{ option.mobile }} - {{ option.name }}
+                    </mat-option>
+                </mat-autocomplete>
             </mat-form-field>
 
-            <mat-form-field appearance="outline">
-                <mat-label>Select Class</mat-label>
-                <mat-select formControlName="class">
-                    <mat-option *ngFor="let cls of class" [value]="cls">{{cls}}</mat-option>
-                </mat-select>
-            </mat-form-field>
 
-            <mat-form-field appearance="outline">
-                <mat-label>Std. Roll</mat-label>
-                <input matInput placeholder="Enter Roll Number" type="number" formControlName="std_roll">
-            </mat-form-field>
+            <table class="batch_table">
+                <tr>
+                    <td>
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Class</mat-label>
+                            <input matInput type="text" formControlName="class" placeholder="class" readonly />
+                        </mat-form-field>
+                    </td>
 
-            <mat-form-field appearance="outline">
-                <mat-label>Amount</mat-label>
-                <input matInput placeholder="Enter Amount" type="number" formControlName="amount">
-            </mat-form-field>
+                    <td>
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Roll No</mat-label>
+                            <input matInput type="text" formControlName="roll_no" readonly />
+                        </mat-form-field>
+                    </td>
+                </tr>
 
-            <mat-form-field class="example-form-field" appearance="outline">
-                <mat-label>Choose a date</mat-label>
-                <input matInput [matDatepicker]="datepicker" formControlName="fee_date">
-                <mat-hint>MM/DD/YYYY</mat-hint>
-                <mat-datepicker-toggle matIconSuffix [for]="datepicker"></mat-datepicker-toggle>
-                <mat-datepicker #datepicker>
-                    <mat-datepicker-actions>
-                        <button mat-button matDatepickerCancel>Cancel</button>
-                        <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
-                    </mat-datepicker-actions>
-                </mat-datepicker>
-            </mat-form-field>
+                <tr>
+                    <td>
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Select Year</mat-label>
+                            <mat-select formControlName="year">
+                                <mat-option value="2024">2024</mat-option>
+                                <mat-option value="2025">2025</mat-option>
+                                <mat-option value="2026">2026</mat-option>
+                                <mat-option value="2027">2027</mat-option>
+                                <mat-option value="2028">2028</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </td>
 
-            <mat-form-field appearance="outline">
-                <mat-label>Contact No.</mat-label>
-                <input matInput placeholder="Enter Contact No." type="number" formControlName="contact">
-            </mat-form-field>
+                    <td>
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Select Month</mat-label>
+                            <mat-select formControlName="month">
+                                <mat-option value="Jan">January</mat-option>
+                                <mat-option value="Feb">February</mat-option>
+                                <mat-option value="Mar">March</mat-option>
+                                <mat-option value="Apr">April</mat-option>
+                                <mat-option value="May">May</mat-option>
+                                <mat-option value="Jun">June</mat-option>
+                                <mat-option value="Jul">July</mat-option>
+                                <mat-option value="Aug">August</mat-option>
+                                <mat-option value="Sep">September</mat-option>
+                                <mat-option value="Oct">October</mat-option>
+                                <mat-option value="Nov">November</mat-option>
+                                <mat-option value="Dec">December</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </td>
+                </tr>
 
-            <input type="number" [ngModel]="admin" readonly hidden formControlName="admin_id_fk">
+                <tr>
+                    <td>
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Amount (₹)</mat-label>
+                            <input matInput type="number" formControlName="amount" placeholder="Enter Amount (₹)" />
+                        </mat-form-field>
+                    </td>
 
+                    <td>
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Date</mat-label>
+                            <input matInput type="date" formControlName="cur_date" />
+                        </mat-form-field>
+                    </td>
+                </tr>
+            </table>
         </form>
-
     </div>
 
     <div class="btn_area">
-        <button type="button" class="btn btn-danger" id="cancel" (click)="resetForm()">Reset</button>
-        <button type="button" class="btn btn-primary" id="submit"
-            (click)="edit_data?onUpdate():onSubmit()">{{edit_data?'Update':'Submit'}}
-        </button>
+        <button type="button" class="btn btn-danger" id="cancel" mat-dialog-close>Cancel</button>
+        <button type="submit" class="btn btn-primary" id="submit" (click)="Add()">Submit</button>
     </div>
 </div>

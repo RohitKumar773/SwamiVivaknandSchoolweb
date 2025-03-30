@@ -20,7 +20,6 @@
                     <th scope="col">Date</th>
                     <th scope="col">Amount</th>
                     <th scope="col">Contact</th>
-                    <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -32,11 +31,7 @@
                     <td>{{studentFee.fee_date | date : 'dd-MM-yyyy'}}</td>
                     <td>{{studentFee.amount}}</td>
                     <td>{{studentFee.contact}}</td>
-                    <td>
-                        <button mat-icon-button (click)="onUpdate(studentFee)">
-                            <mat-icon>edit</mat-icon>
-                        </button>
-                    </td>
+
                 </tr>
             </tbody>
         </table>

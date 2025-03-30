@@ -2,6 +2,9 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
+import { Observable } from 'rxjs';
+import { startWith, map } from 'rxjs/operators';
+import { Student } from 'src/app/interface/student.interface';
 import { StudentFeeRes } from 'src/app/interface/studentFees.interface';
 import { CrudService } from 'src/app/Services/crud.service';
 import { SharedService } from 'src/app/Services/shared.service';
@@ -12,84 +15,123 @@ import { SharedService } from 'src/app/Services/shared.service';
   styleUrls: ['./add-std-fee.component.scss']
 })
 export class AddStdFeeComponent implements OnInit {
-  studentFeeForm!: FormGroup
-  class: any[] = [];
-  admin = 1;
+  StdFeeForm!: FormGroup;
+  std_list: Student[] = [];
+  selectedStd: Student = {
+    id: '',
+    name: '',
+    email: '',
+    mobile: '',
+    adhar: '',
+    father_name: '',
+    mother_name: '',
+    password: '',
+    profile: '',
+    class: '',
+    admin_id_fk: '',
+    dob: '',
+    gender: '',
+    transport: '',
+    section: '',
+    roll_no: '',
+    hostel: '',
+    address: '',
+    addmission_date: ''
+  };
+
+  filteredOptions!: Observable<Student[]>;
 
   constructor(
-    private _shared: SharedService,
+    private fb: FormBuilder,
     private _crud: CrudService,
-    private _fb: FormBuilder,
-    private _toastr: ToastrService,
-    private matref: MatDialogRef<AddStdFeeComponent>,
-    @Inject(MAT_DIALOG_DATA) public edit_data: any
+    private _matref: MatDialogRef<AddStdFeeComponent>
   ) {
-    this._shared.classList.subscribe(
-      (cls) => {
-        this.class = cls
-      }
-    );
-
-
-    this.studentFeeForm = this._fb.group({
-      id: [''],
-      std_name: ['', Validators.required],
-      class: ['', Validators.required],
-      std_roll: ['', Validators.required],
-      fee_date: ['', Validators.required],
-      amount: ['', Validators.required],
-      contact: ['', Validators.required],
-      admin_id_fk: ['', Validators.required]
-    })
+    this.getStd();
   }
 
   ngOnInit() {
-    console.log(this.edit_data);
-    if (this.edit_data) {
-      this.studentFeeForm.patchValue(this.edit_data)
-    }
-    else{}
+    const currentDate = new Date();
+    const currentYear = currentDate.getFullYear();
+    const currentMonth = currentDate.toLocaleString('default', { month: 'short' });
+    const formattedDate = currentDate.toISOString().substring(0, 10);
+    console.log(currentYear)
+    this.StdFeeForm = this.fb.group({
+      number: [],
+      year: [currentYear.toString()],
+      month: [currentMonth],
+      cur_date: [formattedDate],
+      amount: [],
+      contact: [],
+      std_id: [],
+      admin_id_fk: [1],
+      name: [],
+      class: [],
+      roll_no: []
+    });
+
+    this.filteredOptions = this.StdFeeForm.get('number')!.valueChanges.pipe(
+      startWith(''),
+      map((value: string) => this.filter(value))
+    );
   }
 
-  onSubmit() {
-    if (this.studentFeeForm.valid) {
-      this._crud.addStdFee(this.studentFeeForm.value).subscribe(
-        (res: StudentFeeRes) => {
-          console.log(res);
-          this._toastr.success('Fee added successfully', 'Success');
-          this.matref.close();
-        },
-        (err: Error) => {
-          console.log(err);
-          this._toastr.warning('Please check your internet', 'Error')
+  private filter(value: string): Student[] {
+    const filterValue = value.toLowerCase();
+    return this.std_list.filter((option: Student) =>
+      option.mobile.toString().toLowerCase().includes(filterValue) ||
+      option.name.toLowerCase().includes(filterValue)
+    );
+  }
+
+  getStd() {
+    this._crud.getAllStudent().subscribe((res) => {
+      if (Array.isArray(res.data)) {
+        this.std_list = res.data;
+      }
+    });
+  }
+
+  onOptionSelected(option: Student) {
+    console.log(option)
+    this.selectedStd = option;
+    this.StdFeeForm.patchValue({
+      number: `${option.name} - ${option.mobile}`,
+      contact: option.mobile,
+      std_id: option.id,
+      name: option.name,
+      class: option.class,
+      roll_no: option.roll_no
+    });
+  }
+
+  Add() {
+    const data = {
+      "std_name": this.StdFeeForm.get('name')?.value,
+      "class": this.StdFeeForm.get('class')?.value,
+      "std_roll": this.selectedStd.roll_no,
+      "fee_date": this.StdFeeForm.get('cur_date')?.value,
+      "amount": this.StdFeeForm.get('amount')?.value,
+      "contact": this.StdFeeForm.get('contact')?.value,
+      "year": this.StdFeeForm.get('year')?.value,
+      "month": this.StdFeeForm.get('month')?.value,
+      "admin_id_fk": this.StdFeeForm.get('admin_id_fk')?.value,
+      "std_id": this.selectedStd.id
+    }
+
+
+    alert(this.selectedStd.id)
+    console.log(data)
+    this._crud.addStdFee(data).subscribe(
+      (res) => {
+        if (res.success == 1) {
+          alert(res.message)
+          this._matref.close(1)
         }
-      )
-    }
-    else {
-      this._toastr.warning('Please fill all required fields')
-    }
-  }
-
-  onUpdate() {
-    if (this.studentFeeForm.valid) {
-      this._crud.addStdFee(this.studentFeeForm.value).subscribe(
-        (res: StudentFeeRes) => {
-          console.log(res);
-          this._toastr.success('Fee Updated Successfully', 'Success');
-          this.matref.close();
-        },
-        (err: Error) => {
-          console.log(err);
-          this._toastr.warning('Please check your internet', 'Error')
-        }
-      )
-    }
-    else {
-      this._toastr.warning('Please fill all required fields')
-    }
-  }
-
-  resetForm() {
-    this.studentFeeForm.reset()
+        console.log(res);
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
   }
 }

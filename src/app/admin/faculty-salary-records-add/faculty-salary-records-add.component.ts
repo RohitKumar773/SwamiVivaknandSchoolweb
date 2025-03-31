@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { EmployeeData } from 'src/app/interface/salary.interface';
@@ -24,7 +26,10 @@ export class FacultySalaryRecordsAddComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private _crud: CrudService
+    private _crud: CrudService,
+    private toastr: ToastrService,
+    private _matref: MatDialogRef<FacultySalaryRecordsAddComponent>
+
   ) {
     this.getEmp();
   }
@@ -84,11 +89,24 @@ export class FacultySalaryRecordsAddComponent implements OnInit {
   }
 
   Add() {
+    const data = {
+      "emp_id": this.selectedEmp.id,
+      "contact_no": this.selectedEmp.contact_no,
+      "amount": this.salaryForm.get('amount')?.value,
+      "month": this.salaryForm.get('month')?.value,
+      "year": this.salaryForm.get('year')?.value,
+      "admin_id_fk": 1,
+      "cur_date": this.salaryForm.get('cur_date')?.value,
+      "name": this.selectedEmp.name
 
+    }
     console.log('Form Submitted', this.salaryForm.value);
-    this._crud.add_salary(this.salaryForm.value).subscribe(
+    this._crud.add_salary(data).subscribe(
       (res) => {
-        console.log(res)
+        if (res.success == 1) {
+          this.toastr.success(res.message, 'Success')
+          this._matref.close()
+        }
       }
     )
   }

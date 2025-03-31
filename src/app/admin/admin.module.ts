@@ -57,9 +57,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MasterDataNoticeComponent } from './master-data-notice/master-data-notice.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddFacultyComponent } from './add-faculty/add-faculty.component';
-import {MatInputModule} from '@angular/material/input';
-import {MatSelectModule} from '@angular/material/select';
-import {MatNativeDateModule} from '@angular/material/core';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatNativeDateModule } from '@angular/material/core';
 import { RegistrationViewComponent } from './registration-view/registration-view.component';
 import { FacultyViewComponent } from './faculty-view/faculty-view.component';
 import { AddexamComponent } from './addexam/addexam.component';
@@ -70,12 +70,13 @@ import { StudentFeesComponent } from './student-fees/student-fees.component';
 import { AddStdFeeComponent } from './add-std-fee/add-std-fee.component';
 import { AddFeeInstallmentComponent } from './add-fee-installment/add-fee-installment.component';
 import { FacultySalaryRecordsAddComponent } from './faculty-salary-records-add/faculty-salary-records-add.component';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { AddMaterialFormComponent } from './add-material-form/add-material-form.component';
 import { AddStdProductComponent } from './add-std-product/add-std-product.component';
 import { AddRoomComponent } from './add-room/add-room.component';
 import { AddBedComponent } from './add-bed/add-bed.component';
 import { AddAlocateHostalComponent } from './add-alocate-hostal/add-alocate-hostal.component';
+import { MatRadioModule } from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -157,9 +158,10 @@ import { AddAlocateHostalComponent } from './add-alocate-hostal/add-alocate-host
     MatNativeDateModule,
     ReactiveFormsModule,
     FormsModule,
-    MatAutocompleteModule
-  
-    
+    MatAutocompleteModule,
+    MatRadioModule
+
+
   ],
 })
-export class AdminModule {}
+export class AdminModule { }

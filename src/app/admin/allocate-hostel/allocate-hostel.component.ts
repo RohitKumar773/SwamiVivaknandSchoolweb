@@ -49,6 +49,7 @@ export class AllocateHostelComponent {
 
 
   delete_application(id: any) {
+    console.log(this.filterHostel)
     console.log(id);
     const openDig = this.dialog.open(ConfirmBoxComponent, {
       disableClose: true,

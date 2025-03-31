@@ -304,4 +304,12 @@ export class CrudService {
     return this._http.delete<any>(`${this.base_url}assignHostel.php?id=${id}`)
   }
 
+  addattendance(data: any): Observable<any> {
+    return this._http.post<any>(`${this.base_url}attendance.php`, data)
+  }
+  getattendance(): Observable<AssignHostelRes> {
+    return this._http.get<AssignHostelRes>(`${this.base_url}attendance.php`)
+  }
+
+
 }

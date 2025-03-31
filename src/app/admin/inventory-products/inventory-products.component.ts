@@ -4,6 +4,7 @@ import { AddStdProductComponent } from '../add-std-product/add-std-product.compo
 import { CrudService } from 'src/app/Services/crud.service';
 import { InventoryProduct, inventoryProductRes } from 'src/app/interface/inventoryProduct.interface';
 import { ConfirmBoxComponent } from '../confirm-box/confirm-box.component';
+import { InventoryMaterial, InventoryMaterialRes } from 'src/app/interface/material.interface';
 
 @Component({
   selector: 'app-inventory-products',
@@ -12,6 +13,9 @@ import { ConfirmBoxComponent } from '../confirm-box/confirm-box.component';
 })
 export class InventoryProductsComponent implements OnInit {
   productList: InventoryProduct[] = [];
+  materialList: InventoryMaterial[] = [];
+  productQuantityMap: { [key: string]: number } = {};
+
 
   constructor(
     private dialog: MatDialog,
@@ -20,7 +24,8 @@ export class InventoryProductsComponent implements OnInit {
 
 
   ngOnInit() {
-    this.getProduct()
+    this.getProduct();
+    this.getMaterialDetails();
   }
 
   add_new_product() {
@@ -43,6 +48,37 @@ export class InventoryProductsComponent implements OnInit {
         console.log(err);
       }
     )
+  }
+
+  getMaterialDetails() {
+    this._crud.getMaterial().subscribe(
+      (res: InventoryMaterialRes) => {
+        console.log(res);
+        this.materialList = res.data;
+        this.calculateTotalSoldQuantity();
+      }
+    )
+  }
+
+  calculateTotalSoldQuantity() {
+    this.productQuantityMap = {};
+    
+    this.productList.forEach(product => {
+      const productName = product.material_name;
+      const quantity = Number(product.material_quantity) || 0;
+
+      if (!this.productQuantityMap[productName]) {
+        this.productQuantityMap[productName] = 0;
+      }
+      this.productQuantityMap[productName] += quantity;
+    });
+
+    console.log('Total Sold Quantity Map:', this.productQuantityMap);
+  }
+
+  getRemainingStock(material: InventoryMaterial): number {
+    const soldQuantity = this.productQuantityMap[material.material_name] || 0;
+    return Number(material.material_quantity) - soldQuantity;
   }
 
   delete_products(id: any) {

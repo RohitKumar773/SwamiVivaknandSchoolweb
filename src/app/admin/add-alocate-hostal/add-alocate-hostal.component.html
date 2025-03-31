@@ -1,0 +1,49 @@
+<div class="registration_form">
+    <div class="form_head">
+        <h3>Assigen Hostel</h3>
+        <p mat-dialog-close>
+            <mat-icon>cancel</mat-icon>
+        </p>
+    </div>
+    <div class="form_area">
+        <div class="title">Assigen Hostel</div>
+        <form [formGroup]="AssigendHostelForm">
+
+            <mat-form-field class="example-full-width" appearance="outline" style="width: 96%;margin-left: 2%;">
+                <mat-label>Enter Student Number / name </mat-label>
+                <input type="text" placeholder="Search name or Mobile number " aria-label="Number" matInput
+                    formControlName="number" [matAutocomplete]="auto">
+                <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete"
+                    (optionSelected)="onOptionSelected($event.option.value)">
+                    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                        {{ option.mobile }} - {{ option.name }}
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Select Room</mat-label>
+                <mat-select formControlName="room_no" (selectionChange)="onGetBed($event)">
+                    <mat-option *ngFor="let material of Rooms"
+                        [value]="material.room_no">{{material.room_no}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Select Bed No</mat-label>
+                <mat-select formControlName="bed_no">
+                    <mat-option *ngFor="let material of Bed" [value]="material.bed_no"
+                        [disabled]="material.status == 1">{{material.bed_no}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+
+        </form>
+
+    </div>
+
+    <div class="btn_area">
+        <button type="button" class="btn btn-danger" id="cancel" (click)="resetForm()">Reset</button>
+        <button type="button" class="btn btn-primary" id="submit" (click)="onSubmit()">Submit</button>
+    </div>
+</div>

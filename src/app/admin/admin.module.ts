@@ -73,6 +73,9 @@ import { FacultySalaryRecordsAddComponent } from './faculty-salary-records-add/f
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { AddMaterialFormComponent } from './add-material-form/add-material-form.component';
 import { AddStdProductComponent } from './add-std-product/add-std-product.component';
+import { AddRoomComponent } from './add-room/add-room.component';
+import { AddBedComponent } from './add-bed/add-bed.component';
+import { AddAlocateHostalComponent } from './add-alocate-hostal/add-alocate-hostal.component';
 
 @NgModule({
   declarations: [
@@ -130,6 +133,9 @@ import { AddStdProductComponent } from './add-std-product/add-std-product.compon
     FacultySalaryRecordsAddComponent,
     AddMaterialFormComponent,
     AddStdProductComponent,
+    AddRoomComponent,
+    AddBedComponent,
+    AddAlocateHostalComponent,
   ],
   imports: [
     CommonModule,

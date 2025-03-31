@@ -18,6 +18,7 @@ import { DriverResponse } from '../interface/driver.interface';
 import { ApiResponseForEmp, ApiResponseSalary } from '../interface/salary.interface';
 import { InventoryMaterialRes } from '../interface/material.interface';
 import { inventoryProductRes } from '../interface/inventoryProduct.interface';
+import { AssignHostelRes, BedRes, Room, RoomRes } from '../interface/hostel.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -264,6 +265,43 @@ export class CrudService {
   }
   deleteProduct(id: any): Observable<any> {
     return this._http.delete<any>(`${this.base_url}materialProduct.php?id=${id}`)
+  }
+
+
+  //inventory products
+
+  addRooms(data: any): Observable<any> {
+    return this._http.post<any>(`${this.base_url}room.php`, data)
+  }
+  getRooms(): Observable<RoomRes> {
+    return this._http.get<RoomRes>(`${this.base_url}room.php`)
+  }
+  deleteRoom(id: any): Observable<any> {
+    return this._http.delete<any>(`${this.base_url}room.php?id=${id}`)
+  }
+
+  addBed(data: any): Observable<any> {
+    return this._http.post<any>(`${this.base_url}bed_api.php`, data)
+  }
+  getBed(): Observable<BedRes> {
+    return this._http.get<BedRes>(`${this.base_url}bed_api.php`)
+  }
+
+  getBedByroom(id: string): Observable<BedRes> {
+    return this._http.get<BedRes>(`${this.base_url}bed_api.php?room_no=${id}`)
+  }
+  deleteBed(id: any): Observable<any> {
+    return this._http.delete<any>(`${this.base_url}bed_api.php?id=${id}`)
+  }
+
+  addAssignHostel(data: any): Observable<any> {
+    return this._http.post<any>(`${this.base_url}assignHostel.php`, data)
+  }
+  getAssignHostel(): Observable<AssignHostelRes> {
+    return this._http.get<AssignHostelRes>(`${this.base_url}assignHostel.php`)
+  }
+  deleteAssignHostel(id: any): Observable<any> {
+    return this._http.delete<any>(`${this.base_url}assignHostel.php?id=${id}`)
   }
 
 }

@@ -1,9 +1,11 @@
 <div class="registration_box">
     <mat-toolbar>
-        <button mat-button (click)="onSwitch('room')" color="primary">Room`s</button>
-        <button mat-button (click)="onSwitch('bed')" color="primary">Bed`s</button>
+        <button mat-button (click)="onSwitch('room')" color="primary"
+            [ngClass]="{'active-button': hostelRoom}">Room’s</button>
+        <button mat-button (click)="onSwitch('bed')" color="primary"
+            [ngClass]="{'active-button': !hostelRoom}">Bed’s</button>
     </mat-toolbar>
-    <div class="registration_table_area" *ngIf="!hostelroom">
+    <div class="registration_table_area" *ngIf="hostelRoom">
         <div class="header_title">
             <div class="title">Room Records</div>
 
@@ -24,11 +26,14 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let item of Rooms">
+                <tr *ngFor="let item of rooms">
                     <th scope="row">1</th>
                     <td>{{item.room_no}}</td>
-                    <td>Deletd</td>
-
+                    <td>
+                        <button mat-icon-button (click)="onRoomDelted(item.id)">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </td>
                 </tr>
 
             </tbody>
@@ -36,13 +41,16 @@
 
     </div>
 
-    <div class="registration_table_area" *ngIf="hostelroom">
+    <div class="registration_table_area" *ngIf="!hostelRoom">
         <div class="header_title">
             <div class="title">Bed Records</div>
 
             <div class="search_box">
                 <input class="form-control" type="search" placeholder="Search..." aria-label="default input example">
             </div>
+
+            <button type="button" class="btn btn-danger" (click)="addBed()">+ Add New</button>
+
         </div>
 
         <table class="table table-striped" style="text-align: center;">
@@ -55,15 +63,21 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let item of Bed">
+                <tr *ngFor="let item of beds">
                     <th scope="row">1</th>
                     <td>{{item.room_no}}</td>
                     <td>{{item.bed_no}}</td>
-                    <td>Deletd</td>
+                    <td>
+                        <button mat-icon-button (click)="onBedDelted(item.id)">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </td>
+
                 </tr>
 
             </tbody>
         </table>
 
     </div>
+
 </div>

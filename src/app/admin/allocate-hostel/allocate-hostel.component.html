@@ -1,1 +1,41 @@
-<p>allocate-hostel works!</p>
+<div class="registration_box">
+    <div class="registration_table_area">
+        <div class="header_title">
+            <div class="title">All Alocated</div>
+            <div class="add_btn">
+                <button type="button" class="btn btn-danger" (click)="add_new_std()">+ Add New</button>
+            </div>
+            <div class="search_box">
+                <input class="form-control" type="text" placeholder="Search..." aria-label="default input example"
+                    (keyup)="onSearch($event)">
+            </div>
+        </div>
+
+        <table class="table table-striped" style="text-align: center;">
+            <thead>
+                <tr>
+                    <th scope="col">S.N.</th>
+                    <th scope="col">Student Name</th>
+                    <th scope="col">Mobile</th>
+                    <th scope="col">Room No </th>
+                    <th scope="col">Bed No </th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let std of filterHostel;let i= index">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{std.std_name}}</td>
+                    <td>{{std.std_mobile}}</td>
+                    <td>{{std.room_no}}</td>
+                    <td>{{std.bed_no}}</td>
+                    <td>
+                        <button mat-icon-button (click)="delete_application(std.id)">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

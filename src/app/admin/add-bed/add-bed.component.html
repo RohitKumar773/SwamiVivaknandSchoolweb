@@ -1,0 +1,31 @@
+<div class="registration_form">
+    <div class="form_head">
+        <h3>Add New Room</h3>
+        <p mat-dialog-close>
+            <mat-icon>cancel</mat-icon>
+        </p>
+    </div>
+    <div class="form_area">
+        <div class="title">room_no Details</div>
+        <form [formGroup]="Bed">
+            <mat-form-field appearance="outline">
+                <mat-label>Select Room</mat-label>
+                <mat-select formControlName="room_no">
+                    <mat-option *ngFor="let material of Rooms"
+                        [value]="material.room_no">{{material.room_no}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Bed No</mat-label>
+                <input matInput placeholder="Enter Bed number" type="text" formControlName="bed_no">
+            </mat-form-field>
+        </form>
+
+    </div>
+
+    <div class="btn_area">
+        <button type="button" class="btn btn-danger" id="cancel" (click)="resetForm()">Reset</button>
+        <button type="button" class="btn btn-primary" id="submit" (click)="onSubmit()">Submit</button>
+    </div>
+</div>

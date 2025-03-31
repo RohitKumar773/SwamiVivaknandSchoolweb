@@ -197,18 +197,22 @@
                     [@rotateIcon]="isOpen9 ? 'open' : 'closed'">keyboard_arrow_left</mat-icon>
             </button>
             <div class="collapse" [ngClass]="{'show': isOpen9}">
-                <button class="options" routerLink="allocate_hostel" routerLinkActive="active">
-                    <mat-icon>arrow_right_alt</mat-icon>
-                    Allocate Hostel
-                </button>
+
                 <button class="options" routerLink="manage_hostel" routerLinkActive="active">
                     <mat-icon>arrow_right_alt</mat-icon>
                     Manage Hostel
                 </button>
+
+                <button class="options" routerLink="allocate_hostel" routerLinkActive="active">
+                    <mat-icon>arrow_right_alt</mat-icon>
+                    Allocate Hostel
+                </button>
+
                 <button class="options" (click)="onLogout()" routerLinkActive="active">
                     <mat-icon>arrow_right_alt</mat-icon>
                     Logout
                 </button>
+                
             </div>
 
         </div>

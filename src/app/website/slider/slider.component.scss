@@ -74,16 +74,16 @@
     @extend %content;
 
     h1 {
-        @extend %h1-style
+        @extend %h1-style;
     }
 
     p {
-        @extend %common-styles
+        @extend %common-styles;
     }
 }
 
 h1 {
-    @extend %h1-style
+    @extend %h1-style;
 }
 
 .facilites {

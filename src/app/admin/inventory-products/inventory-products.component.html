@@ -1,8 +1,11 @@
 <div class="registration_box">
     <div class="registration_table_area">
         <div class="header_title">
-            <div class="title">All Products</div>
+            <div class="title">Sell Products</div>
             <div class="add_btn">
+                <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">View Store</button>
+                &nbsp;
                 <button type="button" class="btn btn-danger" (click)="add_new_product()">+ Add New</button>
             </div>
             <div class="search_box">
@@ -38,5 +41,29 @@
                 </tr>
             </tbody>
         </table>
+    </div>
+</div>
+
+
+<!-- right side navbar -->
+
+<!-- <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Toggle right offcanvas</button> -->
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header">
+        <h2 class="offcanvas-title" id="offcanvasRightLabel">Your Store Details</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <div class="product_title">
+            <h3>Material Name</h3>
+            <h3>Quantity</h3>
+        </div>
+        <div class="product_box" *ngFor="let mat of materialList">
+            <h4>{{mat.material_name}}</h4>
+            <!-- <h4>{{mat.material_quantity}}</h4> -->
+            <!-- {{ mat.material_quantity }} - {{ productQuantityMap[mat.material_name] || 0 }} =  -->
+            <span>{{ getRemainingStock(mat) }}</span>
+        </div>
     </div>
 </div>

@@ -1,6 +1,6 @@
 <div class="registration_form">
     <div class="form_head">
-        <h3>Add Product</h3>
+        <h3>Sell Product</h3>
         <p mat-dialog-close>
             <mat-icon>cancel</mat-icon>
         </p>
@@ -8,13 +8,21 @@
     <div class="form_area">
         <div class="title">Product Details</div>
         <form [formGroup]="productForm">
-            <mat-form-field appearance="outline">
+            <!-- <mat-form-field appearance="outline">
                 <mat-label>Material Name</mat-label>
                 <input matInput placeholder="Enter Material Name" type="text" formControlName="material_name">
-            </mat-form-field>
+            </mat-form-field> -->
+
             <mat-form-field appearance="outline">
                 <mat-label>Std. Mobile</mat-label>
                 <input matInput placeholder="Enter Student Mobile No." type="number" formControlName="std_mobile">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Select Product</mat-label>
+                <mat-select formControlName="material_name" (selectionChange)="onProductChnage()">
+                    <mat-option *ngFor="let material of materialList"
+                        [value]="material.material_name">{{material.material_name}}</mat-option>
+                </mat-select>
             </mat-form-field>
             <mat-form-field appearance="outline">
                 <mat-label>Material Quantity</mat-label>
@@ -22,7 +30,7 @@
             </mat-form-field>
             <mat-form-field appearance="outline">
                 <mat-label>Total Amount</mat-label>
-                <input matInput placeholder="Total amount" type="number" formControlName="total_amount">
+                <input matInput placeholder="Total amount" type="number" formControlName="total_amount" readonly>
             </mat-form-field>
 
             <mat-form-field appearance="outline" style="display: none;">

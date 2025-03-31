@@ -34,13 +34,24 @@
         </div>
         <div class="menu">
             <ul>
-                <li>Home</li>
-                <li>About</li>
-                <li>Admission</li>
-                <li></li>
-                <li></li>
-                <li></li>
+                <li routerLink="/home">Home</li>
+                <li routerLink="/aboutus">About</li>
+                <li routerLink="">Admission</li>
+                <li routerLink="">Academics</li>
+                <li routerLink="">Gallery</li>
+                <li routerLink="">Our Events</li>
+                <li routerLink="">Notice Board</li>
+                <li routerLink="">Contact us</li>
             </ul>
+        </div>
+        <div class="logo">
+            <button mat-raised-button [matMenuTriggerFor]="menu">Login | Register</button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item>Login as Faculty</button>
+                <button mat-menu-item>Login as Student</button>
+                <button mat-menu-item>New Register</button>
+            </mat-menu>
+
         </div>
     </div>
 </header>

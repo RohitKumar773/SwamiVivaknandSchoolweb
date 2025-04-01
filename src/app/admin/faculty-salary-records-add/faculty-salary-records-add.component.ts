@@ -110,4 +110,8 @@ export class FacultySalaryRecordsAddComponent implements OnInit {
       }
     )
   }
+
+  reset(){
+    this.salaryForm.reset()
+  }
 }

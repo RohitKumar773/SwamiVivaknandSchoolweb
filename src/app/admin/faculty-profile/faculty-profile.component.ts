@@ -14,11 +14,12 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class FacultyProfileComponent implements OnInit {
   facultyList: Faculty[] = [];
+  filterFaculty: Faculty[] = []
 
   constructor(
-    private dialog: MatDialog, 
+    private dialog: MatDialog,
     private _crud: CrudService,
-    private toastr:ToastrService
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -38,8 +39,17 @@ export class FacultyProfileComponent implements OnInit {
     this._crud.getFaculty().subscribe((res: facultyResponse) => {
       if (Array.isArray(res.data)) {
         this.facultyList = res.data;
+        this.filterFaculty = res.data
       }
     });
+  }
+
+  onSearch(event: any) {
+    const filter = event.target.value?.toLowerCase() || '';
+    this.filterFaculty = this.facultyList.filter(data =>
+      data?.name?.toLowerCase().includes(filter) ||
+      data?.contact_no?.toString().includes(filter)
+    )
   }
 
 

@@ -158,4 +158,8 @@ export class AddBatchFormComponent implements OnInit {
       }
     );
   }
+
+  resetForm(){
+    this.batchForm.reset()
+  }
 }

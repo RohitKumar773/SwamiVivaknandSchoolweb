@@ -206,4 +206,8 @@ export class AddFacultyComponent implements OnInit {
       this.toastr.warning('Please fill all required fields', 'Warning')
     }
   }
+
+  reset(){
+    this.addFacultyForm.reset()
+  }
 }

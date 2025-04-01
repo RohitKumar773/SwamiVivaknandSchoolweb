@@ -11,6 +11,8 @@ import { StudentFee, StudentFeeRes } from 'src/app/interface/studentFees.interfa
 })
 export class StudentFeesComponent implements OnInit {
   studentFeeList: StudentFee[] = [];
+  filterStdFee: StudentFee[] = []
+
   constructor(
     private dialog: MatDialog,
     private _crud: CrudService,
@@ -42,11 +44,20 @@ export class StudentFeesComponent implements OnInit {
     this._crud.getStdFee().subscribe(
       (res: StudentFeeRes) => {
         console.log(res);
-        this.studentFeeList = res.data
+        this.studentFeeList = res.data;
+        this.filterStdFee = res.data
       },
       (err: Error) => {
         console.log(err);
       }
+    )
+  }
+
+  onSearch(event: any) {
+    const filter = event.target.value?.toLowerCase() || '';
+    this.filterStdFee = this.studentFeeList.filter(data => 
+      data?.std_name?.toLowerCase().includes(filter) ||
+      data?.contact?.toString().includes(filter)
     )
   }
 

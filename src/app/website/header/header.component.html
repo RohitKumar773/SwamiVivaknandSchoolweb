@@ -47,6 +47,7 @@
         <div class="logo">
             <button mat-raised-button [matMenuTriggerFor]="menu">Login | Register</button>
             <mat-menu #menu="matMenu">
+                <button mat-menu-item routerLink="/admin/admin_login">Login as Admin</button>
                 <button mat-menu-item>Login as Faculty</button>
                 <button mat-menu-item>Login as Student</button>
                 <button mat-menu-item>New Register</button>

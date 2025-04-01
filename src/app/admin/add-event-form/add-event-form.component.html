@@ -12,14 +12,31 @@
                 <mat-label>Occassion Name</mat-label>
                 <input matInput placeholder="Enter Occassion Name" type="text" formControlName="ocassion_name">
             </mat-form-field>
+
             <mat-form-field appearance="outline">
+                <mat-label>From</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="start_date">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>To</mat-label>
+                <input matInput [matDatepicker]="pickers" formControlName="end_date">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="pickers"></mat-datepicker-toggle>
+                <mat-datepicker #pickers></mat-datepicker>
+            </mat-form-field>
+            
+            <!-- <mat-form-field appearance="outline">
                 <mat-label>From</mat-label>
                 <input matInput type="date" formControlName="start_date">
             </mat-form-field>
             <mat-form-field appearance="outline">
                 <mat-label>To</mat-label>
                 <input matInput type="date" formControlName="end_date">
-            </mat-form-field>
+            </mat-form-field> -->
 
             <input type="number" [ngModel]="admin" formControlName="admin_id_fk" readonly hidden>
         </form>

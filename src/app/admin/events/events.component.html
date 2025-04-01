@@ -6,7 +6,8 @@
                 <button type="button" class="btn btn-danger" (click)="eventForm()">+ Add New</button>
             </div>
             <div class="search_box">
-                <input class="form-control" type="text" placeholder="Search..." aria-label="default input example" (keyup)="onSearch($event)">
+                <input class="form-control" type="text" placeholder="Search..." aria-label="default input example"
+                    (keyup)="onSearch($event)">
             </div>
         </div>
 
@@ -24,8 +25,8 @@
                 <tr *ngFor="let event of filterEvent; let i = index">
                     <th scope="row">{{i+1}}</th>
                     <td>{{event.ocassion_name}}</td>
-                    <td>{{event.start_date}}</td>
-                    <td>{{event.end_date}}</td>
+                    <td>{{event.start_date | date : 'dd-MM-yyyy'}}</td>
+                    <td>{{event.end_date | date: 'dd-MM-yyyy'}}</td>
                     <td>
                         <button mat-icon-button (click)="delete_application(event.id)">
                             <mat-icon>delete</mat-icon>
@@ -35,5 +36,9 @@
 
             </tbody>
         </table>
+        <div class="notfound" *ngIf="!filterEvent.length">
+            <img src="../../../assets/noffound.png" alt="">
+            <h3>No Data Found</h3>
+        </div>
     </div>
 </div>

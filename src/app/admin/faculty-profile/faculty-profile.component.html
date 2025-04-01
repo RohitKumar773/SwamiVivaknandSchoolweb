@@ -6,7 +6,7 @@
                 <button type="button" class="btn btn-danger" (click)="add_new_faculty()">+ Add New</button>
             </div>
             <div class="search_box">
-                <input class="form-control" type="search" placeholder="Search..." aria-label="default input example">
+                <input class="form-control" type="search" placeholder="Search..." aria-label="default input example" (keyup)="onSearch($event)">
             </div>
         </div>
 
@@ -22,7 +22,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let ft of facultyList; let i = index">
+                <tr *ngFor="let ft of filterFaculty; let i = index">
                     <th scope="row">{{i+1}}</th>
                     <td>{{ft.name}}</td>
                     <td>{{ft.gender}}</td>
@@ -42,7 +42,10 @@
                 </tr>
             </tbody>
         </table>
-
+        <div class="notfound" *ngIf="!filterFaculty.length">
+            <img src="../../../assets/noffound.png" alt="">
+            <h3>No Data Found</h3>
+        </div>
 
     </div>
 </div>

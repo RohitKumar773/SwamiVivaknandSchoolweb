@@ -1,6 +1,6 @@
 .registration_form {
   width: auto;
-  height: auto;
+  height: 500px;
   background-color: white;
   padding: 20px;
   border-radius: 10px;
@@ -41,6 +41,7 @@
 .form_area {
   width: 100%;
   margin-top: 10px;
+  overflow: auto;
 }
 
 .batch_table {

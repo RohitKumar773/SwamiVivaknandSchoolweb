@@ -19,7 +19,7 @@
             </div>
 
             <div class="form-floating">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Password" [(ngModel)]="password">
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Password" [(ngModel)]="password" (keyup.enter)="adminlogin()">
                 <label for="floatingPassword">Password</label>
             </div>
         </div>

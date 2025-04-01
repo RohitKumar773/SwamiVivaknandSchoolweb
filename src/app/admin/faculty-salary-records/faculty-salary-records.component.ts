@@ -12,6 +12,7 @@ import { SalaryRecord } from 'src/app/interface/salary.interface';
 export class FacultySalaryRecordsComponent {
   allSalaryRecords: SalaryRecord[] = []
   FilterSalaryRecords: SalaryRecord[] = []
+
   constructor(
     private dialog: MatDialog,
     private _crud: CrudService
@@ -40,7 +41,14 @@ export class FacultySalaryRecordsComponent {
         this.getSalaryRec();
       }
     )
+  }
 
+  onSearch(event: any) { 
+    const filter = event.target.value?.toLowerCase() || '';
+    this.FilterSalaryRecords = this.allSalaryRecords.filter(data => 
+      data?.contact_no?.toString().includes(filter) ||
+      data?.name?.toLowerCase().includes(filter)
+    )
   }
 
 }

@@ -92,6 +92,8 @@ export class AddAccntUserFormComponent implements OnInit {
   }
 
   onSubmit() {
+    // console.log(this.employeeForm.value);
+    
     if (this.employeeForm.valid) {
       const formdata = new FormData();
       formdata.append('name', this.employeeForm.get('name')?.value)
@@ -126,7 +128,9 @@ export class AddAccntUserFormComponent implements OnInit {
     }
   }
 
-  resetForm() { }
+  resetForm() { 
+    this.employeeForm.reset()
+  }
 
 
 }

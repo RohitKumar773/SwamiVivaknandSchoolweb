@@ -40,5 +40,9 @@
                 </tr>
             </tbody>
         </table>
+        <div class="notfound" *ngIf="!filterStudent.length">
+            <img src="../../../assets/noffound.png" alt="">
+            <h3>No Data Found</h3>
+        </div>
     </div>
 </div>

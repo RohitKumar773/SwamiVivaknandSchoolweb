@@ -27,19 +27,19 @@ export class MasterDataBatchSelectionComponent {
     )
   }
 
-  onEdit(cls: string) {
-    console.log(cls)
-    this.dialog.open(AddBatchFormComponent, {
-      disableClose: true,
-      data: cls
-    })
+  // onEdit(cls: string) {
+  //   console.log(cls)
+  //   this.dialog.open(AddBatchFormComponent, {
+  //     disableClose: true,
+  //     data: cls
+  //   })
 
-  }
+  // }
 
   add_new_batch() {
     this.dialog.open(AddBatchFormComponent, {
       disableClose: true,
     })
   }
-  delete_batch() { }
+  delete_batch(id:any) { }
 }

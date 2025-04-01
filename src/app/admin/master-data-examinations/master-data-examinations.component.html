@@ -1,6 +1,6 @@
 <div class="add_btn">
-    <input class="form-control" type="search" placeholder="Search..." aria-label="default input example">
-    <button type="button" class="btn btn-danger" (click)="add_new_exam()">+ Add New</button>
+    <!-- <input class="form-control" type="search" placeholder="Search..." aria-label="default input example"> -->
+    <button type="button" class="btn btn-danger" style="float: right;" (click)="add_new_exam()">+ Add New</button>
 </div>
 
 <div class="registration_box">
@@ -12,7 +12,6 @@
             <thead>
                 <tr>
                     <th scope="col">S.N.</th>
-                    <th scope="col">Class</th>
                     <th scope="col">Subject Name</th>
                     <th scope="col">Date</th>
                     <th scope="col">Timing</th>
@@ -24,9 +23,8 @@
             <tbody>
                 <tr *ngFor="let item of exam.examinations; let i = index">
                     <th scope="row">{{i+1}}</th>
-                    <td>{{item.class}}</td>
                     <td>{{item.subject}}</td>
-                    <td>{{item.date| date : 'dd/MM/yyyy'}}</td>
+                    <td>{{item.date| date : 'dd-MM-yyyy'}}</td>
                     <td>{{item.time}}</td>
                     <td>{{item.passing_makrs}}</td>
                     <td>{{item.passing_makrs}}</td>

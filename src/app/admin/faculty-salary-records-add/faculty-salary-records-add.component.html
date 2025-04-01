@@ -68,9 +68,17 @@
                     </td>
 
                     <td>
-                        <mat-form-field appearance="outline" class="full-width">
+                        <!-- <mat-form-field appearance="outline" class="full-width">
                             <mat-label>Date</mat-label>
                             <input matInput type="date" formControlName="cur_date" />
+                        </mat-form-field> -->
+
+                        <mat-form-field appearance="outline">
+                            <mat-label>D.O.B.</mat-label>
+                            <input matInput [matDatepicker]="picker" formControlName="cur_date">
+                            <mat-hint>MM/DD/YYYY</mat-hint>
+                            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
                         </mat-form-field>
                     </td>
                 </tr>
@@ -79,7 +87,7 @@
     </div>
 
     <div class="btn_area">
-        <button type="button" class="btn btn-danger" id="cancel" mat-dialog-close>Cancel</button>
+        <button type="button" class="btn btn-danger" id="cancel" (click)="reset()">Reset</button>
         <button type="submit" class="btn btn-primary" id="submit" (click)="Add()">Submit</button>
     </div>
 </div>

@@ -5,6 +5,7 @@ html,
 body {
   height: 100%;
 }
+
 body {
   margin: 0;
   padding: 0;
@@ -12,19 +13,42 @@ body {
 }
 
 ::-webkit-scrollbar {
-  width: 5px; /* Set the scrollbar width */
+  width: 5px;
+  /* Set the scrollbar width */
   height: 50px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: rgba(255, 134, 97, 0.324);  /* Color of the scrollbar thumb */
+  background-color: rgba(255, 134, 97, 0.324);
+  /* Color of the scrollbar thumb */
   border-radius: 2px;
   height: 30px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #555; /* Color on hover */
+  background: #555;
+  /* Color on hover */
 }
 
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';
+
+
+.notfound {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    width: 30px;
+    height: 30px;
+    opacity: 0.7;
+  }
+
+  h3 {
+    margin-top: 15px;
+    color: gray;
+  }
+}

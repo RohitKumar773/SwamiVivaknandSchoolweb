@@ -15,7 +15,7 @@ export class InventoryProductsComponent implements OnInit {
   productList: InventoryProduct[] = [];
   materialList: InventoryMaterial[] = [];
   productQuantityMap: { [key: string]: number } = {};
-
+  filterProduct: InventoryProduct[] = []
 
   constructor(
     private dialog: MatDialog,
@@ -42,7 +42,8 @@ export class InventoryProductsComponent implements OnInit {
     this._crud.getProduct().subscribe(
       (res: inventoryProductRes) => {
         console.log(res);
-        this.productList = res.data
+        this.productList = res.data;
+        this.filterProduct = res.data;
       },
       (err: Error) => {
         console.log(err);
@@ -62,7 +63,7 @@ export class InventoryProductsComponent implements OnInit {
 
   calculateTotalSoldQuantity() {
     this.productQuantityMap = {};
-    
+
     this.productList.forEach(product => {
       const productName = product.material_name;
       const quantity = Number(product.material_quantity) || 0;
@@ -79,6 +80,14 @@ export class InventoryProductsComponent implements OnInit {
   getRemainingStock(material: InventoryMaterial): number {
     const soldQuantity = this.productQuantityMap[material.material_name] || 0;
     return Number(material.material_quantity) - soldQuantity;
+  }
+
+  onSearch(event: any) { 
+    const filter = event.target.value?.toLowerCase() || '';
+    this.filterProduct = this.productList.filter(data => 
+      data?.material_name?.toLowerCase().includes(filter) ||
+      data?.std_mobile?.toString().includes(filter)
+    )
   }
 
   delete_products(id: any) {

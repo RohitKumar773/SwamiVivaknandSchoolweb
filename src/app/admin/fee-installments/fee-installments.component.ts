@@ -13,11 +13,12 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class FeeInstallmentsComponent implements OnInit {
   installmentList: StudentFeeInstallment[] = [];
+  filterInstallment: StudentFeeInstallment[] = [];
 
   constructor(
     private dialog: MatDialog,
     private _crud: CrudService,
-    private toastr:ToastrService
+    private toastr: ToastrService
   ) { }
 
   ngOnInit() {
@@ -39,7 +40,8 @@ export class FeeInstallmentsComponent implements OnInit {
     this._crud.getFeeInstallment().subscribe(
       (res: StudentFeeInstallmentRes) => {
         console.log(res);
-        this.installmentList = res.data
+        this.installmentList = res.data;
+        this.filterInstallment = res.data
       },
       (err: Error) => {
         console.log(err);
@@ -47,7 +49,14 @@ export class FeeInstallmentsComponent implements OnInit {
     )
   }
 
-  delete_str(id:any) {
+  onSearch(event: any) {
+    const filter = event.target.value?.toLowerCase() || '';
+    this.filterInstallment = this.installmentList.filter(data => 
+      data?.class?.toLowerCase().includes(filter)
+    )
+  }
+
+  delete_str(id: any) {
     const openDig = this.dialog.open(ConfirmBoxComponent, {
       disableClose: true
     });
@@ -58,9 +67,9 @@ export class FeeInstallmentsComponent implements OnInit {
 
         if (res == 1) {
           this._crud.deleteInstallment(id).subscribe(
-            (res:any) => {
+            (res: any) => {
               console.log(res);
-              if(res.success == 1){
+              if (res.success == 1) {
                 this.toastr.success('Installment Deleted', 'Success');
                 this.getFee();
               }

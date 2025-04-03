@@ -65,7 +65,7 @@ export class EventsComponent implements OnInit {
             (res) => {
               console.log(res);
               if (res.success == 1) {
-                this.toastr.success('Hello world!', 'Toastr fun!');
+                this.toastr.success('Event Deleted Successfully', 'Success');
                 this.getEvents()
               }
             }

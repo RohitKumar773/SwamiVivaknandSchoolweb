@@ -6,7 +6,8 @@
                 <button type="button" class="btn btn-danger" (click)="add_new_zone()">+ Add New</button>
             </div>
             <div class="search_box">
-                <input class="form-control" type="search" placeholder="Search..." aria-label="default input example">
+                <input class="form-control" type="search" placeholder="Search..." aria-label="default input example"
+                    (keyup)="onSearch($event)">
             </div>
         </div>
 
@@ -23,7 +24,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let driver of driverList; let i = index;">
+                <tr *ngFor="let driver of filterDriver; let i = index;">
                     <th scope="row">{{i+1}}</th>
                     <td>{{driver.driver_name}}</td>
                     <td>{{driver.vehicle_no}}</td>
@@ -38,7 +39,10 @@
                 </tr>
             </tbody>
         </table>
-
+        <div class="notfound" *ngIf="!filterDriver.length">
+            <img src="../../../assets/noffound.png" alt="">
+            <h3>No Data Found</h3>
+        </div>
 
     </div>
 </div>

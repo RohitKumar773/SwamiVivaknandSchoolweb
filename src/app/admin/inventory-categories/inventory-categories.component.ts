@@ -13,6 +13,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class InventoryCategoriesComponent implements OnInit {
   materialList: InventoryMaterial[] = [];
+  filterMaterial: InventoryMaterial[] = []
 
   constructor(
     private dialog: MatDialog,
@@ -28,7 +29,8 @@ export class InventoryCategoriesComponent implements OnInit {
     this._crud.getMaterial().subscribe(
       (res: InventoryMaterialRes) => {
         console.log(res);
-        this.materialList = res.data
+        this.materialList = res.data;
+        this.filterMaterial = res.data
       }
     )
   }
@@ -43,19 +45,26 @@ export class InventoryCategoriesComponent implements OnInit {
     })
   }
 
-  delete_products(id:any) { 
-    const openDig = this.dialog.open(ConfirmBoxComponent,{
-      disableClose:true
+  onSearch(event: any) {
+    const filter = event.target.value?.toLowerCase() || '';
+    this.filterMaterial = this.materialList.filter(data =>
+      data?.material_name?.toLowerCase().includes(filter)
+    )
+  }
+
+  delete_products(id: any) {
+    const openDig = this.dialog.open(ConfirmBoxComponent, {
+      disableClose: true
     });
 
     openDig.afterClosed().subscribe(
       (res) => {
         console.log(res);
-        if(res == 1){
+        if (res == 1) {
           this._crud.deleteMaterial(id).subscribe(
-            (res:any) => {
+            (res: any) => {
               console.log(res);
-              if(res.success == 1){
+              if (res.success == 1) {
                 this.getMaterial();
                 this.toastr.success('Material deleted', 'Success')
               }

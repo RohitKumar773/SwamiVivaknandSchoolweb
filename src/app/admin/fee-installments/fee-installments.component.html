@@ -6,7 +6,7 @@
                 <button type="button" class="btn btn-danger" (click)="add_fee_str()">+ Add New</button>
             </div>
             <div class="search_box">
-                <input class="form-control" type="search" placeholder="Search..." aria-label="default input example">
+                <input class="form-control" type="search" placeholder="Search..." aria-label="default input example" (keyup)="onSearch($event)">
             </div>
         </div>
 
@@ -22,16 +22,13 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let fee of installmentList; let i = index;">
+                <tr *ngFor="let fee of filterInstallment; let i = index;">
                     <th scope="row">{{i+1}}</th>
                     <td>{{fee.class}}</td>
                     <td>{{fee.total_fees}}</td>
                     <td>{{fee.first_instalment}}</td>
                     <td>{{fee.second_installment}}</td>
                     <td>
-                        <button mat-icon-button>
-                            <mat-icon>edit</mat-icon>
-                        </button>
                         <button mat-icon-button (click)="delete_str(fee.id)">
                             <mat-icon>delete</mat-icon>
                         </button>
@@ -39,5 +36,9 @@
                 </tr>
             </tbody>
         </table>
+        <div class="notfound" *ngIf="!filterInstallment.length">
+            <img src="../../../assets/noffound.png" alt="">
+            <h3>No Data Found</h3>
+        </div>
     </div>
 </div>

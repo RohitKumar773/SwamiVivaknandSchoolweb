@@ -4,6 +4,7 @@ import { ConfirmBoxComponent } from '../confirm-box/confirm-box.component';
 import { AddmastersubjectComponent } from '../addmastersubject/addmastersubject.component';
 import { CrudService } from 'src/app/Services/crud.service';
 import { GroupedClass, SubjectRes } from 'src/app/interface/subject.interface';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-master-data-subject',
@@ -16,7 +17,8 @@ export class MasterDataSubjectComponent implements OnInit {
 
   constructor(
     private dialog: MatDialog,
-    private _crud: CrudService
+    private _crud: CrudService,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit() {
@@ -26,19 +28,22 @@ export class MasterDataSubjectComponent implements OnInit {
   delete_subject(id: any) {
     console.log(id);
     const openDel = this.dialog.open(ConfirmBoxComponent, {
-      disableClose: true,
+      disableClose: true
     });
 
     openDel.afterClosed().subscribe(
       (res) => {
         console.log(res);
-        this._crud.deleteSubject(id).subscribe(
-          (res) => {
-            if (res.success == 1) {
-              this.getSubject()
+        if (res == 1) {
+          this._crud.deleteSubject(id).subscribe(
+            (res) => {
+              if (res.success == 1) {
+                this.toastr.success('Subject deleted successfully', 'Success');
+                this.getSubject()
+              }
             }
-          }
-        )
+          )
+        }
       }
     )
   }

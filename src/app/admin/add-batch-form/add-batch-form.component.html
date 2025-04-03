@@ -23,7 +23,7 @@
                     <mat-form-field appearance="outline" class="full-width">
                         <mat-label>Select Subject</mat-label>
                         <mat-select formControlName="subject" [disabled]="isSubjectDisabled">
-                            <mat-option *ngFor="let sub of subject_data" [value]="sub.id">
+                            <mat-option *ngFor="let sub of subject_data" [value]="sub.id" [disabled]="true">
                                 {{ sub.subject_name }}
                             </mat-option>
                         </mat-select>

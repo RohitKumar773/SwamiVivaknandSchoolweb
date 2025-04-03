@@ -13,6 +13,7 @@ import { Driver, DriverResponse } from 'src/app/interface/driver.interface';
 })
 export class TransportDriversComponent implements OnInit {
   driverList: Driver[] = [];
+  filterDriver: Driver[] = [];
 
   constructor(
     private dialog: MatDialog,
@@ -28,11 +29,20 @@ export class TransportDriversComponent implements OnInit {
     this._crud.getDriver().subscribe(
       (res: DriverResponse) => {
         console.log(res);
-        this.driverList = res.data
+        this.driverList = res.data;
+        this.filterDriver = res.data;
       },
       (err: Error) => {
         console.log(err);
       }
+    )
+  }
+
+  onSearch(event: any) {
+    const filter = event.target.value?.toLowerCase() || '';
+    this.filterDriver = this.driverList.filter(data =>
+      data?.driver_name?.toLowerCase().includes(filter) ||
+      data?.mobile?.toString().includes(filter)
     )
   }
 

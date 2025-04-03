@@ -9,7 +9,8 @@
                 <button type="button" class="btn btn-danger" (click)="add_new_product()">+ Add New</button>
             </div>
             <div class="search_box">
-                <input class="form-control" type="search" placeholder="Search..." aria-label="default input example">
+                <input class="form-control" type="search" placeholder="Search..." aria-label="default input example"
+                    (keyup)="onSearch($event)">
             </div>
         </div>
 
@@ -26,7 +27,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let product of productList; let i = index;">
+                <tr *ngFor="let product of filterProduct; let i = index;">
                     <th scope="row">{{i+1}}</th>
                     <td>{{product.std_mobile}}</td>
                     <td>{{product.material_name}}</td>
@@ -41,6 +42,10 @@
                 </tr>
             </tbody>
         </table>
+        <div class="notfound" *ngIf="!filterProduct.length">
+            <img src="../../../assets/noffound.png" alt="">
+            <h3>No Data Found</h3>
+        </div>
     </div>
 </div>
 

@@ -167,6 +167,10 @@ export class CrudService {
     return this._http.get<any>(`${this.base_url}batches.php?class=${cls}`);
   }
 
+  deleteBatch(id: number): Observable<any> {
+    return this._http.delete<any>(`${this.base_url}batches.php?id=${id}`);
+  }
+
   //Notice section
 
   addNotice(data: any): Observable<NoticeResponse> {

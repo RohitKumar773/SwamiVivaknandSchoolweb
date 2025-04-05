@@ -32,7 +32,7 @@
                         <button mat-icon-button (click)="viewUser(user)">
                             <mat-icon>visibility</mat-icon>
                         </button>
-                        <button mat-icon-button>
+                        <button mat-icon-button (click)="onEdit(user)">
                             <mat-icon>edit</mat-icon>
                         </button>
                         <button mat-icon-button (click)="delete_user(user.id)">

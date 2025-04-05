@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { AddBatchFormComponent } from '../add-batch-form/add-batch-form.component';
 import { CrudService } from 'src/app/Services/crud.service';
 import { GroupedBatch } from 'src/app/interface/batches.interface';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-master-data-batch-selection',
@@ -13,7 +14,8 @@ export class MasterDataBatchSelectionComponent {
   batch_list: GroupedBatch[] = []
   constructor(
     private dialog: MatDialog,
-    private _crud: CrudService
+    private _crud: CrudService,
+    private toastr: ToastrService
   ) {
     this.getData()
   }
@@ -37,9 +39,27 @@ export class MasterDataBatchSelectionComponent {
   // }
 
   add_new_batch() {
-    this.dialog.open(AddBatchFormComponent, {
+    const addBatch = this.dialog.open(AddBatchFormComponent, {
       disableClose: true,
     })
+
+    addBatch.afterClosed().subscribe(
+      (Res) => {
+        this.getData()
+      }
+    )
   }
-  delete_batch(id:any) { }
+
+  delete_batch(id: any) {
+    this._crud.deleteBatch(id).subscribe(
+      (res: any) => {
+        console.log(res);
+        if (res.success == 1) {
+          this.toastr.success(res.message, 'Success');
+          this.getData()
+        }
+
+      }
+    )
+  }
 }

@@ -1,7 +1,8 @@
 import { Component, Inject, inject, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatSelectChange } from '@angular/material/select';
+import { ToastrService } from 'ngx-toastr';
 import { CrudService } from 'src/app/Services/crud.service';
 import { SharedService } from 'src/app/Services/shared.service';
 
@@ -23,8 +24,8 @@ export class AddBatchFormComponent implements OnInit {
     private _shared: SharedService,
     private _crud: CrudService,
     private fb: FormBuilder,
-    @Inject(MAT_DIALOG_DATA) public edit_data: any
-
+    private toastr: ToastrService,
+    private matref: MatDialogRef<AddBatchFormComponent>
   ) {
     this._shared.classList.subscribe(
       (cls) => {
@@ -42,15 +43,6 @@ export class AddBatchFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.addBatchRow();
-
-    if (this.edit_data) {
-      this._crud.getSubjectByClass(this.edit_data).subscribe(
-        (res) => {
-          console.log('Subjects:', res.data);
-          this.subject_data = res.data;
-        })
-      this.getUpdateData(this.edit_data)
-    }
   }
 
   getUpdateData(cls: string) {
@@ -64,7 +56,7 @@ export class AddBatchFormComponent implements OnInit {
         const upadtedata = res.data
         upadtedata.forEach((batch: any) => {
           console.log(batch)
-          this.addBatchRow(batch.subject_id, batch.time, batch.faculty_id);
+          this.addBatchRow(batch.subject, batch.time, batch.faculty_id);
         });
       }
     )
@@ -74,9 +66,9 @@ export class AddBatchFormComponent implements OnInit {
     return this.batchForm.get('batchTable') as FormArray;
   }
 
-  addBatchRow(subjectId: any = '', timing: string = '', facultyId: any = ''): void {
+  addBatchRow(subject: string = '', timing: string = '', facultyId: any = ''): void {
     const row = this.fb.group({
-      subject: [subjectId],
+      subject: [subject],
       timing: [timing],
       faculty: [facultyId],
     });
@@ -113,13 +105,19 @@ export class AddBatchFormComponent implements OnInit {
         this.isSubjectDisabled = true;
         this.batchTable.clear();
         for (const subject of this.subject_data) {
-          this.addBatchRow(subject.id);
+          console.log(subject);
+
+          this.addBatchRow(subject.subject_name);
         }
       }
     );
   }
 
   submitBatch(): void {
+    if (this.batchForm.invalid) {
+      this.toastr.success('Please fill all the required fildes', 'Warning');
+      return
+    }
     const batchData = {
       class: this.SeletedClass,
       sec_id: null,
@@ -130,8 +128,12 @@ export class AddBatchFormComponent implements OnInit {
     console.log('Submitting Batch:', batchData);
 
     this._crud.addBatches(batchData).subscribe(
-      (res) => {
-        console.log('Batch added successfully!', res);
+      (res: any) => {
+        console.log('!', res);
+        if (res.success == 1) {
+          this.toastr.success('Batch added successfully', 'Success');
+          this.matref.close(1)
+        }
       },
       (err) => {
         console.error('Error adding batch:', err);
@@ -159,7 +161,7 @@ export class AddBatchFormComponent implements OnInit {
     );
   }
 
-  resetForm(){
+  resetForm() {
     this.batchForm.reset()
   }
 }

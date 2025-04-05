@@ -6,6 +6,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class SharedService {
 
+  base_url_img = new BehaviorSubject<string>('https://ud.mausamstudio.com/sawamivivekanand/')
   constructor() { }
 
   classList = new BehaviorSubject([

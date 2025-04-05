@@ -39,27 +39,27 @@ export class AccountUserComponent implements OnInit {
     )
   }
 
-  onSearch(event:any){
+  onSearch(event: any) {
     const filter = event.target.value.toLowerCase() || '';
-    this.filterEmp = this.userList.filter(data => 
+    this.filterEmp = this.userList.filter(data =>
       data?.name?.toLowerCase().includes(filter) ||
       data?.mobile?.toString().includes(filter)
     )
-    
+
   }
 
-  delete_user(id:any) {
+  delete_user(id: any) {
     const openDig = this.dialog.open(ConfirmBoxComponent, {
       disableClose: true,
     });
 
     openDig.afterClosed().subscribe(
       (res) => {
-        if(res == 1){
+        if (res == 1) {
           this._crud.deleteUser(id).subscribe(
             (res) => {
               console.log(res);
-              if(res.success == 1){
+              if (res.success == 1) {
                 this.getUsers();
               }
             }
@@ -79,10 +79,24 @@ export class AccountUserComponent implements OnInit {
     })
   }
 
-  viewUser(user:any) {
+  onEdit(user: User) {
+    console.log(user);
+
+    const openDig = this.dialog.open(AddAccntUserFormComponent, {
+      disableClose: true,
+      data: user
+    });
+
+    openDig.afterClosed().subscribe(() => {
+      this.getUsers();
+    })
+
+  }
+
+  viewUser(user: any) {
     this.dialog.open(UserViewComponent, {
       disableClose: true,
-      data:user
+      data: user
     })
   }
 }

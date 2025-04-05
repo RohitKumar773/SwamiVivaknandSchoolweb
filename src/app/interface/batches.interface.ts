@@ -6,7 +6,7 @@ export interface Batch {
     time: string;
     faculty_id: number;
     admin_id: number;
-    subject_name: string;
+    subject: string;
     name: string;  // Faculty name
 }
 

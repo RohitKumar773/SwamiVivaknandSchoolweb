@@ -20,7 +20,7 @@
                 <tr *ngFor="let batch of cls.batches; let i = index">
                     <th scope="row">{{i+1}}</th>
                     <td>{{batch.time}}</td>
-                    <td>{{batch.subject_name}}</td>
+                    <td>{{batch.subject}}</td>
                     <td>{{batch.name}}</td>
                     <td>
                         <button mat-icon-button (click)="delete_batch(batch.id)">

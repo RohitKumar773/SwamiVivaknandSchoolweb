@@ -8,19 +8,21 @@
     <div class="form_area">
         <div class="title">Zone Details</div>
 
-        <mat-form-field appearance="outline">
-            <mat-label>Experience</mat-label>
-            <input matInput placeholder="Enter Experience" type="number">
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-            <mat-label>Toppings</mat-label>
-            <mat-select multiple>
-                <mat-select-trigger>
-                </mat-select-trigger>
-                <mat-option>asdf</mat-option>
-                <mat-option>asdf</mat-option>
-            </mat-select>
-        </mat-form-field>
+        <form [formGroup]="zoneForm">
+            <mat-form-field appearance="outline">
+                <mat-label>Zone Name</mat-label>
+                <input matInput placeholder="Enter Zone Name" type="text" formControlName="zone">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Select Vehicle</mat-label>
+                <mat-select multiple formControlName="vehicle">
+                    <mat-option *ngFor="let vehicle of vehicleList" [value]="vehicle.vehicle_name">{{vehicle.vehicle_name}} - {{vehicle.vehicle_no}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <input type="number" [ngModel]="admin" formControlName="admin_id_fk" readonly hidden>
+        </form>
+
 
         <!-- <div class="form-floating mb-2">
             <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
@@ -31,6 +33,6 @@
 
     <div class="btn_area">
         <button type="button" class="btn btn-danger" id="cancel" mat-dialog-close>Cancel</button>
-        <button type="button" class="btn btn-primary" id="submit">Submit</button>
+        <button type="button" class="btn btn-primary" id="submit" (click)="onSubmit()">Submit</button>
     </div>
 </div>

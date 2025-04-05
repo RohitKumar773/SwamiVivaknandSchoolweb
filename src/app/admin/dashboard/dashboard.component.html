@@ -53,6 +53,7 @@
                     </li>
                     <li class="list-group-item">12th</li>
                 </ul>
+                <button mat-button routerLink="/admin/home/course_application">View more</button>
             </div>
         </div>
         <div class="cboxes" id="notice_board_area">
@@ -74,17 +75,21 @@
                         <br>
                         &nbsp;<span>15 Aug 2025</span>
                     </li>
+                    <button mat-button routerLink="/admin/home/master_data_notice">View more</button>
                 </ul>
             </div>
         </div>
         <div class="cboxes" id="notice_board_area">
             <div class="box_title">Today's Attendance</div>
             <div class="chart_area">
-                <img src="assets/chart.svg" alt="">
+                <canvasjs-chart [options]="chartOptions" [styles]="{width: '100%', height:'300px'}"></canvasjs-chart>
             </div>
         </div>
-
-      
-
+        <div class="cboxes" id="notice_board_area">
+            <div class="box_title">Our School</div>
+            <div class="chart_area">
+                <canvasjs-chart [options]="chartOptionss" [styles]="{width: '100%', height:'300px'}"></canvasjs-chart>
+            </div>
+        </div>
     </div>
 </div>

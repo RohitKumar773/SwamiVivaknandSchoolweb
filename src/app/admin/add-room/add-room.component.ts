@@ -31,17 +31,22 @@ export class AddRoomComponent {
   }
 
   onSubmit() {
-    this._crud.addRooms(this.Room.value).subscribe(
-      (res) => {
-        console.log(res);
-        this.toastr.success('Room added successfully', 'Success')
-        this.matref.close();
-      },
-      (err: Error) => {
-        console.log(err);
-        this.toastr.error('Please check your connection', 'Internet Error');
-      }
-    )
+    if (this.Room.valid) {
+      this._crud.addRooms(this.Room.value).subscribe(
+        (res) => {
+          console.log(res);
+          this.toastr.success('Room added successfully', 'Success')
+          this.matref.close();
+        },
+        (err: Error) => {
+          console.log(err);
+          this.toastr.error('Please check your connection', 'Internet Error');
+        }
+      )
+    }
+    else{
+      this.toastr.warning('Please fill all required fields', 'Warning')
+    }
 
   }
 

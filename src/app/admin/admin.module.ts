@@ -77,6 +77,8 @@ import { AddRoomComponent } from './add-room/add-room.component';
 import { AddBedComponent } from './add-bed/add-bed.component';
 import { AddAlocateHostalComponent } from './add-alocate-hostal/add-alocate-hostal.component';
 import { MatRadioModule } from '@angular/material/radio';
+import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
+
 
 @NgModule({
   declarations: [
@@ -159,8 +161,8 @@ import { MatRadioModule } from '@angular/material/radio';
     ReactiveFormsModule,
     FormsModule,
     MatAutocompleteModule,
-    MatRadioModule
-
+    MatRadioModule,
+    CanvasJSAngularChartsModule
 
   ],
 })

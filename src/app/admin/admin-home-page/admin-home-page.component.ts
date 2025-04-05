@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ProfiledialogComponent } from '../profiledialog/profiledialog.component';
 // import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -10,6 +10,7 @@ import {
   trigger,
 } from '@angular/animations';
 import { Router } from '@angular/router';
+import { CrudService } from 'src/app/Services/crud.service';
 
 @Component({
   selector: 'app-admin-home-page',
@@ -23,9 +24,7 @@ import { Router } from '@angular/router';
     ]),
   ],
 })
-export class AdminHomePageComponent {
-
-
+export class AdminHomePageComponent implements OnInit{
   activeButton: number | null = null;
   isOpen = false;
   isOpen2 = false;
@@ -102,7 +101,8 @@ export class AdminHomePageComponent {
   }
   constructor(
     private dialog: MatDialog,
-    private router: Router
+    private router: Router,
+    private _crud:CrudService
   ) {
     const data = localStorage.getItem('adminLoginData')
     if (data) {
@@ -115,6 +115,9 @@ export class AdminHomePageComponent {
     } else {
       this.router.navigate(['/admin'])
     }
+  }
+  ngOnInit() {
+    this._crud.adminLogin
   }
 
   openProfileDialog() {

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Attendent, TodayAttendent, TodayAttendentRes } from 'src/app/interface/attendance.interface';
 import { CrudService } from 'src/app/Services/crud.service';
 
 @Component({
@@ -8,40 +9,24 @@ import { CrudService } from 'src/app/Services/crud.service';
   styleUrls: ['./faculty-attendance.component.scss']
 })
 export class FacultyAttendanceComponent {
-  count_student: number = 0;
-  inst_id: any
-  rowdata = 0
-  login_deatils: any
-  login: any
-  batch_name: any
-  routdata: any
-  Attendents: [] = []
-
+  Attendents: TodayAttendent[] = []
   imgUrl: string = '';
   constructor(
     private _crud: CrudService,
     private router: Router
-  ) {
-    const institute_data = this.router.getCurrentNavigation();
-    this.routdata = institute_data?.extras
-
-    this.login_deatils = localStorage.getItem('Token')
-    this.login = JSON.parse(this.login_deatils)
-
-  }
+  ) { }
 
   ngOnInit(): void {
-    const instformdata = new FormData()
-    instformdata.append('inst_id', this.login.inst_id)
-    instformdata.append('batch_id', this.routdata.batch_id)
     this.getAttendent()
   }
 
   getAttendent() {
-    this._crud.getattendance().subscribe(
-      (res: any) => {
-        console.log(res);
-        console.log(res);
+    this._crud.getTodayAttendance().subscribe(
+      (res: TodayAttendentRes) => {
+        if (Array.isArray(res.data)) {
+          console.log(res);
+          this.Attendents = res.data
+        }
       }
     )
   }
@@ -52,10 +37,10 @@ export class FacultyAttendanceComponent {
 
     console.log(selectedValue);
     const data = {
-      std_id_fk: `${Number(row.std_id_fk)}`,
-      course_id_fk: `${Number(row.course_id_fk)}`,
-      "batch_id_fk": `${Number(row.batch_id_fk)}`,
-      "cur_date": "",
+      "emp_id": row,
+      "emp_name": "Akhi",
+      "mobile": "3265896532",
+      "cur_date": "2025-04-05",
       "status": selectedValue
     }
 

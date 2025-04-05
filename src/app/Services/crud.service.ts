@@ -19,6 +19,7 @@ import { ApiResponseForEmp, ApiResponseSalary } from '../interface/salary.interf
 import { InventoryMaterialRes } from '../interface/material.interface';
 import { inventoryProductRes } from '../interface/inventoryProduct.interface';
 import { AssignHostelRes, BedRes, Room, RoomRes } from '../interface/hostel.interface';
+import { AttendentRes, TodayAttendentRes } from '../interface/attendance.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -311,8 +312,13 @@ export class CrudService {
   addattendance(data: any): Observable<any> {
     return this._http.post<any>(`${this.base_url}attendance.php`, data)
   }
-  getattendance(): Observable<AssignHostelRes> {
-    return this._http.get<AssignHostelRes>(`${this.base_url}attendance.php`)
+
+  getattendance(): Observable<AttendentRes> {
+    return this._http.get<AttendentRes>(`${this.base_url}attendance.php`)
+  }
+  
+  getTodayAttendance(): Observable<TodayAttendentRes> {
+    return this._http.get<TodayAttendentRes>(`${this.base_url}get_today_attendance.php`)
   }
 
 

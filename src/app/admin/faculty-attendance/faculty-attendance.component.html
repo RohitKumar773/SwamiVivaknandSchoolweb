@@ -1,44 +1,37 @@
 <div class="registration_box">
     <div class="registration_table_area">
         <div class="header_title">
-            <div class="title">Assign Batch</div>
+            <div class="title">Attendance List</div>
 
             <div class="search_box">
                 <input class="form-control" type="search" placeholder="Search..." aria-label="default input example">
             </div>
         </div>
-
         <table class="table table-striped" style="text-align: center;">
             <thead>
                 <tr>
                     <th scope="col">S.N.</th>
                     <th scope="col">Faculty Name</th>
-                    <th scope="col">Subject</th>
-                    <th scope="col">Class</th>
-                    <th scope="col">Time</th>
+                    <th scope="col">Mobile</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let item of Attendents">
-                    <th scope="row">5</th>
-                    <td>item</td>
-                    <td>Hindi</td>
-                    <td>11th</td>
-                    <td>9am - 10am</td>
+                <tr *ngFor="let item of Attendents; let i = index">
+                    <th scope="row">{{ i + 1 }}</th>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.contact_no }}</td>
                     <td>
-                        <mat-radio-group [value]="item" aria-label="Select an option"
-                            (change)="AttendentMark($event, item)">
-                            <mat-radio-button value="1" [color]="'primary'">
+                        <mat-radio-group [(ngModel)]="item.status" (change)="AttendentMark($event, item)"
+                            aria-label="Select an option">
+                            <mat-radio-button [value]="1" color="primary">
                                 <b style="color: green;">Present</b>
                             </mat-radio-button>
-                            &nbsp; &nbsp;
-
-                            <mat-radio-button value="0" [color]="'warn'">
+                            &nbsp;&nbsp;
+                            <mat-radio-button [value]="0" color="warn">
                                 <b style="color: red;">Absent</b>
                             </mat-radio-button>
                         </mat-radio-group>
-
                     </td>
                 </tr>
             </tbody>

@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { StudentResponse } from '../interface/student.interface';
@@ -316,9 +316,18 @@ export class CrudService {
   getattendance(): Observable<AttendentRes> {
     return this._http.get<AttendentRes>(`${this.base_url}attendance.php`)
   }
-  
+
   getTodayAttendance(): Observable<TodayAttendentRes> {
     return this._http.get<TodayAttendentRes>(`${this.base_url}get_today_attendance.php`)
+  }
+
+  getAttendanceReport(emp_id: number, month: number, year: number): Observable<AttendentRes> {
+    const params = new HttpParams()
+      .set('emp_id', emp_id)
+      .set('month', month)
+      .set('year', year);
+
+    return this._http.get<AttendentRes>(`${this.base_url}attendance.php`, { params });
   }
 
 

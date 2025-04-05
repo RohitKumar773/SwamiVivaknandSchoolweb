@@ -31,19 +31,19 @@ export class FacultyAttendanceComponent {
     )
   }
 
-  AttendentMark(event: any, row: any): void {
+  AttendentMark(event: any, row: TodayAttendent): void {
     const selectedValue = event.value;
     console.log(row);
 
     console.log(selectedValue);
     const data = {
-      "emp_id": row,
-      "emp_name": "Akhi",
-      "mobile": "3265896532",
-      "cur_date": "2025-04-05",
+      "emp_id": row.id,
+      "emp_name": row.name,
+      "mobile": row.contact_no,
       "status": selectedValue
     }
 
+    console.log(data);
 
     this._crud.addattendance(data).subscribe(
       (res: any) => {

@@ -62,19 +62,19 @@
             </div>
             <div class="list_data">
                 <ul class="list-group" style="border: none;">
-                    <li class="list-group-item">
+                    <li style="padding: 10px;">
                         <b>Notice</b>
                     </li>
-                    <li class="list-group-item">
-                        Result for 10th
+                    <li class="list-group-item" *ngFor="let notice of noticeList.slice().reverse().slice(0,2)">
+                        {{notice.notice}}
                         <br>
-                        &nbsp;<span>20 Jan 2025</span>
+                        &nbsp;<span>{{notice.notice_date | date : 'dd MMM yyyy'}}</span>
                     </li>
-                    <li class="list-group-item">
+                    <!-- <li class="list-group-item">
                         Independance Day
                         <br>
                         &nbsp;<span>15 Aug 2025</span>
-                    </li>
+                    </li> -->
                     <button mat-button routerLink="/admin/home/master_data_notice">View more</button>
                 </ul>
             </div>

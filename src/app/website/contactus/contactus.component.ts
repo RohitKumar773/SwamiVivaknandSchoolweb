@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./contactus.component.scss']
 })
 export class ContactusComponent {
-
+  submitForm() {
+    alert('Form submitted! You can handle it via Angular service.');
+  }
 }

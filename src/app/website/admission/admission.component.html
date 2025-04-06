@@ -1,0 +1,54 @@
+<div class="admission-form-container mat-elevation-z4">
+  <h2 class="form-title">🎓 Admission Enquiry</h2>
+
+  <form [formGroup]="studentRegistrationForm">
+    <div class="form-grid">
+
+      <mat-form-field appearance="outline">
+        <mat-label>Student Name</mat-label>
+        <input matInput formControlName="name" placeholder="Enter your name"/>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Email Address</mat-label>
+        <input matInput type="email" placeholder="Enter your email" [email]="true" formControlName="email" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Father's Name</mat-label>
+        <input matInput placeholder="Enter your father name" formControlName="father_name" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Mother's Name</mat-label>
+        <input matInput placeholder="Enter your mother name" formControlName="mother_name" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Mobile Number</mat-label>
+        <input matInput type="tel" placeholder="Enter mobile no." formControlName="mobile" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Gender</mat-label>
+        <mat-select formControlName="gender">
+          <mat-option value="1">Male</mat-option>
+          <mat-option value="2">Female</mat-option>
+          <mat-option value="3">Other</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Address</mat-label>
+        <input matInput placeholder="Enter your full address" formControlName="address" />
+      </mat-form-field>
+
+      <input type="hidden" [ngModel]="admin" formControlName="admin_id_fk" />
+    </div>
+
+    <div class="btn-area">
+      <button mat-stroked-button color="warn" type="button" (click)="reset()">Reset</button>
+      <button mat-raised-button color="primary" type="submit" (click)="onSubmit()">Submit</button>
+    </div>
+  </form>
+</div>

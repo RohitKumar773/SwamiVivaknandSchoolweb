@@ -1,0 +1,63 @@
+.gallery-section {
+    padding: 40px 20px;
+    background-color: #f9fafb;
+    text-align: center;
+}
+
+.gallery-title {
+    font-size: 1.5rem;
+    color: #003366;
+    margin-bottom: 30px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+    justify-content: center;
+}
+
+.gallery-card {
+    cursor: pointer;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+    &:hover {
+        transform: scale(1.02);
+    }
+
+    img {
+        height: 200px;
+        object-fit: cover;
+        width: 100%;
+    }
+
+    .card-body {
+        text-align: left;
+
+        h5 {
+            color: #003366;
+        }
+
+        p {
+            font-size: 0.9rem;
+            color: #555;
+        }
+    }
+}
+
+.modal-body {
+    padding: 20px;
+
+    img {
+        max-height: 60vh;
+        object-fit: contain;
+    }
+
+    h5 {
+        margin-top: 15px;
+        color: #003366;
+    }
+}

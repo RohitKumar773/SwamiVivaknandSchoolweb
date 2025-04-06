@@ -1,0 +1,49 @@
+.academics{
+    width: 100%;
+    height: auto;
+    display: flex;
+
+    .content{
+        width: 50%;
+        height: 100%;
+        padding: 40px;
+
+        h2{
+            color: rgb(95, 42, 42);
+        }
+        p{
+            font-size: 1rem;
+            line-height: 30px;
+        }
+    }
+    .img{
+        width: 50%;
+        height: 100%;
+        padding: 30px;
+
+        img{
+            width: 100%;
+            border-radius: 1rem;
+        }
+    }
+}
+
+.rules{
+    width: 100%;
+    padding: 40px;
+    height: auto;
+
+    h2{
+        text-align: center;
+        color: rgb(95, 42, 42);
+    }
+    p{
+        font-size: 1rem;
+        line-height: 30px;
+        padding: 10px;
+
+        mat-icon{
+            margin-bottom: -7px;
+        }
+    }
+}

@@ -1,0 +1,17 @@
+<div class="events">
+    <mat-card class="events-wrapper">
+        <mat-card-title class="events-title">🎉 Upcoming School Events</mat-card-title>
+        <div class="events-list">
+            <mat-card class="event-card" *ngFor="let event of events">
+                <div class="event-date">
+                    <div class="day">{{ event.date | date:'dd' }}</div>
+                    <div class="month">{{ event.date | date:'MMM' }}</div>
+                </div>
+                <div class="event-details">
+                    <h3>{{ event.title }}</h3>
+                    <p>{{ event.description }}</p>
+                </div>
+            </mat-card>
+        </div>
+    </mat-card>
+</div>

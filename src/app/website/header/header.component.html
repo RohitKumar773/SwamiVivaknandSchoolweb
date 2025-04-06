@@ -1,29 +1,31 @@
 <header>
     <div class="contact_links">
         <div class="email">
-            <a href="tel:+919931794189" title="Call us">
+            <a href="tel:+919931794189" title="Call us" style="display: block;">
                 <mat-icon> call</mat-icon>
                 +91 9931794189
             </a>
-            <a href="mailto:svsnghoswar1998@gmail.com" title="Mail us">
+            <a href="mailto:svsnghoswar1998@gmail.com" title="Mail us" style="display: block;">
                 <mat-icon> email</mat-icon>
                 svsnghoswar1998{{'@'}}gmail.com
             </a>
         </div>
         <div class="socail_media_links">
-            <a href="https://www.facebook.com/Macreelinfosoftpvtltd" target="_blank">
+            <a href="https://www.facebook.com/Macreelinfosoftpvtltd" target="_blank" style="display: block;">
                 <img src="../../../assets/facebook.png" alt="macreel-facebook" title="Facebook" />
             </a>
-            <a href="https://www.instagram.com/macreel_infosoft/" target="_blank">
+            <a href="https://www.instagram.com/macreel_infosoft/" target="_blank" style="display: block;">
                 <img src="../../../assets/instagram.png" alt="macreel-infosoft" title="Instagram" />
             </a>
-            <a href="https://www.linkedin.com/company/macreel-infosoft-pvt-ltd/" target="_blank">
+            <a href="https://www.linkedin.com/company/macreel-infosoft-pvt-ltd/" target="_blank"
+                style="display: block;">
                 <img src="../../../assets/linkedin.png" alt="macreel-linkedin" title="Linkedin" />
             </a>
-            <a href="https://www.youtube.com/@macreelinfosoft563" target="_blank">
+            <a href="https://www.youtube.com/@macreelinfosoft563" target="_blank" style="display: block;">
                 <img src="../../../assets/youtube.png" alt="macreel-youtube" title="Youtube" />
             </a>
-            <a href="https://x.com/i/flow/login?redirect_after_login=%2FMacreel_Info" target="_blank">
+            <a href="https://x.com/i/flow/login?redirect_after_login=%2FMacreel_Info" target="_blank"
+                style="display: block;">
                 <img src="../../../assets/twitter.png" alt="macreel-twitter" title="Twitter X" />
             </a>
         </div>
@@ -34,14 +36,14 @@
         </div>
         <div class="menu">
             <ul>
-                <li routerLink="/home">Home</li>
-                <li routerLink="/aboutus">About</li>
-                <li routerLink="">Admission</li>
-                <li routerLink="">Academics</li>
-                <li routerLink="">Gallery</li>
-                <li routerLink="">Our Events</li>
-                <li routerLink="">Notice Board</li>
-                <li routerLink="">Contact us</li>
+                <li routerLinkActive="active" routerLink="/home">Home</li>
+                <li routerLinkActive="active" routerLink="/aboutus">About</li>
+                <li routerLinkActive="active" routerLink="/admission">Admission</li>
+                <li routerLinkActive="active" routerLink="/academics">Academics</li>
+                <li routerLinkActive="active" routerLink="/gallery">Gallery</li>
+                <li routerLinkActive="active" routerLink="/ourevent">Our Events</li>
+                <li routerLinkActive="active" routerLink="/noticeboard">Notice Board</li>
+                <li routerLinkActive="active" routerLink="/contact">Contact us</li>
             </ul>
         </div>
         <div class="logo">
@@ -52,7 +54,23 @@
                 <button mat-menu-item>Login as Student</button>
                 <button mat-menu-item>New Register</button>
             </mat-menu>
+        </div>
+        <div class="mobile_navigation">
+            <button data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"
+                aria-controls="offcanvasWithBothOptions" class="menubtn">
+                <mat-icon>menu</mat-icon>
+            </button>
 
+            <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
+                aria-labelledby="offcanvasWithBothOptionsLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Backdrop with scrolling</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <p>Try scrolling the rest of the page to see this option in action.</p>
+                </div>
+            </div>
         </div>
     </div>
 </header>

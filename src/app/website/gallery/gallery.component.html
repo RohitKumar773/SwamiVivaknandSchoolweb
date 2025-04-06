@@ -1,0 +1,27 @@
+<div class="gallery-section">
+    <h2 class="gallery-title">🏫 Our Gallery</h2>
+
+    <div class="gallery-grid">
+        <div class="gallery-card card" *ngFor="let img of images" (click)="openImage(img)" data-bs-toggle="modal"
+            data-bs-target="#imageModal">
+            <img [src]="img.src" class="card-img-top" [alt]="img.title" />
+            <div class="card-body">
+                <h5 class="card-title">{{ img.title }}</h5>
+                <p class="card-text" *ngIf="img.desc">{{ img.desc }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap Modal -->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <img [src]="selectedImage?.src" class="img-fluid rounded" [alt]="selectedImage?.title" />
+                <h5 class="mt-3">{{ selectedImage?.title }}</h5>
+                <p *ngIf="selectedImage?.desc">{{ selectedImage?.desc }}</p>
+            </div>
+        </div>
+    </div>
+</div>

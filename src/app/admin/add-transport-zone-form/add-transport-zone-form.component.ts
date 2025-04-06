@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 import { Vehicle, VehicleResponse } from 'src/app/interface/vehicle.interface';
 import { CrudService } from 'src/app/Services/crud.service';
 
@@ -9,18 +10,19 @@ import { CrudService } from 'src/app/Services/crud.service';
   styleUrls: ['./add-transport-zone-form.component.scss']
 })
 export class AddTransportZoneFormComponent implements OnInit {
-  vehicleList: Vehicle[] = []
   zoneForm!: FormGroup;
   admin = 1
 
+  vehicleList: Vehicle[] = [];
+
   constructor(
     private _crud: CrudService,
-    private _fb: FormBuilder
+    private _fb: FormBuilder,
+    private dialogRef: MatDialogRef<AddTransportZoneFormComponent>
   ) {
     this.zoneForm = this._fb.group({
-      vehicle: ['', Validators.required],
-      zone: ['', Validators.required],
-      admin_id_fk: ['', Validators.required]
+      vechicle_id: [[], Validators.required],
+      zone_name: ['', Validators.required],
     })
   }
 
@@ -33,9 +35,25 @@ export class AddTransportZoneFormComponent implements OnInit {
     )
   }
 
-  onSubmit() { 
-    console.log(this.zoneForm.value);
-    
-  }
+  onSubmit() {
+    if (this.zoneForm.invalid) {
+      this.zoneForm.markAllAsTouched();
+      return;
+    }
 
+    const formValue = this.zoneForm.value;
+
+    // Send vehicle IDs as comma-separated string
+    const payload = {
+      zone_name: formValue.zone_name,
+      vechicle_id: formValue.vechicle_id.join(','), // convert array to string
+      // admin_id_fk: formValue.admin_id_fk // if supported in your PHP API
+    };
+
+    this._crud.addZone_api(payload).subscribe((res) => {
+      console.log(res);
+      this.dialogRef.close(true); // optionally close dialog on success
+    });
+
+  }
 }

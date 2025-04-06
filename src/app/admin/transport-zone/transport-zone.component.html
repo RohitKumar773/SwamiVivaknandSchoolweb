@@ -20,56 +20,31 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Hajipur Zone</td>
-                    <td>4</td>
+                <tr *ngFor="let zone of Zone_data; let i = index">
+                    <th scope="row">{{ i + 1 }}</th>
+                    <td>{{ zone.zone_name }}</td>
                     <td>
-                        <button mat-icon-button (click)="delete_application()">
+                        <!-- Show count and trigger vehicle list on click -->
+                        <span class="vehicle-count" (click)="showVehicles(zone)">
+                            {{ zone.vechicle_id.split(',').length }} Vehicles
+                        </span>
+
+                        <!-- Popover or inline list shown conditionally -->
+                        <div *ngIf="selectedZone === zone" class="vehicle-list-popup">
+                            <ul>
+                                <li *ngFor="let vehicle of selectedVehicles">
+                                    {{ vehicle.vehicle_name }} - {{ vehicle.vehicle_no }}
+                                </li>
+                            </ul>
+                        </div>
+                    </td>
+                    <td>
+                        <button mat-icon-button (click)="delete_application(zone.id)">
                             <mat-icon>delete</mat-icon>
                         </button>
                     </td>
                 </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Mahua</td>
-                    <td>4</td>
-                    <td>
-                        <button mat-icon-button (click)="delete_application()">
-                            <mat-icon>delete</mat-icon>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Rajapakar</td>
-                    <td>4</td>
-                    <td>
-                        <button mat-icon-button (click)="delete_application()">
-                            <mat-icon>delete</mat-icon>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">4</th>
-                    <td>Lalganj</td>
-                    <td>4</td>
-                    <td>
-                        <button mat-icon-button (click)="delete_application()">
-                            <mat-icon>delete</mat-icon>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">5</th>
-                    <td>Muzaffarpur</td>
-                    <td>5</td>
-                    <td>
-                        <button mat-icon-button (click)="delete_application()">
-                            <mat-icon>delete</mat-icon>
-                        </button>
-                    </td>
-                </tr>
+
             </tbody>
         </table>
 

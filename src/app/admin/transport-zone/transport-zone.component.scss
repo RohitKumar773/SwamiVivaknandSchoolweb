@@ -71,3 +71,21 @@ table {
     }
   }
 }
+
+
+
+
+
+.vehicle-count {
+  cursor: pointer;
+  color: #007bff;
+  text-decoration: underline;
+}
+
+.vehicle-list-popup {
+  background: #f9f9f9;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  margin-top: 4px;
+  border-radius: 4px;
+}

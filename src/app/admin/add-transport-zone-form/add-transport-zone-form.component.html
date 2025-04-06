@@ -11,23 +11,18 @@
         <form [formGroup]="zoneForm">
             <mat-form-field appearance="outline">
                 <mat-label>Zone Name</mat-label>
-                <input matInput placeholder="Enter Zone Name" type="text" formControlName="zone">
+                <input matInput placeholder="Enter Zone Name" type="text" formControlName="zone_name">
             </mat-form-field>
             <mat-form-field appearance="outline">
                 <mat-label>Select Vehicle</mat-label>
-                <mat-select multiple formControlName="vehicle">
-                    <mat-option *ngFor="let vehicle of vehicleList" [value]="vehicle.vehicle_name">{{vehicle.vehicle_name}} - {{vehicle.vehicle_no}}</mat-option>
+                <mat-select multiple formControlName="vechicle_id">
+                    <mat-option *ngFor="let vehicle of vehicleList" [value]="vehicle.id">{{vehicle.vehicle_name}} -
+                        {{vehicle.vehicle_no}}</mat-option>
                 </mat-select>
             </mat-form-field>
 
             <input type="number" [ngModel]="admin" formControlName="admin_id_fk" readonly hidden>
         </form>
-
-
-        <!-- <div class="form-floating mb-2">
-            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput">Day</label>
-        </div> -->
 
     </div>
 

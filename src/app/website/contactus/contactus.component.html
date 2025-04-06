@@ -1,1 +1,28 @@
-<p>contactus works!</p>
+<div class="contact-section">
+    <div class="contact-map-box">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d230019.96642352437!2d85.24501!3d25.735464!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed5d0e8e27d877%3A0x848ff342bfa886!2sSwami%20Vivekanand%20Shiksha%20Niketan%20School!5e0!3m2!1sen!2sin!4v1743935495983!5m2!1sen!2sin"
+            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+    <div class="contact-form-box">
+        <h2>📬 Contact Us</h2>
+        <form (ngSubmit)="submitForm()" #form="ngForm">
+            <div class="form-row">
+                <input type="text" name="name" ngModel required placeholder="Name" />
+                <input type="email" name="email" ngModel required placeholder="Email" />
+            </div>
+
+            <div class="form-row">
+                <input type="tel" name="mobile" ngModel required placeholder="Mobile" />
+                <input type="text" name="subject" ngModel placeholder="Subject" />
+            </div>
+
+            <textarea name="description" ngModel rows="5" placeholder="Description"></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+</div>

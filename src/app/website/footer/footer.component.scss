@@ -37,11 +37,16 @@
         }
     }
 }
-
+.footer-social{
+    .ssss{
+        width: 100%;
+        display: flex;
+        gap: 10px;
+    }
+}
 .footer-social a img {
     width: 35px;
     height: 35px;
-    margin-left: 15px;
 }
 
 .footer-links ul {

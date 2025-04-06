@@ -1,0 +1,16 @@
+<div class="notice">
+    <mat-card class="notice-container">
+        <mat-card class="notice-box">
+            <mat-card-title class="notice-title">📌 Notice Board</mat-card-title>
+            <div class="notice-content">
+                <marquee behavior="scroll" direction="up" scrollamount="3" onmouseover="this.stop();"
+                    onmouseout="this.start();">
+                    <ul>
+                        <li *ngFor="let notice of notices">{{ notice }}</li>
+                    </ul>
+                </marquee>
+            </div>
+        </mat-card>
+    </mat-card>
+
+</div>

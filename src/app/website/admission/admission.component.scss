@@ -1,0 +1,51 @@
+.admission-form-container {
+  max-width: 900px;
+  margin: 30px auto;
+  background: #fff;
+  padding: 30px 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+  .form-title {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+    color: #1f3c88;
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+  }
+
+  .full-width {
+    grid-column: 1 / -1;
+  }
+
+  .btn-area {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 30px;
+
+    button {
+      min-width: 120px;
+      padding: 10px 24px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 20px 15px;
+
+    .form-title {
+      font-size: 22px;
+    }
+
+    .btn-area {
+      justify-content: center;
+    }
+  }
+}

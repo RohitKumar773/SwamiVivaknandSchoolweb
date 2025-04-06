@@ -1,8 +1,8 @@
 %common-styles {
     font: 1rem sans-serif;
-    padding: 0px 0px 0px 20px;
+    padding: 0px 0px 0px 40px;
     line-height: 35px;
-    text-align: center;
+    text-align: justify;
 }
 
 %h1-style {
@@ -51,8 +51,8 @@
         align-items: center;
 
         img {
-            width: 250px;
-            height: 280px;
+            width: 300px;
+            height: 340px;
             object-fit: cover;
             border-radius: 10px;
         }
@@ -72,6 +72,11 @@
 
 .chairman {
     @extend %content;
+    // background-color: rgb(246, 246, 246);
+    width: calc(100% - 3%);
+    margin-left: 1.5%;
+    border-radius: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 
     h1 {
         @extend %h1-style;
@@ -92,15 +97,72 @@ h1 {
     display: flex;
     gap: 20px;
     margin-left: 5%;
+    justify-content: center;
+    align-items: center;
 
 
     .example-card {
         box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
         margin-top: 30px;
-
+        transition: 0.4s;
+        
         mat-card-content {
+            width: 250px;
+            height: 200px;
             line-height: 30px;
             text-transform: capitalize;
+        }
+    }
+    .example-card:hover{
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        transform: scale(1.05);
+    }
+}
+
+@media(max-width: 1000px) and (min-width:0px){
+    .slider{
+        height: 450px;
+        margin-top: -40px;
+
+        ngb-carousel {
+
+            img {
+                height: 400px;
+            }
+        }
+    }
+    .about{
+        margin-top: 0px;
+
+        .about_content{
+            flex-flow: column-reverse;
+            padding: 0px 20px;
+
+
+            p{
+                padding: 0px!important;
+
+                span{
+                    font-size: 1.2rem;
+                    word-spacing: 1px;
+                    text-align: left;
+
+                    br{
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+    #abbt{
+        flex-flow: column-reverse!important;
+    }
+    .facilites{
+        flex-wrap: wrap;
+    }
+    .chairman{
+        p{
+            padding: 0px;
         }
     }
 

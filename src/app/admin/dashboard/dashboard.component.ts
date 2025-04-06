@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Notice, NoticeResponse } from 'src/app/interface/notice.interface';
 import { CrudService } from 'src/app/Services/crud.service';
 @Component({
   selector: 'app-dashboard',
@@ -11,6 +12,7 @@ export class DashboardComponent implements OnInit {
   allEmployee: number = 0;
   faculty: number = 0;
   allVehicle: number = 0;
+  noticeList: Notice[] = []
 
   constructor(
     private _crud: CrudService
@@ -23,6 +25,7 @@ export class DashboardComponent implements OnInit {
     this.getEmployee();
     this.getAllFaculty();
     this.getVehicle();
+    this.getNotice();
   }
 
   getAdmission() {
@@ -102,5 +105,14 @@ export class DashboardComponent implements OnInit {
       ]
     }]
 
+  }
+
+  getNotice() {
+    this._crud.getNotice().subscribe(
+      (res: NoticeResponse) => {
+        console.log(res);
+        this.noticeList = res.data
+      }
+    )
   }
 }

@@ -24,7 +24,7 @@ import { CrudService } from 'src/app/Services/crud.service';
     ]),
   ],
 })
-export class AdminHomePageComponent implements OnInit{
+export class AdminHomePageComponent implements OnInit {
   activeButton: number | null = null;
   isOpen = false;
   isOpen2 = false;
@@ -35,6 +35,9 @@ export class AdminHomePageComponent implements OnInit{
   isOpen7 = false;
   isOpen8 = false;
   isOpen9 = false;
+
+  login: any
+  loginData: any
 
   toggle() {
     this.isOpen = !this.isOpen;
@@ -102,7 +105,7 @@ export class AdminHomePageComponent implements OnInit{
   constructor(
     private dialog: MatDialog,
     private router: Router,
-    private _crud:CrudService
+    private _crud: CrudService
   ) {
     const data = localStorage.getItem('adminLoginData')
     if (data) {
@@ -115,6 +118,9 @@ export class AdminHomePageComponent implements OnInit{
     } else {
       this.router.navigate(['/admin'])
     }
+
+    this.login = localStorage.getItem('adminLoginData');
+    this.loginData = JSON.parse(this.login);
   }
   ngOnInit() {
     this._crud.adminLogin

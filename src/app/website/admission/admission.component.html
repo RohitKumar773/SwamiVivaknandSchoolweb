@@ -24,17 +24,21 @@
         <input matInput placeholder="Enter your mother name" formControlName="mother_name" />
       </mat-form-field>
 
-      <mat-form-field appearance="outline">
+      <!-- <mat-form-field appearance="outline">
         <mat-label>Mobile Number</mat-label>
         <input matInput type="tel" placeholder="Enter mobile no." formControlName="mobile" />
-      </mat-form-field>
+      </mat-form-field> -->
+
+      <mat-form-field appearance="outline">
+        <mat-label>Mobile Number</mat-label>
+        <input type="tel" number matInput placeholder="Enter Student Name" formControlName="mobile"
+            minlength="10" maxlength="10" pattern="\d{10}" (keyup)="validateMobile()">
+    </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label>Gender</mat-label>
         <mat-select formControlName="gender">
-          <mat-option value="1">Male</mat-option>
-          <mat-option value="2">Female</mat-option>
-          <mat-option value="3">Other</mat-option>
+          <mat-option *ngFor="let gen of gender" [value]="gen">{{gen}}</mat-option>
         </mat-select>
       </mat-form-field>
 

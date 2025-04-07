@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { studentApplicationRes } from 'src/app/interface/newStdApp.interface';
 import { CrudService } from 'src/app/Services/crud.service';
+import { SharedService } from 'src/app/Services/shared.service';
 
 @Component({
   selector: 'app-admission',
@@ -12,11 +13,13 @@ import { CrudService } from 'src/app/Services/crud.service';
 export class AdmissionComponent {
   admin = 1;
   studentRegistrationForm!: FormGroup;
+  gender: any[] = []
 
   constructor(
-    private _rg: FormBuilder, 
+    private _rg: FormBuilder,
     private _crud: CrudService,
     private toastr: ToastrService,
+    private _shared:SharedService
   ) {
     this.studentRegistrationForm = this._rg.group({
       name: ['', Validators.required],
@@ -26,9 +29,24 @@ export class AdmissionComponent {
       mobile: ['', Validators.required],
       gender: ['', Validators.required],
       address: ['', Validators.required],
-      admin_id_fk:['', Validators.required]
+      admin_id_fk: ['', Validators.required]
     });
+
+    this._shared.genderList.subscribe(
+      (res) => {
+        this.gender = res;
+      }
+    )
   }
+
+  validateMobile() {
+    let mobileControl = this.studentRegistrationForm.get('mobile');
+    if (mobileControl) {
+      let value = mobileControl.value;
+      mobileControl.setValue(value.replace(/\D/g, ''));
+    }
+  }
+
 
   onSubmit() {
     console.log(this.studentRegistrationForm.value);
@@ -42,20 +60,20 @@ export class AdmissionComponent {
             this.studentRegistrationForm.reset();
 
           } else {
-            this.toastr.error('Please Check your internet', 'Error')
+            this.toastr.warning('This Mobile No. or Email Already Exits')
           }
         },
         (err: Error) => {
           console.log(err);
-          this.toastr.error('Please Check your internet', 'Error')
+          this.toastr.warning('This Mobile No. or Email Already Exits')
         }
       );
     } else {
-      this.toastr.warning('Please fill all required fields')
+      this.toastr.warning('Please fill all Required fields')
     }
   }
 
-  reset(){
+  reset() {
     this.studentRegistrationForm.reset()
   }
 

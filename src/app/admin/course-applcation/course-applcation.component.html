@@ -2,7 +2,9 @@
   <div class="registration_table_area">
     <div class="header_title">
       <div class="title">New Applications</div>
-      <div class="add_btn">
+      <div class="search_box">
+        <input class="form-control" type="text" placeholder="Search..." aria-label="default input example"
+          (keyup)="onSearch($event)">
       </div>
     </div>
 
@@ -21,7 +23,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let std of applicationList; let i = index">
+        <tr *ngFor="let std of filterApplication; let i = index">
           <td scope="row">{{i+1}}</td>
           <td>{{std.name}}</td>
           <td>{{std.email}}</td>
@@ -31,9 +33,9 @@
           <td>{{std.gender}}</td>
           <td>{{std.address}}</td>
           <td>
-            <button mat-icon-button>
+            <!-- <button mat-icon-button>
               <mat-icon>visibility</mat-icon>
-            </button>
+            </button> -->
             <button mat-icon-button (click)="delete_application(std.id)">
               <mat-icon>delete</mat-icon>
             </button>
@@ -41,7 +43,9 @@
         </tr>
       </tbody>
     </table>
-
-
+    <div class="notfound" *ngIf="!filterApplication.length">
+      <img src="../../../assets/noffound.png" alt="">
+      <h3>No Data Found</h3>
+  </div>
   </div>
 </div>

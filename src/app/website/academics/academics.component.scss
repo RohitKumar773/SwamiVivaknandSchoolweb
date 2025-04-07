@@ -47,3 +47,21 @@
         }
     }
 }
+
+@media(max-width:1000px) and (min-width:0px){
+    .academics{
+        flex-flow: column-reverse;
+
+        .content{
+            width: 100%;
+            padding: 20px;
+        }
+        .img{
+            width: 100%;
+            padding-top: 0px;
+        }
+    }
+    .rules{
+        padding: 20px;
+    }
+}

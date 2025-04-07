@@ -46,10 +46,10 @@
                     <li class="list-group-item">10th</li>
                 </ul>
                 <ul class="list-group list-group-horizontal">
-                    <li class="list-group-item">
-                        Ritesh Kumar
+                    <li class="list-group-item" *ngFor="let enroll of applicationList">
+                        {{enroll.name}}
                         <br>
-                        &nbsp;<span>20 Jan 2025</span>
+                        &nbsp;<span>{{enroll.email}}</span>
                     </li>
                     <li class="list-group-item">12th</li>
                 </ul>

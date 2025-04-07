@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { CrudService } from 'src/app/Services/crud.service';
 
 @Component({
@@ -13,12 +14,13 @@ export class StdLoginPageComponent {
 
   constructor(
     private _crud: CrudService,
-    private router: Router
+    private router: Router,
+    private toastr:ToastrService
   ) { }
 
   studentLogin() {
     if (this.email == "" || this.password == "") {
-      alert('Please Fill all the required fields')
+      this.toastr.warning('Please fill all required fields')
     }
     else {
       const studentLogins = {
@@ -30,18 +32,18 @@ export class StdLoginPageComponent {
       this._crud.studentLogin(studentLogins).subscribe((res: any) => {
         console.log(res);
         if (res.success == true) {
-          alert("Login Successfully");
+          this.toastr.success('Login Successfully')
           localStorage.setItem("studentLoginData", JSON.stringify(res.data))
           this.router.navigate(['/student/std_homepage'])
         }
         else {
-          alert('Login Failed')
+          this.toastr.error('Please check your internet connection', 'Internet Error')
         }
 
       },
         (err: any) => {
           console.log(err);
-          alert('Login failed')
+          this.toastr.error('Please check your internet connection', 'Internet Error')
         }
       )
     }

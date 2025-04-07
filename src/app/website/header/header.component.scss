@@ -132,6 +132,18 @@ header {
   width: 60px;
   height: 100%;
   display: none;
+
+  .offcanvas-header{
+    background-color: #6c7082;
+    color: white;
+  }
+  .offcanvas-body{
+    button{
+      width: 90%;
+      margin-left: 5%;
+      color: #252754;
+    }
+  }
 }
 
 // media query start from here 

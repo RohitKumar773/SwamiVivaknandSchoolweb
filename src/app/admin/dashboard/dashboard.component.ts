@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { studentApplication, studentApplicationRes } from 'src/app/interface/newStdApp.interface';
 import { Notice, NoticeResponse } from 'src/app/interface/notice.interface';
 import { CrudService } from 'src/app/Services/crud.service';
 @Component({
@@ -12,7 +13,8 @@ export class DashboardComponent implements OnInit {
   allEmployee: number = 0;
   faculty: number = 0;
   allVehicle: number = 0;
-  noticeList: Notice[] = []
+  noticeList: Notice[] = [];
+  applicationList: studentApplication[] = [];
 
   constructor(
     private _crud: CrudService
@@ -37,8 +39,9 @@ export class DashboardComponent implements OnInit {
   }
   getApplication() {
     this._crud.getStdApplications().subscribe(
-      (res: any) => {
-        this.allApplications = res.data.length
+      (res: studentApplicationRes) => {
+        this.allApplications = res.data.length;
+        this.applicationList = res.data;
       }
     )
   }

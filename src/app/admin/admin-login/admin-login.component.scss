@@ -80,3 +80,25 @@
   color: black;
   border: 2px solid silver;
 }
+
+@media(max-width:1200px) and (min-width:0px){
+  #logImg{
+    display: none;
+  }
+  .admin_login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .login_boxes{
+    width: 100%;
+  }
+  .form_area{
+    width: 100%;
+    margin: 0;
+  }
+  .btn{
+    width: 100%;
+    margin-left: 0px;
+  }
+}

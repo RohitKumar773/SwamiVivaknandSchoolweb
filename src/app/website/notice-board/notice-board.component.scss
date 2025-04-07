@@ -7,10 +7,10 @@
 
     .notice-container {
         width: 60%;
+        height: 80%;
         margin: 20px auto;
         border-radius: 16px;
         padding: 20px;
-        height: 80%;
     }
 
     .notice-box {
@@ -41,6 +41,15 @@
             marquee {
                 height: 100%;
             }
+        }
+    }
+}
+
+@media(max-width:600px) and (min-width:0px) {
+    .notice{
+        .notice-container{
+            width: 90%;
+            margin-left: 5%;
         }
     }
 }

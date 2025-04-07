@@ -44,3 +44,23 @@
         }
     }
 }
+
+@media(max-width:1000px) and (min-width:0px){
+    .about{
+        flex-flow: column-reverse!important;
+
+        .content{
+            width: 100%;
+        }
+        .img_area{
+            width: 100%;
+            padding: 15px!important;
+            height: 400px;
+
+            img{
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+}

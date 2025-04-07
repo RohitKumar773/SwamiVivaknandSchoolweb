@@ -50,9 +50,9 @@
             <button mat-raised-button [matMenuTriggerFor]="menu">Login | Register</button>
             <mat-menu #menu="matMenu">
                 <button mat-menu-item routerLink="/admin/admin_login">Login as Admin</button>
-                <button mat-menu-item>Login as Faculty</button>
-                <button mat-menu-item>Login as Student</button>
-                <button mat-menu-item>New Register</button>
+                <button mat-menu-item routerLink="/faculty">Login as Faculty</button>
+                <button mat-menu-item routerLink="/student">Login as Student</button>
+                <!-- <button mat-menu-item>New Register</button> -->
             </mat-menu>
         </div>
         <div class="mobile_navigation">
@@ -64,11 +64,20 @@
             <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
                 aria-labelledby="offcanvasWithBothOptionsLabel">
                 <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Backdrop with scrolling</h5>
+                    <h2 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Swami Vivekanand Shiksha Niketan</h2>
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body">
-                    <p>Try scrolling the rest of the page to see this option in action.</p>
+                    <button mat-button data-bs-dismiss="offcanvas" routerLink="/home">Home</button>
+                    <button mat-button data-bs-dismiss="offcanvas" routerLink="/aboutus">About</button>
+                    <button mat-button data-bs-dismiss="offcanvas" routerLink="/admission">Admission</button>
+                    <button mat-button data-bs-dismiss="offcanvas" routerLink="/academics">Academics</button>
+                    <button mat-button data-bs-dismiss="offcanvas" routerLink="/gallery">Gallery</button>
+                    <button mat-button data-bs-dismiss="offcanvas" routerLink="/ourevent">Our Events</button>
+                    <button mat-button data-bs-dismiss="offcanvas" routerLink="/noticeboard">Notice Board</button>
+                    <button mat-button data-bs-dismiss="offcanvas" routerLink="/contact">Contact Us</button>
+                    <button mat-button data-bs-dismiss="offcanvas" routerLink="/student">Student Login</button>
+                    <button mat-button data-bs-dismiss="offcanvas" routerLink="/faculty">Faculty Login</button>
                 </div>
             </div>
         </div>

@@ -1,82 +1,104 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.admin_login {
+  width: 100%;
+  height: 100vh;
+  float: left;
+  background-color: rgb(234, 234, 234);
+}
+
+.login_boxes {
+  width: 50%;
+  height: 100%;
+  float: left;
+  padding: 50px;
+}
+
+.school_logo {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  float: left;
+}
+.school_logo img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 100%;
+}
+
+.welcome_title{
+  width: 100%;
+  height: 60px;
+  float: left;
+  text-align: center;
+}
+.welcome_title h1 {
+  font-family: "Sansita", serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.8rem;
+}
+.form_area{
+  width: 80%;
+  height: auto;
+  float: left;
+  margin-left: 10%;
+}
+.form-control{
+  border: 1px solid rgb(159, 157, 157);
+}
+.buttons_area{
+  width: 100%;
+  height: auto;
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.btn{
+  width: 40%;
+  background-color: rgb(76, 76, 202);
+  color: white;
+  padding: 8px;
+  border-radius: 50px;
+  margin-top: 40px;
+}
+.btn:nth-child(2){
+  background-color: rgba(247, 72, 60, 0.954);
+  margin-top: 10px;
+}
+.btn:nth-child(3){
+  background:none;
+  margin-top: 10px;
+  color: black;
+  border: 2px solid silver;
+}
+
+@media(max-width:1200px) and (min-width:0px){
+  #logImg{
+    display: none;
   }
-  .admin_login {
-    width: 100%;
-    height: 100vh;
-    float: left;
-    background-color: rgb(234, 234, 234);
-  }
-  
-  .login_boxes {
-    width: 50%;
-    height: 100%;
-    float: left;
-    padding: 50px;
-  }
-  
-  .school_logo {
-    width: 100%;
-    height: 200px;
+  .admin_login{
     display: flex;
     justify-content: center;
     align-items: center;
-    float: left;
   }
-  .school_logo img {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 100%;
-  }
-  
-  .welcome_title{
+  .login_boxes{
     width: 100%;
-    height: 60px;
-    float: left;
-    text-align: center;
-  }
-  .welcome_title h1 {
-    font-family: "Sansita", serif;
-    font-weight: 500;
-    font-style: normal;
-    font-size: 1.8rem;
   }
   .form_area{
-    width: 80%;
-    height: auto;
-    float: left;
-    margin-left: 10%;
-  }
-  .form-control{
-    border: 1px solid rgb(159, 157, 157);
-  }
-  .buttons_area{
     width: 100%;
-    height: auto;
-    float: left;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    margin: 0;
   }
   .btn{
-    width: 40%;
-    background-color: rgb(76, 76, 202);
-    color: white;
-    padding: 8px;
-    border-radius: 50px;
-    margin-top: 40px;
+    width: 100%;
+    margin-left: 0px;
   }
-  .btn:nth-child(2){
-    background-color: rgba(247, 72, 60, 0.954);
-    margin-top: 10px;
-  }
-  .btn:nth-child(3){
-    background:none;
-    margin-top: 10px;
-    color: black;
-    border: 2px solid silver;
-  }
+}

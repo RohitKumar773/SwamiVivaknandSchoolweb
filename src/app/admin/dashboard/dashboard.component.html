@@ -30,30 +30,17 @@
             </div>
             <div class="list_data">
 
-                <ul class="list-group list-group-horizontal">
-                    <li class="list-group-item">
-                        <b>Student</b>
+                <ul class="list-group" style="border: none;">
+                    <li style="padding: 10px;">
+                        <b>New Applications</b>
                     </li>
-                    <li class="list-group-item">
-                        <b>Details</b>
-                    </li>
-                </ul>
-                <ul class="list-group list-group-horizontal">
-                    <li class="list-group-item">
-                        Rohit Kumar <br>
-                        &nbsp;<span>16 Jan 2025</span>
-                    </li>
-                    <li class="list-group-item">10th</li>
-                </ul>
-                <ul class="list-group list-group-horizontal">
-                    <li class="list-group-item" *ngFor="let enroll of applicationList">
-                        {{enroll.name}}
+                    <li class="list-group-item" *ngFor="let applicaion of applicationList.slice().reverse().slice(0,2)">
+                        {{applicaion.name}}
                         <br>
-                        &nbsp;<span>{{enroll.email}}</span>
+                        &nbsp;<span>{{applicaion.mobile}}</span>
                     </li>
-                    <li class="list-group-item">12th</li>
+                    <button mat-button routerLink="/admin/home/course_application">View more</button>
                 </ul>
-                <button mat-button routerLink="/admin/home/course_application">View more</button>
             </div>
         </div>
         <div class="cboxes" id="notice_board_area">

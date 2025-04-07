@@ -6,9 +6,7 @@
 <div class="registration_box">
     <div class="registration_table_area" *ngFor="let exam of examList; let i = index">
         <div class="title">{{exam.class}} </div>
-
         <table class="table table-striped" style="text-align: center;">
-
             <thead>
                 <tr>
                     <th scope="col">S.N.</th>
@@ -27,16 +25,14 @@
                     <td>{{item.date| date : 'dd-MM-yyyy'}}</td>
                     <td>{{item.time}}</td>
                     <td>{{item.passing_makrs}}</td>
-                    <td>{{item.passing_makrs}}</td>
+                    <td>{{item.total_marks}}</td>
                     <td>
                         <button mat-icon-button (click)="delete_exam(item.id)">
                             <mat-icon>delete</mat-icon>
                         </button>
                     </td>
                 </tr>
-
             </tbody>
         </table>
-
     </div>
 </div>

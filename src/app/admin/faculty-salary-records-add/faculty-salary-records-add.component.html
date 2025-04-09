@@ -12,7 +12,7 @@
         <form [formGroup]="salaryForm">
             <mat-form-field class="example-full-width" appearance="outline" style="width: 96%;margin-left: 2%;">
                 <mat-label>Enter Employee Number / name </mat-label>
-                <input type="text" placeholder="Search name or Mobile number " aria-label="Number" matInput
+                <input type="text" placeholder="Search by name or Mobile number " aria-label="Number" matInput
                     formControlName="number" [matAutocomplete]="auto">
                 <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete"
                     (optionSelected)="onOptionSelected($event.option.value)">
@@ -74,7 +74,7 @@
                         </mat-form-field> -->
 
                         <mat-form-field appearance="outline">
-                            <mat-label>D.O.B.</mat-label>
+                            <mat-label>Payment Date</mat-label>
                             <input matInput [matDatepicker]="picker" formControlName="cur_date">
                             <mat-hint>MM/DD/YYYY</mat-hint>
                             <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>

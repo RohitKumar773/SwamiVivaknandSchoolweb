@@ -55,20 +55,24 @@ export class AddexamComponent implements OnInit {
   ngOnInit() {
   }
 
-  
+
 
   onSubmit() {
     console.log(this.examinationForm.value);
-    this._crud.addExamination(this.examinationForm.value).subscribe(
-      (res: Examinations) => {
-        console.log(res);
-        this.matref.close()
-        this.toastr.success('Exam added successfully', 'Success')
-      },
-      (err: Error) => {
-        this.toastr.error('Please check your internet connection', 'Error')
-      }
-    )
+    if (this.examinationForm.valid) {
+      this._crud.addExamination(this.examinationForm.value).subscribe(
+        (res: Examinations) => {
+          console.log(res);
+          this.matref.close()
+          this.toastr.success('Exam added successfully', 'Success')
+        },
+        (err: Error) => {
+          this.toastr.error('Please check your internet connection', 'Error')
+        }
+      )
+    } else {
+      this.toastr.warning('Please fill all required fields', 'Warning')
+    }
   }
 
 

@@ -19,9 +19,9 @@ export class AddmastersubjectComponent {
   constructor(
     private _shared: SharedService,
     private _fb: FormBuilder,
-    private _crud:CrudService,
+    private _crud: CrudService,
     private matref: MatDialogRef<AddmastersubjectComponent>,
-    private toastr:ToastrService
+    private toastr: ToastrService
   ) {
     this._shared.classList.subscribe(
       (cls) => {
@@ -31,33 +31,36 @@ export class AddmastersubjectComponent {
 
 
     this.subjectForm = this._fb.group({
-      id:[''],
-      class:['', Validators.required],
-      subject_name:['', Validators.required],
-      admin_id_fk:['', Validators.required]
+      id: [''],
+      class: ['', Validators.required],
+      subject_name: ['', Validators.required],
+      admin_id_fk: ['', Validators.required]
     })
   }
 
   resetForm() { }
-  onSubmit() { 
-    this._crud.addSubject(this.subjectForm.value).subscribe(
-      (res:SubjectRes) => {
-        console.log(res);
-        if(res.success){
+  onSubmit() {
+    if (this.subjectForm.valid) {
+      this._crud.addSubject(this.subjectForm.value).subscribe(
+        (res: SubjectRes) => {
           console.log(res);
-          this.matref.close();
-          this.toastr.success('Subject added Successfully', 'Success')
-        }else{
-          alert('error')
+          if (res.success) {
+            console.log(res);
+            this.matref.close();
+            this.toastr.success('Subject added Successfully', 'Success')
+          } else {
+            alert('error')
+            this.toastr.error('Subject not added', 'Error')
+          }
+        },
+        (err: Error) => {
           this.toastr.error('Subject not added', 'Error')
+          console.log(err);
         }
-      },
-      (err:Error) => {
-        this.toastr.error('Subject not added', 'Error')
-        console.log(err);
-        
-      }
-    )
+      )
+    } else {
+      this.toastr.warning('Please fill all required fields', 'Warning')
+    }
   }
 
 }

@@ -1,17 +1,29 @@
 <div class="events">
     <mat-card class="events-wrapper">
-        <mat-card-title class="events-title">🎉 Upcoming School Events</mat-card-title>
-        <div class="events-list">
-            <mat-card class="event-card" *ngFor="let event of events">
-                <div class="event-date">
-                    <div class="day">{{ event.date | date:'dd' }}</div>
-                    <div class="month">{{ event.date | date:'MMM' }}</div>
-                </div>
-                <div class="event-details">
-                    <h3>{{ event.title }}</h3>
-                    <p>{{ event.description }}</p>
-                </div>
-            </mat-card>
-        </div>
+      <mat-card-title class="events-title">
+        <span class="emoji">🎉</span>
+        <span class="text">Upcoming School Events</span>
+      </mat-card-title>
+  
+      <div class="events-list">
+        <mat-card class="event-card" *ngFor="let event of eventList">
+          <div class="event-content">
+            <div class="event-dates">
+              <div class="event-date-block">
+                <label>Start</label>
+                <span>{{ event.start_date | date: 'dd MMM yyyy' }}</span>
+              </div>
+              <div class="event-date-block">
+                <label>End</label>
+                <span>{{ event.end_date | date: 'dd MMM yyyy' }}</span>
+              </div>
+            </div>
+            <div class="event-occasion">
+              {{ event.ocassion_name }}
+            </div>
+          </div>
+        </mat-card>
+      </div>
     </mat-card>
-</div>
+  </div>
+  

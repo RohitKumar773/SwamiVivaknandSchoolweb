@@ -1,26 +1,30 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Events, eventsResponse } from 'src/app/interface/event.interface';
+import { CrudService } from 'src/app/Services/crud.service';
 
 @Component({
   selector: 'app-our-event',
   templateUrl: './our-event.component.html',
   styleUrls: ['./our-event.component.scss']
 })
-export class OurEventComponent {
-  events = [
-    {
-      date: new Date(2025, 3, 10), // April 10, 2025
-      title: 'Annual Science Fair',
-      description: 'Students will showcase innovative science projects.'
-    },
-    {
-      date: new Date(2025, 3, 20),
-      title: 'Sports Day',
-      description: 'Full-day sports competitions for all classes.'
-    },
-    {
-      date: new Date(2025, 4, 5),
-      title: 'Cultural Program',
-      description: 'Dance, drama, and musical performances.'
-    }
-  ];
+export class OurEventComponent implements OnInit {
+  eventList: Events[] = []
+
+  constructor(
+    private _crud: CrudService
+  ) { }
+
+
+  ngOnInit() {
+    this.getEvent()
+  }
+
+  getEvent() {
+    this._crud.getAllEvents().subscribe(
+      (res: eventsResponse) => {
+        console.log(res);
+        this.eventList = res.data
+      }
+    )
+  }
 }

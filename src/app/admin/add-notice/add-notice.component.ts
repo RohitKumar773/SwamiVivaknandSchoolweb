@@ -18,7 +18,7 @@ export class AddNoticeComponent {
     private _fb: FormBuilder,
     private _crud: CrudService,
     private _toast: ToastrService,
-    private matref:MatDialogRef<AddNoticeComponent>
+    private matref: MatDialogRef<AddNoticeComponent>
   ) {
     this.noticeForm = this._fb.group({
       notice: ['', Validators.required],
@@ -28,23 +28,26 @@ export class AddNoticeComponent {
   }
 
   onSubmit() {
-    this._crud.addNotice(this.noticeForm.value).subscribe(
-      (res: NoticeResponse) => {
-        if (res.success) {
-          console.log(res);
-          this.matref.close()
-          this._toast.success('Notice added successfully', 'Success');
-        } else {
+    if (this.noticeForm.valid) {
+      this._crud.addNotice(this.noticeForm.value).subscribe(
+        (res: NoticeResponse) => {
+          if (res.success) {
+            console.log(res);
+            this.matref.close()
+            this._toast.success('Notice added successfully', 'Success');
+          } else {
+            this._toast.error('Please Check your internet connection', 'Network');
+          }
+        },
+        (err: Error) => {
+          console.log(err);
           this._toast.error('Please Check your internet connection', 'Network');
         }
-      },
-      (err: Error) => {
-        console.log(err);
-        this._toast.error('Please Check your internet connection', 'Network');
-      }
-    )
+      )
+    } else {
+      this._toast.warning('Please fill all required fields', 'Warning')
+    }
   }
-
 
   resetForm() {
     this.noticeForm.reset()

@@ -6,7 +6,7 @@
                 <marquee behavior="scroll" direction="up" scrollamount="3" onmouseover="this.stop();"
                     onmouseout="this.start();">
                     <ul>
-                        <li *ngFor="let notice of notices">{{ notice }}</li>
+                        <li *ngFor="let notice of notices">{{ notice.notice }} - {{notice.notice_date}}</li>
                     </ul>
                 </marquee>
             </div>

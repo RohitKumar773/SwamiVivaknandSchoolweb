@@ -15,6 +15,8 @@ export class TransportZoneComponent {
   allVehicles: Vehicle[] = [];
   selectedZone: any = null;
   selectedVehicles: Vehicle[] = [];
+  filterZone: Zone[] = []
+
   constructor(
     private dialog: MatDialog,
     private _crud: CrudService
@@ -32,6 +34,7 @@ export class TransportZoneComponent {
       (res: ZoneRes) => {
         if (Array.isArray(res.data)) {
           this.Zone_data = res.data
+          this.filterZone = res.data
         }
         console.log(res);
 
@@ -75,8 +78,19 @@ export class TransportZoneComponent {
   }
 
   add_new_zone() {
-    this.dialog.open(AddTransportZoneFormComponent, {
+    const openDig = this.dialog.open(AddTransportZoneFormComponent, {
       disableClose: true,
     });
+
+    openDig.afterClosed().subscribe(() => {
+      this.getData()
+    });
+  }
+
+  onSearch(event: any) {
+    const filter = event.target.value?.toLowerCase() || '';
+    this.filterZone = this.Zone_data.filter((data) =>
+      data?.zone_name?.toLowerCase().includes(filter)
+    )
   }
 }

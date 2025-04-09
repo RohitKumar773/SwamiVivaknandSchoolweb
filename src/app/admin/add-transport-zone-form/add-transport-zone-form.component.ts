@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import { ToastrService } from 'ngx-toastr';
 import { Vehicle, VehicleResponse } from 'src/app/interface/vehicle.interface';
 import { CrudService } from 'src/app/Services/crud.service';
 
@@ -18,7 +19,8 @@ export class AddTransportZoneFormComponent implements OnInit {
   constructor(
     private _crud: CrudService,
     private _fb: FormBuilder,
-    private dialogRef: MatDialogRef<AddTransportZoneFormComponent>
+    private dialogRef: MatDialogRef<AddTransportZoneFormComponent>,
+    private toastr:ToastrService
   ) {
     this.zoneForm = this._fb.group({
       vechicle_id: [[], Validators.required],
@@ -42,18 +44,19 @@ export class AddTransportZoneFormComponent implements OnInit {
     }
 
     const formValue = this.zoneForm.value;
-
-    // Send vehicle IDs as comma-separated string
     const payload = {
       zone_name: formValue.zone_name,
       vechicle_id: formValue.vechicle_id.join(','), // convert array to string
       // admin_id_fk: formValue.admin_id_fk // if supported in your PHP API
     };
-
     this._crud.addZone_api(payload).subscribe((res) => {
       console.log(res);
+      this.toastr.success('Zone added successfully', 'Success')
       this.dialogRef.close(true); // optionally close dialog on success
     });
+  }
 
+  resetForm(){
+    this.zoneForm.reset()
   }
 }

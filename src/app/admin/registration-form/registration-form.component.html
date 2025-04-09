@@ -16,33 +16,33 @@
             </mat-form-field>
             <mat-form-field appearance="outline">
                 <mat-label>Father's Name</mat-label>
-                <input matInput placeholder="Enter Student Name" formControlName="father_name">
+                <input matInput placeholder="Enter Father Name" formControlName="father_name">
             </mat-form-field>
             <mat-form-field appearance="outline">
                 <mat-label>Mother's Name</mat-label>
-                <input matInput placeholder="Enter Student Name" formControlName="mother_name">
+                <input matInput placeholder="Enter Mother Name" formControlName="mother_name">
             </mat-form-field>
             <mat-form-field appearance="outline">
                 <mat-label>Email Address</mat-label>
-                <input matInput placeholder="Enter Student Name"  type="email" [email]="true"
+                <input matInput placeholder="Enter Student Email"  type="email" [email]="true"
                     formControlName="email" required>
             </mat-form-field>
 
             <mat-form-field appearance="outline">
                 <mat-label>Mobile Number</mat-label>
-                <input type="tel" number matInput placeholder="Enter Student Name" formControlName="mobile"
+                <input type="tel" number matInput placeholder="Enter Mobile No." formControlName="mobile"
                     minlength="10" maxlength="10" pattern="\d{10}" (keyup)="validateMobile()">
             </mat-form-field>
 
             <mat-form-field appearance="outline">
                 <mat-label>Aadhar Number</mat-label>
-                <input type="tel" number matInput placeholder="Enter Student Name" formControlName="adhar"
+                <input type="tel" number matInput placeholder="Enter Aadhar no." formControlName="adhar"
                     minlength="12" maxlength="12" pattern="\d{12}" (keyup)="validateAdhar()">
             </mat-form-field>
 
             <mat-form-field appearance="outline">
                 <mat-label>Password</mat-label>
-                <input matInput placeholder="Enter Student Name" type="password" formControlName="password">
+                <input matInput placeholder="Enter Password" type="password" formControlName="password">
             </mat-form-field>
 
             <!-- <mat-form-field appearance="outline">
@@ -105,11 +105,11 @@
 
             <mat-form-field appearance="outline">
                 <mat-label>Roll No.</mat-label>
-                <input matInput placeholder="Enter Student Name" type="number" formControlName="roll_no">
+                <input matInput placeholder="Enter Roll No." type="number" formControlName="roll_no">
             </mat-form-field>
             <mat-form-field appearance="outline">
                 <mat-label>Address</mat-label>
-                <input matInput placeholder="Enter Student Name" type="text" formControlName="address">
+                <input matInput placeholder="Enter Permanent Address" type="text" formControlName="address">
             </mat-form-field>
             <mat-form-field appearance="outline">
                 <mat-label>Assign Hostel</mat-label>

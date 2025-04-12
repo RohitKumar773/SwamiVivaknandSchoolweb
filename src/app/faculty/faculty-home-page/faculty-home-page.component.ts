@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./faculty-home-page.component.scss']
 })
 export class FacultyHomePageComponent {
+  facultyLogin: any
+  facultyLoginData: any
+  img_url: string = 'http://localhost/sawamivivekanand/'
+
+  constructor() {
+    this.facultyLogin = localStorage.getItem('facultyLoginData');
+    this.facultyLoginData = JSON.parse(this.facultyLogin)
+  }
 
 }

@@ -27,6 +27,8 @@ export class FacultyLoginComponent {
   }
 
   facultyLogin() {
+    console.log('clicked');
+    
     if (this.email == '' || this.password == '') {
       alert('Please fill the required fields');
     }

@@ -13,6 +13,10 @@ import { AttendanceComponent } from './attendance/attendance.component';
 import { AssignBtchComponent } from './assign-btch/assign-btch.component';
 import { ExamTestsComponent } from './exam-tests/exam-tests.component';
 import { FormsModule } from '@angular/forms';
+import { FtassignmentComponent } from './ftassignment/ftassignment.component';
+import { FtfeestructureComponent } from './ftfeestructure/ftfeestructure.component';
+import { FtholidaysComponent } from './ftholidays/ftholidays.component';
+import { FtsyllabusComponent } from './ftsyllabus/ftsyllabus.component';
 
 
 @NgModule({
@@ -22,7 +26,11 @@ import { FormsModule } from '@angular/forms';
     FacultyDashboardComponent,
     AttendanceComponent,
     AssignBtchComponent,
-    ExamTestsComponent
+    ExamTestsComponent,
+    FtassignmentComponent,
+    FtfeestructureComponent,
+    FtholidaysComponent,
+    FtsyllabusComponent
   ],
   imports: [
     CommonModule,

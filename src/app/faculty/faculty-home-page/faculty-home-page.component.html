@@ -1,76 +1,6 @@
-<!-- <mat-sidenav-container class="container-fluid">
-
-    <mat-sidenav #sidebar mode="side" closed>
-        <div class="sidebar_top_logo_area">
-            <img src="assets/svsnn.png" alt="">
-        </div>
-        <div class="sidebar_menu_area">
-
-
-            <button class="btn" routerLink="ft_dashboard">
-                <mat-icon>dashboard</mat-icon>
-                Dashboard
-            </button>
-
-            <button class="btn" routerLink="ft_attendance">
-                <mat-icon>trending_up</mat-icon>
-                Attendance
-            </button>
-
-            <button class="btn" routerLink="assigned_batch">
-                <mat-icon>assignment</mat-icon>
-                Assigned Batches
-            </button>
-
-            <button class="btn" routerLink="ft_exam">
-                <mat-icon>chrome_reader_mode</mat-icon>
-                Exam Tests
-            </button>
-
-        </div>
-    </mat-sidenav>
-
-    <mat-sidenav-content>
-
-        <mat-toolbar class="dashboard_top_head">
-            <mat-icon (click)="sidebar.toggle()">menu</mat-icon>
-            <div class="top_head_details_area">
-                <div class="icons_area">
-                    <div class="icons">
-                        <mat-icon>notifications_none</mat-icon>
-                    </div>
-                    <div class="icons">
-                        <mat-icon> chat_bubble_outline</mat-icon>
-                    </div>
-                    <div class="icons">
-                        <mat-icon> call</mat-icon>
-                    </div>
-                    <div class="icons">
-                        <mat-icon>school</mat-icon>
-                    </div>
-                </div>
-                <div class="user_details_with_login_icon">
-                    <div class="user_icon">
-                        <img src="assets/myresimg.png" alt="">
-                    </div>
-                    <div class="user_name">Sachin Kumar</div>
-                    <div class="user_title">
-                        <h3>Faculty</h3>
-                    </div>
-                </div>
-            </div>
-        </mat-toolbar>
-
-        <div class="main">
-            <router-outlet></router-outlet>
-        </div>
-
-    </mat-sidenav-content>
-</mat-sidenav-container> -->
-
 <mat-sidenav-container class="container-fluid">
 
-    <mat-sidenav #sidebar mode="side" opened>
+    <mat-sidenav #sidebar [mode]="sidenavMode" [opened]="sidenavMode === 'side'">
         <div class="sidebar_top_logo_area">
             <img src="assets/svsnn.png" alt="">
         </div>
@@ -116,6 +46,10 @@
                 <mat-icon>calendar_today</mat-icon>
                 Annual Holidays
             </button>
+            <button class="btn" (click)="logout()">
+                <mat-icon>power_settings_new</mat-icon>
+                Logout
+            </button>
 
         </div>
     </mat-sidenav>
@@ -124,18 +58,15 @@
 
         <mat-toolbar class="dashboard_top_head">
             <mat-icon (click)="sidebar.toggle()">menu</mat-icon>
-            <div class="top_head_details_area">
-                <div class="icons_area"></div>
                 <div class="user_details_with_login_icon">
                     <div class="user_icon">
                         <img src="{{img_url + facultyLoginData.profile_img}}" alt="">
                     </div>
-                    <div class="user_name">{{facultyLoginData.name}}</div>
-                    <div class="user_title">
+                    <div class="user_name">
+                        {{facultyLoginData.name}}
                         <h3>Faculty</h3>
                     </div>
                 </div>
-            </div>
         </mat-toolbar>
 
         <div class="main">

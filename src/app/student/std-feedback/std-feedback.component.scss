@@ -1,20 +1,37 @@
-.feedback{
+.feedback_box{
   width: 100%;
   height: calc(100vh - 64px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+}
+.feedback-card {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  background: white;
+  margin-top: 50px;
 
-  .form_area{
-    width: 400px;
-    height: auto;
+  mat-card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .form-content {
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
+    gap: 0.5rem;
 
-    mat-form-field{
+    mat-form-field {
       width: 100%;
+    }
+
+    button {
+      align-self: flex-end;
+      font-weight: 600;
+      padding: 0.5rem 1.5rem;
     }
   }
 }

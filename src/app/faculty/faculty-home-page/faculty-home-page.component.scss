@@ -11,47 +11,21 @@ mat-toolbar {
 }
 
 .dashboard_top_head mat-icon {
-  width: 30px;
-  height: 30px;
+  width: auto;
+  height: auto;
   font-size: 28px;
   cursor: pointer;
   color: rgb(245, 245, 245);
   float: left;
 }
 
-//user login details code start here
-.top_head_details_area {
-  width: 420px;
-  height: 100%;
-}
-
-.icons_area {
-  width: 230px;
-  height: 100%;
-  float: left;
-  padding: 10px;
-}
-
-.icons_area .icons {
-  width: 30px;
-  height: 30px;
-  float: left;
-  margin: 10px 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.icons_area .icons mat-icon {
-  font-size: 22px;
-  font-weight: 0;
-}
-
 .user_details_with_login_icon {
-  width: calc(100% - 230px);
+  width: auto;
   height: 100%;
   float: left;
   cursor: pointer;
+  display: flex;
+  justify-content: space-between;
 }
 
 .user_icon {
@@ -77,21 +51,15 @@ mat-toolbar {
   font-size: 18px;
   font-family: "Sansita", serif;
   color: #eaeaea;
+
+  h3 {
+    font-family: "Sansita", serif;
+    font-size: 15px;
+    margin-top: -15px;
+    color: #939393;
+  }
 }
 
-.user_title {
-  width: calc(100% - 50px);
-  height: calc(100% - 50%);
-  float: left;
-  padding-left: 10px;
-}
-
-.user_title h3 {
-  font-family: "Sansita", serif;
-  font-size: 15px;
-  margin-top: -5px;
-  color: #939393;
-}
 
 //user login details code end here
 
@@ -140,14 +108,16 @@ mat-sidenav-content {
   transition: 0.4s ease-in-out;
   margin-top: 10px;
   font-family: "Nunito Sans", serif;
+  // color: #263038;
 }
 
 .sidebar_menu_area .btn:hover:not(.active) {
   background-color: #efeae9cd;
   color: rgb(228, 59, 7);
 }
-.active{
-  background-color: #efeae9cd;
+
+.active {
+  background-color: rgba(239, 239, 239, 0.806);
   color: rgb(228, 59, 7);
 }
 
@@ -155,4 +125,13 @@ mat-sidenav-content {
   margin-top: 0px;
   margin-right: 4px;
   float: left;
+}
+
+@media(max-width: 500px) and (min-width:0px){
+  .user_icon{
+    margin-top: 8px;
+  }
+  .user_name{
+    display: none;
+  }
 }

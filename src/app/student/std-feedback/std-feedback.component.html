@@ -1,14 +1,28 @@
-<div class="feedback">
-    <div class="form_area">
-        <h3>Enter Your Feedback</h3>
-        <mat-form-field appearance="outline">
-            <mat-label>Input</mat-label>
-            <input matInput>
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-            <mat-label>Textarea</mat-label>
-            <textarea matInput></textarea>
-        </mat-form-field>
-        <button mat-raised-button color="primary">Submit Your Feedback</button>
-    </div>
+<div class="feedback_box">
+    <mat-card class="feedback-card">
+        <mat-card-title>💬 Feedback & Suggestions</mat-card-title>
+
+        <form class="form-content">
+
+            <mat-form-field appearance="outline">
+                <mat-label>Your Name</mat-label>
+                <input matInput placeholder="Enter your name" />
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="Enter your email" />
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Feedback</mat-label>
+                <textarea matInput rows="4" placeholder="Write your feedback or suggestion"></textarea>
+            </mat-form-field>
+
+            <button mat-raised-button color="primary" type="submit">
+                Submit Feedback
+            </button>
+        </form>
+    </mat-card>
+
 </div>

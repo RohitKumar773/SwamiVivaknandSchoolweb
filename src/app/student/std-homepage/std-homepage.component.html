@@ -1,6 +1,6 @@
 <mat-sidenav-container class="container-fluid">
 
-    <mat-sidenav #sidebar mode="side" opened>
+    <mat-sidenav #sidebar [mode]="sidenavMode" [opened]="sidenavMode === 'side'">
         <div class="sidebar_top_logo_area">
             <img src="assets/svsnn.png" alt="">
         </div>
@@ -27,7 +27,7 @@
                 Exam Tests
             </button>
 
-            <button class="btn" routerLink="syllabus" routerLinkActive="active">
+            <!-- <button class="btn" routerLink="syllabus" routerLinkActive="active">
                 <mat-icon>library_books</mat-icon>
                 Syllabus
             </button>
@@ -35,7 +35,7 @@
             <button class="btn" routerLink="attendance" routerLinkActive="active">
                 <mat-icon>trending_up</mat-icon>
                 Attendance
-            </button>
+            </button> -->
 
             <button class="btn" routerLink="std_holiday" routerLinkActive="active">
                 <mat-icon>calendar_today</mat-icon>
@@ -46,6 +46,10 @@
                 <mat-icon>feedback</mat-icon>
                 Feedback & Suggetions
             </button>
+            <button class="btn" (click)="logout()">
+                <mat-icon>power_settings_new</mat-icon>
+                Logout
+            </button>
 
         </div>
     </mat-sidenav>
@@ -54,16 +58,13 @@
 
         <mat-toolbar class="dashboard_top_head">
             <mat-icon (click)="sidebar.toggle()">menu</mat-icon>
-            <div class="top_head_details_area">
-                <div class="icons_area"></div>
-                <div class="user_details_with_login_icon">
-                    <div class="user_icon">
-                        <img src="assets/myresimg.png" alt="">
-                    </div>
-                    <div class="user_name">Rohit Kumar</div>
-                    <div class="user_title">
-                        <h3>Student</h3>
-                    </div>
+            <div class="user_details_with_login_icon">
+                <div class="user_icon">
+                    <img src="{{imgUrl + stdLoginData.profile}}" alt="">
+                </div>
+                <div class="user_name">
+                    {{stdLoginData.name+'asdfsadfsdfsd'}}
+                    <h3>Student</h3>
                 </div>
             </div>
         </mat-toolbar>

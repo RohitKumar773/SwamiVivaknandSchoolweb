@@ -17,7 +17,7 @@ import { StdExamComponent } from './std-exam/std-exam.component';
 import { StdAttendanceComponent } from './std-attendance/std-attendance.component';
 import { StdFeedbackComponent } from './std-feedback/std-feedback.component';
 import { StdHolidayComponent } from './std-holiday/std-holiday.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
@@ -48,7 +48,8 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatFormFieldModule,
     MatButtonModule,
     MatCardModule,
-    LayoutModule
+    LayoutModule,
+    ReactiveFormsModule
   ]
 })
 export class StudentModule { }

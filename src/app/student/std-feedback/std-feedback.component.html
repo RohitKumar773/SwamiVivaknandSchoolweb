@@ -2,24 +2,19 @@
     <mat-card class="feedback-card">
         <mat-card-title>💬 Feedback & Suggestions</mat-card-title>
 
-        <form class="form-content">
+        <form class="form-content" [formGroup]="feedbackForm">
 
             <mat-form-field appearance="outline">
-                <mat-label>Your Name</mat-label>
-                <input matInput placeholder="Enter your name" />
+                <mat-label>Subject</mat-label>
+                <input matInput placeholder="Enter Regarding Subject..." formControlName="title"/>
             </mat-form-field>
 
             <mat-form-field appearance="outline">
-                <mat-label>Email</mat-label>
-                <input matInput placeholder="Enter your email" />
+                <mat-label>Description</mat-label>
+                <textarea matInput rows="4" placeholder="Write your feedback or suggestion" formControlName="description"></textarea>
             </mat-form-field>
 
-            <mat-form-field appearance="outline">
-                <mat-label>Feedback</mat-label>
-                <textarea matInput rows="4" placeholder="Write your feedback or suggestion"></textarea>
-            </mat-form-field>
-
-            <button mat-raised-button color="primary" type="submit">
+            <button mat-raised-button color="primary" (click)="onSubmit()">
                 Submit Feedback
             </button>
         </form>

@@ -8,8 +8,7 @@ import { CrudService } from 'src/app/Services/crud.service';
   styleUrls: ['./std-exam.component.scss']
 })
 export class StdExamComponent {
-  exam_list_group: ExaminationGroup[] = []
-  exam_list: Examinations[] = []
+  exam_list: ExaminationGroup[] = []
   current_class: string = 'class 1'
   stdlogonData: any
   logindata: any
@@ -19,15 +18,15 @@ export class StdExamComponent {
   ) {
     this.logindata = localStorage.getItem('studentLoginData')
     this.stdlogonData = JSON.parse(this.logindata)
-    console.log(this.stdlogonData);
-    
+    this.current_class = this.stdlogonData.class
 
+    this._crud.getAllStudent()
+    console.log(this.current_class)
     this._crud.getExamination().subscribe(
       (res: ExaminationResponse) => {
         if (Array.isArray(res.data)) {
-          this.exam_list_group = res.data
-
-          // this.exam_list = this.exam_list_group.filter((cls) => cls.class == '')
+          this.exam_list = res.data.filter((cls) => cls.class == this.current_class)
+          console.log(this.exam_list);
         }
       }
     )

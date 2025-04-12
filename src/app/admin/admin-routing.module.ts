@@ -32,6 +32,7 @@ import { EventsComponent } from './events/events.component';
 import { MasterDataNoticeComponent } from './master-data-notice/master-data-notice.component';
 import { StudentFeesComponent } from './student-fees/student-fees.component';
 import { FacultyAttendanceReportComponent } from './faculty-attendance-report/faculty-attendance-report.component';
+import { StudentsFeedbackComponent } from './students-feedback/students-feedback.component';
 
 const routes: Routes = [
   { path: '', component: AdminLoginComponent },
@@ -79,6 +80,7 @@ const routes: Routes = [
       { path: 'transport_vehicle', component: TransportVehicleComponent },
       { path: 'allocate_hostel', component: AllocateHostelComponent },
       { path: 'manage_hostel', component: ManageHostelComponent },
+      { path: 'student_feedback', component: StudentsFeedbackComponent }
     ],
   },
 ];

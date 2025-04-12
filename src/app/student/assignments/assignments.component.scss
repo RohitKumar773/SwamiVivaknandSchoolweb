@@ -1,0 +1,101 @@
+.assignment{
+    width: 100%;
+    height: calc(100vh - 64px);
+    float: left;
+    
+    .assignment-card {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(200, 200, 200, 0.2);
+        border-radius: 20px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        padding: 2rem;
+        max-width: 90%;
+        margin: 2rem auto;
+        transition: transform 0.3s ease-in-out;
+      
+        &:hover {
+          transform: translateY(-5px);
+        }
+      
+        .header {
+          margin-bottom: 1.5rem;
+      
+          .title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+          }
+      
+          .faculty {
+            display: block;
+            font-size: 1rem;
+            color: #34495e;
+            margin-top: 0.4rem;
+          }
+        }
+      
+        .content {
+          display: flex;
+          flex-direction: column;
+          gap: 1.2rem;
+      
+          .section {
+            display: flex;
+            flex-direction: column;
+      
+            label {
+              font-size: 0.9rem;
+              font-weight: 600;
+              color: #555;
+              margin-bottom: 0.3rem;
+            }
+      
+            p, a {
+              font-size: 1rem;
+              color: #222;
+              line-height: 1.5;
+            }
+      
+            a {
+              color: #1e88e5;
+              text-decoration: none;
+              font-weight: 600;
+              padding: 0.2rem 0;
+      
+              &:hover {
+                text-decoration: underline;
+                color: #1565c0;
+              }
+            }
+      
+            &.deadline p {
+              font-weight: 600;
+              color: #e53935;
+            }
+          }
+        }
+      
+        @media (max-width: 768px) {
+          padding: 1.2rem;
+      
+          .header .title {
+            font-size: 1.5rem;
+          }
+        }
+      
+        @media (max-width: 480px) {
+          padding: 1rem;
+      
+          .header .title {
+            font-size: 1.3rem;
+          }
+      
+          .content .section p,
+          .content .section a {
+            font-size: 0.95rem;
+          }
+        }
+      }
+      
+}

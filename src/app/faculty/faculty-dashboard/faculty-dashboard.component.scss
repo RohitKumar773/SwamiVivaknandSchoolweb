@@ -98,3 +98,10 @@
   margin-top: 10px;
   font-family: "Nunito Sans", serif;
 }
+
+@media(max-width:500px) and (min-width:0px){
+  .boxes{
+    width: 96%;
+    margin-top: 2.5%;
+  }
+}

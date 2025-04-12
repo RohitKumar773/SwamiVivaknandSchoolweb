@@ -20,6 +20,8 @@ import { StdHolidayComponent } from './std-holiday/std-holiday.component';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatCardModule } from '@angular/material/card';
+import { LayoutModule } from '@angular/cdk/layout';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     FormsModule,
     MatInputModule,
     MatFormFieldModule,
-    MatButtonModule
+    MatButtonModule,
+    MatCardModule,
+    LayoutModule
   ]
 })
 export class StudentModule { }

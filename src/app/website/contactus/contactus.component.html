@@ -1,28 +1,47 @@
 <div class="contact-section">
     <div class="contact-map-box">
-        <iframe
-            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d230019.96642352437!2d85.24501!3d25.735464!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed5d0e8e27d877%3A0x848ff342bfa886!2sSwami%20Vivekanand%20Shiksha%20Niketan%20School!5e0!3m2!1sen!2sin!4v1743935495983!5m2!1sen!2sin"
-            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d230019.96642352437!2d85.24501!3d25.735464!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed5d0e8e27d877%3A0x848ff342bfa886!2sSwami%20Vivekanand%20Shiksha%20Niketan%20School!5e0!3m2!1sen!2sin!4v1743935495983!5m2!1sen!2sin"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
     </div>
-
+  
     <div class="contact-form-box">
-        <h2>📬 Contact Us</h2>
-        <form (ngSubmit)="submitForm()" #form="ngForm">
-            <div class="form-row">
-                <input type="text" name="name" ngModel required placeholder="Name" />
-                <input type="email" name="email" ngModel required placeholder="Email" />
-            </div>
-
-            <div class="form-row">
-                <input type="tel" name="mobile" ngModel required placeholder="Mobile" />
-                <input type="text" name="subject" ngModel placeholder="Subject" />
-            </div>
-
-            <textarea name="description" ngModel rows="5" placeholder="Description"></textarea>
-
-            <button type="submit">Submit</button>
-        </form>
+      <h2>📬 Contact Us</h2>
+  
+      <form [formGroup]="contactForm">
+        <div class="form-row">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="name" />
+          </mat-form-field>
+  
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" [email]="true" formControlName="email" />
+          </mat-form-field>
+        </div>
+  
+        <div class="form-row">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Mobile</mat-label>
+            <input matInput type="number" formControlName="phone" />
+          </mat-form-field>
+  
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Subject</mat-label>
+            <input matInput formControlName="subject" />
+          </mat-form-field>
+        </div>
+  
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Description</mat-label>
+          <textarea matInput formControlName="description" (keyup.enter)="onSendEmail()"></textarea>
+        </mat-form-field>
+  
+        <button mat-raised-button color="primary" (click)="onSendEmail()">Submit</button>
+      </form>
     </div>
-
-</div>
+  </div>
+  

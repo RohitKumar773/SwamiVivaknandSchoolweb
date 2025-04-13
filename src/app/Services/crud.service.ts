@@ -358,8 +358,13 @@ export class CrudService {
   getFeedback(): Observable<FeedbackApiResponse> {
     return this._http.get<FeedbackApiResponse>(`${this.base_url}feedback.php`)
   }
-  deleteFeedback():Observable<any>{
+  deleteFeedback(): Observable<any> {
     return this._http.delete<any>(`${this.base_url}feedback.php`)
+  }
+
+  //send email contact form
+  sendEmail(data: any): Observable<any> {
+    return this._http.post<any>(`${this.base_url}contact.php`, data)
   }
 
 }

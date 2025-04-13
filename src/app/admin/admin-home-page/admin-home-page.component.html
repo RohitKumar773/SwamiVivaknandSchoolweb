@@ -120,7 +120,7 @@
                 </button>
                 <button class="options" routerLink="faculty_attendance_report" routerLinkActive="active">
                     <mat-icon>arrow_right_alt</mat-icon>
-                     Attendance Report
+                    Attendance Report
                 </button>
             </div>
 
@@ -212,6 +212,11 @@
                     Allocate Hostel
                 </button>
             </div>
+            <button class="btn" routerLink="student_feedback" [ngClass]="{'active': activeButton === 12}"
+                (click)="setActive(12)">
+                <mat-icon>feedback</mat-icon>
+                Students Feedback
+            </button>
             <!-- <button class="options" (click)="onLogout()" routerLinkActive="active" style="border: none;color: red;">
                 <mat-icon>power_settings_new</mat-icon>
                 Logout

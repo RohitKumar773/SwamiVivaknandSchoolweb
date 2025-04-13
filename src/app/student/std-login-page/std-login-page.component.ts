@@ -37,7 +37,7 @@ export class StdLoginPageComponent {
           this.router.navigate(['/student/std_homepage'])
         }
         else {
-          this.toastr.error('Please check your internet connection', 'Internet Error')
+          this.toastr.error('Please Enter Valid Email or Password', 'Invalid')
         }
 
       },

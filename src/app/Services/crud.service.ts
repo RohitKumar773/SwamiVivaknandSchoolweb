@@ -20,6 +20,8 @@ import { InventoryMaterialRes } from '../interface/material.interface';
 import { inventoryProductRes } from '../interface/inventoryProduct.interface';
 import { AssignHostelRes, BedRes, Room, RoomRes } from '../interface/hostel.interface';
 import { AttendentRes, TodayAttendentRes } from '../interface/attendance.interface';
+import { AssignmentResponse } from '../interface/assignment.interface';
+import { FeedbackApiResponse } from '../interface/feedback.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -341,6 +343,23 @@ export class CrudService {
 
   getZone_api(): Observable<ZoneRes> {
     return this._http.get<ZoneRes>(`${this.base_url}zone_api.php`)
+  }
+
+  //assignment
+
+  getAssignment(): Observable<AssignmentResponse> {
+    return this._http.get<AssignmentResponse>(`${this.base_url}assignment.php`)
+  }
+
+  //feedback
+  addFeedback(data: any): Observable<any> {
+    return this._http.post<any>(`${this.base_url}feedback.php`, data)
+  }
+  getFeedback(): Observable<FeedbackApiResponse> {
+    return this._http.get<FeedbackApiResponse>(`${this.base_url}feedback.php`)
+  }
+  deleteFeedback():Observable<any>{
+    return this._http.delete<any>(`${this.base_url}feedback.php`)
   }
 
 }

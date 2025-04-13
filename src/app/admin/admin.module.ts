@@ -79,6 +79,7 @@ import { AddAlocateHostalComponent } from './add-alocate-hostal/add-alocate-host
 import { MatRadioModule } from '@angular/material/radio';
 import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
 import { FacultyAttendanceReportComponent } from './faculty-attendance-report/faculty-attendance-report.component';
+import { StudentsFeedbackComponent } from './students-feedback/students-feedback.component';
 
 
 @NgModule({
@@ -141,6 +142,7 @@ import { FacultyAttendanceReportComponent } from './faculty-attendance-report/fa
     AddBedComponent,
     AddAlocateHostalComponent,
     FacultyAttendanceReportComponent,
+    StudentsFeedbackComponent,
   ],
   imports: [
     CommonModule,

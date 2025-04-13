@@ -17,6 +17,7 @@ import { FtassignmentComponent } from './ftassignment/ftassignment.component';
 import { FtfeestructureComponent } from './ftfeestructure/ftfeestructure.component';
 import { FtholidaysComponent } from './ftholidays/ftholidays.component';
 import { FtsyllabusComponent } from './ftsyllabus/ftsyllabus.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { FtsyllabusComponent } from './ftsyllabus/ftsyllabus.component';
     MatToolbarModule,
     MatButtonModule,
     MatSidenavModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule
   ]
 })
 export class FacilityModule { }

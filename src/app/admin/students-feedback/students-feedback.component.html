@@ -1,0 +1,39 @@
+<div class="registration_box">
+    <div class="registration_table_area">
+        <div class="header_title">
+            <div class="title">Student's Feedback</div>
+        </div>
+
+        <table class="table table-striped" style="text-align: center;">
+            <thead>
+                <tr>
+                    <th scope="col">S.N.</th>
+                    <th scope="col">Subject</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let feed of feedbackList; let i = index">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{feed.title}}</td>
+                    <td>
+                        <textarea readonly>{{feed.description}}</textarea>
+                    </td>
+                    <td>{{feed.created_at | date : 'dd-MM-yyyy'}}</td>
+                    <td>
+                        <button mat-icon-button (click)="delete_application(feed.id)">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <!-- <div class="notfound" *ngIf="!filterEvent.length">
+            <img src="../../../assets/noffound.png" alt="">
+            <h3>No Data Found</h3>
+        </div> -->
+    </div>
+</div>

@@ -39,7 +39,7 @@ export class RegistrationFormComponent implements OnInit {
     private _crud: CrudService,
     private _shared: SharedService,
     private matref: MatDialogRef<RegistrationFormComponent>,
-    private toastr:ToastrService,
+    private toastr: ToastrService,
     @Inject(MAT_DIALOG_DATA) public edit_data: any
   ) {
     this.AddmissionForm = this._fb.group({
@@ -129,7 +129,8 @@ export class RegistrationFormComponent implements OnInit {
         (res: addStd) => {
           console.log(res);
           this.matref.close();
-          this.toastr.success('Student Registered Successfully', 'Success')
+          this.toastr.success('Student Registered Successfully', 'Success');
+          this.sendEmail()
         },
         (err: Error) => {
           this.toastr.error('Registration Failed', 'Error')
@@ -139,6 +140,25 @@ export class RegistrationFormComponent implements OnInit {
     } else {
       this.toastr.warning('Please fill all required fields', 'Warning')
     }
+  }
+
+  sendEmail() {
+    const formdata = new FormData();
+    formdata.append('name', this.AddmissionForm.get('name')?.value);
+    formdata.append('email', this.AddmissionForm.get('email')?.value);
+    formdata.append('password', this.AddmissionForm.get('password')?.value);
+    formdata.append('roll_no', this.AddmissionForm.get('roll_no')?.value);
+    formdata.append('class', this.AddmissionForm.get('class')?.value);
+    formdata.append('section', this.AddmissionForm.get('section')?.value);
+
+    this._crud.sendEmailStudent(formdata).subscribe(
+      (res: any) => {
+        console.log('email send success');
+      },
+      (err: any) => {
+        console.log(err);
+      }
+    )
   }
 
   onUpdate() {

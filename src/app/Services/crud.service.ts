@@ -31,8 +31,8 @@ export class CrudService {
   // base_url: string = 'http://localhost/sawamivivekanand/'; //local
   // base_url: string = 'https://mausamstudio.com/Development/sawamivivekanand/'; //Live
 
-  // base_url: string = 'http://localhost/sawamivivekanand/'; //local
-  base_url: string = 'https://ud.mausamstudio.com/sawamivivekanand/'; //Live
+  base_url: string = 'http://localhost/sawamivivekanand/'; //local
+  // base_url: string = 'https://ud.mausamstudio.com/sawamivivekanand/'; //Live
 
   constructor(private _http: HttpClient) { }
 
@@ -365,6 +365,12 @@ export class CrudService {
   //send email contact form
   sendEmail(data: any): Observable<any> {
     return this._http.post<any>(`${this.base_url}contact.php`, data)
+  }
+
+  //send email to new student
+
+  sendEmailStudent(data: any): Observable<any>{
+    return this._http.post<any>(`${this.base_url}studentemail.php`, data)
   }
 
 }

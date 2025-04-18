@@ -10,6 +10,7 @@
                     <th scope="col">Timing</th>
                     <th scope="col">Passing Marks</th>
                     <th scope="col">Total marks</th>
+                    <th scope="col">Exam type</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
@@ -21,6 +22,7 @@
                     <td>{{item.time}}</td>
                     <td>{{item.passing_makrs}}</td>
                     <td>{{item.total_marks}}</td>
+                    <td>{{item.exam_type}}</td>
                     <td>
                         <button mat-icon-button (click)="delete_exam(item.id)">
                             <mat-icon>delete</mat-icon>

@@ -369,8 +369,14 @@ export class CrudService {
 
   //send email to new student
 
-  sendEmailStudent(data: any): Observable<any>{
+  sendEmailStudent(data: any): Observable<any> {
     return this._http.post<any>(`${this.base_url}studentemail.php`, data)
+  }
+
+  //faculty email
+
+  sendFacultyEmail(data: any): Observable<any> {
+    return this._http.post<any>(`${this.base_url}facultyemail.php`, data);
   }
 
 }

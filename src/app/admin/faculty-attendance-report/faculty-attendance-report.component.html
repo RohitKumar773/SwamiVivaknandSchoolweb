@@ -3,7 +3,8 @@
         <div class="header_title">
             <div class="title">Attendance List</div>
 
-            <!-- Faculty Selection -->
+            <div class="select_box">
+                <!-- Faculty Selection -->
             <mat-form-field appearance="outline" class="full-width">
                 <mat-label>Select Faculty</mat-label>
                 <mat-select [(ngModel)]="selectedFaculty" (selectionChange)="onFacultyChange($event.value)">
@@ -32,10 +33,9 @@
                     </mat-option>
                 </mat-select>
             </mat-form-field>
-
-
-
+            </div>
         </div>
+
         <table class="table table-striped" style="text-align: center;">
             <thead>
                 <tr>

@@ -9,6 +9,9 @@ import { CrudService } from 'src/app/Services/crud.service';
   styleUrls: ['./user-view.component.scss']
 })
 export class UserViewComponent implements OnInit {
+  img_url: string = 'http://localhost/sawamivivekanand/'
+  // img_url: string = 'https://ud.mausamstudio.com/sawamivivekanand/'
+
 
   user: User = {
     id: '',

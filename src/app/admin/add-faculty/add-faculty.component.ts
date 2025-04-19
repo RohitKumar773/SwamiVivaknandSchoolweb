@@ -75,11 +75,6 @@ export class AddFacultyComponent implements OnInit {
     if (this.edit_data) {
       this.addFacultyForm.patchValue(this.edit_data)
     }
-    // else{
-    //   console.log(this.edit_data);
-
-    // }
-
   }
 
   validateMobile() {
@@ -136,7 +131,8 @@ export class AddFacultyComponent implements OnInit {
         (res: Faculty) => {
           console.log(res);
           this.matref.close();
-          this.toastr.success('Faculty added successfully', 'Success')
+          this.toastr.success('Faculty added successfully', 'Success');
+          this.sendEmail();
         },
         (err: Error) => {
           this.toastr.error('Faculty not added', 'Error')
@@ -146,6 +142,25 @@ export class AddFacultyComponent implements OnInit {
     } else {
       this.toastr.warning('Please fill al required fields', 'Warning')
     }
+  }
+
+  sendEmail(){
+    const formData = new FormData();
+    formData.append('name', this.addFacultyForm.get('name')?.value);
+    formData.append('email', this.addFacultyForm.get('email')?.value);
+    formData.append('password', this.addFacultyForm.get('password')?.value);
+    formData.append('current_salary', this.addFacultyForm.get('current_salary')?.value);
+
+    this._crud.sendFacultyEmail(formData).subscribe(
+      (res: any) => {
+        console.log(res);
+        console.log('success');
+        
+      },
+      (err: Error) => {
+        console.log(err);        
+      }
+    )
   }
 
 

@@ -1,1 +1,46 @@
-<p>ftassignment works!</p>
+<div class="assignment-wrapper">
+
+    <div class="top-bar">
+      <mat-form-field appearance="outline" class="search-field">
+        <mat-label>🔍 Search Assignments</mat-label>
+        <input matInput placeholder="Search by title or faculty">
+        <button matSuffix mat-icon-button aria-label="Clear">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+  
+      <button mat-raised-button color="warn" class="add-btn" (click)="addAssignment()">
+        <mat-icon>add</mat-icon>&nbsp;Add Assignment
+      </button>
+    </div>
+  
+    <!-- Assignment Cards -->
+    <div class="cards-grid">
+      <div class="assignment-card mat-elevation-z3" *ngFor="let assignment of assignmentsList">
+        <div class="card-header">
+          <h3 class="title">{{ assignment.title }}</h3>
+          <span class="class-chip">{{ assignment.class }}</span>
+        </div>
+  
+        <div class="card-content">
+          <div class="info"><label>Description:</label><p>{{ assignment.description }}</p></div>
+          <div class="info"><label>Faculty:</label><p>{{ assignment.faculty_name }}</p></div>
+          <div class="info">
+            <label>Reference URL:</label>
+            <a [href]="assignment.reference_url" target="_blank" style="display: block;">{{ assignment.reference_url }}</a>
+          </div>
+          <div class="info deadline">
+            <label>Deadline:</label>
+            <p>📅 {{ assignment.deadline | date: 'dd MMM yyyy' }}</p>
+          </div>
+        </div>
+  
+        <div class="card-actions">
+          <!-- <button mat-stroked-button color="primary"><mat-icon>edit</mat-icon>&nbsp;Update</button> -->
+          <button mat-stroked-button color="warn"><mat-icon>delete</mat-icon>&nbsp;Delete</button>
+        </div>
+      </div>
+    </div>
+  
+  </div>
+  

@@ -20,6 +20,8 @@ export class AddAccntUserFormComponent implements OnInit {
   imagePreview: string | null = null;
   profile_url: any;
   base_url: string = ''
+
+
   constructor(
     private _shared: SharedService,
     private _crud: CrudService,
@@ -128,12 +130,12 @@ export class AddAccntUserFormComponent implements OnInit {
             this.matref.close();
           }
           else {
-            this.toastr.warning('Please Check Your Internet Connection', 'Internet')
+            this.toastr.error('Please Check Your Internet Connection', 'Internet')
           }
         },
         (err: Error) => {
           console.log(err);
-          this.toastr.error('Please Check Your Internet Connection')
+          this.toastr.error('Error')
         }
       )
     }

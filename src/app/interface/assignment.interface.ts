@@ -3,10 +3,11 @@ export interface Assignment {
     title: string;
     description: string;
     faculty_name: string;
-    faculty_id: string;     
+    faculty_id: string;
     reference_url: string;
-    deadline: string; 
-    admin_id_fk: string;     
+    deadline: string;
+    class: string;
+    admin_id_fk: string;
 }
 
 export interface AssignmentResponse {

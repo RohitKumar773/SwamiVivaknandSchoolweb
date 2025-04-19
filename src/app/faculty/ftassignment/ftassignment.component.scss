@@ -1,0 +1,143 @@
+.assignment-wrapper {
+  padding: 2rem;
+
+  .top-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    .search-field {
+      flex-grow: 1;
+      max-width: 500px;
+      height: 40px;  /* Medium height */
+      .mat-form-field-wrapper {
+        height: 100%;
+      }
+      button {
+        padding: 0.5rem;
+      }
+    }
+
+    .add-btn {
+      font-weight: 600;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      height: 40px;  /* Medium height */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #1976d2;
+        color: white;
+      }
+
+      mat-icon {
+        margin-right: 0.5rem;
+      }
+    }
+  }
+
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .assignment-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+
+      .title {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #2c3e50;
+      }
+
+      .class-chip {
+        background: #e3f2fd;
+        color: #1976d2;
+        font-weight: 500;
+        padding: 4px 10px;
+        border-radius: 16px;
+        font-size: 0.85rem;
+      }
+    }
+
+    .card-content {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+
+      .info {
+        display: flex;
+        flex-direction: column;
+
+        label {
+          font-size: 0.85rem;
+          font-weight: 600;
+          color: #555;
+        }
+
+        p,
+        a {
+          font-size: 0.95rem;
+          color: #333;
+        }
+
+        a {
+          color: #1e88e5;
+          font-weight: 500;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+
+        &.deadline p {
+          color: #d32f2f;
+          font-weight: 600;
+        }
+      }
+    }
+
+    .card-actions {
+      margin-top: 1.2rem;
+      display: flex;
+      gap: 0.8rem;
+      justify-content: flex-end;
+
+      button {
+        font-size: 0.85rem;
+        min-width: 100px;
+
+        mat-icon {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}

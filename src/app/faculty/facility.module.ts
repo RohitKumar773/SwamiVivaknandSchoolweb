@@ -18,6 +18,10 @@ import { FtfeestructureComponent } from './ftfeestructure/ftfeestructure.compone
 import { FtholidaysComponent } from './ftholidays/ftholidays.component';
 import { FtsyllabusComponent } from './ftsyllabus/ftsyllabus.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormField, MatFormFieldModule, MatLabel } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { AssignmentFormComponent } from './assignment-form/assignment-form.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 
 @NgModule({
@@ -31,7 +35,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     FtassignmentComponent,
     FtfeestructureComponent,
     FtholidaysComponent,
-    FtsyllabusComponent
+    FtsyllabusComponent,
+    AssignmentFormComponent
   ],
   imports: [
     CommonModule,
@@ -41,7 +46,11 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatButtonModule,
     MatSidenavModule,
     FormsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDialogModule,
+    MatDatepickerModule,
   ]
 })
 export class FacilityModule { }

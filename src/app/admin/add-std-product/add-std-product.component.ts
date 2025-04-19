@@ -15,6 +15,8 @@ export class AddStdProductComponent implements OnInit {
   admin = 1;
   materialList: InventoryMaterial[] = []
   total_amt: any = 0
+
+
   constructor(
     private _crud: CrudService,
     private toastr: ToastrService,
@@ -34,6 +36,15 @@ export class AddStdProductComponent implements OnInit {
       ]
     });
   }
+
+  validateMobile() {
+    let mobileControl = this.productForm.get('std_mobile');
+    if (mobileControl) {
+      let value = mobileControl.value;
+      mobileControl.setValue(value.replace(/\D/g, ''));
+    }
+  }
+
   ngOnInit() {
     this.getMaterial()
 

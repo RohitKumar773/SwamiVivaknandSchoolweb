@@ -11,6 +11,7 @@ export interface Examinations {
 }
 
 export interface ExaminationGroup {
+    exam_type: any;
     class: string;
     examinations: Examinations[];
 }

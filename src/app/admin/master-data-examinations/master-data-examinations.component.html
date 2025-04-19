@@ -5,7 +5,12 @@
 
 <div class="registration_box">
     <div class="registration_table_area" *ngFor="let exam of examList; let i = index">
-        <div class="title">{{exam.class}} </div>
+        <div class="title">
+            {{exam.class}} 
+            <!-- <span *ngIf="exam.examinations.length > 0" style="font-size: 14px;">
+                -- {{ exam.examinations[0].exam_type }}
+            </span> -->
+        </div>
         <table class="table table-striped" style="text-align: center;">
             <thead>
                 <tr>
@@ -15,17 +20,19 @@
                     <th scope="col">Timing</th>
                     <th scope="col">Passing Marks</th>
                     <th scope="col">Total marks</th>
+                    <th scope="col">Exam type</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let item of exam.examinations; let i = index">
-                    <th scope="row">{{i+1}}</th>
+                    <th scope="row">{{i+1}}.</th>
                     <td>{{item.subject}}</td>
                     <td>{{item.date| date : 'dd-MM-yyyy'}}</td>
                     <td>{{item.time}}</td>
                     <td>{{item.passing_makrs}}</td>
                     <td>{{item.total_marks}}</td>
+                    <td>{{item.exam_type}}</td>
                     <td>
                         <button mat-icon-button (click)="delete_exam(item.id)">
                             <mat-icon>delete</mat-icon>

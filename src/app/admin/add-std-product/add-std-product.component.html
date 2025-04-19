@@ -8,15 +8,17 @@
     <div class="form_area">
         <div class="title">Product Details</div>
         <form [formGroup]="productForm">
-            <!-- <mat-form-field appearance="outline">
-                <mat-label>Material Name</mat-label>
-                <input matInput placeholder="Enter Material Name" type="text" formControlName="material_name">
-            </mat-form-field> -->
 
             <mat-form-field appearance="outline">
+                <mat-label>Mobile Number</mat-label>
+                <input type="tel" number matInput placeholder="Enter Mobile No." formControlName="std_mobile"
+                    minlength="10" maxlength="10" pattern="\d{10}" (keyup)="validateMobile()">
+            </mat-form-field>
+
+            <!-- <mat-form-field appearance="outline">
                 <mat-label>Std. Mobile</mat-label>
                 <input matInput placeholder="Enter Student Mobile No." type="number" formControlName="std_mobile">
-            </mat-form-field>
+            </mat-form-field> -->
             <mat-form-field appearance="outline">
                 <mat-label>Select Product</mat-label>
                 <mat-select formControlName="material_name" (selectionChange)="onProductChnage()">

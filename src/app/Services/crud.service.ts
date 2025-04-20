@@ -31,8 +31,8 @@ export class CrudService {
   // base_url: string = 'http://localhost/sawamivivekanand/'; //local
   // base_url: string = 'https://mausamstudio.com/Development/sawamivivekanand/'; //Live
 
-  // base_url: string = 'http://localhost/sawamivivekanand/'; //local
-  base_url: string = 'https://ud.mausamstudio.com/sawamivivekanand/'; //Live
+  base_url: string = 'http://localhost/sawamivivekanand/'; //local
+  // base_url: string = 'https://ud.mausamstudio.com/sawamivivekanand/'; //Live
 
   constructor(private _http: HttpClient) { }
 
@@ -50,6 +50,9 @@ export class CrudService {
 
   changePassword(data: any): Observable<any> {
     return this._http.post<any>(`${this.base_url}faculty_up_pwd.php`, data)
+  }
+  stdChangePassword(data: any): Observable<any> {
+    return this._http.post<any>(`${this.base_url}std_up_pwd.php`, data)
   }
 
   std_self_reg(data: any): Observable<studentApplicationRes> {

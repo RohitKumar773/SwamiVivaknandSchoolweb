@@ -1,50 +1,50 @@
 <div class="registration_form">
     <div class="form_head">
-        <h3>Add New Event</h3>
+        <h3>Add New Assignment</h3>
         <p mat-dialog-close>
             <mat-icon>cancel</mat-icon>
         </p>
     </div>
     <div class="form_area">
-        <div class="title">Event Details</div>
-        <!-- <form [formGroup]="eventForm"> -->
+        <div class="title">Assignment Details</div>
+        <form [formGroup]="assignmentForm">
             <mat-form-field appearance="outline">
-                <mat-label>Occassion Name</mat-label>
-                <input matInput placeholder="Enter Occassion Name" type="text">
+                <mat-label>Assignment Title</mat-label>
+                <input matInput placeholder="Enter Assignment Title" type="text" formControlName="title">
             </mat-form-field>
 
             <mat-form-field appearance="outline">
-                <mat-label>From</mat-label>
-                <input matInput [matDatepicker]="picker">
-                <mat-hint>MM/DD/YYYY</mat-hint>
-                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
+                <mat-label>Select Class</mat-label>
+                <mat-select formControlName="class">
+                    <mat-option *ngFor="let cls of classes" [value]="cls">{{cls}}</mat-option>
+                </mat-select>
             </mat-form-field>
 
             <mat-form-field appearance="outline">
-                <mat-label>To</mat-label>
-                <input matInput [matDatepicker]="pickers" >
+                <mat-label>Reference Url</mat-label>
+                <input matInput placeholder="Enter Url" type="text" formControlName="reference_url">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Deadline</mat-label>
+                <input matInput [matDatepicker]="pickers" formControlName="deadline">
                 <mat-hint>MM/DD/YYYY</mat-hint>
                 <mat-datepicker-toggle matIconSuffix [for]="pickers"></mat-datepicker-toggle>
                 <mat-datepicker #pickers></mat-datepicker>
             </mat-form-field>
-            
-            <!-- <mat-form-field appearance="outline">
-                <mat-label>From</mat-label>
-                <input matInput type="date" formControlName="start_date">
-            </mat-form-field>
-            <mat-form-field appearance="outline">
-                <mat-label>To</mat-label>
-                <input matInput type="date" formControlName="end_date">
-            </mat-form-field> -->
 
-            <!-- <input type="number" [ngModel]="admin" formControlName="admin_id_fk" readonly hidden> -->
-        <!-- </form> -->
+            <mat-form-field appearance="outline">
+                <mat-label>Textarea</mat-label>
+                <textarea matInput placeholder="Enter Assignment Description" formControlName="description"></textarea>
+            </mat-form-field>
+
+            <input type="number" [ngModel]="admin" formControlName="admin_id_fk" readonly hidden>
+        </form>
 
     </div>
 
     <div class="btn_area">
-        <button type="button" class="btn btn-danger" id="cancel" >Reset</button>
-        <button type="button" class="btn btn-primary" id="submit" >Submit</button>
+        <button type="button" class="btn btn-danger" id="cancel">Reset</button>
+        <button type="button" class="btn btn-primary" id="submit" (click)="onSubmit()">Submit</button>
     </div>
 </div>

@@ -12,17 +12,18 @@ import { FacultyDashboardComponent } from './faculty-dashboard/faculty-dashboard
 import { AttendanceComponent } from './attendance/attendance.component';
 import { AssignBtchComponent } from './assign-btch/assign-btch.component';
 import { ExamTestsComponent } from './exam-tests/exam-tests.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FtassignmentComponent } from './ftassignment/ftassignment.component';
 import { FtfeestructureComponent } from './ftfeestructure/ftfeestructure.component';
 import { FtholidaysComponent } from './ftholidays/ftholidays.component';
 import { FtsyllabusComponent } from './ftsyllabus/ftsyllabus.component';
 import { MatDialogModule } from '@angular/material/dialog';
-import { MatFormField, MatFormFieldModule, MatLabel } from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { AssignmentFormComponent } from './assignment-form/assignment-form.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,9 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     MatInputModule,
     MatDialogModule,
     MatDatepickerModule,
+    MatNativeDateModule,
+    ReactiveFormsModule,
+    MatSelectModule
   ]
 })
 export class FacilityModule { }

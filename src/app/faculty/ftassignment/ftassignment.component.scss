@@ -16,10 +16,12 @@
     .search-field {
       flex-grow: 1;
       max-width: 500px;
-      height: 40px;  /* Medium height */
+      height: 40px;
+
       .mat-form-field-wrapper {
         height: 100%;
       }
+
       button {
         padding: 0.5rem;
       }
@@ -29,7 +31,7 @@
       font-weight: 600;
       padding: 0.6rem 1.2rem;
       border-radius: 8px;
-      height: 40px;  /* Medium height */
+      height: 40px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -63,18 +65,22 @@
 
     &:hover {
       transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
     }
 
     .card-header {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
+      flex-direction: column;
+      align-items: flex-start;
       margin-bottom: 1rem;
 
       .title {
         font-size: 1.2rem;
         font-weight: 600;
         color: #2c3e50;
+        word-break: break-word;
+        margin-bottom: 0.5rem;
+        max-height: 3.6em;
       }
 
       .class-chip {
@@ -84,6 +90,7 @@
         padding: 4px 10px;
         border-radius: 16px;
         font-size: 0.85rem;
+        margin-top: 15px;
       }
     }
 

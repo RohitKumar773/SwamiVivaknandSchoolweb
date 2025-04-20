@@ -368,6 +368,9 @@ export class CrudService {
   getAssignment(id: any): Observable<AssignmentResponse> {
     return this._http.get<AssignmentResponse>(`${this.base_url}assignment.php?id=${id}`)
   }
+  getStdAssignment(clas: any): Observable<AssignmentResponse> {
+    return this._http.get<AssignmentResponse>(`${this.base_url}getAssignmentByclass.php?class=${clas}`)
+  }
 
   addAssignemnt(data: any): Observable<any> {
     return this._http.post<any>(`${this.base_url}assignment.php`, data)

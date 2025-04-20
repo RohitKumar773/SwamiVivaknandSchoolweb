@@ -74,4 +74,18 @@ export class InventoryCategoriesComponent implements OnInit {
       }
     )
   }
+
+  update_products(materialData: any) {
+    console.log(materialData);
+    const openDig = this.dialog.open(AddMaterialFormComponent, {
+      disableClose: true,
+      data: materialData
+    });
+
+    openDig.afterClosed().subscribe(
+      () => {
+        this.getMaterial()
+      }
+    )
+  }
 }

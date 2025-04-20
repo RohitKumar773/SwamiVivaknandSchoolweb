@@ -5,6 +5,7 @@ import { CrudService } from 'src/app/Services/crud.service';
 import { InventoryProduct, inventoryProductRes } from 'src/app/interface/inventoryProduct.interface';
 import { ConfirmBoxComponent } from '../confirm-box/confirm-box.component';
 import { InventoryMaterial, InventoryMaterialRes } from 'src/app/interface/material.interface';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-inventory-products',
@@ -19,7 +20,8 @@ export class InventoryProductsComponent implements OnInit {
 
   constructor(
     private dialog: MatDialog,
-    private _crud: CrudService
+    private _crud: CrudService,
+    private toastr: ToastrService
   ) { }
 
 
@@ -101,8 +103,8 @@ export class InventoryProductsComponent implements OnInit {
         if (res == 1) {
           this._crud.deleteProduct(id).subscribe(
             (res) => {
-              console.log(res);
               if (res.success == 1) {
+                this.toastr.success('Deleted Successfull', 'Deleted')
                 this.getProduct();
               }
             }

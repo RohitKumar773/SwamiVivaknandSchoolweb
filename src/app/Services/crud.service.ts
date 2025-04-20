@@ -48,6 +48,10 @@ export class CrudService {
     return this._http.post<any>(`${this.base_url}student_login.php`, data)
   }
 
+  changePassword(data: any): Observable<any> {
+    return this._http.post<any>(`${this.base_url}faculty_up_pwd.php`, data)
+  }
+
   std_self_reg(data: any): Observable<studentApplicationRes> {
     return this._http.post<studentApplicationRes>(
       `${this.base_url}std_self_reg.php`,
@@ -170,6 +174,10 @@ export class CrudService {
     return this._http.get<any>(`${this.base_url}batches.php?class=${cls}`);
   }
 
+  GetBatchesbyFtId(ftId: any): Observable<any> {
+    return this._http.get<any>(`${this.base_url}getBatchByFaculty.php?faculty_id=${ftId}`);
+  }
+
   deleteBatch(id: number): Observable<any> {
     return this._http.delete<any>(`${this.base_url}batches.php?id=${id}`);
   }
@@ -249,6 +257,9 @@ export class CrudService {
   }
   get_salary_record(): Observable<ApiResponseSalary> {
     return this._http.get<ApiResponseSalary>(`${this.base_url}salary.php`)
+  }
+  get_ftsalary_record(ftId: any): Observable<ApiResponseSalary> {
+    return this._http.get<ApiResponseSalary>(`${this.base_url}salary.php?emp_id=${ftId}`)
   }
 
   // inventory material
@@ -347,12 +358,15 @@ export class CrudService {
 
   //assignment
 
-  getAssignment(): Observable<AssignmentResponse> {
-    return this._http.get<AssignmentResponse>(`${this.base_url}assignment.php`)
+  getAssignment(id: any): Observable<AssignmentResponse> {
+    return this._http.get<AssignmentResponse>(`${this.base_url}assignment.php?id=${id}`)
   }
 
-  addAssignemnt(data: any): Observable<any>{
+  addAssignemnt(data: any): Observable<any> {
     return this._http.post<any>(`${this.base_url}assignment.php`, data)
+  }
+  deleteAssignment(id: any): Observable<any> {
+    return this._http.delete<any>(`${this.base_url}assignment.php?id=${id}`)
   }
 
   //feedback

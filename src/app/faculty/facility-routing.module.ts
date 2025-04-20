@@ -10,6 +10,7 @@ import { FtfeestructureComponent } from './ftfeestructure/ftfeestructure.compone
 import { FtassignmentComponent } from './ftassignment/ftassignment.component';
 import { FtsyllabusComponent } from './ftsyllabus/ftsyllabus.component';
 import { FtholidaysComponent } from './ftholidays/ftholidays.component';
+import { UpdatePasswordComponent } from './update-password/update-password.component';
 
 const routes: Routes = [
   { path: '', component: FacultyLoginComponent },
@@ -26,7 +27,8 @@ const routes: Routes = [
       { path: 'ftfeestr', component: FtfeestructureComponent },
       { path: 'ftassignment', component: FtassignmentComponent },
       { path: 'ftsyllabus', component: FtsyllabusComponent },
-      { path: 'ftholidays', component: FtholidaysComponent }
+      { path: 'ftholidays', component: FtholidaysComponent },
+      { path: 'updatepassword', component: UpdatePasswordComponent }
     ],
   },
 ];

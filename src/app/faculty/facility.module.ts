@@ -24,6 +24,8 @@ import { AssignmentFormComponent } from './assignment-form/assignment-form.compo
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
+import { UpdatePasswordComponent } from './update-password/update-password.component';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,8 @@ import { MatSelectModule } from '@angular/material/select';
     FtfeestructureComponent,
     FtholidaysComponent,
     FtsyllabusComponent,
-    AssignmentFormComponent
+    AssignmentFormComponent,
+    UpdatePasswordComponent
   ],
   imports: [
     CommonModule,
@@ -54,7 +57,8 @@ import { MatSelectModule } from '@angular/material/select';
     MatDatepickerModule,
     MatNativeDateModule,
     ReactiveFormsModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCardModule
   ]
 })
 export class FacilityModule { }

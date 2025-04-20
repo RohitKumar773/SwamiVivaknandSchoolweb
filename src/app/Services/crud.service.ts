@@ -31,8 +31,8 @@ export class CrudService {
   // base_url: string = 'http://localhost/sawamivivekanand/'; //local
   // base_url: string = 'https://mausamstudio.com/Development/sawamivivekanand/'; //Live
 
-  base_url: string = 'http://localhost/sawamivivekanand/'; //local
-  // base_url: string = 'https://ud.mausamstudio.com/sawamivivekanand/'; //Live
+  // base_url: string = 'http://localhost/sawamivivekanand/'; //local
+  base_url: string = 'https://ud.mausamstudio.com/sawamivivekanand/'; //Live
 
   constructor(private _http: HttpClient) { }
 
@@ -367,6 +367,9 @@ export class CrudService {
 
   getAssignment(id: any): Observable<AssignmentResponse> {
     return this._http.get<AssignmentResponse>(`${this.base_url}assignment.php?id=${id}`)
+  }
+  getStdAssignment(clas: any): Observable<AssignmentResponse> {
+    return this._http.get<AssignmentResponse>(`${this.base_url}getAssignmentByclass.php?class=${clas}`)
   }
 
   addAssignemnt(data: any): Observable<any> {

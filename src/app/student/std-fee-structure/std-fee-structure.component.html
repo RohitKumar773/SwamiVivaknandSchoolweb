@@ -1,36 +1,26 @@
 <div class="registration_box">
     <div class="registration_table_area">
         <div class="header_title">
-            <div class="title">Fee Installments</div>
-            <div class="search_box">
-                <input class="form-control" type="search" placeholder="Search..." aria-label="default input example"
-                    (keyup)="onSearch($event)">
-            </div>
+            <div class="title">Your Payment Records</div>
         </div>
 
         <table class="table table-striped" style="text-align: center;">
             <thead>
                 <tr>
                     <th scope="col">S.N.</th>
-                    <th scope="col">Class Name</th>
-                    <th scope="col">Total Fees</th>
-                    <th scope="col">First Installment</th>
-                    <th scope="col">Second Installment</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Pay Date</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let fee of filterInstallment; let i = index;">
-                    <th scope="row">{{i+1}}</th>
-                    <td>{{fee.class}}</td>
-                    <td>{{fee.total_fees}}</td>
-                    <td>{{fee.first_instalment}}</td>
-                    <td>{{fee.second_installment}}</td>
+                <tr *ngFor="let fee of FilterSalaryRecords; let i = index">
+                    <th scope="row">{{i+1}}.</th>
+                    <td>{{fee.amount}}</td>
+                    <td>{{fee.fee_date | date : 'dd MMM yyyy'}}</td>
                 </tr>
+
             </tbody>
         </table>
-        <div class="notfound" *ngIf="!filterInstallment.length">
-            <img src="../../../assets/noffound.png" alt="">
-            <h3>No Data Found</h3>
-        </div>
+
     </div>
 </div>

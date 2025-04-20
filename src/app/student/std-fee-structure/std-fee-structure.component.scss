@@ -71,36 +71,3 @@ table {
         }
     }
 }
-
-@media(max-width:500px) and (min-width:0px) {
-    .registration_table_area {
-        scrollbar-width: none;
-        -ms-overflow-style: none;
-
-        &::-webkit-scrollbar {
-            display: none;
-        }
-    }
-
-    .header_title {
-        height: auto;
-        margin-bottom: 20px;
-    }
-
-    .title {
-        width: 100%;
-    }
-
-    .search_box {
-        width: 95%;
-    }
-
-    .table-responsive-wrapper {
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    .table {
-        min-width: 600px; // or whatever width fits all columns without wrapping
-    }
-}

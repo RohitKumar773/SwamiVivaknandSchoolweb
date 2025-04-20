@@ -222,6 +222,10 @@ export class CrudService {
   getStdFee(): Observable<StudentFeeRes> {
     return this._http.get<StudentFeeRes>(`${this.base_url}studentfee.php`);
   }
+  getStdFeeByStdId(id: any): Observable<StudentFeeRes> {
+    return this._http.get<StudentFeeRes>(`${this.base_url}studentfee.php?id=${id}`);
+  }
+
 
   // transport vehicle 
 

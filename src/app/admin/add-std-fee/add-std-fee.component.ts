@@ -5,9 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
 import { startWith, map } from 'rxjs/operators';
 import { Student } from 'src/app/interface/student.interface';
-import { StudentFeeRes } from 'src/app/interface/studentFees.interface';
 import { CrudService } from 'src/app/Services/crud.service';
-import { SharedService } from 'src/app/Services/shared.service';
 
 @Component({
   selector: 'app-add-std-fee',
@@ -44,7 +42,8 @@ export class AddStdFeeComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private _crud: CrudService,
-    private _matref: MatDialogRef<AddStdFeeComponent>
+    private _matref: MatDialogRef<AddStdFeeComponent>,
+    private toastr: ToastrService
   ) {
     this.getStd();
   }
@@ -119,18 +118,17 @@ export class AddStdFeeComponent implements OnInit {
     }
 
 
-    alert(this.selectedStd.id)
     console.log(data)
     this._crud.addStdFee(data).subscribe(
       (res) => {
         if (res.success == 1) {
-          alert(res.message)
           this._matref.close(1)
+          this.toastr.success('Fee Added successfully')
         }
         console.log(res);
       },
       (error) => {
-        console.error(error);
+        this.toastr.error('Failed to add fee')
       }
     );
   }

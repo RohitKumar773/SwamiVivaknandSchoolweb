@@ -97,7 +97,7 @@ export class AddMaterialFormComponent implements OnInit {
     if (this.materialForm.valid) {
       const formData = this.materialForm.value;
 
-      this._crud.addMaterial(formData).subscribe(
+      this._crud.UpdateMaterial(formData).subscribe(
         (res: InventoryMaterialRes) => {
           console.log(res);
           if (res.success == 1) {

@@ -266,6 +266,10 @@ export class CrudService {
   addMaterial(data: any): Observable<any> {
     return this._http.post<any>(`${this.base_url}material.php`, data)
   }
+
+  UpdateMaterial(data: any): Observable<any> {
+    return this._http.put<any>(`${this.base_url}material.php`, data)
+  }
   getMaterial(): Observable<InventoryMaterialRes> {
     return this._http.get<InventoryMaterialRes>(`${this.base_url}material.php`)
   }

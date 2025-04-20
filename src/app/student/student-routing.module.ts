@@ -11,6 +11,7 @@ import { StdProfileComponent } from './std-profile/std-profile.component';
 import { StdAttendanceComponent } from './std-attendance/std-attendance.component';
 import { StdFeedbackComponent } from './std-feedback/std-feedback.component';
 import { StdHolidayComponent } from './std-holiday/std-holiday.component';
+import { UpdateStdPasswordComponent } from './update-std-password/update-std-password.component';
 
 const routes: Routes = [
   { path: '', component: StdLoginPageComponent },
@@ -29,6 +30,7 @@ const routes: Routes = [
       { path: 'attendance', component: StdAttendanceComponent },
       { path: 'std_feedback', component: StdFeedbackComponent },
       { path: 'std_holiday', component: StdHolidayComponent },
+      { path: 'stdpwdupdate', component: UpdateStdPasswordComponent }
     ],
   },
 ];
@@ -37,4 +39,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class StudentRoutingModule {}
+export class StudentRoutingModule { }

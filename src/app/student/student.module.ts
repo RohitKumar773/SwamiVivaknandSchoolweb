@@ -22,6 +22,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import { LayoutModule } from '@angular/cdk/layout';
+import { UpdateStdPasswordComponent } from './update-std-password/update-std-password.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { LayoutModule } from '@angular/cdk/layout';
     StdAttendanceComponent,
     StdFeedbackComponent,
     StdHolidayComponent,
+    UpdateStdPasswordComponent,
   ],
   imports: [
     CommonModule,

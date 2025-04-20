@@ -28,6 +28,7 @@ export class AssignmentFormComponent implements OnInit {
     this.loginData = JSON.parse(this.login)
 
     this.assignmentForm = this._fb.group({
+      id: [''],
       title: ['', Validators.required],
       class: ['', Validators.required],
       reference_url: [''],
@@ -60,14 +61,8 @@ export class AssignmentFormComponent implements OnInit {
 
       this._crud.addAssignemnt(formdata).subscribe(
         (res: any) => {
-          console.log(res);
-          if (res === true) {
-            this._toastr.success('Assignment Added Successfully', 'Success')
-            this.dialog.close()
-          } else {
-            this._toastr.error('Failed to add assignment', 'Error')
-
-          }
+          this._toastr.success('Assignment Added Successfully', 'Success')
+          this.dialog.close();
         },
         (err: Error) => {
           this._toastr.error('Failed to add assignment', 'Error')

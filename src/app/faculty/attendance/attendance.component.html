@@ -1,1 +1,66 @@
-<p>attendance works!</p>
+<div class="registration_box">
+    <div class="registration_table_area">
+        <div class="header_title">
+            <div class="title">Attendance List</div>
+
+            <div class="select_box">
+                <!-- Faculty Selection -->
+            <!-- <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Select Faculty</mat-label>
+                <mat-select [(ngModel)]="selectedFaculty" (selectionChange)="onFacultyChange($event.value)">
+                    <mat-option *ngFor="let fac of Faculty_list" [value]="fac.id">
+                        {{ fac.name }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field> -->
+
+            <!-- Month Selection -->
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Select Month</mat-label>
+                <mat-select [(ngModel)]="selectedMonth" (selectionChange)="onMonthChange($event.value)">
+                    <mat-option *ngFor="let month of MonthList" [value]="month.id">
+                        {{ month.name }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <!-- Year Selection -->
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Select Year</mat-label>
+                <mat-select [(ngModel)]="selectedYear" (selectionChange)="onYearChange($event.value)">
+                    <mat-option *ngFor="let year of YearList" [value]="year">
+                        {{ year }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            </div>
+        </div>
+
+        <table class="table table-striped" style="text-align: center;">
+            <thead>
+                <tr>
+                    <th scope="col">S.N.</th>
+                    <!-- <th scope="col">Faculty Name</th> -->
+                    <!-- <th scope="col">Mobile</th> -->
+                    <th scope="col">Date</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of Attendents; let i = index">
+                    <th scope="row">{{ i + 1 }}.</th>
+                    <!-- <td>{{ item.emp_name }}</td> -->
+                    <!-- <td>{{ item.mobile }}</td> -->
+                    <td>{{ item.cur_date | date : 'dd MMM yyyy'}}</td>
+                    <td>
+                        {{item.status == 0? 'Absent':'Present'}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="notfound" *ngIf="!Attendents.length">
+            <img src="../../../assets/noffound.png" alt="">
+            <h3>No Data Found</h3>
+        </div>
+    </div>
+</div>

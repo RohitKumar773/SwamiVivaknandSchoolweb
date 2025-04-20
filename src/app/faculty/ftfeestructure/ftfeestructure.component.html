@@ -1,4 +1,4 @@
-<div class="registration_box">
+<!-- <div class="registration_box">
     <div class="registration_table_area">
         <div class="header_title">
             <div class="title">Fee Installments</div>
@@ -33,5 +33,57 @@
             <img src="../../../assets/noffound.png" alt="">
             <h3>No Data Found</h3>
         </div>
+    </div>
+</div> -->
+
+
+<div class="registration_box">
+    <div class="registration_table_area">
+        <div class="header_title">
+            <div class="title">Your Salary Records</div>
+            <div class="add_btn">
+                <!-- <button type="button" class="btn btn-danger" (click)="PayNow()">
+                    <mat-icon style="margin-bottom: -6px;">payment</mat-icon>
+                    Pay Now
+                </button> -->
+            </div>
+            <div class="search_box">
+                <input class="form-control" type="text" placeholder="Search..." aria-label="default input example"
+                    (keyup)="onSearch($event)">
+            </div>
+        </div>
+
+        <table class="table table-striped" style="text-align: center;">
+            <thead>
+                <tr>
+                    <th scope="col">S.N.</th>
+                    <!-- <th scope="col">Name</th> -->
+                    <!-- <th scope="col">Contact Number</th> -->
+                    <th scope="col">Amount</th>
+                    <th scope="col">Month</th>
+                    <th scope="col">Year</th>
+                    <th scope="col">Pay Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of FilterSalaryRecords; let i = index;">
+                    <th scope="row">{{i+1}}</th>
+                    <!-- <td>{{item.name}}</td> -->
+                    <!-- <td>{{item.contact_no}}</td> -->
+                    <td>{{item.amount}}</td>
+                    <td>{{item.month}}</td>
+                    <td>{{item.year}}</td>
+                    <td>{{item.cur_date | date: 'dd-MM-yyyy'}}</td>
+
+                </tr>
+
+            </tbody>
+        </table>
+        <div class="notfound" *ngIf="!FilterSalaryRecords.length">
+            <img src="../../../assets/noffound.png" alt="">
+            <h3>No Data Found</h3>
+        </div>
+
+
     </div>
 </div>

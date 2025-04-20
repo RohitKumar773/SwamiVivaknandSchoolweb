@@ -9,17 +9,20 @@ import { CrudService } from 'src/app/Services/crud.service';
 })
 export class AssignmentsComponent implements OnInit{
   assignmentList: Assignment[] = []
-
+faculty: any
+facultyData: any
   constructor(
     private _crud: CrudService
-  ) { }
+  ) { 
+    
+  }
 
   ngOnInit() {
     this.getAssignment()
   }
 
   getAssignment(){
-    this._crud.getAssignment().subscribe(
+    this._crud.getAssignment(this.facultyData.id).subscribe(
       (res: AssignmentResponse) => {
         console.log(res);
         this.assignmentList = res.data

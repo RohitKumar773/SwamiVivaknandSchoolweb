@@ -4,6 +4,7 @@ import { AddBatchFormComponent } from '../add-batch-form/add-batch-form.componen
 import { CrudService } from 'src/app/Services/crud.service';
 import { GroupedBatch } from 'src/app/interface/batches.interface';
 import { ToastrService } from 'ngx-toastr';
+import { ConfirmBoxComponent } from '../confirm-box/confirm-box.component';
 
 @Component({
   selector: 'app-master-data-batch-selection',
@@ -50,15 +51,25 @@ export class MasterDataBatchSelectionComponent {
     )
   }
 
-  delete_batch(id: any) {
-    this._crud.deleteBatch(id).subscribe(
-      (res: any) => {
-        console.log(res);
-        if (res.success == 1) {
-          this.toastr.success(res.message, 'Success');
-          this.getData()
-        }
+  delete_batch(id: string) {
+    const openDig = this.dialog.open(ConfirmBoxComponent, {
+      disableClose: true
+    });
 
+    openDig.afterClosed().subscribe(
+      (res) => {
+        console.log(res);
+        if (res == 1) {
+          this._crud.deleteBatch(id).subscribe(
+            (res: any) => {
+              console.log(res);
+              if (res.success == 1) {
+                this.getData()
+                this.toastr.success('batch deleted by Class', 'Success')
+              }
+            }
+          )
+        }
       }
     )
   }

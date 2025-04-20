@@ -178,8 +178,8 @@ export class CrudService {
     return this._http.get<any>(`${this.base_url}getBatchByFaculty.php?faculty_id=${ftId}`);
   }
 
-  deleteBatch(id: number): Observable<any> {
-    return this._http.delete<any>(`${this.base_url}batches.php?id=${id}`);
+  deleteBatch(cls: string): Observable<any> {
+    return this._http.delete<any>(`${this.base_url}batches.php?class=${cls}`);
   }
 
   //Notice section

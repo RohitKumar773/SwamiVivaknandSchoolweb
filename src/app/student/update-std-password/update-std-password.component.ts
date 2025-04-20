@@ -5,14 +5,15 @@ import { ToastrService } from 'ngx-toastr';
 import { CrudService } from 'src/app/Services/crud.service';
 
 @Component({
-  selector: 'app-update-password',
-  templateUrl: './update-password.component.html',
-  styleUrls: ['./update-password.component.scss']
+  selector: 'app-update-std-password',
+  templateUrl: './update-std-password.component.html',
+  styleUrls: ['./update-std-password.component.scss']
 })
-export class UpdatePasswordComponent {
+export class UpdateStdPasswordComponent {
+
   passwordForm: FormGroup;
-  faculty: any
-  facultyData: any
+  student: any
+  studentData: any
 
   constructor(
     private fb: FormBuilder,
@@ -20,8 +21,8 @@ export class UpdatePasswordComponent {
     private router: Router,
     private toastr: ToastrService
   ) {
-    this.faculty = localStorage.getItem('facultyLoginData')
-    this.facultyData = JSON.parse(this.faculty)
+    this.student = localStorage.getItem('studentLoginData')
+    this.studentData = JSON.parse(this.student)
     this.passwordForm = this.fb.group(
       {
         newPassword: ['', Validators.required],
@@ -40,14 +41,14 @@ export class UpdatePasswordComponent {
   onSubmit() {
     if (this.passwordForm.valid) {
       const data = {
-        id: this.facultyData?.id,
+        id: this.studentData?.id,
         password: this.passwordForm.get('confirmPassword')?.value
       }
-      this._crud.changePassword(data).subscribe(
+      this._crud.stdChangePassword(data).subscribe(
         (res: any) => {
           this.toastr.success('Your password updated successfully', 'Success')
-          this.router.navigate(['/faculty'])
-          localStorage.removeItem('facultyLoginData')
+          this.router.navigate(['/student']);
+          localStorage.removeItem('studentLoginData');
         }
       )
     }

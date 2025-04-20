@@ -24,20 +24,20 @@
             </mat-form-field>
             <mat-form-field appearance="outline">
                 <mat-label>Email Address</mat-label>
-                <input matInput placeholder="Enter Student Email"  type="email" [email]="true"
-                    formControlName="email" required>
+                <input matInput placeholder="Enter Student Email" type="email" [email]="true" formControlName="email"
+                    required>
             </mat-form-field>
 
             <mat-form-field appearance="outline">
                 <mat-label>Mobile Number</mat-label>
-                <input type="tel" number matInput placeholder="Enter Mobile No." formControlName="mobile"
-                    minlength="10" maxlength="10" pattern="\d{10}" (keyup)="validateMobile()">
+                <input type="tel" number matInput placeholder="Enter Mobile No." formControlName="mobile" minlength="10"
+                    maxlength="10" pattern="\d{10}" (keyup)="validateMobile()">
             </mat-form-field>
 
             <mat-form-field appearance="outline">
                 <mat-label>Aadhar Number</mat-label>
-                <input type="tel" number matInput placeholder="Enter Aadhar no." formControlName="adhar"
-                    minlength="12" maxlength="12" pattern="\d{12}" (keyup)="validateAdhar()">
+                <input type="tel" number matInput placeholder="Enter Aadhar no." formControlName="adhar" minlength="12"
+                    maxlength="12" pattern="\d{12}" (keyup)="validateAdhar()">
             </mat-form-field>
 
             <mat-form-field appearance="outline">
@@ -92,7 +92,6 @@
                 <mat-label>Select Class</mat-label>
                 <mat-select formControlName="class">
                     <mat-option *ngFor="let cls of classes" [value]="cls">{{cls}}</mat-option>
-
                 </mat-select>
             </mat-form-field>
 
